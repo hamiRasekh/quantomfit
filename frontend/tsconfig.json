@@ -1,0 +1,13 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./apps/admin" },
+    { "path": "./apps/athlete" },
+    { "path": "./apps/club" },
+    { "path": "./apps/coach" },
+    { "path": "./apps/site" },
+    { "path": "./packages/api-client" },
+    { "path": "./packages/config" },
+    { "path": "./packages/ui" }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "quantomfit-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.12.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm --parallel --filter @quantomfit/www --filter @quantomfit/gym --filter @quantomfit/coach --filter @quantomfit/athlete --filter @quantomfit/admin dev",
+    "build": "pnpm -r --filter @quantomfit/www --filter @quantomfit/gym --filter @quantomfit/coach --filter @quantomfit/athlete --filter @quantomfit/admin build",
+    "typecheck": "pnpm -r --filter @quantomfit/www --filter @quantomfit/gym --filter @quantomfit/coach --filter @quantomfit/athlete --filter @quantomfit/admin typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
