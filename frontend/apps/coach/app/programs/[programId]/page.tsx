@@ -128,6 +128,7 @@ export default function Page({ params }: { params: { programId: string } }) {
         <h1>{program?.name ?? "Workout program"}</h1>
         <p>Edit program metadata, sessions, and trainer assignment.</p>
       </header>
+
       <div className="content">
         <section className="panel">
           <div className="section-head"><span>Edit program</span><em>Tenant scoped</em></div>
@@ -137,7 +138,7 @@ export default function Page({ params }: { params: { programId: string } }) {
               <select value={form.trainerId} onChange={(e) => setForm({ ...form, trainerId: e.target.value })}>
                 <option value="">Unassigned</option>
                 {trainers.map((trainer) => (
-                  <option key={trainer.id} value={trainer.id}>{trainer.fullName} {trainer.specialty ? `· ${trainer.specialty}` : ""}</option>
+                  <option key={trainer.id} value={trainer.id}>{trainer.fullName}{trainer.specialty ? ` · ${trainer.specialty}` : ""}</option>
                 ))}
               </select>
             </div>
@@ -154,6 +155,7 @@ export default function Page({ params }: { params: { programId: string } }) {
           </div>
           {message ? <p>{message}</p> : null}
         </section>
+
         <section className="panel">
           <div className="section-head"><span>Create session</span><em>Program flow</em></div>
           <div className="field-list">
@@ -166,6 +168,7 @@ export default function Page({ params }: { params: { programId: string } }) {
           </div>
         </section>
       </div>
+
       <div className="content">
         <section className="panel">
           <div className="section-head"><span>Summary</span><em>{program?.status ?? "active"}</em></div>
@@ -175,6 +178,7 @@ export default function Page({ params }: { params: { programId: string } }) {
             <article><span className="status">Flow</span><h3>Assign member</h3><p>Use student detail to attach this program.</p></article>
           </div>
         </section>
+
         <section className="panel">
           <div className="section-head"><span>Sessions</span><em>{sessions.length} entries</em></div>
           <ul className="timeline">
@@ -193,7 +197,7 @@ export default function Page({ params }: { params: { programId: string } }) {
                     borderRadius: 16,
                     border: "1px solid rgba(255,255,255,0.12)",
                     background: "rgba(10,16,28,0.7)",
-                    color: "var(--text-primary)",
+                    color: "var(--text)",
                     padding: "0.9rem 1rem",
                     resize: "vertical",
                   }}

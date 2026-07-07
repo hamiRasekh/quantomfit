@@ -13,20 +13,20 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   const locale = defaultLocale;
   const navItems: PanelNavItem[] = [
-    { href: "/", label: "Overview" },
-    { href: "/create-gym", label: "Create gym" },
-    { href: "/gyms", label: "Gyms" },
-    { href: "/users", label: "Users" },
-    { href: "/plans", label: "Plans" },
-    { href: "/coupons", label: "Coupons" },
-    { href: "/discounts", label: "Discounts" },
-    { href: "/demo-accounts", label: "Demo access" },
-    { href: "/demo-requests", label: "Demo requests" },
-    { href: "/media", label: "Media" },
-    { href: "/content", label: "Content" },
-    { href: "/analytics", label: "Analytics" },
-    { href: "/audit", label: "Audit" },
-    { href: "/system", label: "System" },
+    { href: "/", label: "نمای کلی" },
+    { href: "/create-gym", label: "ثبت باشگاه" },
+    { href: "/gyms", label: "باشگاه‌ها" },
+    { href: "/users", label: "کاربران" },
+    { href: "/plans", label: "پلن‌ها" },
+    { href: "/coupons", label: "کوپن‌ها" },
+    { href: "/discounts", label: "تخفیف‌ها" },
+    { href: "/demo-accounts", label: "دمو" },
+    { href: "/demo-requests", label: "درخواست دمو" },
+    { href: "/media", label: "رسانه" },
+    { href: "/content", label: "محتوا" },
+    { href: "/analytics", label: "تحلیل" },
+    { href: "/audit", label: "ثبت رویداد" },
+    { href: "/system", label: "سیستم" },
   ];
   return (
     <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"}>

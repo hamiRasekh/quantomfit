@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   const locale = defaultLocale;
   const navItems: PanelNavItem[] = [
-    { href: "/", label: "Dashboard" },
-    { href: "/students", label: "Students" },
-    { href: "/programs", label: "Programs" },
-    { href: "/templates", label: "Templates" },
-    { href: "/calendar", label: "Calendar" },
-    { href: "/profile", label: "Profile" },
-    { href: "/reports", label: "Reports" },
+    { href: "/", label: "داشبورد" },
+    { href: "/students", label: "دانش‌آموزها" },
+    { href: "/programs", label: "برنامه‌ها" },
+    { href: "/templates", label: "الگوها" },
+    { href: "/calendar", label: "تقویم" },
+    { href: "/profile", label: "پروفایل" },
+    { href: "/reports", label: "گزارش‌ها" },
   ];
   return (
     <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"}>

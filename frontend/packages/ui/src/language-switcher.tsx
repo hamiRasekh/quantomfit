@@ -15,11 +15,11 @@ function applyLocale(locale: Locale) {
 }
 
 export function LanguageSwitcher() {
-  const [locale, setLocale] = useState<Locale>("en");
+  const [locale, setLocale] = useState<Locale>("fa");
 
   useEffect(() => {
     const saved = window.localStorage.getItem(storageKey);
-    const next = saved === "fa" ? "fa" : "en";
+    const next = saved === "en" ? "en" : "fa";
     setLocale(next);
     applyLocale(next);
   }, []);
@@ -38,7 +38,7 @@ export function LanguageSwitcher() {
       onClick={toggle}
       aria-label="Switch language"
     >
-      {locale === "en" ? "FA" : "EN"}
+      {locale === "en" ? "فارسی" : "EN"}
     </button>
   );
 }

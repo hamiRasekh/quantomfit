@@ -7,23 +7,18 @@ export type Session = {
   tenantId?: string;
 };
 
-const storageKey = "quantumfit.session";
+const storagePrefix = "quantumfit.session";
+const roles: Role[] = ["admin", "gym_owner", "trainer", "athlete"];
 
-export function saveSession(session: Session) {
-  if (typeof window === "undefined") {
-    return;
-  }
-  window.localStorage.setItem(storageKey, JSON.stringify(session));
+function storageKeyForRole(role: Role) {
+  return `${storagePrefix}.${role}`;
 }
 
-export function loadSession(): Session | null {
-  if (typeof window === "undefined") {
-    return null;
-  }
-  const raw = window.localStorage.getItem(storageKey);
+function parseSession(raw: string | null): Session | null {
   if (!raw) {
     return null;
   }
+
   try {
     return JSON.parse(raw) as Session;
   } catch {
@@ -31,11 +26,54 @@ export function loadSession(): Session | null {
   }
 }
 
-export function clearSession() {
+export function saveSession(session: Session) {
   if (typeof window === "undefined") {
     return;
   }
-  window.localStorage.removeItem(storageKey);
+  window.localStorage.setItem(storageKeyForRole(session.role), JSON.stringify(session));
+}
+
+export function loadSession(role?: Role): Session | null {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  if (role) {
+    return parseSession(window.localStorage.getItem(storageKeyForRole(role)));
+  }
+
+  for (const itemRole of roles) {
+    const session = parseSession(window.localStorage.getItem(storageKeyForRole(itemRole)));
+    if (session) {
+      return session;
+    }
+  }
+
+  return null;
+}
+
+export function loadSessionForRoles(requiredRoles: Role[]) {
+  for (const role of requiredRoles) {
+    const session = loadSession(role);
+    if (session) {
+      return session;
+    }
+  }
+  return null;
+}
+
+export function clearSession(role?: Role) {
+  if (typeof window === "undefined") {
+    return;
+  }
+  if (role) {
+    window.localStorage.removeItem(storageKeyForRole(role));
+    return;
+  }
+
+  for (const itemRole of roles) {
+    window.localStorage.removeItem(storageKeyForRole(itemRole));
+  }
 }
 
 export function resolvePanelUrl(role: Role, currentUrl = typeof window !== "undefined" ? window.location.href : "") {

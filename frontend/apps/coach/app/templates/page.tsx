@@ -1,29 +1,48 @@
+import { createApiClient } from "@quantomfit/api-client";
 import Link from "next/link";
 
-const templates = [
-  { name: "Strength foundation", summary: "Weekly progression and rest intervals." },
-  { name: "Fat loss cycle", summary: "Cardio, metabolic work, and recovery." },
-  { name: "Hypertrophy block", summary: "Muscle group split with sets and reps." },
-];
+const api = createApiClient({
+  defaultHeaders: {
+    "X-Panel-Context": "coach",
+    "X-Tenant-Subdomain": "coach",
+  },
+});
 
-export default function Page() {
+type Program = {
+  id: string;
+  name: string;
+  status: string;
+  trainerName?: string;
+};
+
+export default async function Page() {
+  let programs: Program[] = [];
+  try {
+    const payload = await api.get<{ items: Program[] }>("/api/v1/programs?limit=12");
+    programs = payload.items ?? [];
+  } catch {
+    programs = [];
+  }
+
   return (
     <section className="shell">
       <header className="hero">
         <span className="label">Program templates</span>
-        <h1>Reusable templates for quick coaching workflows.</h1>
-        <p>Coaches can copy, adapt, and assign templates to students inside the tenant.</p>
+        <h1>Reusable training structures for quick coaching workflows.</h1>
+        <p>Start from live tenant programs and copy them into a reusable coaching pattern.</p>
       </header>
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Template library</span><em>{templates.length} items</em></div>
+          <div className="section-head"><span>Template library</span><em>{programs.length} programs</em></div>
           <div className="field-list">
-            {templates.map((item) => (
-              <div key={item.name}>
-                <strong>{item.name}</strong>
-                <span>{item.summary}</span>
-              </div>
-            ))}
+            {programs.length > 0 ? programs.map((program) => (
+              <Link key={program.id} href={`/programs/${program.id}`} style={{ display: "grid", gap: 6, textDecoration: "none", color: "inherit" }}>
+                <strong>{program.name}</strong>
+                <span>{program.status} · {program.trainerName ?? "unassigned"}</span>
+              </Link>
+            )) : (
+              <div><strong>No programs yet</strong><span>Create a workout program to use it as a template.</span></div>
+            )}
           </div>
         </section>
         <section className="panel">

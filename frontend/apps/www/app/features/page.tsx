@@ -23,27 +23,27 @@ export default async function Page() {
   }
 
   const cards = [
-    "Gym management",
-    "Trainer management",
-    "Athlete experience",
-    "Live occupancy",
-    "Equipment management",
-    "QR attendance",
-    "Smart SMS",
-    "Analytics",
-    "Lobby dashboard",
+    "مدیریت باشگاه",
+    "مدیریت مربی",
+    "تجربه ورزشکار",
+    "تراکم زنده",
+    "مدیریت تجهیزات",
+    "QR ورود",
+    "پیامک هوشمند",
+    "تحلیل و گزارش",
+    "داشبورد لابی",
   ];
 
   return (
     <section className="page-section">
-      <span className="kicker">Features</span>
-      <h1>{features?.title ?? "Everything a gym needs, from day zero to scale."}</h1>
-      <p>{features?.subtitle ?? "QuantumFit keeps the marketing site, admin panel, gym panel, trainer panel, and athlete app connected through one backend."}</p>
+      <span className="kicker">امکانات</span>
+      <h1>{features?.title ?? "همه چیز برای یک باشگاه مدرن، از روز اول تا مقیاس بالا."}</h1>
+      <p>{features?.subtitle ?? "QuantumFit سایت اصلی، پنل ادمین، پنل باشگاه، پنل مربی و اپ کاربر را از طریق یک بک‌اند مشترک به هم وصل می‌کند."}</p>
       <div className="copy-grid">
         {cards.map((item) => (
           <article key={item}>
             <h3>{item}</h3>
-            <p>Editable from the admin CMS and reflected across the full ecosystem.</p>
+            <p>این بخش از پنل ادمین قابل ویرایش است و در کل اکوسیستم نمایش داده می‌شود.</p>
           </article>
         ))}
       </div>

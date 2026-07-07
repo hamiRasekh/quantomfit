@@ -102,39 +102,39 @@ export default function Page() {
 
   return (
     <section className="page-section">
-      <span className="kicker">Pricing</span>
-      <h1>Pricing shaped by the admin panel, coupons, and customer-specific offers.</h1>
-      <p>Monthly or yearly pricing is rendered live from PostgreSQL, then adjusted by discounts and coupon rules.</p>
+      <span className="kicker">تعرفه‌ها</span>
+      <h1>تعرفه‌ها از پنل ادمین، کوپن‌ها و تخفیف‌های اختصاصی ساخته می‌شوند.</h1>
+      <p>قیمت ماهانه یا سالانه مستقیم از PostgreSQL خوانده می‌شود و با قوانین تخفیف و کوپن به‌روزرسانی می‌شود.</p>
 
       <div className="auth-grid" style={{ marginTop: 24 }}>
         <div className="form-card">
           <div className="form-field">
-            <label>Billing cycle</label>
+            <label>نوع پرداخت</label>
             <select value={billingCycle} onChange={(e) => setBillingCycle(e.target.value as "monthly" | "yearly")}>
-              <option value="monthly">Monthly</option>
-              <option value="yearly">Yearly</option>
+              <option value="monthly">ماهانه</option>
+              <option value="yearly">سالانه</option>
             </select>
           </div>
           <div className="form-field">
-            <label>Gym ID for customer discount</label>
-            <input value={gymId} onChange={(e) => setGymId(e.target.value)} placeholder="Optional gym UUID" />
+            <label>شناسه باشگاه برای تخفیف اختصاصی</label>
+            <input value={gymId} onChange={(e) => setGymId(e.target.value)} placeholder="UUID اختیاری" />
           </div>
           <div className="form-field">
-            <label>Coupon code</label>
-            <input value={couponCode} onChange={(e) => setCouponCode(e.target.value)} placeholder="Optional coupon" />
+            <label>کد کوپن</label>
+            <input value={couponCode} onChange={(e) => setCouponCode(e.target.value)} placeholder="اختیاری" />
           </div>
           <div className="actions">
-            <a className="button primary" href="/demo">Request demo</a>
-            <a className="button secondary" href="/login">Login</a>
+            <a className="button primary" href="/demo">درخواست دمو</a>
+            <a className="button secondary" href="/login">ورود</a>
           </div>
         </div>
         <div className="flow-card">
-          <h3>Discount order</h3>
+          <h3>ترتیب اعمال تخفیف</h3>
           <div className="stepper">
-            <div><strong>1</strong><span>Base plan price</span></div>
-            <div><strong>2</strong><span>Customer-specific discount</span></div>
-            <div><strong>3</strong><span>Coupon validation</span></div>
-            <div><strong>4</strong><span>Final price preview</span></div>
+            <div><strong>1</strong><span>قیمت پایه پلن</span></div>
+            <div><strong>2</strong><span>تخفیف اختصاصی مشتری</span></div>
+            <div><strong>3</strong><span>اعتبارسنجی کوپن</span></div>
+            <div><strong>4</strong><span>نمایش قیمت نهایی</span></div>
           </div>
         </div>
       </div>
@@ -145,21 +145,21 @@ export default function Page() {
           return (
             <article key={plan.code}>
               <h3>{plan.name}</h3>
-              <p>{plan.currency ?? "USD"} {quote?.finalPrice ?? (billingCycle === "yearly" ? plan.yearlyPrice ?? 0 : plan.monthlyPrice ?? 0)} · {billingCycle}</p>
+              <p>{plan.currency ?? "USD"} {quote?.finalPrice ?? (billingCycle === "yearly" ? plan.yearlyPrice ?? 0 : plan.monthlyPrice ?? 0)} · {billingCycle === "monthly" ? "ماهانه" : "سالانه"}</p>
               <p style={{ color: "var(--muted)" }}>
-                Base: {quote?.basePrice ?? 0} · Customer discount: {quote?.customerDiscount ?? 0} · Coupon: {quote?.couponDiscount ?? 0}
+                پایه: {quote?.basePrice ?? 0} · تخفیف اختصاصی: {quote?.customerDiscount ?? 0} · کوپن: {quote?.couponDiscount ?? 0}
               </p>
               <p>
                 {(Object.entries(plan.limits ?? {})
                   .map(([key, value]) => `${key}: ${String(value)}`)
-                  .join(" · ") || "Configured from admin panel." )}
+                  .join(" · ") || "محدودیت‌ها از پنل ادمین تنظیم می‌شوند." )}
               </p>
             </article>
           );
         }) : (
           <article>
-            <h3>No plans loaded</h3>
-            <p>Connect the backend and database to see live pricing data from the admin panel.</p>
+            <h3>پلنی لود نشده است</h3>
+            <p>برای نمایش تعرفه‌های زنده، API و دیتابیس را اجرا کن.</p>
           </article>
         )}
       </div>

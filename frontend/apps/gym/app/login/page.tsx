@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
 import { createApiClient } from "@quantomfit/api-client";
 import { resolvePanelUrl, saveSession } from "@quantomfit/auth";
+import { AuthLoginFrame } from "@quantomfit/ui";
 
 const api = createApiClient({
   defaultHeaders: {
@@ -12,66 +12,47 @@ const api = createApiClient({
 });
 
 export default function Page() {
-  const [email, setEmail] = useState("owner@demo-gym.ir");
-  const [password, setPassword] = useState("Owner#2026");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setLoading(true);
-    setError("");
-    try {
-      const session = await api.post<{ accessToken: string; refreshToken: string; claims: { role: string; tenantId?: string } }>("/api/v1/auth/login", {
-        email,
-        password,
-      });
-      saveSession({
-        accessToken: session.accessToken,
-        refreshToken: session.refreshToken,
-        role: session.claims.role as any,
-        tenantId: session.claims.tenantId,
-      });
-      window.location.href = resolvePanelUrl(session.claims.role as any);
-    } catch {
-      setError("Login failed. Check your credentials and tenant access.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
   return (
-    <section className="shell">
-      <header className="hero">
-        <span className="label">Gym Login</span>
-        <h1>Sign in to the gym panel.</h1>
-        <p>Use the tenant owner account or a trainer account assigned to this gym.</p>
-      </header>
-      <div className="auth-grid">
-        <form className="form-card" onSubmit={onSubmit}>
-          <div className="form-field">
-            <label>Email</label>
-            <input value={email} onChange={(e) => setEmail(e.target.value)} />
-          </div>
-          <div className="form-field">
-            <label>Password</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          </div>
-          <div className="actions">
-            <button className="button primary" type="submit" disabled={loading}>{loading ? "Signing in..." : "Sign in"}</button>
-            <a className="button secondary" href="/">Back</a>
-          </div>
-          {error ? <p>{error}</p> : null}
-        </form>
-        <div className="flow-card">
-          <h3>Demo credentials</h3>
-          <div className="stepper">
-            <div><strong>Email</strong><span>owner@demo-gym.ir</span></div>
-            <div><strong>Password</strong><span>Owner#2026</span></div>
-            <div><strong>Tenant</strong><span>gym subdomain</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <AuthLoginFrame
+      eyebrow="ورود مدیر باشگاه"
+      panelName="پنل باشگاه"
+      title="ورود اختصاصی برای مدیران باشگاه"
+      description="ورود این بخش فقط برای صاحب باشگاه است و پس از ورود، توکن جداگانه‌ی همین پنل ذخیره می‌شود."
+      logoSrc="/images/login/logo.png"
+      logoAlt="لوگوی QuantumFit"
+      heroImageSrc="/images/login/gym-login.png"
+      heroImageAlt="صفحه ورود باشگاه"
+      heroAccent="مدیریت باشگاه"
+      summaryTitle="عملیات باشگاه"
+      summaryPoints={["داشبورد زنده", "اعضا و مربی‌ها", "تجهیزات و اشتراک‌ها"]}
+      credentials={[
+        { label: "نام کاربری", value: "owner@demo-gym.ir" },
+        { label: "رمز عبور", value: "Owner#2026" },
+        { label: "پنل", value: "gym.quantumfit.ir" },
+      ]}
+      formTitle="پنل باشگاه"
+      formSubtitle="با حساب مدیر باشگاه وارد شوید"
+      submitLabel="ورود به پنل باشگاه"
+      backHref="/"
+      defaultEmail="owner@demo-gym.ir"
+      defaultPassword="Owner#2026"
+      footerNote="این حساب برای پنل باشگاه ساخته شده و با پنل مربی یا ورزشکار قاطی نمی‌شود."
+      onSubmit={async ({ email, password }) => {
+        const session = await api.post<{ accessToken: string; refreshToken: string; claims: { role: string; tenantId?: string } }>("/api/v1/auth/login", {
+          email,
+          password,
+        });
+        if (session.claims.role !== "gym_owner") {
+          throw new Error("این حساب فقط برای پنل باشگاه است. برای مربی به پنل coach بروید.");
+        }
+        saveSession({
+          accessToken: session.accessToken,
+          refreshToken: session.refreshToken,
+          role: "gym_owner",
+          tenantId: session.claims.tenantId,
+        });
+        window.location.href = resolvePanelUrl("gym_owner");
+      }}
+    />
   );
 }

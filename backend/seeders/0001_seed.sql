@@ -31,6 +31,7 @@ ON CONFLICT (locale, section) DO NOTHING;
 INSERT INTO users (email, phone, password_hash, status)
 VALUES
   ('admin@quantumfit.ir', NULL, crypt('Admin#2026', gen_salt('bf')), 'active'),
+  ('superadmin@quantumfit.ir', NULL, crypt('SuperAdmin#2026', gen_salt('bf')), 'active'),
   ('owner@demo-gym.ir', '09120000000', crypt('Owner#2026', gen_salt('bf')), 'active')
 ON CONFLICT (email) DO NOTHING;
 
@@ -46,6 +47,6 @@ WITH demo_gym AS (
   LIMIT 1
 )
 INSERT INTO gym_users (tenant_id, user_id, role, status, first_login_completed_at)
-SELECT id, owner_id, 'gym_owner', 'active', now()
+SELECT id, owner_id::uuid, 'gym_owner', 'active', now()
 FROM demo_gym
 ON CONFLICT (tenant_id, user_id) DO NOTHING;

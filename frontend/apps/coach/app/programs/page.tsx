@@ -87,7 +87,7 @@ export default function Page() {
               <select value={form.trainerId} onChange={(e) => setForm({ ...form, trainerId: e.target.value })}>
                 <option value="">Unassigned</option>
                 {trainers.map((trainer) => (
-                  <option key={trainer.id} value={trainer.id}>{trainer.fullName} {trainer.specialty ? `· ${trainer.specialty}` : ""}</option>
+                  <option key={trainer.id} value={trainer.id}>{trainer.fullName}{trainer.specialty ? ` · ${trainer.specialty}` : ""}</option>
                 ))}
               </select>
             </div>

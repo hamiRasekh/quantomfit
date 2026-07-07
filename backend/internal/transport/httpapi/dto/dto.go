@@ -234,6 +234,6 @@ type SMSAutomationRuleRequest struct {
 	MessageTemplate string         `json:"messageTemplate"`
 	Channel         string         `json:"channel"`
 	Status          string         `json:"status"`
-	LastTriggeredAt  *string        `json:"lastTriggeredAt"`
-	NextTriggerAt    *string        `json:"nextTriggerAt"`
+	LastTriggeredAt *string        `json:"lastTriggeredAt"`
+	NextTriggerAt   *string        `json:"nextTriggerAt"`
 }

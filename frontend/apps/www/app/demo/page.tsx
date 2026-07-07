@@ -29,43 +29,43 @@ export default function Page() {
         message,
         source: "website",
       });
-      setStatus("Demo request sent.");
+      setStatus("درخواست دمو ارسال شد.");
     } catch (error) {
-      setStatus(error instanceof Error ? error.message : "Unable to send request.");
+      setStatus(error instanceof Error ? error.message : "ارسال درخواست ممکن نشد.");
     }
   }
 
   return (
     <section className="page-section">
-      <span className="kicker">Demo</span>
-      <h1>Explore the gym, coach, and athlete panels before you decide.</h1>
-      <p>Demo access is isolated and can be read-only or interactive depending on admin settings.</p>
+      <span className="kicker">دمو</span>
+      <h1>قبل از تصمیم، پنل باشگاه، مربی و کاربر را ببین.</h1>
+      <p>دسترسی دمو ایزوله است و بسته به تنظیمات ادمین می‌تواند فقط خواندنی یا قابل تعامل باشد.</p>
       <div className="auth-grid">
         <div className="form-card">
           <div className="form-field">
-            <label>Demo panel</label>
+            <label>نوع دمو</label>
             <select value={panelType} onChange={(e) => setPanelType(e.target.value)}>
-              <option value="gym">Gym panel demo</option>
-              <option value="coach">Coach panel demo</option>
-              <option value="app">Athlete app demo</option>
+              <option value="gym">دموی پنل باشگاه</option>
+              <option value="coach">دموی پنل مربی</option>
+              <option value="app">دموی اپ کاربر</option>
             </select>
           </div>
-          <div className="form-field"><label>Name</label><input value={name} onChange={(e) => setName(e.target.value)} /></div>
-          <div className="form-field"><label>Email</label><input value={email} onChange={(e) => setEmail(e.target.value)} /></div>
-          <div className="form-field"><label>Company / Gym</label><input value={companyName} onChange={(e) => setCompanyName(e.target.value)} /></div>
-          <div className="form-field"><label>Message</label><textarea rows={5} value={message} onChange={(e) => setMessage(e.target.value)} /></div>
+          <div className="form-field"><label>نام</label><input value={name} onChange={(e) => setName(e.target.value)} /></div>
+          <div className="form-field"><label>ایمیل</label><input value={email} onChange={(e) => setEmail(e.target.value)} /></div>
+          <div className="form-field"><label>شرکت / باشگاه</label><input value={companyName} onChange={(e) => setCompanyName(e.target.value)} /></div>
+          <div className="form-field"><label>پیام</label><textarea rows={5} value={message} onChange={(e) => setMessage(e.target.value)} /></div>
           <div className="actions">
-            <button className="button primary" type="button" onClick={submit}>Request demo</button>
-            <a className="button secondary" href="/login">Use demo login</a>
+            <button className="button primary" type="button" onClick={submit}>ارسال درخواست</button>
+            <a className="button secondary" href="/login">ورود دمو</a>
           </div>
           {status ? <p>{status}</p> : null}
         </div>
         <div className="flow-card">
-          <h3>Available demo modes</h3>
+          <h3>حالت‌های دمو</h3>
           <div className="stepper">
-            <div><strong>Gym</strong><span>Dashboard, onboarding, members, live occupancy</span></div>
-            <div><strong>Coach</strong><span>Students, programs, calendar, reports</span></div>
-            <div><strong>Athlete</strong><span>Workout, attendance, progress, gym view</span></div>
+            <div><strong>باشگاه</strong><span>داشبورد، آنبوردینگ، اعضا، تراکم زنده</span></div>
+            <div><strong>مربی</strong><span>دانش‌آموزها، برنامه‌ها، تقویم، گزارش‌ها</span></div>
+            <div><strong>کاربر</strong><span>تمرین، حضور و غیاب، پیشرفت، باشگاه من</span></div>
           </div>
         </div>
       </div>

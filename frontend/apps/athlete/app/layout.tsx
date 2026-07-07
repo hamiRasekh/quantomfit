@@ -13,14 +13,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   const locale = defaultLocale;
   const navItems: PanelNavItem[] = [
-    { href: "/", label: "Dashboard" },
-    { href: "/workout", label: "Workout" },
-    { href: "/attendance", label: "Attendance" },
-    { href: "/progress", label: "Progress" },
-    { href: "/gym", label: "My Gym" },
-    { href: "/coaches", label: "Coaches" },
-    { href: "/notifications", label: "Notifications" },
-    { href: "/profile", label: "Profile" },
+    { href: "/", label: "داشبورد" },
+    { href: "/workout", label: "تمرین" },
+    { href: "/attendance", label: "حضور و غیاب" },
+    { href: "/progress", label: "پیشرفت" },
+    { href: "/gym", label: "باشگاه من" },
+    { href: "/coaches", label: "مربی‌ها" },
+    { href: "/notifications", label: "اعلان‌ها" },
+    { href: "/profile", label: "پروفایل" },
   ];
   return (
     <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"}>

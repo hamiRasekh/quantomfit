@@ -217,17 +217,17 @@ type AttendanceItem struct {
 }
 
 type SMSAutomationRuleItem struct {
-	ID               string         `json:"id"`
-	RuleName         string         `json:"ruleName"`
-	TriggerType      string         `json:"triggerType"`
-	Condition        map[string]any `json:"condition"`
-	MessageTemplate  string         `json:"messageTemplate"`
-	Channel          string         `json:"channel"`
-	Status           string         `json:"status"`
-	LastTriggeredAt  *time.Time     `json:"lastTriggeredAt,omitempty"`
-	NextTriggerAt    *time.Time     `json:"nextTriggerAt,omitempty"`
-	CreatedAt        *time.Time     `json:"createdAt,omitempty"`
-	UpdatedAt        *time.Time     `json:"updatedAt,omitempty"`
+	ID              string         `json:"id"`
+	RuleName        string         `json:"ruleName"`
+	TriggerType     string         `json:"triggerType"`
+	Condition       map[string]any `json:"condition"`
+	MessageTemplate string         `json:"messageTemplate"`
+	Channel         string         `json:"channel"`
+	Status          string         `json:"status"`
+	LastTriggeredAt *time.Time     `json:"lastTriggeredAt,omitempty"`
+	NextTriggerAt   *time.Time     `json:"nextTriggerAt,omitempty"`
+	CreatedAt       *time.Time     `json:"createdAt,omitempty"`
+	UpdatedAt       *time.Time     `json:"updatedAt,omitempty"`
 }
 
 type SMSAutomationRuleInput struct {
@@ -237,18 +237,18 @@ type SMSAutomationRuleInput struct {
 	MessageTemplate string         `json:"messageTemplate"`
 	Channel         string         `json:"channel"`
 	Status          string         `json:"status"`
-	LastTriggeredAt  *time.Time     `json:"lastTriggeredAt,omitempty"`
-	NextTriggerAt    *time.Time     `json:"nextTriggerAt,omitempty"`
+	LastTriggeredAt *time.Time     `json:"lastTriggeredAt,omitempty"`
+	NextTriggerAt   *time.Time     `json:"nextTriggerAt,omitempty"`
 }
 
 type SMSAutomationLogItem struct {
-	ID         string         `json:"id"`
-	Channel    string         `json:"channel"`
-	Status     string         `json:"status"`
-	Message    string         `json:"message"`
-	Metadata   map[string]any `json:"metadata"`
-	SentAt     *time.Time     `json:"sentAt,omitempty"`
-	CreatedAt  *time.Time     `json:"createdAt,omitempty"`
+	ID        string         `json:"id"`
+	Channel   string         `json:"channel"`
+	Status    string         `json:"status"`
+	Message   string         `json:"message"`
+	Metadata  map[string]any `json:"metadata"`
+	SentAt    *time.Time     `json:"sentAt,omitempty"`
+	CreatedAt *time.Time     `json:"createdAt,omitempty"`
 }
 
 type GymRecord struct {

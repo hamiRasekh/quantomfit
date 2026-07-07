@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
-import { clearSession, loadSession, resolvePanelUrl, type Role } from "./session";
+import { clearSession, loadSessionForRoles, resolvePanelUrl, type Role, type Session } from "./session";
 
 export type PanelNavItem = {
   href: string;
@@ -32,23 +32,45 @@ export function PanelShell({
 }: PanelShellProps) {
   const [ready, setReady] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [pathname, setPathname] = useState("");
+  const [session, setSession] = useState<Session | null>(null);
 
   useEffect(() => {
-    const session = loadSession();
-    if (!session) {
-      window.location.href = loginPath;
+    setPathname(window.location.pathname);
+  }, []);
+
+  const isPublicRoute = pathname === loginPath || pathname.startsWith(`${loginPath}/`);
+
+  useEffect(() => {
+    if (!pathname) {
       return;
     }
 
-    if (requiredRoles.length > 0 && !requiredRoles.includes(session.role)) {
-      window.location.href = resolvePanelUrl(session.role);
+    if (isPublicRoute) {
+      setReady(true);
       return;
     }
 
+    const nextSession = loadSessionForRoles(requiredRoles);
+    if (!nextSession) {
+      window.location.replace(loginPath);
+      return;
+    }
+
+    if (requiredRoles.length > 0 && !requiredRoles.includes(nextSession.role)) {
+      window.location.replace(resolvePanelUrl(nextSession.role));
+      return;
+    }
+
+    setSession(nextSession);
     setReady(true);
-  }, [loginPath, requiredRoles]);
+  }, [isPublicRoute, loginPath, pathname, requiredRoles]);
 
   const currentNavItems = useMemo(() => navItems ?? [], [navItems]);
+
+  if (isPublicRoute) {
+    return <>{children}</>;
+  }
 
   if (!ready) {
     return (
@@ -78,7 +100,7 @@ export function PanelShell({
         </nav>
         <div className="qf-panel__footer">
           {topActions ? <div className="qf-panel__topActions">{topActions}</div> : null}
-          <LogoutButton href={logoutHref} />
+          <LogoutButton href={logoutHref} role={session?.role} />
         </div>
       </aside>
       <div className="qf-panel__content">
@@ -103,15 +125,16 @@ export function PanelShell({
 
 type LogoutButtonProps = {
   href?: string;
+  role?: Role;
 };
 
-export function LogoutButton({ href = "/" }: LogoutButtonProps) {
+export function LogoutButton({ href = "/", role }: LogoutButtonProps) {
   return (
     <button
       type="button"
       className="qf-logout"
       onClick={() => {
-        clearSession();
+        clearSession(role);
         window.location.href = href;
       }}
     >

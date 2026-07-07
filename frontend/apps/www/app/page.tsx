@@ -1,6 +1,9 @@
+import Image from "next/image";
+import { defaultLocale } from "@quantomfit/i18n";
 import { createApiClient } from "@quantomfit/api-client";
 
 type WebsiteContent = {
+  locale?: string;
   section: string;
   title: string;
   subtitle: string;
@@ -39,7 +42,10 @@ const api = createApiClient({
 
 function sectionMap(items: WebsiteContent[]) {
   return items.reduce<Record<string, WebsiteContent>>((acc, item) => {
-    acc[item.section] = item;
+    const current = acc[item.section];
+    if (!current || item.locale === defaultLocale) {
+      acc[item.section] = item;
+    }
     return acc;
   }, {});
 }
@@ -59,76 +65,120 @@ export default async function Page() {
 
   const plans = platform?.plans ?? [];
   const latestGyms = platform?.latestGyms ?? [];
+  const isFa = defaultLocale === "fa";
+
+  const headline = isFa
+    ? "پلتفرم هوشمند باشگاه با پنل‌های حرفه‌ای"
+    : home?.title ?? "Cloud intelligence for modern gym operations.";
+
+  const subheadline = isFa
+    ? "یک اکوسیستم وب‌محور و پریمیوم برای مالک باشگاه، مربی، ورزشکار و مدیر سیستم با حضور زنده، پیامک هوشمند و گزارش‌های دقیق."
+    : home?.subtitle ?? "A premium multi-panel system for gym owners, trainers, athletes, and platform operators with live occupancy, onboarding, analytics, and legacy software integration.";
+
+  const features = isFa
+    ? [
+        "مدیریت باشگاه",
+        "پنل مربی",
+        "اپ کاربر",
+        "ردیابی زنده تراکم",
+        "اتوماسیون پیامک",
+        "تحلیل و گزارش",
+      ]
+    : home?.features ?? featuresSection?.features ?? [];
+
+  const faFaq = [
+    { q: "آیا RTL پشتیبانی می‌شود؟", a: "بله، فارسی و انگلیسی هر دو پشتیبانی می‌شوند." },
+    { q: "آیا محتوا از پنل ادمین قابل تغییر است؟", a: "بله، همه محتوای عمومی از CMS مدیریت می‌شود." },
+  ];
 
   return (
     <main className="page">
       <section className="hero">
         <div className="topline">
           <span className="eyebrow">QuantumFit</span>
-          <span className="pill">FA / EN ready</span>
+          <span className="pill">فارسی / English</span>
         </div>
-        <h1>{home?.title ?? "Cloud intelligence for modern gym operations."}</h1>
-        <p>
-          {home?.subtitle ??
-            "A premium multi-panel system for gym owners, trainers, athletes, and platform operators with live occupancy, onboarding, analytics, and legacy software integration."}
-        </p>
+        <h1>{headline}</h1>
+        <p>{subheadline}</p>
         <div className="actions">
-          <a className="button primary" href="/login">{home?.cta ?? "Enter panels"}</a>
-          <a className="button secondary" href="/demo">See demo</a>
+          <a className="button primary" href="/login">{isFa ? "ورود به پنل‌ها" : home?.cta ?? "Enter panels"}</a>
+          <a className="button secondary" href="/demo">{isFa ? "مشاهده دمو" : "See demo"}</a>
         </div>
+
         <div className="stats">
           <article>
             <strong>{platform?.gymCount ?? 0}</strong>
-            <span>gyms registered</span>
+            <span>{isFa ? "باشگاه ثبت‌شده" : "gyms registered"}</span>
           </article>
           <article>
             <strong>{platform?.activeGyms ?? 0}</strong>
-            <span>active gyms</span>
+            <span>{isFa ? "باشگاه فعال" : "active gyms"}</span>
           </article>
           <article>
             <strong>{plans.length}</strong>
-            <span>active plans</span>
+            <span>{isFa ? "پلن فعال" : "active plans"}</span>
           </article>
         </div>
       </section>
 
       <section className="grid">
         <article className="panel card accent">
-          <span className="label">Why QuantumFit</span>
-          <h2>{featuresSection?.title ?? "Built for gym owners, coaches, and athletes in one stack."}</h2>
-          <p>{featuresSection?.body ?? "Each subdomain owns its workflow while the backend enforces one tenant boundary everywhere."}</p>
+          <span className="label">{isFa ? "چرا QuantumFit" : "Why QuantumFit"}</span>
+          <h2>{isFa ? "همه چیز در یک تجربه‌ی وب‌محور و شیک" : featuresSection?.title ?? "Built for gym owners, coaches, and athletes in one stack."}</h2>
+          <p>{isFa ? "تمام زیر دامنه‌ها یک مرز tenant مشترک دارند اما هر پنل با نقش خودش کار می‌کند." : featuresSection?.body ?? "Each subdomain owns its workflow while the backend enforces one tenant boundary everywhere."}</p>
         </article>
+
         <article className="panel card">
-          <span className="label">Latest gyms</span>
+          <span className="label">{isFa ? "آخرین باشگاه‌ها" : "Latest gyms"}</span>
           <ul>
-            {latestGyms.length > 0 ? (
-              latestGyms.slice(0, 4).map((gym) => (
-                <li key={gym.id}>
-                  {gym.name} · {gym.planName} · {gym.onboardingStatus}
-                </li>
-              ))
-            ) : (
-              <li>No gyms found yet.</li>
+            {latestGyms.length > 0 ? latestGyms.slice(0, 4).map((gym) => (
+              <li key={gym.id}>
+                {gym.name} · {gym.planName} · {gym.onboardingStatus}
+              </li>
+            )) : (
+              <li>{isFa ? "هنوز باشگاهی ثبت نشده است." : "No gyms found yet."}</li>
             )}
           </ul>
         </article>
       </section>
 
       <section className="grid">
-        {(home?.features ?? featuresSection?.features ?? [
-          "Gym management",
-          "Trainer workflows",
-          "Athlete app",
-          "Live crowd tracking",
-          "Smart SMS automation",
-          "Analytics dashboard",
-        ]).map((feature) => (
-          <article key={feature} className="panel card">
-            <span className="label">Feature</span>
-            <h3>{feature}</h3>
-            <p>Editable from the admin CMS and connected to the same backend data model.</p>
-          </article>
-        ))}
+        <article className="panel card">
+          <span className="label">{isFa ? "نمای پنل‌ها" : "Panels preview"}</span>
+          <h3>{isFa ? "نمای بصری از پنل مدیریتی و داشبوردهای اصلی" : "Premium views for admin and operational dashboards."}</h3>
+          <p>{isFa ? "این تصاویر ساخته‌شده به‌صورت اورجینال هستند و می‌توانند برای معرفی هر بخش استفاده شوند." : "Original generated visuals for the main sections."}</p>
+        </article>
+        <article className="panel card">
+          <Image
+            src="/images/quantumfit-hero.png"
+            alt="QuantumFit hero"
+            width={1200}
+            height={675}
+            style={{ width: "100%", height: "auto", borderRadius: 24, display: "block" }}
+            priority
+          />
+        </article>
+      </section>
+
+      <section className="grid">
+        <article className="panel card">
+          <Image
+            src="/images/quantumfit-admin.png"
+            alt="QuantumFit admin dashboard"
+            width={1200}
+            height={675}
+            style={{ width: "100%", height: "auto", borderRadius: 24, display: "block" }}
+          />
+        </article>
+        <article className="panel card">
+          <span className="label">{isFa ? "امکانات" : "Features"}</span>
+          <h3>{isFa ? "ساختار کامل برای مدیریت، آموزش و تجربه‌ی ورزشکار" : (featuresSection?.title ?? "Built for every workflow.")}</h3>
+          <ul>
+            {(features.length > 0 ? features : ["Gym management", "Trainer workflows", "Athlete app", "Live crowd tracking", "Smart SMS automation", "Analytics dashboard"]).map((feature) => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
+        </article>
       </section>
 
       <section id="pricing" className="pricing">
@@ -136,7 +186,7 @@ export default async function Page() {
           plans.map((plan) => (
             <article className="pricing-card" key={plan.code}>
               <div className="pricing-head">
-                <span>{plan.code}</span>
+                <span>{isFa ? "پلن" : plan.code}</span>
                 <strong>{plan.name}</strong>
               </div>
               <p>
@@ -145,34 +195,31 @@ export default async function Page() {
               <p>
                 {Object.entries(plan.limits ?? {})
                   .map(([key, value]) => `${key}: ${String(value)}`)
-                  .join(" · ") || "Plan limits are managed from the admin panel."}
+                  .join(" · ") || (isFa ? "محدودیت‌ها از پنل ادمین مدیریت می‌شوند." : "Plan limits are managed from the admin panel.")}
               </p>
             </article>
           ))
         ) : (
           <article className="pricing-card">
             <div className="pricing-head">
-              <span>Waiting for backend</span>
-              <strong>No plans loaded</strong>
+              <span>{isFa ? "در انتظار بک‌اند" : "Waiting for backend"}</span>
+              <strong>{isFa ? "هنوز پلنی لود نشده" : "No plans loaded"}</strong>
             </div>
-            <p>Start the Go API and PostgreSQL to render live plan data from the admin panel.</p>
+            <p>{isFa ? "برای نمایش تعرفه‌ها، API و دیتابیس را اجرا کن." : "Start the Go API and PostgreSQL to render live plan data from the admin panel."}</p>
           </article>
         )}
       </section>
 
       <section className="grid">
         <article className="panel card">
-          <span className="label">Testimonials</span>
-          <h3>{home?.testimonials?.[0]?.name ?? testimonialsSection?.title ?? "Demo Gym"}</h3>
-          <p>{home?.testimonials?.[0]?.quote ?? testimonialsSection?.body ?? "A premium and connected web platform for every gym workflow."}</p>
+          <span className="label">{isFa ? "نظرات" : "Testimonials"}</span>
+          <h3>{isFa ? "باشگاه دمو" : (home?.testimonials?.[0]?.name ?? testimonialsSection?.title ?? "Demo Gym")}</h3>
+          <p>{isFa ? "پریمیوم، سریع و دقیق؛ برای هر روند باشگاهی آماده است." : (home?.testimonials?.[0]?.quote ?? testimonialsSection?.body ?? "A premium and connected web platform for every gym workflow.")}</p>
         </article>
         <article className="panel card">
-          <span className="label">FAQ</span>
+          <span className="label">{isFa ? "سوالات متداول" : "FAQ"}</span>
           <ul>
-            {(home?.faq ?? faqSection?.faq ?? [
-              { q: "Is RTL supported?", a: "Yes, Persian and English are both supported." },
-              { q: "Can admins edit content?", a: "Yes, all public content is editable from the admin panel." },
-            ]).map((item) => (
+            {(isFa ? faFaq : home?.faq ?? faqSection?.faq ?? []).map((item) => (
               <li key={item.q ?? item.question}>
                 <strong>{item.q ?? item.question}</strong>
                 <div style={{ color: "var(--qf-muted)", marginTop: 6 }}>{item.a ?? item.answer}</div>
@@ -184,9 +231,9 @@ export default async function Page() {
 
       <section className="grid">
         <article className="panel card accent">
-          <span className="label">CTA</span>
-          <h2>{home?.cta ?? "Request a live demo or log in to your panel."}</h2>
-          <p>Public content, pricing, and demo access are managed centrally.</p>
+          <span className="label">{isFa ? "دعوت به اقدام" : "CTA"}</span>
+          <h2>{isFa ? "برای مشاهده دمو یا ورود به پنل‌ها آماده‌ای؟" : (home?.cta ?? "Request a live demo or log in to your panel.")}</h2>
+          <p>{isFa ? "محتوا، تعرفه‌ها و دسترسی دمو همگی از پنل ادمین مدیریت می‌شوند." : "Public content, pricing, and demo access are managed centrally."}</p>
         </article>
       </section>
     </main>

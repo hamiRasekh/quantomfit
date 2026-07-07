@@ -18,18 +18,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <header className="site-header">
           <div className="site-brand">
             <span>QuantumFit</span>
-            <em>gym intelligence cloud</em>
+            <em>سامانه هوشمند باشگاه</em>
           </div>
           <nav className="site-nav">
-            <Link href="/">Home</Link>
-            <Link href="/features">Features</Link>
-            <Link href="/about">About</Link>
-            <Link href="/gyms">Gyms</Link>
-            <Link href="/pricing">Pricing</Link>
-            <Link href="/demo">Demo</Link>
-            <Link href="/contact">Contact</Link>
-            <Link href="/onboarding">Onboarding</Link>
-            <Link href="/login">Login</Link>
+            <Link href="/">خانه</Link>
+            <Link href="/features">امکانات</Link>
+            <Link href="/about">درباره</Link>
+            <Link href="/gyms">باشگاه‌ها</Link>
+            <Link href="/pricing">تعرفه‌ها</Link>
+            <Link href="/demo">دمو</Link>
+            <Link href="/contact">تماس</Link>
+            <Link href="/onboarding">شروع همکاری</Link>
+            <Link href="/login">ورود</Link>
           </nav>
           <LanguageSwitcher />
         </header>

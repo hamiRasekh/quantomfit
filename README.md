@@ -29,6 +29,50 @@ QuantumFit is a multi-panel gym platform with strict tenant isolation, subdomain
 3. Start the frontend workspace:
    `cd frontend && pnpm dev`
 
+## Recommended Dev Start Order
+
+Use this order when you want the full platform up locally:
+
+1. Start Docker Desktop.
+2. Start PostgreSQL:
+   `docker compose up -d postgres`
+3. Start the backend API:
+   `cd backend`
+   `go run ./cmd/api`
+4. Start all five frontend apps together:
+   `cd frontend`
+   `pnpm dev`
+
+## Local Ports
+
+- `http://localhost:8080` - Go API
+- `http://localhost:3000` - Marketing site
+- `http://localhost:3001` - Gym panel
+- `http://localhost:3002` - Coach panel
+- `http://localhost:3003` - Athlete app
+- `http://localhost:3004` - Super admin panel
+
+## Quick Health Checks
+
+- API health:
+  `curl http://localhost:8080/healthz`
+- Database:
+  `docker ps`
+- Frontend workspace:
+  open the ports above in your browser
+
+## If The API Does Not Start
+
+1. Verify Docker is running.
+2. Verify port `5432` is free.
+3. Check backend logs by running:
+   `cd backend && go run ./cmd/api`
+4. If a migration fails, fix the seed or migration file and rerun.
+
+## If The Frontend Feels Slow On First Load
+
+Next.js dev mode can take a few seconds to compile each app the first time. Wait for the terminal to show `Ready`, then refresh the browser once.
+
 ## Useful Notes
 
 - Backend default URL: `http://localhost:8080`
