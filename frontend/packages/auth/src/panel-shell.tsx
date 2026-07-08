@@ -112,7 +112,7 @@ export function PanelShell({
             aria-expanded={menuOpen}
             aria-label="Toggle navigation"
           >
-            Menu
+            منو
           </button>
           {topActions ? <div className="qf-panel__topActions qf-panel__topActions--desktop">{topActions}</div> : null}
         </header>
@@ -138,7 +138,7 @@ export function LogoutButton({ href = "/", role }: LogoutButtonProps) {
         window.location.href = href;
       }}
     >
-      Logout
+      خروج
     </button>
   );
 }

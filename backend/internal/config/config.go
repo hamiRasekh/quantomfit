@@ -32,7 +32,7 @@ func Load() Config {
 		JWTSecret:  getenv("JWT_SECRET", "quantomfit-dev-secret"),
 		HTTP: HTTPConfig{
 			Addr:        getenv("HTTP_ADDR", ":8080"),
-			CORSOrigins: splitCSV(getenv("CORS_ORIGINS", "http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003,http://localhost:3004")),
+			CORSOrigins: splitCSV(getenv("CORS_ORIGINS", "http://localhost:3000,http://localhost:3001,http://localhost:3002,http://localhost:3003,http://localhost:3004,http://127.0.0.1:3000,http://127.0.0.1:3001,http://127.0.0.1:3002,http://127.0.0.1:3003,http://127.0.0.1:3004")),
 			ReadTimeout: mustDuration(getenv("HTTP_READ_TIMEOUT", "10s"), 10*time.Second),
 			WriteTimeout: mustDuration(getenv("HTTP_WRITE_TIMEOUT", "10s"), 10*time.Second),
 			IdleTimeout: mustDuration(getenv("HTTP_IDLE_TIMEOUT", "60s"), time.Minute),

@@ -25,8 +25,8 @@ type Session = {
   completedAt?: string;
 };
 
-export default async function Page({ params }: { params: { programId: string } }) {
-  const { programId } = params;
+export default async function Page({ params }: { params: Promise<{ programId: string }> }) {
+  const { programId } = await params;
 
   let program: Program | null = null;
   let sessions: Session[] = [];

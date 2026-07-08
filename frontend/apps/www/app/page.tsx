@@ -10,9 +10,16 @@ type WebsiteContent = {
   body: string;
   cta: string;
   features?: string[];
-  faq?: Array<{ q?: string; a?: string; question?: string; answer?: string }>;
+  faq?: FaqItem[];
   testimonials?: Array<{ name?: string; quote?: string }>;
   images?: string[];
+};
+
+type FaqItem = {
+  q?: string;
+  a?: string;
+  question?: string;
+  answer?: string;
 };
 
 type PlatformSummary = {
@@ -89,7 +96,9 @@ export default async function Page() {
   const faFaq = [
     { q: "آیا RTL پشتیبانی می‌شود؟", a: "بله، فارسی و انگلیسی هر دو پشتیبانی می‌شوند." },
     { q: "آیا محتوا از پنل ادمین قابل تغییر است؟", a: "بله، همه محتوای عمومی از CMS مدیریت می‌شود." },
-  ];
+  ] satisfies FaqItem[];
+
+  const faqItems: FaqItem[] = isFa ? faFaq : home?.faq ?? faqSection?.faq ?? [];
 
   return (
     <main className="page">
@@ -219,10 +228,10 @@ export default async function Page() {
         <article className="panel card">
           <span className="label">{isFa ? "سوالات متداول" : "FAQ"}</span>
           <ul>
-            {(isFa ? faFaq : home?.faq ?? faqSection?.faq ?? []).map((item) => (
-              <li key={item.q ?? item.question}>
-                <strong>{item.q ?? item.question}</strong>
-                <div style={{ color: "var(--qf-muted)", marginTop: 6 }}>{item.a ?? item.answer}</div>
+            {faqItems.map((item, index) => (
+              <li key={item.q ?? item.question ?? index}>
+                <strong>{item.q ?? item.question ?? ""}</strong>
+                <div style={{ color: "var(--qf-muted)", marginTop: 6 }}>{item.a ?? item.answer ?? ""}</div>
               </li>
             ))}
           </ul>

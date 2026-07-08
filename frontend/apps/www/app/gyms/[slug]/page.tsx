@@ -28,10 +28,11 @@ function getString(payload: Record<string, unknown> | undefined, key: string) {
   return typeof value === "string" ? value : "";
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   let profile: PublicGymProfile | null = null;
   try {
-    profile = await api.get<PublicGymProfile>(`/api/v1/public/gyms/${params.slug}`);
+    profile = await api.get<PublicGymProfile>(`/api/v1/public/gyms/${slug}`);
   } catch {
     profile = null;
   }
@@ -41,7 +42,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <section className="page-section">
       <span className="kicker">Gym profile</span>
-      <h1>{profile?.gym.name ?? params.slug}</h1>
+      <h1>{profile?.gym.name ?? slug}</h1>
       <p>{getString(payload, "gymName") || "Public gym profile with classes, trainers, and live crowd status."}</p>
       <div className="detail-grid">
         <article><span className="status">Location</span><h3>{getString(payload, "location") || "Shared public profile"}</h3><p>Address and map data can be added from onboarding.</p></article>

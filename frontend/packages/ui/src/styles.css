@@ -1,20 +1,41 @@
+@import url('/font/iranSansx/css/iranSansX.css');
+
+@font-face {
+  font-family: "IRANSansX";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url("/font/iranSansx/fonts/Woff/IRANSansXFaNum-Regular.woff") format("woff"),
+    url("/font/iranSansx/fonts/Woff2/IRANSansXFaNum-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANSansX";
+  font-style: normal;
+  font-weight: 700;
+  src:
+    url("/font/iranSansx/fonts/Woff/IRANSansXFaNum-Bold.woff") format("woff"),
+    url("/font/iranSansx/fonts/Woff2/IRANSansXFaNum-Bold.woff2") format("woff2");
+  font-display: swap;
+}
+
 :root {
   color-scheme: dark;
-  --qf-bg: #050816;
-  --qf-surface: rgba(10, 18, 38, 0.72);
-  --qf-surface-strong: rgba(13, 21, 42, 0.94);
-  --qf-surface-soft: rgba(255, 255, 255, 0.03);
-  --qf-border: rgba(148, 163, 184, 0.18);
-  --qf-border-strong: rgba(148, 163, 184, 0.26);
-  --qf-text: #e5eefb;
-  --qf-muted: #9bb0d1;
-  --qf-primary: #10b981;
-  --qf-primary-hover: #0f766e;
-  --qf-secondary: #8b5cf6;
-  --qf-font-fa: "Vazirmatn", "IRANYekanX", "IRANSansX", "Tahoma", "Segoe UI", sans-serif;
-  --qf-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
-  font-family:
-    var(--qf-font-fa);
+  --qf-bg: #040712;
+  --qf-surface: rgba(13, 18, 34, 0.78);
+  --qf-surface-strong: rgba(8, 12, 24, 0.96);
+  --qf-surface-soft: rgba(255, 255, 255, 0.035);
+  --qf-border: rgba(154, 166, 190, 0.18);
+  --qf-border-strong: rgba(154, 166, 190, 0.28);
+  --qf-text: #edf2ff;
+  --qf-muted: #9da9c4;
+  --qf-primary: #5a78ff;
+  --qf-primary-hover: #435edb;
+  --qf-secondary: #df3d3d;
+  --qf-font-fa: "IRANSansX", "Tahoma", "Segoe UI", sans-serif;
+  --qf-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+  font-family: var(--qf-font-fa);
 }
 
 * {
@@ -31,8 +52,11 @@ body,
 body {
   color: var(--qf-text);
   background:
-    radial-gradient(circle at top, #101b34 0%, #050816 55%, #02040c 100%);
+    radial-gradient(circle at top right, rgba(90, 120, 255, 0.16), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(223, 61, 61, 0.12), transparent 26%),
+    linear-gradient(180deg, #040712 0%, #060a18 50%, #050813 100%);
   font-family: var(--qf-font-fa);
+  direction: rtl;
 }
 
 button,
@@ -66,9 +90,9 @@ select {
   justify-content: space-between;
   gap: 16px;
   border: 1px solid var(--qf-border);
-  background: linear-gradient(180deg, rgba(16, 24, 40, 0.88), rgba(10, 18, 38, 0.78));
+  background: linear-gradient(180deg, rgba(14, 20, 38, 0.88), rgba(8, 12, 24, 0.78));
   backdrop-filter: blur(18px);
-  border-radius: 28px;
+  border-radius: 30px;
   padding: 18px 22px;
   box-shadow: var(--qf-shadow);
 }
@@ -77,9 +101,9 @@ select {
   margin: 0 0 6px;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #10b981;
+  color: #7b9aff;
 }
 
 .qf-shell__title {
@@ -90,7 +114,7 @@ select {
 
 .qf-badge {
   border-radius: 999px;
-  background: var(--qf-primary);
+  background: linear-gradient(135deg, var(--qf-secondary), #9f1930);
   color: white;
   padding: 8px 12px;
   font-size: 12px;
@@ -116,7 +140,7 @@ select {
 .qf-card {
   border-radius: 32px;
   border: 1px solid var(--qf-border-strong);
-  background: var(--qf-surface-strong);
+  background: linear-gradient(180deg, rgba(14, 20, 38, 0.86), rgba(8, 12, 24, 0.94));
   box-shadow: var(--qf-shadow);
   padding: clamp(24px, 4vw, 40px);
 }
@@ -283,16 +307,19 @@ select {
 
 .qf-panel {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
+  display: flex;
+  flex-direction: row-reverse;
   background:
-    radial-gradient(circle at top, #101b34 0%, #050816 55%, #02040c 100%);
+    radial-gradient(circle at top right, rgba(90, 120, 255, 0.12), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(223, 61, 61, 0.08), transparent 28%),
+    linear-gradient(180deg, #040712 0%, #060a18 50%, #050813 100%);
 }
 
 .qf-panel__aside {
-  padding: 24px;
-  border-right: 1px solid rgba(148, 163, 184, 0.14);
-  background: rgba(5, 8, 22, 0.76);
+  width: 280px;
+  padding: 24px 16px;
+  border-left: 1px solid rgba(154, 166, 190, 0.14);
+  background: linear-gradient(180deg, rgba(17, 23, 39, 0.86), rgba(10, 14, 27, 0.94));
   backdrop-filter: blur(18px);
   position: sticky;
   top: 0;
@@ -311,7 +338,7 @@ select {
 
 .qf-panel__nav a {
   padding: 12px 14px;
-  border-radius: 14px;
+  border-radius: 16px;
   color: var(--qf-muted);
   border: 1px solid transparent;
   transition: 180ms ease;
@@ -328,14 +355,18 @@ select {
   min-width: 0;
   display: grid;
   grid-template-rows: auto 1fr;
+  flex: 1;
 }
 
 .qf-panel__topbar {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 16px clamp(16px, 2.5vw, 28px) 0;
+  padding: 18px clamp(16px, 2.5vw, 30px) 16px;
+  border-bottom: 1px solid rgba(154, 166, 190, 0.12);
+  background: rgba(5, 8, 18, 0.8);
+  backdrop-filter: blur(14px);
 }
 
 .qf-panel__menuButton,
@@ -412,24 +443,20 @@ select {
   }
 
   .qf-panel {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 
   .qf-panel__aside {
     position: fixed;
-    inset: 0 auto 0 0;
+    inset: 0 0 0 auto;
     width: min(320px, 88vw);
-    transform: translateX(-102%);
+    transform: translateX(102%);
     transition: transform 220ms ease;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
   }
 
   .qf-panel__aside.is-open {
     transform: translateX(0);
-  }
-
-  .qf-panel__topbar {
-    display: flex;
   }
 
   .qf-panel__overlay {
@@ -459,49 +486,74 @@ select {
 .qf-auth {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(420px, 0.85fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(390px, 0.8fr);
   font-family: var(--qf-font-fa);
   background:
-    radial-gradient(circle at top right, rgba(139, 92, 246, 0.2), transparent 34%),
-    radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.12), transparent 30%),
-    linear-gradient(135deg, #050816 0%, #081025 40%, #02040c 100%);
+    radial-gradient(circle at 14% 18%, rgba(90, 120, 255, 0.2), transparent 28%),
+    radial-gradient(circle at 82% 82%, rgba(223, 61, 61, 0.12), transparent 24%),
+    linear-gradient(135deg, #03060f 0%, #050816 42%, #02040c 100%);
+  overflow: hidden;
 }
 
 .qf-auth__visual {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  border-inline-end: 1px solid rgba(148, 163, 184, 0.14);
-}
-
-.qf-auth__visualBackdrop {
-  position: absolute;
-  inset: 0;
-  background-position: center left;
-  background-size: cover;
-  background-repeat: no-repeat;
-  filter: saturate(1.05);
-  transform: scale(1.04);
-}
-
-.qf-auth__visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+  isolation: isolate;
   background:
-    linear-gradient(180deg, rgba(5, 8, 22, 0.12), rgba(5, 8, 22, 0.82)),
-    linear-gradient(90deg, rgba(5, 8, 22, 0.04), rgba(5, 8, 22, 0.7));
+    radial-gradient(circle at 18% 16%, rgba(90, 120, 255, 0.16), transparent 28%),
+    linear-gradient(135deg, rgba(3, 6, 15, 0.98), rgba(2, 4, 12, 0.92));
 }
 
 .qf-auth__visualContent {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 18px;
-  align-content: center;
+  position: absolute;
+  inset: 0;
   min-height: 100vh;
-  padding: clamp(28px, 5vw, 64px);
-  max-width: 720px;
+  overflow: hidden;
+}
+
+.qf-auth__visualBg {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  filter: saturate(1.06) contrast(1.03);
+}
+
+.qf-auth__visualOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3, 6, 15, 0.2), rgba(3, 6, 15, 0.58) 74%, rgba(3, 6, 15, 0.78)),
+    radial-gradient(circle at 15% 24%, rgba(132, 84, 255, 0.16), transparent 34%),
+    radial-gradient(circle at 80% 72%, rgba(16, 185, 129, 0.08), transparent 30%);
+}
+
+.qf-auth__visualCopy {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 18px;
+  padding: clamp(24px, 5vw, 72px);
+  text-align: right;
+}
+
+.qf-srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .qf-auth__eyebrow {
@@ -512,102 +564,143 @@ select {
   font-weight: 800;
 }
 
-.qf-auth__brand {
+.qf-auth__cardBrand {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 10px;
 }
 
-.qf-auth__brand img {
-  width: 68px;
-  height: 68px;
+.qf-auth__cardBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 86px;
+  height: 86px;
+  border-radius: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+.qf-auth__cardBadge img {
+  width: 72%;
+  height: 72%;
   object-fit: contain;
-  border-radius: 18px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
 }
 
-.qf-auth__brand strong {
+.qf-auth__cardBrandText {
+  display: grid;
+  gap: 2px;
+}
+
+.qf-auth__cardBrandText strong {
   display: block;
   font-size: 1.1rem;
   letter-spacing: 0.04em;
 }
 
-.qf-auth__brand span {
-  display: block;
+.qf-auth__cardBrandText span {
   color: var(--qf-muted);
   font-size: 0.92rem;
-  margin-top: 4px;
 }
 
-.qf-auth__visualContent h1 {
+.qf-auth__cardTitle {
+  margin: 16px 0 0;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.12;
+  text-align: center;
+}
+
+.qf-auth__visualTitle {
   margin: 0;
-  font-size: clamp(2.5rem, 5vw, 5rem);
-  line-height: 0.96;
+  font-size: clamp(2.4rem, 4vw, 4.6rem);
+  line-height: 1.02;
   max-width: 12ch;
+  color: #fff;
 }
 
-.qf-auth__visualContent p {
+.qf-auth__visualDescription {
   margin: 0;
-  color: rgba(229, 238, 251, 0.82);
-  line-height: 1.95;
-  max-width: 52ch;
-  font-size: 1rem;
+  max-width: 42ch;
+  color: rgba(248, 250, 252, 0.8);
+  line-height: 1.9;
 }
 
-.qf-auth__points {
+.qf-auth__visualCards {
   display: grid;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 10px;
+  width: min(100%, 460px);
 }
 
-.qf-auth__point {
-  display: flex;
-  flex-direction: column;
+.qf-auth__visualPoint {
+  display: grid;
   gap: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
   padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px);
-  max-width: 420px;
+  border-radius: 20px;
+  border: 1px solid rgba(154, 166, 190, 0.14);
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(14px);
 }
 
-.qf-auth__point strong {
-  font-size: 1rem;
+.qf-auth__visualPoint strong {
+  font-size: 0.98rem;
 }
 
-.qf-auth__point span {
-  color: rgba(229, 238, 251, 0.72);
-  line-height: 1.8;
+.qf-auth__visualPoint span {
+  color: rgba(248, 250, 252, 0.68);
+  line-height: 1.75;
+  font-size: 0.88rem;
+}
+
+.qf-auth__cardDescription {
+  margin: 14px auto 0;
+  max-width: 34ch;
+  color: rgba(229, 238, 251, 0.8);
+  line-height: 1.9;
+  text-align: center;
 }
 
 .qf-auth__panel {
   display: grid;
   align-items: center;
-  padding: clamp(20px, 4vw, 40px);
+  justify-items: center;
+  padding: clamp(18px, 4vw, 42px);
 }
 
 .qf-auth__card {
   display: grid;
-  gap: 18px;
-  padding: clamp(22px, 3vw, 34px);
-  border-radius: 34px;
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  gap: 16px;
+  width: min(100%, 580px);
+  padding: clamp(22px, 3vw, 36px);
+  border-radius: 38px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
   background:
-    linear-gradient(180deg, rgba(12, 18, 34, 0.94), rgba(7, 10, 20, 0.86));
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.04), transparent 28%),
+    linear-gradient(180deg, rgba(12, 18, 34, 0.96), rgba(7, 10, 20, 0.88));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 30px 80px rgba(0, 0, 0, 0.42);
+}
+
+.qf-auth__card--minimal {
+  width: min(100%, 440px);
+  gap: 14px;
+  padding: clamp(20px, 2.8vw, 30px);
+  justify-self: center;
 }
 
 .qf-auth__cardHeader {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
 }
 
-.qf-auth__cardHeader h2 {
-  margin: 6px 0 0;
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
+.qf-auth__cardHeader .qf-auth__eyebrow {
+  margin-inline-start: auto;
 }
 
 .qf-auth__back {
@@ -620,16 +713,54 @@ select {
   padding: 10px 14px;
   color: var(--qf-text);
   background: rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.qf-auth__back:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(148, 163, 184, 0.3);
 }
 
 .qf-auth__form {
   display: grid;
   gap: 14px;
+  margin-top: 6px;
+}
+
+.qf-auth__form--minimal {
+  gap: 12px;
+  margin-top: 0;
+}
+
+.qf-auth__formPrelude {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.qf-auth__formPrelude span {
+  color: #a7f3d0;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.qf-auth__formPrelude strong {
+  color: var(--qf-text);
+  font-size: 1.05rem;
 }
 
 .qf-auth__field {
   display: grid;
   gap: 8px;
+  text-align: right;
 }
 
 .qf-auth__field span {
@@ -638,12 +769,17 @@ select {
 }
 
 .qf-auth__field input {
-  border-radius: 18px;
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  background: rgba(2, 4, 12, 0.72);
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(2, 4, 12, 0.76);
   color: var(--qf-text);
-  padding: 14px 16px;
+  padding: 15px 16px;
   outline: none;
+}
+
+.qf-auth__field input::placeholder {
+  color: rgba(157, 169, 196, 0.72);
 }
 
 .qf-auth__field input:focus {
@@ -653,8 +789,9 @@ select {
 
 .qf-auth__submit {
   appearance: none;
+  width: 100%;
   border: 1px solid rgba(16, 185, 129, 0.35);
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 14px 18px;
   background: linear-gradient(135deg, #10b981, #0f766e);
   color: white;
@@ -682,18 +819,94 @@ select {
   padding: 12px 14px;
 }
 
-.qf-auth__credentials {
-  border-radius: 28px;
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 18px;
+.qf-auth__extras {
+  border-radius: 26px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(255, 255, 255, 0.025);
+  padding: 14px;
 }
 
-.qf-auth__extras {
-  border-radius: 28px;
-  border: 1px solid rgba(148, 163, 184, 0.14);
+.qf-auth__summary {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.qf-auth__summary strong {
+  font-size: 1rem;
+}
+
+.qf-auth__summary span {
+  color: var(--qf-muted);
+  line-height: 1.8;
+  font-size: 0.92rem;
+}
+
+.qf-auth__summaryList {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.qf-auth__summaryItem {
+  display: grid;
+  gap: 4px;
+  border-radius: 18px;
+  border: 1px solid rgba(154, 166, 190, 0.12);
   background: rgba(255, 255, 255, 0.03);
-  padding: 18px;
+  padding: 12px 14px;
+}
+
+.qf-auth__summaryItem span {
+  color: var(--qf-muted);
+  line-height: 1.75;
+  font-size: 0.88rem;
+}
+
+.qf-auth__credentials {
+  display: grid;
+  gap: 10px;
+}
+
+.qf-auth__credentialsHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.qf-auth__credentialsHead h3 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.qf-auth__credentialsHead span {
+  color: var(--qf-muted);
+  font-size: 0.82rem;
+}
+
+.qf-auth__credentialList {
+  display: grid;
+  gap: 10px;
+}
+
+.qf-auth__credential {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(154, 166, 190, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.qf-auth__credential strong {
+  font-size: 0.92rem;
+}
+
+.qf-auth__credential span {
+  color: var(--qf-muted);
+  line-height: 1.75;
+  font-size: 0.88rem;
 }
 
 .qf-auth__rolePicker {
@@ -710,6 +923,16 @@ select {
   padding: 12px 14px;
   font-weight: 700;
   cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.qf-auth__roleButton:hover {
+  transform: translateY(-1px);
+  border-color: rgba(148, 163, 184, 0.26);
 }
 
 .qf-auth__roleButton.is-active {
@@ -718,48 +941,12 @@ select {
   color: #dffaf0;
 }
 
-.qf-auth__credentialsHead {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: baseline;
-  margin-bottom: 14px;
-}
-
-.qf-auth__credentialsHead h3 {
+.qf-auth__footerNote {
   margin: 0;
-  font-size: 1.05rem;
-}
-
-.qf-auth__credentialsHead span {
-  color: var(--qf-muted);
-  font-size: 12px;
-}
-
-.qf-auth__credentialList {
-  display: grid;
-  gap: 10px;
-}
-
-.qf-auth__credential {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-  border-radius: 18px;
-  border: 1px solid rgba(148, 163, 184, 0.12);
-  background: rgba(2, 6, 23, 0.58);
-  padding: 12px 14px;
-}
-
-.qf-auth__credential strong {
-  font-size: 0.95rem;
-}
-
-.qf-auth__credential span {
-  color: var(--qf-muted);
-  word-break: break-word;
+  color: rgba(155, 176, 209, 0.9);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  text-align: center;
 }
 
 @media (max-width: 1040px) {
@@ -768,13 +955,17 @@ select {
   }
 
   .qf-auth__visual {
-    min-height: 52vh;
+    min-height: 46vh;
     border-inline-end: 0;
     border-bottom: 1px solid rgba(148, 163, 184, 0.14);
   }
 
   .qf-auth__visualContent {
-    min-height: 52vh;
+    min-height: 46vh;
+  }
+
+  .qf-auth__visualCopy {
+    padding: 24px;
   }
 
   .qf-auth__panel {
@@ -783,5 +974,35 @@ select {
 
   .qf-auth__rolePicker {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .qf-auth__card {
+    border-radius: 30px;
+    padding: 20px;
+  }
+
+  .qf-auth__card--minimal {
+    width: min(100%, 100%);
+  }
+
+  .qf-auth__cardHeader {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .qf-auth__cardBrand {
+    gap: 10px;
+  }
+
+  .qf-auth__cardBadge {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+  }
+
+  .qf-auth__visualTitle {
+    font-size: clamp(2rem, 8vw, 3rem);
   }
 }

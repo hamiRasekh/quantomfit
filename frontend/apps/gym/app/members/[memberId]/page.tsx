@@ -19,10 +19,11 @@ const api = createApiClient({
   },
 });
 
-export default async function Page({ params }: { params: { memberId: string } }) {
+export default async function Page({ params }: { params: Promise<{ memberId: string }> }) {
+  const { memberId } = await params;
   let member: MemberDetail | null = null;
   try {
-    member = await api.get<MemberDetail>(`/api/v1/members/${params.memberId}`);
+    member = await api.get<MemberDetail>(`/api/v1/members/${memberId}`);
   } catch {
     member = null;
   }
@@ -31,7 +32,7 @@ export default async function Page({ params }: { params: { memberId: string } })
     <section className="shell">
       <header className="hero">
         <span className="label">Member detail</span>
-        <h1>{member?.fullName ?? `Member ${params.memberId}`}</h1>
+        <h1>{member?.fullName ?? `Member ${memberId}`}</h1>
         <p>Attendance, plan status, and communication history in one tenant-safe view.</p>
       </header>
       <div className="detail-grid">

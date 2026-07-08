@@ -1,4 +1,26 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/integrations/page": "app/integrations/page.js",
+  "/classes/page": "app/classes/page.js",
+  "/analytics/page": "app/analytics/page.js",
+  "/attendance/page": "app/attendance/page.js",
+  "/live/page": "app/live/page.js",
+  "/members/new/page": "app/members/new/page.js",
+  "/equipment/page": "app/equipment/page.js",
+  "/login/page": "app/login/page.js",
+  "/occupancy/page": "app/occupancy/page.js",
+  "/members/page": "app/members/page.js",
+  "/members/[memberId]/page": "app/members/[memberId]/page.js",
   "/page": "app/page.js",
-  "/login/page": "app/login/page.js"
+  "/programs/[programId]/page": "app/programs/[programId]/page.js",
+  "/profile/page": "app/profile/page.js",
+  "/onboarding/page": "app/onboarding/page.js",
+  "/programs/new/page": "app/programs/new/page.js",
+  "/programs/page": "app/programs/page.js",
+  "/reports/page": "app/reports/page.js",
+  "/settings/page": "app/settings/page.js",
+  "/subscriptions/page": "app/subscriptions/page.js",
+  "/sms/page": "app/sms/page.js",
+  "/trainers/[trainerId]/page": "app/trainers/[trainerId]/page.js",
+  "/trainers/page": "app/trainers/page.js"
 }

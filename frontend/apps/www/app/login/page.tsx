@@ -17,8 +17,8 @@ const roleConfig: Record<Role, { label: string; panelContext: string; tenantSubd
     label: "مدیر باشگاه",
     panelContext: "gym",
     tenantSubdomain: "gym",
-    email: "owner@demo-gym.ir",
-    password: "Owner#2026",
+    email: "club-owner@demo-gym.ir",
+    password: "Club#2026",
     panelName: "پنل باشگاه",
   },
   trainer: {
@@ -48,28 +48,26 @@ export default function Page() {
       key={role}
       eyebrow="درگاه ورود"
       panelName={config.panelName}
-      title="ورود فارسی و جداگانه برای همه‌ی پنل‌ها"
-      description="از این صفحه نقش خود را انتخاب کنید تا مستقیم وارد پنل مربوطه شوید و توکن همان بخش ذخیره شود."
-      logoSrc="/images/login/logo-white.png"
+      title="ورود به پنل مناسب"
+      description="نقش خود را انتخاب کنید و مستقیم وارد شوید."
+      logoSrc="/assets/small-logo.png"
       logoAlt="لوگوی QuantumFit"
-      heroImageSrc="/images/login/logo-white.png"
-      heroImageAlt="لوگوی QuantumFit"
+      heroImageSrc="/assets/login-background.png"
+      heroImageAlt="پس‌زمینه ورود"
       heroAccent="درگاه مرکزی ورود"
-      summaryTitle="انتخاب نقش"
-      summaryPoints={["توکن جدا برای هر نقش", "هدایت مستقیم به زیر دامنه درست", "ورود یک‌مرحله‌ای و فارسی"]}
-      credentials={[
-        { label: "مدیر کل", value: "admin@quantumfit.ir / Admin#2026" },
-        { label: "مدیر باشگاه", value: "owner@demo-gym.ir / Owner#2026" },
-        { label: "مربی", value: "trainer@demo-gym.ir / Trainer#2026" },
-        { label: "ورزشکار", value: "athlete@demo-gym.ir / Athlete#2026" },
-      ]}
       formTitle="درگاه ورود"
       formSubtitle="نقش خود را انتخاب کنید"
       submitLabel={`ورود به ${config.label}`}
       backHref="/"
+      summaryTitle="دسترسی سریع"
+      summaryPoints={["چهار نقش", "ورود مستقل", "ذخیره سشن جداگانه"]}
+      credentials={[
+        { label: "ادمین", value: "admin@quantumfit.ir / Admin#2026" },
+        { label: "باشگاه", value: "club-owner@demo-gym.ir / Club#2026" },
+      ]}
       defaultEmail={config.email}
       defaultPassword={config.password}
-      footerNote="این درگاه فقط نقش را انتخاب می‌کند و سپس سشن همان پنل را جداگانه ذخیره می‌کند."
+      footerNote="سشن هر نقش جدا ذخیره می‌شود."
       onSubmit={async ({ email, password }) => {
         const client = createApiClient({
           defaultHeaders: {

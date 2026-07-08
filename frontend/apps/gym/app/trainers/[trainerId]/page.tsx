@@ -14,10 +14,11 @@ const api = createApiClient({
   },
 });
 
-export default async function Page({ params }: { params: { trainerId: string } }) {
+export default async function Page({ params }: { params: Promise<{ trainerId: string }> }) {
+  const { trainerId } = await params;
   let trainer: TrainerDetail | null = null;
   try {
-    trainer = await api.get<TrainerDetail>(`/api/v1/trainers/${params.trainerId}`);
+    trainer = await api.get<TrainerDetail>(`/api/v1/trainers/${trainerId}`);
   } catch {
     trainer = null;
   }
@@ -26,13 +27,13 @@ export default async function Page({ params }: { params: { trainerId: string } }
     <section className="shell">
       <header className="hero">
         <span className="label">Trainer detail</span>
-        <h1>{trainer?.fullName ?? `Trainer ${params.trainerId}`}</h1>
+        <h1>{trainer?.fullName ?? `Trainer ${trainerId}`}</h1>
         <p>Specialty, schedule, and member assignments inside one gym tenant.</p>
       </header>
       <div className="detail-grid">
         <article><span className="status">Specialty</span><h3>{trainer?.specialty ?? "General coaching"}</h3><p>Focus area resolved from tenant data.</p></article>
         <article><span className="status">Status</span><h3>{trainer?.status ?? "active"}</h3><p>Current trainer state.</p></article>
-        <article><span className="status">ID</span><h3>{trainer?.id ?? params.trainerId}</h3><p>Tenant scoped record.</p></article>
+        <article><span className="status">ID</span><h3>{trainer?.id ?? trainerId}</h3><p>Tenant scoped record.</p></article>
       </div>
       <div className="panel">
         <div className="section-head">

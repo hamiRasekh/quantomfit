@@ -16,26 +16,25 @@ export default function Page() {
       eyebrow="ورود مدیر کل"
       panelName="پنل ادمین"
       title="ورود امن به کنترل‌سنتر پلتفرم"
-      description="برای مدیریت کاربران، باشگاه‌ها، محتوا، پلن‌ها و گزارش‌های سراسری از این صفحه وارد شوید."
-      logoSrc="/images/login/logo-white.png"
+      description="فقط مدیر کل از این مسیر وارد می‌شود."
+      logoSrc="/assets/small-logo.png"
       logoAlt="لوگوی QuantumFit"
-      heroImageSrc="/images/login/logo-white.png"
-      heroImageAlt="لوگوی روشن QuantumFit"
+      heroImageSrc="/assets/login-background.png"
+      heroImageAlt="پس‌زمینه ورود"
       heroAccent="کنترل سراسری پلتفرم"
-      summaryTitle="دسترسی مدیر"
-      summaryPoints={["بررسی اکانت‌ها", "مدیریت محتوا", "نظارت بر کل سیستم"]}
-      credentials={[
-        { label: "نام کاربری", value: "admin@quantumfit.ir" },
-        { label: "رمز عبور", value: "Admin#2026" },
-        { label: "سطح دسترسی", value: "platform control" },
-      ]}
       formTitle="پنل ادمین"
       formSubtitle="با حساب مدیر کل وارد شوید"
       submitLabel="ورود به پنل"
       backHref="/"
+      summaryTitle="دسترسی مدیر"
+      summaryPoints={["کاربران", "باشگاه‌ها", "محتوا و پلن‌ها"]}
+      credentials={[
+        { label: "نام کاربری", value: "admin@quantumfit.ir" },
+        { label: "رمز عبور", value: "Admin#2026" },
+      ]}
       defaultEmail="admin@quantumfit.ir"
       defaultPassword="Admin#2026"
-      footerNote="توکن این پنل به‌صورت جداگانه ذخیره می‌شود و به پنل‌های دیگر کاری ندارد."
+      footerNote="توکن این پنل جدا ذخیره می‌شود."
       onSubmit={async ({ email, password }) => {
         const session = await api.post<{ accessToken: string; refreshToken: string; claims: { role: string; tenantId?: string } }>("/api/v1/auth/login", {
           email,

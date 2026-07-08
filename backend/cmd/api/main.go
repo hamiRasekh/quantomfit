@@ -29,7 +29,14 @@ func main() {
 	}
 	defer pool.Close()
 
-	container := bootstrap.New(cfg, startedAt, dbinfra.NewStore(pool))
+	store := dbinfra.NewStore(pool)
+	if cfg.Env != "production" {
+		if err := store.SyncDemoCredentials(context.Background()); err != nil {
+			logger.Fatal().Err(err).Msg("sync demo credentials")
+		}
+	}
+
+	container := bootstrap.New(cfg, startedAt, store)
 
 	srv := &http.Server{
 		Addr:              cfg.HTTP.Addr,

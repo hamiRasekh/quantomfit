@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import { createApiClient } from "@quantomfit/api-client";
 
 const api = createApiClient({
@@ -29,8 +30,9 @@ type Program = {
   status: string;
 };
 
-export default function Page({ params }: { params: { studentId: string } }) {
-  const { studentId } = params;
+export default function Page() {
+  const params = useParams<{ studentId?: string }>();
+  const studentId = params.studentId ?? "";
   const [student, setStudent] = useState<Student | null>(null);
   const [programs, setPrograms] = useState<Program[]>([]);
   const [programId, setProgramId] = useState("");

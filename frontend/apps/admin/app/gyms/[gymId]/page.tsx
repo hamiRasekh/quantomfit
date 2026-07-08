@@ -15,8 +15,8 @@ type GymItem = {
   subscriptionStatus: string;
 };
 
-export default async function Page({ params }: { params: { gymId: string } }) {
-  const { gymId } = params;
+export default async function Page({ params }: { params: Promise<{ gymId: string }> }) {
+  const { gymId } = await params;
   let gym: GymItem | null = null;
 
   try {

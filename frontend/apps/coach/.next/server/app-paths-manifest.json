@@ -1,3 +1,13 @@
 {
-  "/login/page": "app/login/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/calendar/page": "app/calendar/page.js",
+  "/page": "app/page.js",
+  "/login/page": "app/login/page.js",
+  "/profile/page": "app/profile/page.js",
+  "/programs/page": "app/programs/page.js",
+  "/reports/page": "app/reports/page.js",
+  "/programs/[programId]/page": "app/programs/[programId]/page.js",
+  "/students/[studentId]/page": "app/students/[studentId]/page.js",
+  "/students/page": "app/students/page.js",
+  "/templates/page": "app/templates/page.js"
 }

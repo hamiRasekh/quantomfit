@@ -5,6 +5,9 @@ export type ApiClientOptions = {
 };
 
 export function resolveApiBaseUrl(fallback = "http://localhost:8080") {
+  if (typeof window !== "undefined") {
+    return "";
+  }
   return (
     process.env.NEXT_PUBLIC_API_BASE_URL?.trim() ||
     process.env.API_BASE_URL?.trim() ||

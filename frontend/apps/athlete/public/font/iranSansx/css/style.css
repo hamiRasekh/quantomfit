@@ -1,0 +1,16 @@
+@import url(iranSansX.css); /* لینک فایلی که وظیفه بارگذاری فونت ها را برعهده دارد */
+body {
+	font-family: IRANSansX !important;	
+	direction: rtl;
+	background-color: #fff;		
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	overflow-x: hidden !important;
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; 
+}

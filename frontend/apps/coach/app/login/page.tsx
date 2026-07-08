@@ -16,27 +16,26 @@ export default function Page() {
     <AuthLoginFrame
       eyebrow="ورود مربی"
       panelName="پنل مربی"
-      title="ورود اختصاصی برای مربیان"
-      description="مربی‌ها از این صفحه وارد می‌شوند و فقط توکن پنل مربی برایشان ذخیره خواهد شد."
-      logoSrc="/images/login/logo-lite.png"
+      title="ورود مربی"
+      description="این صفحه فقط برای مربیان است."
+      logoSrc="/assets/small-logo.png"
       logoAlt="لوگوی QuantumFit"
-      heroImageSrc="/images/login/coach-login.png"
-      heroImageAlt="صفحه ورود مربی"
+      heroImageSrc="/assets/login-background.png"
+      heroImageAlt="پس‌زمینه ورود"
       heroAccent="فضای مربیان"
-      summaryTitle="ابزارهای مربی"
-      summaryPoints={["برنامه‌ها", "شاگردها", "تقویم و گزارش"]}
-      credentials={[
-        { label: "نام کاربری", value: "trainer@demo-gym.ir" },
-        { label: "رمز عبور", value: "Trainer#2026" },
-        { label: "پنل", value: "coach.quantumfit.ir" },
-      ]}
       formTitle="پنل مربی"
       formSubtitle="با حساب مربی وارد شوید"
       submitLabel="ورود به پنل مربی"
       backHref="/"
+      summaryTitle="دسترسی مربی"
+      summaryPoints={["شاگردها", "برنامه‌ها", "تقویم و گزارش‌ها"]}
+      credentials={[
+        { label: "نام کاربری", value: "trainer@demo-gym.ir" },
+        { label: "رمز عبور", value: "Trainer#2026" },
+      ]}
       defaultEmail="trainer@demo-gym.ir"
       defaultPassword="Trainer#2026"
-      footerNote="این ورود فقط برای مربیان است و توکن جداگانه‌ی خودش را نگه می‌دارد."
+      footerNote="توکن این بخش جدا ذخیره می‌شود."
       onSubmit={async ({ email, password }) => {
         const session = await api.post<{ accessToken: string; refreshToken: string; claims: { role: string; tenantId?: string } }>("/api/v1/auth/login", {
           email,

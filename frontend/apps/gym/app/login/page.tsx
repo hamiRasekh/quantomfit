@@ -16,27 +16,27 @@ export default function Page() {
     <AuthLoginFrame
       eyebrow="ورود مدیر باشگاه"
       panelName="پنل باشگاه"
-      title="ورود اختصاصی برای مدیران باشگاه"
-      description="ورود این بخش فقط برای صاحب باشگاه است و پس از ورود، توکن جداگانه‌ی همین پنل ذخیره می‌شود."
-      logoSrc="/images/login/logo.png"
+      title="ورود مدیر باشگاه"
+      description="این مسیر فقط برای مالک باشگاه است."
+      logoSrc="/assets/small-logo.png"
       logoAlt="لوگوی QuantumFit"
-      heroImageSrc="/images/login/gym-login.png"
-      heroImageAlt="صفحه ورود باشگاه"
+      heroImageSrc="/assets/login-background.png"
+      heroImageAlt="پس‌زمینه ورود"
       heroAccent="مدیریت باشگاه"
-      summaryTitle="عملیات باشگاه"
-      summaryPoints={["داشبورد زنده", "اعضا و مربی‌ها", "تجهیزات و اشتراک‌ها"]}
-      credentials={[
-        { label: "نام کاربری", value: "owner@demo-gym.ir" },
-        { label: "رمز عبور", value: "Owner#2026" },
-        { label: "پنل", value: "gym.quantumfit.ir" },
-      ]}
       formTitle="پنل باشگاه"
       formSubtitle="با حساب مدیر باشگاه وارد شوید"
       submitLabel="ورود به پنل باشگاه"
       backHref="/"
-      defaultEmail="owner@demo-gym.ir"
-      defaultPassword="Owner#2026"
-      footerNote="این حساب برای پنل باشگاه ساخته شده و با پنل مربی یا ورزشکار قاطی نمی‌شود."
+      summaryTitle="عملیات باشگاه"
+      summaryPoints={["داشبورد زنده", "اعضا و اشتراک‌ها", "کلاس‌ها و گزارش‌ها"]}
+      credentials={[
+        { label: "حساب اصلی باشگاه", value: "club-owner@demo-gym.ir / Club#2026" },
+        { label: "حساب جایگزین", value: "owner@demo-gym.ir / Owner#2026" },
+        { label: "دامنه", value: "gym.quantumfit.ir" },
+      ]}
+      defaultEmail="club-owner@demo-gym.ir"
+      defaultPassword="Club#2026"
+      footerNote="اگر دیتابیس قدیمی باشد، حساب جایگزین owner@demo-gym.ir / Owner#2026 هم فعال است."
       onSubmit={async ({ email, password }) => {
         const session = await api.post<{ accessToken: string; refreshToken: string; claims: { role: string; tenantId?: string } }>("/api/v1/auth/login", {
           email,

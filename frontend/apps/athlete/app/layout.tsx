@@ -28,8 +28,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <PanelShell
           loginPath="/login"
           requiredRoles={["athlete"]}
-          brand="Athlete App"
-          subtitle="member workspace"
+          brand="اپ ورزشکار"
+          subtitle="فضای عضو"
           navItems={navItems}
           topActions={<LanguageSwitcher />}
           logoutHref="/login"
