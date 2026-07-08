@@ -6,21 +6,21 @@ import { LanguageSwitcher } from "@quantomfit/ui";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "QuantumFit Athlete App",
-  description: "Athlete web app for QuantumFit.",
+  title: "اپ ورزشکار QuantumFit",
+  description: "اپ ورزشکار QuantumFit.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const locale = defaultLocale;
   const navItems: PanelNavItem[] = [
-    { href: "/", label: "داشبورد" },
-    { href: "/workout", label: "تمرین" },
-    { href: "/attendance", label: "حضور و غیاب" },
-    { href: "/progress", label: "پیشرفت" },
-    { href: "/gym", label: "باشگاه من" },
-    { href: "/coaches", label: "مربی‌ها" },
-    { href: "/notifications", label: "اعلان‌ها" },
-    { href: "/profile", label: "پروفایل" },
+    { href: "/", label: "داشبورد", icon: "◩" },
+    { href: "/workout", label: "تمرین", icon: "▤" },
+    { href: "/attendance", label: "حضور و غیاب", icon: "⌁" },
+    { href: "/progress", label: "پیشرفت", icon: "◈" },
+    { href: "/gym", label: "باشگاه من", icon: "▣" },
+    { href: "/coaches", label: "مربی‌ها", icon: "◌" },
+    { href: "/notifications", label: "اعلان‌ها", icon: "✧" },
+    { href: "/profile", label: "پروفایل", icon: "◓" },
   ];
   return (
     <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"}>
@@ -30,6 +30,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           requiredRoles={["athlete"]}
           brand="اپ ورزشکار"
           subtitle="فضای عضو"
+          brandLogoSrc="/assets/small-logo.png"
+          brandLogoAlt="لوگوی QuantumFit"
           navItems={navItems}
           topActions={<LanguageSwitcher />}
           logoutHref="/login"

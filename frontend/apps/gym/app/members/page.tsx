@@ -63,68 +63,68 @@ export default function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Members</span>
-        <h1>Manage all members within the tenant boundary.</h1>
-        <p>Search, review, and open member records without leaving the gym panel.</p>
+        <span className="label">اعضا</span>
+        <h1>همه اعضا را داخل مرز همین باشگاه مدیریت کن.</h1>
+        <p>جست‌وجو، بازبینی و باز کردن رکوردهای عضو بدون خروج از پنل باشگاه.</p>
       </header>
       <div className="toolbar">
-        <a className="button secondary" href="/attendance">Attendance</a>
-        <a className="button secondary" href="/reports">Reports</a>
+        <a className="button secondary" href="/attendance">حضور و غیاب</a>
+        <a className="button secondary" href="/reports">گزارش‌ها</a>
       </div>
       <div className="detail-grid">
-        <article><span className="status">Search</span><h3>Fast lookup</h3><p>By name, phone, and status.</p></article>
-        <article><span className="status">Profiles</span><h3>Membership detail</h3><p>Plans, attendance, and contact info.</p></article>
-        <article><span className="status">Actions</span><h3>Add and remove</h3><p>Simple CRUD with tenant-safe backend calls.</p></article>
+        <article><span className="status">جست‌وجو</span><h3>یافتن سریع</h3><p>بر اساس نام، تلفن و وضعیت.</p></article>
+        <article><span className="status">پروفایل</span><h3>جزئیات عضویت</h3><p>پلن‌ها، حضور و اطلاعات تماس.</p></article>
+        <article><span className="status">عملیات</span><h3>افزودن و حذف</h3><p>CRUD ساده با فراخوانی امن سمت سرور.</p></article>
       </div>
 
       <div className="content">
         <section className="panel">
           <div className="section-head">
-            <span>Create member</span>
-            <em>Tenant scoped</em>
+            <span>ثبت عضو</span>
+            <em>محدوده باشگاه</em>
           </div>
           <div className="field-list">
-            <div className="form-field"><label>Full name</label><input value={form.fullName} onChange={(e) => setForm({ ...form, fullName: e.target.value })} /></div>
-            <div className="form-field"><label>Phone</label><input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} /></div>
-            <div className="form-field"><label>Gender</label><input value={form.gender} onChange={(e) => setForm({ ...form, gender: e.target.value })} /></div>
-            <div className="form-field"><label>External ref</label><input value={form.externalRef} onChange={(e) => setForm({ ...form, externalRef: e.target.value })} /></div>
+            <div className="form-field"><label>نام و نام خانوادگی</label><input value={form.fullName} onChange={(e) => setForm({ ...form, fullName: e.target.value })} /></div>
+            <div className="form-field"><label>شماره تماس</label><input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} /></div>
+            <div className="form-field"><label>جنسیت</label><input value={form.gender} onChange={(e) => setForm({ ...form, gender: e.target.value })} /></div>
+            <div className="form-field"><label>کد مرجع</label><input value={form.externalRef} onChange={(e) => setForm({ ...form, externalRef: e.target.value })} /></div>
           </div>
           <div className="actions">
-            <button className="button primary" type="button" onClick={createMember} disabled={!form.fullName.trim()}>Create member</button>
+            <button className="button primary" type="button" onClick={createMember} disabled={!form.fullName.trim()}>ثبت عضو</button>
           </div>
         </section>
 
         <section className="panel">
           <div className="section-head">
-            <span>Member list</span>
-            <em>{filtered.length} members</em>
+            <span>فهرست اعضا</span>
+            <em>{filtered.length} عضو</em>
           </div>
           <div className="form-field" style={{ maxWidth: 420, marginBottom: 18 }}>
-            <label>Search members</label>
-            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Name, phone, status, or ref" />
+            <label>جست‌وجوی اعضا</label>
+            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="نام، تلفن، وضعیت یا کد مرجع" />
           </div>
           <div className="qf-table">
             <div className="qf-table__row qf-table__row--head">
-              <strong>Name</strong>
-              <strong>Status</strong>
-              <strong>Contact</strong>
-              <strong>Action</strong>
+              <strong>نام</strong>
+              <strong>وضعیت</strong>
+              <strong>تماس</strong>
+              <strong>عملیات</strong>
             </div>
             {filtered.length > 0 ? filtered.map((member) => (
               <div className="qf-table__row" key={member.id}>
                 <span>
                   <strong>{member.fullName}</strong>
-                  <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>{member.externalRef ?? "Tenant scoped profile"}</small>
+                  <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>{member.externalRef ?? "پروفایل همین باشگاه"}</small>
                 </span>
                 <span>{member.status}</span>
-                <span>{member.phone ?? "No phone"}</span>
-                <button className="button secondary" type="button" onClick={() => removeMember(member.id)}>Delete</button>
+                <span>{member.phone ?? "بدون شماره"}</span>
+                <button className="button secondary" type="button" onClick={() => removeMember(member.id)}>حذف</button>
               </div>
             )) : (
               <div className="qf-table__row">
                 <span>
-                  <strong>No members found</strong>
-                  <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>Connect the PostgreSQL seed data to see tenant records.</small>
+                  <strong>عضوی پیدا نشد</strong>
+                  <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>وقتی seed دیتابیس متصل باشد، رکوردهای این tenant نمایش داده می‌شوند.</small>
                 </span>
                 <span>--</span>
                 <span>--</span>

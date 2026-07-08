@@ -55,52 +55,52 @@ export default function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Classes</span>
-        <h1>Class schedule and capacity management.</h1>
-        <p>Keep class operations clear with an at-a-glance schedule and status cards.</p>
+        <span className="label">کلاس‌ها</span>
+        <h1>زمان‌بندی و ظرفیت کلاس‌ها.</h1>
+        <p>عملیات کلاس را با یک نگاه به برنامه و کارت‌های وضعیت شفاف نگه دار.</p>
       </header>
       <div className="content">
         <section className="panel">
           <div className="section-head">
-            <span>Create class</span>
-            <em>Tenant scoped</em>
+            <span>ثبت کلاس</span>
+            <em>محدوده باشگاه</em>
           </div>
           <div className="field-list">
-            <div className="form-field"><label>Title</label><input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} /></div>
-            <div className="form-field"><label>Trainer ID</label><input value={form.trainerId} onChange={(e) => setForm({ ...form, trainerId: e.target.value })} /></div>
-            <div className="form-field"><label>Capacity</label><input type="number" value={form.capacity} onChange={(e) => setForm({ ...form, capacity: Number(e.target.value) })} /></div>
-            <div className="form-field"><label>Schedule</label><input value={form.schedule} onChange={(e) => setForm({ ...form, schedule: e.target.value })} placeholder="Mon/Wed/Fri 18:00" /></div>
+            <div className="form-field"><label>عنوان</label><input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} /></div>
+            <div className="form-field"><label>شناسه مربی</label><input value={form.trainerId} onChange={(e) => setForm({ ...form, trainerId: e.target.value })} /></div>
+            <div className="form-field"><label>ظرفیت</label><input type="number" value={form.capacity} onChange={(e) => setForm({ ...form, capacity: Number(e.target.value) })} /></div>
+            <div className="form-field"><label>زمان‌بندی</label><input value={form.schedule} onChange={(e) => setForm({ ...form, schedule: e.target.value })} placeholder="دوشنبه/چهارشنبه/جمعه ۱۸:۰۰" /></div>
           </div>
           <div className="actions">
-            <button className="button primary" type="button" onClick={createClass} disabled={!form.title.trim()}>Create class</button>
+            <button className="button primary" type="button" onClick={createClass} disabled={!form.title.trim()}>ثبت کلاس</button>
           </div>
         </section>
 
         <section className="panel">
           <div className="section-head">
-            <span>Schedule</span>
-            <em>{classes.length} classes</em>
+            <span>برنامه</span>
+            <em>{classes.length} کلاس</em>
           </div>
           <div className="qf-table">
             <div className="qf-table__row qf-table__row--head">
-              <strong>Class</strong>
-              <strong>Schedule</strong>
-              <strong>Capacity</strong>
-              <strong>Action</strong>
+              <strong>کلاس</strong>
+              <strong>زمان</strong>
+              <strong>ظرفیت</strong>
+              <strong>عملیات</strong>
             </div>
             {classes.length > 0 ? classes.map((item) => (
               <div className="qf-table__row" key={item.id}>
                 <span>
                   <strong>{item.title}</strong>
-                  <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>{item.trainerId || "No trainer assigned"}</small>
+                  <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>{item.trainerId || "مربی تعیین نشده"}</small>
                 </span>
                 <span>{item.schedule}</span>
-                <span>{item.capacity} seats</span>
-                <button className="button secondary" type="button" onClick={() => removeClass(item.id)}>Delete</button>
+                <span>{item.capacity} نفر</span>
+                <button className="button secondary" type="button" onClick={() => removeClass(item.id)}>حذف</button>
               </div>
             )) : (
               <div className="qf-table__row">
-                <span><strong>No classes yet</strong><small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>Add the first class above.</small></span>
+                <span><strong>هنوز کلاسی ثبت نشده</strong><small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>اولین کلاس را از فرم بالا اضافه کن.</small></span>
                 <span>--</span>
                 <span>--</span>
                 <span>--</span>

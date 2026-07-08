@@ -7,6 +7,7 @@ import { clearSession, loadSessionForRoles, resolvePanelUrl, type Role, type Ses
 export type PanelNavItem = {
   href: string;
   label: string;
+  icon?: string;
 };
 
 type PanelShellProps = {
@@ -15,6 +16,8 @@ type PanelShellProps = {
   requiredRoles: Role[];
   brand: string;
   subtitle: string;
+  brandLogoSrc?: string;
+  brandLogoAlt?: string;
   navItems: PanelNavItem[];
   topActions?: ReactNode;
   logoutHref?: string;
@@ -26,6 +29,8 @@ export function PanelShell({
   requiredRoles,
   brand,
   subtitle,
+  brandLogoSrc,
+  brandLogoAlt = "",
   navItems,
   topActions,
   logoutHref = "/login",
@@ -67,6 +72,34 @@ export function PanelShell({
   }, [isPublicRoute, loginPath, pathname, requiredRoles]);
 
   const currentNavItems = useMemo(() => navItems ?? [], [navItems]);
+  const isActiveRoute = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+
+  function navIconFor(item: PanelNavItem) {
+    if (item.icon) {
+      return item.icon;
+    }
+
+    switch (item.href) {
+      case "/":
+        return "◩";
+      case "/live":
+        return "◉";
+      case "/members":
+        return "◫";
+      case "/trainers":
+        return "◌";
+      case "/programs":
+        return "▥";
+      case "/subscriptions":
+        return "◌";
+      case "/reports":
+        return "▦";
+      case "/settings":
+        return "⚙";
+      default:
+        return "•";
+    }
+  }
 
   if (isPublicRoute) {
     return <>{children}</>;
@@ -76,9 +109,9 @@ export function PanelShell({
     return (
       <div className="qf-panel qf-panel--loading">
         <section className="qf-card">
-          <span className="qf-shell__eyebrow">Loading</span>
-          <h1 className="qf-shell__title">Checking session...</h1>
-          <p>Verifying access to this panel.</p>
+          <span className="qf-shell__eyebrow">در حال بارگذاری</span>
+          <h1 className="qf-shell__title">در حال بررسی نشست...</h1>
+          <p>در حال بررسی دسترسی به این پنل هستیم.</p>
         </section>
       </div>
     );
@@ -87,13 +120,29 @@ export function PanelShell({
   return (
     <div className="qf-panel">
       <aside className={`qf-panel__aside ${menuOpen ? "is-open" : ""}`}>
-        <div className="brand">
-          <span>{brand}</span>
-          <em>{subtitle}</em>
+        <div className="qf-panel__brand">
+          {brandLogoSrc ? (
+            <span className="qf-panel__brandMark">
+              <img src={brandLogoSrc} alt={brandLogoAlt} />
+            </span>
+          ) : null}
+          <div className="brand">
+            <span>{brand}</span>
+            <em>{subtitle}</em>
+          </div>
         </div>
         <nav className="qf-panel__nav">
           {currentNavItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className={isActiveRoute(item.href) ? "is-active" : undefined}
+              aria-current={isActiveRoute(item.href) ? "page" : undefined}
+            >
+              <span className="qf-panel__navIcon" aria-hidden="true">
+                {navIconFor(item)}
+              </span>
               {item.label}
             </a>
           ))}
@@ -112,13 +161,29 @@ export function PanelShell({
             aria-expanded={menuOpen}
             aria-label="Toggle navigation"
           >
-            منو
+            فهرست
           </button>
           {topActions ? <div className="qf-panel__topActions qf-panel__topActions--desktop">{topActions}</div> : null}
         </header>
         <main className="panel-main">{children}</main>
       </div>
       {menuOpen ? <button type="button" className="qf-panel__overlay" aria-label="Close navigation" onClick={() => setMenuOpen(false)} /> : null}
+      <nav className="qf-panel__bottomNav" aria-label="ناوبری پایین">
+        {currentNavItems.map((item) => (
+          <a
+            key={item.href}
+            href={item.href}
+            className={isActiveRoute(item.href) ? "is-active" : undefined}
+            aria-current={isActiveRoute(item.href) ? "page" : undefined}
+            onClick={() => setMenuOpen(false)}
+          >
+            <span aria-hidden="true" className="qf-panel__bottomNavIcon">
+              {navIconFor(item)}
+            </span>
+            <strong>{item.label}</strong>
+          </a>
+        ))}
+      </nav>
     </div>
   );
 }

@@ -49,42 +49,42 @@ export default function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Programs</span>
-        <h1>Workout programs and weekly schedules.</h1>
-        <p>Build and assign workout programs that stay tied to the gym tenant and its trainers.</p>
+        <span className="label">برنامه‌ها</span>
+        <h1>برنامه‌های تمرینی و زمان‌بندی هفتگی.</h1>
+        <p>برنامه‌های تمرینی را بساز و به باشگاه و مربی‌های همین tenant وصل نگه دار.</p>
       </header>
       <div className="toolbar">
-        <a className="button primary" href="/programs/new">Create program</a>
+        <a className="button primary" href="/programs/new">ایجاد برنامه</a>
       </div>
       <div className="panel">
         <div className="section-head">
-          <span>Program list</span>
-          <em>{filtered.length} programs</em>
+          <span>فهرست برنامه‌ها</span>
+          <em>{filtered.length} برنامه</em>
         </div>
         <div className="form-field" style={{ maxWidth: 420, marginBottom: 18 }}>
-          <label>Search programs</label>
-          <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Name, trainer, or status" />
+          <label>جست‌وجوی برنامه‌ها</label>
+          <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="نام، مربی یا وضعیت" />
         </div>
         <div className="qf-table">
           <div className="qf-table__row qf-table__row--head">
-            <strong>Name</strong>
-            <strong>Trainer</strong>
-            <strong>Status</strong>
+            <strong>نام</strong>
+            <strong>مربی</strong>
+            <strong>وضعیت</strong>
           </div>
           {filtered.length > 0 ? filtered.map((program) => (
             <a className="qf-table__row" key={program.id} href={`/programs/${program.id}`}>
               <span>
                 <strong>{program.name}</strong>
-                <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>Open program detail</small>
+                <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>باز کردن جزئیات برنامه</small>
               </span>
-              <span>{program.trainerName ?? "Unassigned"}</span>
+              <span>{program.trainerName ?? "تعیین نشده"}</span>
               <span>{program.status}</span>
             </a>
           )) : (
             <div className="qf-table__row">
               <span>
-                <strong>No programs found</strong>
-                <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>Create a program from the coach panel.</small>
+                <strong>برنامه‌ای پیدا نشد</strong>
+                <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>از پنل مربی یک برنامه بساز.</small>
               </span>
               <span>--</span>
               <span>--</span>

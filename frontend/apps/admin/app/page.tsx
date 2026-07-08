@@ -35,23 +35,23 @@ export default async function Page() {
   }
 
   const cards = [
-    { label: "Gyms", value: platform?.gymCount ?? 0, note: "registered tenants" },
-    { label: "Active gyms", value: platform?.activeGyms ?? 0, note: "ready in production" },
-    { label: "Onboarding", value: platform?.pendingOnboardingGyms ?? 0, note: "still in setup" },
-    { label: "Users", value: platform?.totalUsers ?? 0, note: "all platform accounts" },
-    { label: "Coaches", value: platform?.trainerCount ?? 0, note: "trainer seats" },
-    { label: "Athletes", value: platform?.athleteCount ?? 0, note: "member accounts" },
-    { label: "Demo accounts", value: platform?.activeDemoAccounts ?? 0, note: "time boxed access" },
-    { label: "Monthly revenue", value: `${Math.round(platform?.monthlyRevenue ?? 0).toLocaleString()}`, note: "estimate from subscriptions" },
+    { label: "باشگاه‌ها", value: platform?.gymCount ?? 0, note: "مستاجرهای ثبت‌شده" },
+    { label: "باشگاه فعال", value: platform?.activeGyms ?? 0, note: "آماده در محیط عملیاتی" },
+    { label: "در حال راه‌اندازی", value: platform?.pendingOnboardingGyms ?? 0, note: "هنوز در مرحله تنظیم" },
+    { label: "کاربران", value: platform?.totalUsers ?? 0, note: "همه حساب‌های پلتفرم" },
+    { label: "مربی‌ها", value: platform?.trainerCount ?? 0, note: "صندلی‌های مربی" },
+    { label: "ورزشکارها", value: platform?.athleteCount ?? 0, note: "حساب‌های اعضا" },
+    { label: "حساب‌های دمو", value: platform?.activeDemoAccounts ?? 0, note: "دسترسی زمان‌دار" },
+    { label: "درآمد ماهانه", value: `${Math.round(platform?.monthlyRevenue ?? 0).toLocaleString()}`, note: "برآورد اشتراک‌ها" },
   ];
 
   return (
     <section className="shell">
       <header className="panel hero">
-        <span className="label">QuantumFit Admin</span>
-        <h1>Operate the platform from one premium control room.</h1>
+        <span className="label">پنل ادمین QuantumFit</span>
+        <h1>همه پلتفرم را از یک اتاق فرمان لوکس و مینیمال مدیریت کن.</h1>
         <p>
-          Super admins manage gyms, users, plans, discounts, demo access, website content, and system health from one secure place.
+          مدیر کل از همین‌جا باشگاه‌ها، کاربران، پلن‌ها، تخفیف‌ها، دسترسی دمو، محتوای سایت و سلامت سیستم را کنترل می‌کند.
         </p>
       </header>
 
@@ -66,17 +66,17 @@ export default async function Page() {
       </div>
 
       <div className="toolbar">
-        <a className="button primary" href="/create-gym">Create gym</a>
-        <a className="button secondary" href="/plans">Plans</a>
-        <a className="button secondary" href="/discounts">Discounts</a>
-        <a className="button secondary" href="/content">CMS</a>
+        <a className="button primary" href="/create-gym">ایجاد باشگاه</a>
+        <a className="button secondary" href="/plans">پلن‌ها</a>
+        <a className="button secondary" href="/discounts">تخفیف‌ها</a>
+        <a className="button secondary" href="/content">محتوا</a>
       </div>
 
       <div className="content">
         <section className="panel">
           <div className="section-head">
-            <span>Gym lifecycle</span>
-            <em>Latest activity</em>
+            <span>چرخه باشگاه</span>
+            <em>آخرین فعالیت‌ها</em>
           </div>
           <div className="list">
             {platform?.latestGyms?.length ? platform.latestGyms.slice(0, 4).map((gym) => (
@@ -86,8 +86,8 @@ export default async function Page() {
               </div>
             )) : (
               <div>
-                <strong>No recent gyms</strong>
-                <span>Create the first gym to populate this timeline.</span>
+                <strong>هنوز باشگاه جدیدی ثبت نشده</strong>
+                <span>اولین باشگاه را بساز تا این تایم‌لاین پر شود.</span>
               </div>
             )}
           </div>
@@ -95,13 +95,13 @@ export default async function Page() {
 
         <section className="panel">
           <div className="section-head">
-            <span>Commercial controls</span>
-            <em>Editable from admin</em>
+            <span>کنترل‌های تجاری</span>
+            <em>قابل ویرایش از ادمین</em>
           </div>
           <div className="detail-grid">
-            <article><span className="status">Plans</span><h3>Pricing and limits</h3><p>Monthly, yearly, currency, and feature caps are managed here.</p></article>
-            <article><span className="status">Coupons</span><h3>Campaign discounts</h3><p>Create stackable or restricted promo codes.</p></article>
-            <article><span className="status">Discounts</span><h3>Gym-specific offers</h3><p>Apply long running discounts to one tenant or customer.</p></article>
+            <article><span className="status">پلن‌ها</span><h3>قیمت‌گذاری و سقف‌ها</h3><p>ماهانه، سالانه، ارز و محدودیت‌های ویژگی‌ها اینجا مدیریت می‌شوند.</p></article>
+            <article><span className="status">کوپن‌ها</span><h3>تخفیف‌های کمپینی</h3><p>کدهای تبلیغاتی قابل‌محدودسازی یا ترکیب‌پذیر بساز.</p></article>
+            <article><span className="status">تخفیف‌ها</span><h3>پیشنهادهای اختصاصی</h3><p>تخفیف‌های بلندمدت را روی یک باشگاه یا مشتری اعمال کن.</p></article>
           </div>
         </section>
       </div>
@@ -109,25 +109,25 @@ export default async function Page() {
       <div className="content">
         <section className="panel">
           <div className="section-head">
-            <span>Public site</span>
-            <em>CMS ready</em>
+            <span>سایت عمومی</span>
+            <em>آماده CMS</em>
           </div>
           <div className="field-list">
-            <div><strong>Homepage copy</strong><span>Editable hero, features, FAQ, testimonials, CTA.</span></div>
-            <div><strong>Pricing copy</strong><span>Visible from the same backend data.</span></div>
-            <div><strong>Demo content</strong><span>Request flows and feature previews stay manageable.</span></div>
+            <div><strong>متن صفحه اصلی</strong><span>هیرو، ویژگی‌ها، پرسش‌های متداول، نظرات و دعوت‌به‌اقدام قابل ویرایش‌اند.</span></div>
+            <div><strong>متن قیمت‌گذاری</strong><span>همان داده‌های بک‌اند را نمایش می‌دهد.</span></div>
+            <div><strong>محتوای دمو</strong><span>فرآیندهای درخواست و پیش‌نمایش قابلیت‌ها قابل مدیریت می‌مانند.</span></div>
           </div>
         </section>
 
         <section className="panel">
           <div className="section-head">
-            <span>Operational health</span>
-            <em>System view</em>
+            <span>سلامت عملیاتی</span>
+            <em>نمای سیستم</em>
           </div>
           <div className="detail-grid">
-            <article><span className="status">Health</span><h3>99.9%</h3><p>API and database ready for daily operations.</p></article>
-            <article><span className="status">RLS</span><h3>Tenant safe</h3><p>Queries remain scoped by gym_id or tenant_id.</p></article>
-            <article><span className="status">Realtime</span><h3>Streaming</h3><p>Occupancy updates and activity feeds stay live.</p></article>
+            <article><span className="status">سلامت</span><h3>۹۹.۹٪</h3><p>API و دیتابیس برای عملیات روزانه آماده‌اند.</p></article>
+            <article><span className="status">RLS</span><h3>ایمن برای مستاجر</h3><p>کوئری‌ها همچنان با gym_id یا tenant_id محدود می‌شوند.</p></article>
+            <article><span className="status">بلادرنگ</span><h3>جریان زنده</h3><p>به‌روزرسانی شلوغی و فید فعالیت‌ها زنده می‌ماند.</p></article>
           </div>
         </section>
       </div>

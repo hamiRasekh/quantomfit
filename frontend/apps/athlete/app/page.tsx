@@ -25,46 +25,46 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Athlete App</span>
-        <h1>{dashboard?.gymName ?? "Your gym"} in one mobile-ready workspace.</h1>
-        <p>Workout, attendance, crowd status, notifications, and progress live in the athlete panel.</p>
+        <span className="label">اپ ورزشکار</span>
+        <h1>{dashboard?.gymName ?? "باشگاه شما"} در یک فضای کاملاً آماده موبایل.</h1>
+        <p>تمرین، حضور و غیاب، وضعیت شلوغی، اعلان‌ها و پیشرفت در پنل ورزشکار کنار هم قرار گرفته‌اند.</p>
       </header>
 
       <div className="metrics">
-        <article><strong>{dashboard?.attendance?.today ?? 0}</strong><span>sessions today</span></article>
-        <article><strong>{dashboard?.attendance?.week ?? 0}</strong><span>sessions this week</span></article>
-        <article><strong>{dashboard?.occupancy?.current ?? 0}</strong><span>current occupancy</span></article>
-        <article><strong>{dashboard?.occupancy?.ratio ? `${Math.round(dashboard.occupancy.ratio * 100)}%` : "0%"}</strong><span>gym utilization</span></article>
+        <article><strong>{dashboard?.attendance?.today ?? 0}</strong><span>جلسه امروز</span></article>
+        <article><strong>{dashboard?.attendance?.week ?? 0}</strong><span>جلسه این هفته</span></article>
+        <article><strong>{dashboard?.occupancy?.current ?? 0}</strong><span>شلوغی فعلی</span></article>
+        <article><strong>{dashboard?.occupancy?.ratio ? `${Math.round(dashboard.occupancy.ratio * 100)}%` : "0%"}</strong><span>نرخ استفاده</span></article>
       </div>
 
       <div className="content">
         <section className="panel">
           <div className="section-head">
-            <span>Today</span>
-            <em>Personal plan</em>
+            <span>امروز</span>
+            <em>برنامه شخصی</em>
           </div>
           <div className="field-list">
-            <div><strong>Check-ins today</strong><span>{dashboard?.attendance?.today ?? 0}</span></div>
-            <div><strong>Weekly streak</strong><span>{dashboard?.attendance?.week ?? 0} visits this week.</span></div>
-            <div><strong>Gym crowd</strong><span>{dashboard?.occupancy?.current ?? 0} of {dashboard?.occupancy?.capacity ?? 0} inside.</span></div>
+            <div><strong>ورود امروز</strong><span>{dashboard?.attendance?.today ?? 0}</span></div>
+            <div><strong>روند هفتگی</strong><span>{dashboard?.attendance?.week ?? 0} بار در این هفته وارد شده‌ای.</span></div>
+            <div><strong>شلوغی باشگاه</strong><span>{dashboard?.occupancy?.current ?? 0} نفر از {dashboard?.occupancy?.capacity ?? 0} داخل هستند.</span></div>
           </div>
         </section>
         <section className="panel">
           <div className="section-head">
-            <span>Quick actions</span>
-            <em>Member flow</em>
+            <span>اقدام سریع</span>
+            <em>جریان عضو</em>
           </div>
           <div className="detail-grid">
-            <article><span className="status">Train</span><h3>Open workout</h3><p>Review today&apos;s program and mark completion.</p></article>
-            <article><span className="status">Track</span><h3>Attendance</h3><p>See your check-ins and current streak.</p></article>
-            <article><span className="status">Connect</span><h3>My gym</h3><p>View gym profile, coaches, and crowd status.</p></article>
+            <article><span className="status">تمرین</span><h3>باز کردن برنامه</h3><p>برنامه امروز را مرور کن و انجام آن را ثبت کن.</p></article>
+            <article><span className="status">پیگیری</span><h3>حضور و غیاب</h3><p>ورودی‌ها و روند فعلی‌ات را ببین.</p></article>
+            <article><span className="status">ارتباط</span><h3>باشگاه من</h3><p>پروفایل باشگاه، مربی‌ها و وضعیت شلوغی را ببین.</p></article>
           </div>
         </section>
       </div>
 
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Recent check-ins</span><em>Tenant scoped</em></div>
+          <div className="section-head"><span>ورودهای اخیر</span><em>محدود به باشگاه</em></div>
           <ul className="timeline">
             {(dashboard?.latestCheckins ?? []).slice(0, 4).map((item) => (
               <li key={item.id}>
@@ -75,11 +75,11 @@ export default async function Page() {
           </ul>
         </section>
         <section className="panel">
-          <div className="section-head"><span>Progress</span><em>Live summary</em></div>
+          <div className="section-head"><span>پیشرفت</span><em>خلاصه زنده</em></div>
           <div className="detail-grid">
-            <article><span className="status">Status</span><h3>Connected</h3><p>Your account is linked to the gym tenant only.</p></article>
-            <article><span className="status">Plan</span><h3>Current membership</h3><p>Membership details can be displayed here.</p></article>
-            <article><span className="status">QR</span><h3>Entry code</h3><p>QR check-in can be surfaced from this panel.</p></article>
+            <article><span className="status">وضعیت</span><h3>متصل</h3><p>حساب شما فقط به همان مستاجر باشگاه لینک شده است.</p></article>
+            <article><span className="status">عضویت</span><h3>اشتراک فعلی</h3><p>جزئیات عضویت می‌تواند اینجا نمایش داده شود.</p></article>
+            <article><span className="status">QR</span><h3>کد ورود</h3><p>ورود با QR از همین پنل قابل نمایش است.</p></article>
           </div>
         </section>
       </div>

@@ -62,52 +62,52 @@ export default function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Equipment</span>
-        <h1>Track inventory and maintenance without leaving the gym panel.</h1>
-        <p>Keep inventory organized by category, quantity, and status inside the tenant boundary.</p>
+        <span className="label">تجهیزات</span>
+        <h1>موجودی و سرویس تجهیزات را بدون خروج از پنل مدیریت کن.</h1>
+        <p>موجودی را بر اساس دسته، تعداد و وضعیت داخل مرز همین باشگاه نگه دار.</p>
       </header>
 
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Add equipment</span><em>Tenant scoped</em></div>
+          <div className="section-head"><span>افزودن تجهیزات</span><em>محدوده باشگاه</em></div>
           <div className="field-list">
-            <div className="form-field"><label>Name</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></div>
-            <div className="form-field"><label>Category</label><input value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} /></div>
-            <div className="form-field"><label>Quantity</label><input type="number" value={form.quantity} onChange={(e) => setForm({ ...form, quantity: Number(e.target.value) })} /></div>
+            <div className="form-field"><label>نام</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></div>
+            <div className="form-field"><label>دسته</label><input value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} /></div>
+            <div className="form-field"><label>تعداد</label><input type="number" value={form.quantity} onChange={(e) => setForm({ ...form, quantity: Number(e.target.value) })} /></div>
           </div>
           <div className="actions">
-            <button className="button primary" type="button" onClick={createItem} disabled={!form.name.trim()}>Create equipment</button>
+            <button className="button primary" type="button" onClick={createItem} disabled={!form.name.trim()}>ثبت تجهیزات</button>
           </div>
         </section>
 
         <section className="panel">
-          <div className="section-head"><span>Equipment list</span><em>{filtered.length} items</em></div>
+          <div className="section-head"><span>فهرست تجهیزات</span><em>{filtered.length} مورد</em></div>
           <div className="form-field" style={{ maxWidth: 420, marginBottom: 18 }}>
-            <label>Search equipment</label>
-            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Name, category, or status" />
+            <label>جست‌وجوی تجهیزات</label>
+            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="نام، دسته یا وضعیت" />
           </div>
           <div className="qf-table">
             <div className="qf-table__row qf-table__row--head">
-              <strong>Name</strong>
-              <strong>Quantity</strong>
-              <strong>Status</strong>
-              <strong>Action</strong>
+              <strong>نام</strong>
+              <strong>تعداد</strong>
+              <strong>وضعیت</strong>
+              <strong>عملیات</strong>
             </div>
             {filtered.length > 0 ? filtered.map((item) => (
               <div className="qf-table__row" key={item.id}>
                 <span>
                   <strong>{item.name}</strong>
-                  <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>{item.category ?? "General equipment"}</small>
+                  <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>{item.category ?? "تجهیزات عمومی"}</small>
                 </span>
                 <span>{item.quantity}</span>
                 <span>{item.status}</span>
-                <button className="button secondary" type="button" onClick={() => removeItem(item.id)}>Delete</button>
+                <button className="button secondary" type="button" onClick={() => removeItem(item.id)}>حذف</button>
               </div>
             )) : (
               <div className="qf-table__row">
                 <span>
-                  <strong>No equipment found</strong>
-                  <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>Inventory records will appear when the database is seeded.</small>
+                  <strong>تجهیزی پیدا نشد</strong>
+                  <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>وقتی دیتابیس seed شود، رکوردهای موجودی اینجا نمایش داده می‌شوند.</small>
                 </span>
                 <span>--</span>
                 <span>--</span>

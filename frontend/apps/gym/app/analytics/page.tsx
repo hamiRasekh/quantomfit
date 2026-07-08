@@ -21,33 +21,33 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Analytics</span>
-        <h1>Operational analytics and retention signals.</h1>
-        <p>Track attendance, retention, revenue direction, and live occupancy signals from a tenant-scoped dashboard.</p>
+        <span className="label">تحلیل</span>
+        <h1>تحلیل عملیاتی و سیگنال‌های حفظ عضو.</h1>
+        <p>حضور، ماندگاری، روند درآمد و سیگنال‌های تراکم زنده را از یک داشبورد محدوده‌دار پیگیری کن.</p>
       </header>
 
       <div className="panel">
         <div className="section-head">
-          <span>Series</span>
-          <em>7-day trend</em>
+          <span>سری‌ها</span>
+          <em>روند ۷ روزه</em>
         </div>
         <div className="qf-table">
           <div className="qf-table__row qf-table__row--head">
-            <strong>Label</strong>
-            <strong>Value</strong>
-            <strong>Signal</strong>
+            <strong>برچسب</strong>
+            <strong>مقدار</strong>
+            <strong>سیگنال</strong>
           </div>
           {series.length > 0 ? series.map((point) => (
             <div className="qf-table__row" key={point.label}>
               <span><strong>{point.label}</strong></span>
               <span>{point.value}</span>
-              <span>Tracked</span>
+              <span>ردیابی‌شده</span>
             </div>
           )) : (
             <div className="qf-table__row">
               <span>
-                <strong>No series data</strong>
-                <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>Analytics will appear once attendance events are flowing.</small>
+                <strong>داده سری وجود ندارد</strong>
+                <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>وقتی رویدادهای حضور فعال شوند، تحلیل‌ها نمایش داده می‌شوند.</small>
               </span>
               <span>--</span>
               <span>--</span>
@@ -57,9 +57,9 @@ export default async function Page() {
       </div>
 
       <div className="detail-grid">
-        <article><span className="status">Revenue growth</span><h3>{kpis.revenueGrowth ?? 0}%</h3><p>Managed by the platform analytics layer.</p></article>
-        <article><span className="status">Retention</span><h3>{kpis.memberRetention ?? 0}%</h3><p>Derived from gym activity and attendance.</p></article>
-        <article><span className="status">Peak occupancy</span><h3>{kpis.occupancyPeak ? `${Math.round(kpis.occupancyPeak * 100)}%` : "0%"}</h3><p>From live occupancy snapshots.</p></article>
+        <article><span className="status">رشد درآمد</span><h3>{kpis.revenueGrowth ?? 0}%</h3><p>توسط لایه تحلیل پلتفرم مدیریت می‌شود.</p></article>
+        <article><span className="status">ماندگاری</span><h3>{kpis.memberRetention ?? 0}%</h3><p>از فعالیت و حضور باشگاه استخراج می‌شود.</p></article>
+        <article><span className="status">اوج تراکم</span><h3>{kpis.occupancyPeak ? `${Math.round(kpis.occupancyPeak * 100)}%` : "0%"}</h3><p>بر پایه اسنپ‌شات‌های زنده تراکم.</p></article>
       </div>
     </section>
   );

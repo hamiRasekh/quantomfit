@@ -57,9 +57,9 @@ export default function Page() {
         ...form,
         sizeSqm: Number(form.sizeSqm),
       });
-      setMessage(`Gym created: ${payload.gym.name} (${payload.gym.slug} on ${payload.gym.subdomain}.quantumfit.ir)`);
+      setMessage(`باشگاه ساخته شد: ${payload.gym.name} (${payload.gym.slug} روی ${payload.gym.subdomain}.quantumfit.ir)`);
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to create gym");
+      setMessage(error instanceof Error ? error.message : "ساخت باشگاه ممکن نشد");
     } finally {
       setSubmitting(false);
     }
@@ -68,41 +68,41 @@ export default function Page() {
   return (
     <section className="shell">
       <header className="panel hero">
-        <span className="label">Create gym</span>
-        <h1>Create a new tenant, assign access, and generate a subdomain.</h1>
+        <span className="label">ثبت باشگاه</span>
+        <h1>یک مستاجر جدید بساز، دسترسی بده و ساب‌دامین تولید کن.</h1>
         <p>
-          Super admin issues the first owner account, selects the plan, and prepares the onboarding wizard in one flow.
+          ادمین کل، حساب مالک اولیه را می‌سازد، پلن را انتخاب می‌کند و ویزارد راه‌اندازی را در یک جریان آماده می‌کند.
         </p>
       </header>
 
       <div className="auth-grid">
         <form className="form-card" onSubmit={onSubmit}>
-          <div className="form-field"><label>Gym name</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="QuantumFit Central" /></div>
-          <div className="form-field"><label>Slug</label><input value={form.slug} onChange={(e) => setForm({ ...form, slug: e.target.value })} placeholder="quantumfit-central" /></div>
-          <div className="form-field"><label>Subdomain</label><input value={form.subdomain} onChange={(e) => setForm({ ...form, subdomain: e.target.value })} placeholder={derivedSubdomain} /></div>
-          <div className="form-field"><label>Owner email</label><input value={form.ownerEmail} onChange={(e) => setForm({ ...form, ownerEmail: e.target.value })} placeholder="owner@quantumfit.ir" /></div>
-          <div className="form-field"><label>Temporary password</label><input type="password" value={form.ownerPassword} onChange={(e) => setForm({ ...form, ownerPassword: e.target.value })} placeholder="Temp password" /></div>
-          <div className="form-field"><label>Plan</label><select value={form.planCode} onChange={(e) => setForm({ ...form, planCode: e.target.value })}><option value="starter">starter</option><option value="growth">growth</option><option value="enterprise">enterprise</option></select></div>
-          <div className="form-field"><label>Gym type</label><select value={form.gymType} onChange={(e) => setForm({ ...form, gymType: e.target.value })}><option value="male">male</option><option value="female">female</option><option value="mixed">mixed</option></select></div>
-          <div className="form-field"><label>Location</label><input value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} placeholder="Tehran, Valiasr Street" /></div>
-          <div className="form-field"><label>Size (sqm)</label><input value={form.sizeSqm} onChange={(e) => setForm({ ...form, sizeSqm: e.target.value })} placeholder="1200" /></div>
-          <div className="form-field"><label>Timezone</label><input value={form.timezone} onChange={(e) => setForm({ ...form, timezone: e.target.value })} /></div>
+          <div className="form-field"><label>نام باشگاه</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="QuantumFit Central" /></div>
+          <div className="form-field"><label>اسلاگ</label><input value={form.slug} onChange={(e) => setForm({ ...form, slug: e.target.value })} placeholder="quantumfit-central" /></div>
+          <div className="form-field"><label>ساب‌دامین</label><input value={form.subdomain} onChange={(e) => setForm({ ...form, subdomain: e.target.value })} placeholder={derivedSubdomain} /></div>
+          <div className="form-field"><label>ایمیل مالک</label><input value={form.ownerEmail} onChange={(e) => setForm({ ...form, ownerEmail: e.target.value })} placeholder="owner@quantumfit.ir" /></div>
+          <div className="form-field"><label>رمز موقت</label><input type="password" value={form.ownerPassword} onChange={(e) => setForm({ ...form, ownerPassword: e.target.value })} placeholder="رمز موقت" /></div>
+          <div className="form-field"><label>پلن</label><select value={form.planCode} onChange={(e) => setForm({ ...form, planCode: e.target.value })}><option value="starter">starter</option><option value="growth">growth</option><option value="enterprise">enterprise</option></select></div>
+          <div className="form-field"><label>نوع باشگاه</label><select value={form.gymType} onChange={(e) => setForm({ ...form, gymType: e.target.value })}><option value="male">مردانه</option><option value="female">زنانه</option><option value="mixed">مختلط</option></select></div>
+          <div className="form-field"><label>موقعیت</label><input value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} placeholder="تهران، ولیعصر" /></div>
+          <div className="form-field"><label>مساحت (متر مربع)</label><input value={form.sizeSqm} onChange={(e) => setForm({ ...form, sizeSqm: e.target.value })} placeholder="1200" /></div>
+          <div className="form-field"><label>منطقه زمانی</label><input value={form.timezone} onChange={(e) => setForm({ ...form, timezone: e.target.value })} /></div>
           <div className="actions">
-            <button className="button primary" type="submit" disabled={submitting}>{submitting ? "Creating..." : "Create gym"}</button>
-            <a className="button secondary" href="/">Cancel</a>
+            <button className="button primary" type="submit" disabled={submitting}>{submitting ? "در حال ساخت..." : "ساخت باشگاه"}</button>
+            <a className="button secondary" href="/">لغو</a>
           </div>
           {message ? <p>{message}</p> : null}
         </form>
         <aside className="flow-card">
-          <h3>Provisioning flow</h3>
+          <h3>جریان آماده‌سازی</h3>
           <div className="stepper">
-            <div><strong>1</strong><span>Write tenant row</span></div>
-            <div><strong>2</strong><span>Create owner login</span></div>
-            <div><strong>3</strong><span>Attach plan and limits</span></div>
-            <div><strong>4</strong><span>Enable onboarding wizard</span></div>
+            <div><strong>1</strong><span>ثبت رکورد مستاجر</span></div>
+            <div><strong>2</strong><span>ساخت حساب مالک</span></div>
+            <div><strong>3</strong><span>اتصال پلن و سقف‌ها</span></div>
+            <div><strong>4</strong><span>فعال‌سازی ویزارد راه‌اندازی</span></div>
           </div>
           <p style={{ color: "var(--muted)", lineHeight: 1.7, marginTop: 16 }}>
-            The generated subdomain will be used for the gym panel and the first login flow.
+            ساب‌دامین تولیدشده برای پنل باشگاه و اولین ورود استفاده می‌شود.
           </p>
         </aside>
       </div>

@@ -69,9 +69,9 @@ export default function Page() {
         const filtered = current.filter((item) => item.code !== created.code);
         return [created, ...filtered];
       });
-      setMessage("Plan saved.");
+      setMessage("پلن ذخیره شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to save plan.");
+      setMessage(error instanceof Error ? error.message : "ذخیره پلن ممکن نشد.");
     }
   }
 
@@ -96,37 +96,37 @@ export default function Page() {
   return (
     <section className="shell">
       <header className="panel hero">
-        <span className="label">Plans</span>
-        <h1>Subscription plans fully editable from PostgreSQL.</h1>
-        <p>Plans define monthly and yearly pricing, limits, and visibility across the website and panels.</p>
+        <span className="label">پلن‌ها</span>
+        <h1>پلن‌های اشتراک، مستقیم از PostgreSQL قابل ویرایش‌اند.</h1>
+        <p>پلن‌ها قیمت ماهانه و سالانه، سقف‌ها و نمایش سایت و پنل‌ها را تعیین می‌کنند.</p>
       </header>
 
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Create or update plan</span><em>Admin only</em></div>
+          <div className="section-head"><span>ساخت یا ویرایش پلن</span><em>فقط ادمین</em></div>
           <div className="field-list">
-            <div className="form-field"><label>Code</label><input value={form.code} onChange={(e) => setForm({ ...form, code: e.target.value })} placeholder="growth" /></div>
-            <div className="form-field"><label>Name</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Growth" /></div>
-            <div className="form-field"><label>Monthly price</label><input type="number" value={form.monthlyPrice} onChange={(e) => setForm({ ...form, monthlyPrice: Number(e.target.value) })} /></div>
-            <div className="form-field"><label>Yearly price</label><input type="number" value={form.yearlyPrice} onChange={(e) => setForm({ ...form, yearlyPrice: Number(e.target.value) })} /></div>
-            <div className="form-field"><label>Currency</label><input value={form.currency} onChange={(e) => setForm({ ...form, currency: e.target.value })} /></div>
-            <div className="form-field"><label>Description</label><input value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} /></div>
-            <div className="form-field"><label>Limits JSON</label><textarea rows={6} value={form.limitsText} onChange={(e) => setForm({ ...form, limitsText: e.target.value })} /></div>
+            <div className="form-field"><label>کد</label><input value={form.code} onChange={(e) => setForm({ ...form, code: e.target.value })} placeholder="growth" /></div>
+            <div className="form-field"><label>نام</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Growth" /></div>
+            <div className="form-field"><label>قیمت ماهانه</label><input type="number" value={form.monthlyPrice} onChange={(e) => setForm({ ...form, monthlyPrice: Number(e.target.value) })} /></div>
+            <div className="form-field"><label>قیمت سالانه</label><input type="number" value={form.yearlyPrice} onChange={(e) => setForm({ ...form, yearlyPrice: Number(e.target.value) })} /></div>
+            <div className="form-field"><label>ارز</label><input value={form.currency} onChange={(e) => setForm({ ...form, currency: e.target.value })} /></div>
+            <div className="form-field"><label>توضیح</label><input value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} /></div>
+            <div className="form-field"><label>سقف‌ها JSON</label><textarea rows={6} value={form.limitsText} onChange={(e) => setForm({ ...form, limitsText: e.target.value })} /></div>
           </div>
           <div className="actions">
-            <button className="button primary" type="button" onClick={save}>Save plan</button>
+            <button className="button primary" type="button" onClick={save}>ذخیره پلن</button>
           </div>
           {message ? <p>{message}</p> : null}
         </section>
 
         <section className="panel">
-          <div className="section-head"><span>Active plans</span><em>{plans.length} records</em></div>
+          <div className="section-head"><span>پلن‌های فعال</span><em>{plans.length} رکورد</em></div>
           <div className="qf-table">
             <div className="qf-table__row qf-table__row--head">
-              <strong>Plan</strong>
-              <strong>Pricing</strong>
-              <strong>Status</strong>
-              <strong>Action</strong>
+              <strong>پلن</strong>
+              <strong>قیمت</strong>
+              <strong>وضعیت</strong>
+              <strong>عملیات</strong>
             </div>
             {plans.length > 0 ? plans.map((plan) => (
               <div className="qf-table__row" key={plan.code}>
@@ -137,15 +137,15 @@ export default function Page() {
                 <span>{plan.currency ?? "USD"} {plan.monthlyPrice ?? 0}/mo · {plan.yearlyPrice ?? 0}/yr</span>
                 <span>{plan.isActive ? "active" : "inactive"}</span>
                 <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                  <button className="button secondary" type="button" onClick={() => edit(plan)}>Update</button>
-                  <button className="button secondary" type="button" onClick={() => deactivate(plan.code)}>Deactivate</button>
+                  <button className="button secondary" type="button" onClick={() => edit(plan)}>به‌روزرسانی</button>
+                  <button className="button secondary" type="button" onClick={() => deactivate(plan.code)}>غیرفعال</button>
                 </div>
               </div>
             )) : (
               <div className="qf-table__row">
-                <span>No plans found</span>
-                <span>Seed the pricing table</span>
-                <span>from backend</span>
+                <span>پلنی پیدا نشد</span>
+                <span>جدول قیمت‌گذاری را</span>
+                <span>از بک‌اند پر کن</span>
                 <span>—</span>
               </div>
             )}

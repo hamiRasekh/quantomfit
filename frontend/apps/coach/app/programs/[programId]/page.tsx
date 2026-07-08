@@ -90,9 +90,9 @@ export default function Page() {
     try {
       const updated = await api.patch<Program>(`/api/v1/programs/${programId}`, form);
       setProgram(updated);
-      setMessage("Program updated.");
+      setMessage("برنامه به‌روزرسانی شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to update program.");
+      setMessage(error instanceof Error ? error.message : "به‌روزرسانی برنامه ممکن نشد.");
     }
   }
 
@@ -103,9 +103,9 @@ export default function Page() {
       setSessions((current) => [created, ...current]);
       setSessionNotes((current) => ({ ...current, [created.id]: created.notes ?? "" }));
       setSessionForm({ title: "", dayLabel: "", notes: "", status: "pending" });
-      setMessage("Session created.");
+      setMessage("سشن ساخته شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to create session.");
+      setMessage(error instanceof Error ? error.message : "ساخت سشن ممکن نشد.");
     }
   }
 
@@ -117,81 +117,81 @@ export default function Page() {
       });
       setSessions((current) => current.map((item) => (item.id === updated.id ? updated : item)));
       setSessionNotes((current) => ({ ...current, [updated.id]: updated.notes ?? "" }));
-      setMessage("Session note saved.");
+      setMessage("یادداشت سشن ذخیره شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to save session note.");
+      setMessage(error instanceof Error ? error.message : "ذخیره یادداشت سشن ممکن نشد.");
     }
   }
 
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Program Detail</span>
-        <h1>{program?.name ?? "Workout program"}</h1>
-        <p>Edit program metadata, sessions, and trainer assignment.</p>
+        <span className="label">جزئیات برنامه</span>
+        <h1>{program?.name ?? "برنامه تمرینی"}</h1>
+        <p>متادیتا، سشن‌ها و انتساب مربی را ویرایش کن.</p>
       </header>
 
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Edit program</span><em>Tenant scoped</em></div>
+          <div className="section-head"><span>ویرایش برنامه</span><em>محدود به باشگاه</em></div>
           <div className="field-list">
-            <div className="form-field"><label>Name</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></div>
-            <div className="form-field"><label>Trainer</label>
+            <div className="form-field"><label>نام</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></div>
+            <div className="form-field"><label>مربی</label>
               <select value={form.trainerId} onChange={(e) => setForm({ ...form, trainerId: e.target.value })}>
-                <option value="">Unassigned</option>
+                <option value="">بدون انتساب</option>
                 {trainers.map((trainer) => (
                   <option key={trainer.id} value={trainer.id}>{trainer.fullName}{trainer.specialty ? ` · ${trainer.specialty}` : ""}</option>
                 ))}
               </select>
             </div>
-            <div className="form-field"><label>Status</label>
+            <div className="form-field"><label>وضعیت</label>
               <select value={form.status} onChange={(e) => setForm({ ...form, status: e.target.value })}>
-                <option value="active">active</option>
-                <option value="draft">draft</option>
-                <option value="archived">archived</option>
+                <option value="active">فعال</option>
+                <option value="draft">پیش‌نویس</option>
+                <option value="archived">بایگانی</option>
               </select>
             </div>
           </div>
           <div className="actions">
-            <button className="button primary" type="button" onClick={save}>Save changes</button>
+            <button className="button primary" type="button" onClick={save}>ذخیره تغییرات</button>
           </div>
           {message ? <p>{message}</p> : null}
         </section>
 
         <section className="panel">
-          <div className="section-head"><span>Create session</span><em>Program flow</em></div>
+          <div className="section-head"><span>ساخت سشن</span><em>جریان برنامه</em></div>
           <div className="field-list">
-            <div className="form-field"><label>Title</label><input value={sessionForm.title} onChange={(e) => setSessionForm({ ...sessionForm, title: e.target.value })} /></div>
-            <div className="form-field"><label>Day label</label><input value={sessionForm.dayLabel} onChange={(e) => setSessionForm({ ...sessionForm, dayLabel: e.target.value })} /></div>
-            <div className="form-field"><label>Notes</label><input value={sessionForm.notes} onChange={(e) => setSessionForm({ ...sessionForm, notes: e.target.value })} /></div>
+            <div className="form-field"><label>عنوان</label><input value={sessionForm.title} onChange={(e) => setSessionForm({ ...sessionForm, title: e.target.value })} /></div>
+            <div className="form-field"><label>برچسب روز</label><input value={sessionForm.dayLabel} onChange={(e) => setSessionForm({ ...sessionForm, dayLabel: e.target.value })} /></div>
+            <div className="form-field"><label>یادداشت</label><input value={sessionForm.notes} onChange={(e) => setSessionForm({ ...sessionForm, notes: e.target.value })} /></div>
           </div>
           <div className="actions">
-            <button className="button primary" type="button" onClick={createSession} disabled={!sessionForm.title.trim()}>Add session</button>
+            <button className="button primary" type="button" onClick={createSession} disabled={!sessionForm.title.trim()}>افزودن سشن</button>
           </div>
         </section>
       </div>
 
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Summary</span><em>{program?.status ?? "active"}</em></div>
+          <div className="section-head"><span>خلاصه</span><em>{program?.status ?? "فعال"}</em></div>
           <div className="detail-grid">
-            <article><span className="status">Trainer</span><h3>{program?.trainerName ?? "unassigned"}</h3><p>Linked from the program table.</p></article>
-            <article><span className="status">Type</span><h3>Weekly plan</h3><p>Used by athletes and coaches.</p></article>
-            <article><span className="status">Flow</span><h3>Assign member</h3><p>Use student detail to attach this program.</p></article>
+            <article><span className="status">مربی</span><h3>{program?.trainerName ?? "بدون انتساب"}</h3><p>از جدول برنامه‌ها لینک می‌شود.</p></article>
+            <article><span className="status">نوع</span><h3>طرح هفتگی</h3><p>توسط ورزشکار و مربی استفاده می‌شود.</p></article>
+            <article><span className="status">جریان</span><h3>انتساب به عضو</h3><p>از جزئیات شاگرد برای اتصال این برنامه استفاده کن.</p></article>
           </div>
         </section>
 
         <section className="panel">
-          <div className="section-head"><span>Sessions</span><em>{sessions.length} entries</em></div>
+          <div className="section-head"><span>سشن‌ها</span><em>{sessions.length} ورودی</em></div>
           <ul className="timeline">
             {sessions.length > 0 ? sessions.map((session) => (
               <li key={session.id}>
-                <strong>{session.dayLabel || "Session"}</strong>
-                <span>{session.title} · {session.status}{session.completedAt ? ` · completed ${new Date(session.completedAt).toLocaleDateString()}` : ""}</span>
+                <strong>{session.dayLabel || "سشن"}</strong>
+                <span>{session.title} · {session.status}{session.completedAt ? ` · تکمیل‌شده ${new Date(session.completedAt).toLocaleDateString()}` : ""}</span>
                 <textarea
                   value={sessionNotes[session.id] ?? session.notes ?? ""}
                   onChange={(event) => setSessionNotes((current) => ({ ...current, [session.id]: event.target.value }))}
-                  placeholder="Add coach feedback or training notes"
+                  placeholder="یادداشت مربی یا بازخورد تمرینی را اضافه کن"
                   rows={3}
                   style={{
                     marginTop: 12,
@@ -206,12 +206,12 @@ export default function Page() {
                 />
                 <div className="actions" style={{ marginTop: 10 }}>
                   <button className="button secondary" type="button" onClick={() => saveSessionNotes(session.id)}>
-                    Save note
+                    ذخیره یادداشت
                   </button>
                 </div>
               </li>
             )) : (
-              <li><strong>No sessions yet</strong><span>Create the first session from the form above.</span></li>
+              <li><strong>هنوز سشنی وجود ندارد</strong><span>اولین سشن را از فرم بالا بساز.</span></li>
             )}
           </ul>
         </section>

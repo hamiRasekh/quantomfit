@@ -52,18 +52,18 @@ export default function Page() {
   return (
     <section className="shell">
       <header className="panel hero">
-        <span className="label">Demo requests</span>
-        <h1>Requests from the public website and sales flow.</h1>
+        <span className="label">درخواست دمو</span>
+        <h1>درخواست‌های سایت عمومی و جریان فروش.</h1>
       </header>
 
       <div className="panel">
-        <div className="section-head"><span>Inbox</span><em>{items.length} requests</em></div>
+        <div className="section-head"><span>صندوق ورودی</span><em>{items.length} درخواست</em></div>
         <div className="qf-table">
           <div className="qf-table__row qf-table__row--head">
-            <strong>Name</strong>
-            <strong>Panel</strong>
-            <strong>Status</strong>
-            <strong>Action</strong>
+            <strong>نام</strong>
+            <strong>پنل</strong>
+            <strong>وضعیت</strong>
+            <strong>عملیات</strong>
           </div>
           {items.length > 0 ? items.map((item) => (
             <div className="qf-table__row" key={item.id}>
@@ -74,13 +74,13 @@ export default function Page() {
               <span>{item.panelType} · {item.companyName ?? "—"}</span>
               <span>{item.status}</span>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                <button className="button secondary" type="button" onClick={() => setStatus(item.id, "contacted")}>Contacted</button>
-                <button className="button secondary" type="button" onClick={() => setStatus(item.id, "qualified")}>Qualified</button>
+                <button className="button secondary" type="button" onClick={() => setStatus(item.id, "contacted")}>تماس گرفته شد</button>
+                <button className="button secondary" type="button" onClick={() => setStatus(item.id, "qualified")}>تأیید شد</button>
               </div>
             </div>
           )) : (
             <div className="qf-table__row">
-              <span>No requests yet</span>
+              <span>هنوز درخواستی نداریم</span>
               <span>—</span>
               <span>—</span>
               <span>—</span>

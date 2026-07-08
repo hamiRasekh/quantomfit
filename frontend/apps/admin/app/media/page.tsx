@@ -53,9 +53,9 @@ export default function Page() {
     try {
       const created = await api.post<MediaFile>("/api/v1/admin/media", form);
       setItems((current) => [created, ...current]);
-      setMessage("Media saved.");
+      setMessage("رسانه ذخیره شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to save media.");
+      setMessage(error instanceof Error ? error.message : "ذخیره رسانه ممکن نشد.");
     }
   }
 
@@ -67,24 +67,24 @@ export default function Page() {
   return (
     <section className="shell">
       <header className="panel hero">
-        <span className="label">Media manager</span>
-        <h1>Images and gym gallery assets stored through one abstraction.</h1>
+        <span className="label">رسانه</span>
+        <h1>تصاویر و دارایی‌های گالری باشگاه در یک لایه مدیریت می‌شوند.</h1>
       </header>
 
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Upload media</span><em>Storage ready</em></div>
+          <div className="section-head"><span>افزودن رسانه</span><em>آماده ذخیره‌سازی</em></div>
           <div className="field-list">
             <div className="form-field">
-              <label>Gym ID</label>
+              <label>شناسه باشگاه</label>
               <input value={form.gymId} onChange={(e) => setForm({ ...form, gymId: e.target.value })} />
             </div>
             <div className="form-field">
-              <label>Kind</label>
+              <label>نوع</label>
               <select value={form.kind} onChange={(e) => setForm({ ...form, kind: e.target.value })}>
-                <option value="image">Image</option>
-                <option value="logo">Logo</option>
-                <option value="gallery">Gallery</option>
+                <option value="image">تصویر</option>
+                <option value="logo">لوگو</option>
+                <option value="gallery">گالری</option>
               </select>
             </div>
             <div className="form-field">
@@ -92,24 +92,24 @@ export default function Page() {
               <input value={form.url} onChange={(e) => setForm({ ...form, url: e.target.value })} />
             </div>
             <div className="form-field">
-              <label>Alt</label>
+              <label>متن جایگزین</label>
               <input value={form.alt} onChange={(e) => setForm({ ...form, alt: e.target.value })} />
             </div>
           </div>
           <div className="actions">
-            <button className="button primary" type="button" onClick={createMedia} disabled={!form.url.trim()}>Save media</button>
+            <button className="button primary" type="button" onClick={createMedia} disabled={!form.url.trim()}>ذخیره رسانه</button>
           </div>
           {message ? <p>{message}</p> : null}
         </section>
 
         <section className="panel">
-          <div className="section-head"><span>Library</span><em>{items.length} files</em></div>
+          <div className="section-head"><span>کتابخانه</span><em>{items.length} فایل</em></div>
           <div className="qf-table">
             <div className="qf-table__row qf-table__row--head">
-              <strong>Asset</strong>
-              <strong>Type</strong>
-              <strong>Gym</strong>
-              <strong>Action</strong>
+              <strong>دارایی</strong>
+              <strong>نوع</strong>
+              <strong>باشگاه</strong>
+              <strong>عملیات</strong>
             </div>
             {items.length > 0 ? items.map((item) => (
               <div className="qf-table__row" key={item.id}>
@@ -119,11 +119,11 @@ export default function Page() {
                 </span>
                 <span>{item.kind}</span>
                 <span>{item.gymId || "platform"}</span>
-                <button className="button secondary" type="button" onClick={() => removeMedia(item.id)}>Delete</button>
+                <button className="button secondary" type="button" onClick={() => removeMedia(item.id)}>حذف</button>
               </div>
             )) : (
               <div className="qf-table__row">
-                <span>No media files yet</span>
+                <span>هنوز رسانه‌ای ثبت نشده</span>
                 <span>—</span>
                 <span>—</span>
                 <span>—</span>

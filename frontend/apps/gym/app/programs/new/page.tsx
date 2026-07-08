@@ -42,48 +42,48 @@ export default function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">New Program</span>
-        <h1>Create a new workout plan.</h1>
-        <p>Programs stay scoped to the current gym tenant and can be assigned to a trainer immediately.</p>
+        <span className="label">برنامه جدید</span>
+        <h1>یک برنامه تمرینی جدید بساز.</h1>
+        <p>برنامه‌ها در همین tenant باشگاه می‌مانند و می‌توانی بلافاصله به مربی انتساب بدهی.</p>
       </header>
 
       <form className="panel" onSubmit={onSubmit}>
         <div className="section-head">
-          <span>Program details</span>
-          <em>Tenant safe</em>
+          <span>جزئیات برنامه</span>
+          <em>امن برای tenant</em>
         </div>
         <div className="auth-grid">
           <div className="form-card">
             <div className="form-field">
-              <label>Program name</label>
-              <input value={name} onChange={(event) => setName(event.target.value)} placeholder="Push power" required />
+              <label>نام برنامه</label>
+              <input value={name} onChange={(event) => setName(event.target.value)} placeholder="قدرت پرس" required />
             </div>
             <div className="form-field">
-              <label>Trainer ID</label>
-              <input value={trainerId} onChange={(event) => setTrainerId(event.target.value)} placeholder="Optional" />
+              <label>شناسه مربی</label>
+              <input value={trainerId} onChange={(event) => setTrainerId(event.target.value)} placeholder="اختیاری" />
             </div>
             <div className="form-field">
-              <label>Status</label>
+              <label>وضعیت</label>
               <select value={status} onChange={(event) => setStatus(event.target.value)}>
-                <option value="active">active</option>
-                <option value="draft">draft</option>
-                <option value="archived">archived</option>
+                <option value="active">فعال</option>
+                <option value="draft">پیش‌نویس</option>
+                <option value="archived">بایگانی</option>
               </select>
             </div>
             <div className="actions">
               <button className="button primary" type="submit" disabled={saving}>
-                {saving ? "Saving..." : "Create program"}
+                {saving ? "در حال ذخیره..." : "ثبت برنامه"}
               </button>
-              <a className="button secondary" href="/programs">Cancel</a>
+              <a className="button secondary" href="/programs">لغو</a>
             </div>
             {error ? <p style={{ color: "#fca5a5" }}>{error}</p> : null}
           </div>
           <div className="flow-card">
-            <h3>Creation flow</h3>
+            <h3>روند ساخت</h3>
             <div className="stepper">
-              <div><strong>1</strong><span>Name the routine</span></div>
-              <div><strong>2</strong><span>Attach a trainer</span></div>
-              <div><strong>3</strong><span>Assign sessions later</span></div>
+              <div><strong>1</strong><span>نام‌گذاری روتین</span></div>
+              <div><strong>2</strong><span>انتساب مربی</span></div>
+              <div><strong>3</strong><span>افزودن سشن‌ها بعداً</span></div>
             </div>
           </div>
         </div>

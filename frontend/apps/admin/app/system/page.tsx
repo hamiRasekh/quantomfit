@@ -20,14 +20,14 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="panel hero">
-        <span className="label">System</span>
-        <h1>Platform health and runtime details.</h1>
-        <p>Monitor the runtime, service version, and uptime for the Go backend.</p>
+        <span className="label">سیستم</span>
+        <h1>سلامت پلتفرم و جزئیات اجرا.</h1>
+        <p>Runtime، نسخه سرویس و uptime بک‌اند Go را مانیتور کن.</p>
       </header>
       <div className="detail-grid">
-        <article><span className="status">Health</span><h3>{health?.status ?? "unknown"}</h3><p>API health endpoint.</p></article>
+        <article><span className="status">سلامت</span><h3>{health?.status ?? "نامشخص"}</h3><p>Endpoint سلامت API.</p></article>
         <article><span className="status">Runtime</span><h3>{platform?.version ?? "dev"}</h3><p>{platform?.env ?? "development"}</p></article>
-        <article><span className="status">Uptime</span><h3>{health?.uptimeSec ?? 0}s</h3><p>Go backend uptime.</p></article>
+        <article><span className="status">Uptime</span><h3>{health?.uptimeSec ?? 0}s</h3><p>زمان کارکرد بک‌اند Go.</p></article>
       </div>
     </section>
   );

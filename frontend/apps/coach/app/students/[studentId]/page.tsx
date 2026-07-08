@@ -74,37 +74,37 @@ export default function Page() {
         programId,
       });
       setStudent(updated);
-      setMessage("Program assigned.");
+      setMessage("برنامه اختصاص داده شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to assign program.");
+      setMessage(error instanceof Error ? error.message : "اختصاص برنامه ممکن نشد.");
     }
   }
 
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Student Profile</span>
-        <h1>{student?.fullName ?? "Student profile"}</h1>
-        <p>{student?.status ?? "Unknown"} member detail with attendance history.</p>
+        <span className="label">پروفایل شاگرد</span>
+        <h1>{student?.fullName ?? "پروفایل شاگرد"}</h1>
+        <p>{student?.status ?? "نامشخص"} و جزئیات عضو با تاریخچه حضور.</p>
       </header>
       <div className="metrics">
-        <article><strong>{student?.attendanceCount ?? 0}</strong><span>attendance count</span></article>
-        <article><strong>{student?.phone ?? "n/a"}</strong><span>phone</span></article>
-        <article><strong>{student?.gender ?? "n/a"}</strong><span>gender</span></article>
-        <article><strong>{student?.joinedAt ? new Date(student.joinedAt).toLocaleDateString() : "n/a"}</strong><span>joined</span></article>
+        <article><strong>{student?.attendanceCount ?? 0}</strong><span>تعداد حضور</span></article>
+        <article><strong>{student?.phone ?? "ثبت نشده"}</strong><span>تلفن</span></article>
+        <article><strong>{student?.gender ?? "ثبت نشده"}</strong><span>جنسیت</span></article>
+        <article><strong>{student?.joinedAt ? new Date(student.joinedAt).toLocaleDateString() : "ثبت نشده"}</strong><span>تاریخ عضویت</span></article>
       </div>
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Program assignment</span><em>Coach action</em></div>
+          <div className="section-head"><span>انتساب برنامه</span><em>اقدام مربی</em></div>
           <div className="field-list">
             <div className="form-field">
-              <label>Current program</label>
-              <input value={student?.programName ?? "Unassigned"} readOnly />
+              <label>برنامه فعلی</label>
+              <input value={student?.programName ?? "بدون انتساب"} readOnly />
             </div>
             <div className="form-field">
-              <label>Assign program</label>
+              <label>انتخاب برنامه</label>
               <select value={programId} onChange={(e) => setProgramId(e.target.value)}>
-                <option value="">Unassigned</option>
+                <option value="">بدون انتساب</option>
                 {programs.map((program) => (
                   <option key={program.id} value={program.id}>{program.name}</option>
                 ))}
@@ -112,12 +112,12 @@ export default function Page() {
             </div>
           </div>
           <div className="actions">
-            <button className="button primary" type="button" onClick={assignProgram} disabled={!programId}>Save assignment</button>
+            <button className="button primary" type="button" onClick={assignProgram} disabled={!programId}>ذخیره انتساب</button>
           </div>
           {message ? <p>{message}</p> : null}
         </section>
         <section className="panel">
-          <div className="section-head"><span>Recent check-ins</span><em>{student?.latestCheckins?.length ?? 0} entries</em></div>
+          <div className="section-head"><span>ورودهای اخیر</span><em>{student?.latestCheckins?.length ?? 0} ورودی</em></div>
           <ul className="timeline">
             {(student?.latestCheckins ?? []).map((item) => (
               <li key={item.id}>
@@ -130,11 +130,11 @@ export default function Page() {
       </div>
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Coach actions</span><em>Member flow</em></div>
+          <div className="section-head"><span>اقدام‌های مربی</span><em>جریان عضو</em></div>
           <div className="detail-grid">
-            <article><span className="status">Assign</span><h3>Workout plan</h3><p>Attach or update the athlete program.</p></article>
-            <article><span className="status">Review</span><h3>Progress notes</h3><p>Track performance and adherence.</p></article>
-            <article><span className="status">Message</span><h3>Follow-up</h3><p>Send reminders and training feedback.</p></article>
+            <article><span className="status">انتساب</span><h3>برنامه تمرینی</h3><p>برنامه ورزشکار را وصل یا به‌روزرسانی کن.</p></article>
+            <article><span className="status">بررسی</span><h3>یادداشت پیشرفت</h3><p>عملکرد و پایبندی را دنبال کن.</p></article>
+            <article><span className="status">پیام</span><h3>پیگیری</h3><p>یادآور و بازخورد تمرینی بفرست.</p></article>
           </div>
         </section>
       </div>

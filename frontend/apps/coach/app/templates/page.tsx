@@ -27,33 +27,33 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Program templates</span>
-        <h1>Reusable training structures for quick coaching workflows.</h1>
-        <p>Start from live tenant programs and copy them into a reusable coaching pattern.</p>
+        <span className="label">الگوهای برنامه</span>
+        <h1>ساختارهای تمرینی قابل استفاده مجدد برای جریان سریع مربی.</h1>
+        <p>از برنامه‌های زنده‌ی مستاجر شروع کن و آن‌ها را به الگوی مربی‌گری تبدیل کن.</p>
       </header>
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Template library</span><em>{programs.length} programs</em></div>
+          <div className="section-head"><span>کتابخانه الگو</span><em>{programs.length} برنامه</em></div>
           <div className="field-list">
             {programs.length > 0 ? programs.map((program) => (
               <Link key={program.id} href={`/programs/${program.id}`} style={{ display: "grid", gap: 6, textDecoration: "none", color: "inherit" }}>
                 <strong>{program.name}</strong>
-                <span>{program.status} · {program.trainerName ?? "unassigned"}</span>
+                <span>{program.status} · {program.trainerName ?? "بدون انتساب"}</span>
               </Link>
             )) : (
-              <div><strong>No programs yet</strong><span>Create a workout program to use it as a template.</span></div>
+              <div><strong>هنوز برنامه‌ای نداریم</strong><span>یک برنامه تمرینی بساز تا به الگو تبدیل شود.</span></div>
             )}
           </div>
         </section>
         <section className="panel">
-          <div className="section-head"><span>Next step</span><em>Programs</em></div>
+          <div className="section-head"><span>قدم بعدی</span><em>برنامه‌ها</em></div>
           <div className="detail-grid">
-            <article><span className="status">Edit</span><h3>Copy a template</h3><p>Create a new program from an existing structure.</p></article>
-            <article><span className="status">Assign</span><h3>Attach to student</h3><p>Push a template to a selected athlete.</p></article>
-            <article><span className="status">Review</span><h3>Program adherence</h3><p>Use the reports page to check completion.</p></article>
+            <article><span className="status">ویرایش</span><h3>کپی قالب</h3><p>از ساختار موجود یک برنامه جدید بساز.</p></article>
+            <article><span className="status">انتساب</span><h3>اتصال به شاگرد</h3><p>الگو را برای ورزشکار انتخاب‌شده بفرست.</p></article>
+            <article><span className="status">بررسی</span><h3>پایبندی برنامه</h3><p>از صفحه گزارش‌ها برای چک تکمیل استفاده کن.</p></article>
           </div>
           <div className="actions" style={{ marginTop: 18 }}>
-            <Link className="button primary" href="/programs">Open programs</Link>
+            <Link className="button primary" href="/programs">باز کردن برنامه‌ها</Link>
           </div>
         </section>
       </div>

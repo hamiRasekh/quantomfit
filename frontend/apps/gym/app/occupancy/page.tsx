@@ -24,13 +24,13 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Occupancy</span>
-        <h1>Live occupancy tracked by gate and studio zone.</h1>
+        <span className="label">تراکم</span>
+        <h1>تراکم زنده بر اساس دروازه و زون سالن.</h1>
       </header>
       <div className="detail-grid">
-        <article><span className="status">Current</span><h3>{occupancy?.current ?? 0}</h3><p>active entries inside the gym.</p></article>
-        <article><span className="status">Capacity</span><h3>{occupancy?.capacity ?? 0}</h3><p>hard limit from the onboarding profile.</p></article>
-        <article><span className="status">Ratio</span><h3>{occupancy?.ratio ? `${Math.round(occupancy.ratio * 100)}%` : "0%"}</h3><p>real-time utilization.</p></article>
+        <article><span className="status">فعلی</span><h3>{occupancy?.current ?? 0}</h3><p>ورودی‌های فعال داخل باشگاه.</p></article>
+        <article><span className="status">ظرفیت</span><h3>{occupancy?.capacity ?? 0}</h3><p>سقف قطعی از پروفایل راه‌اندازی.</p></article>
+        <article><span className="status">نسبت</span><h3>{occupancy?.ratio ? `${Math.round(occupancy.ratio * 100)}%` : "0%"}</h3><p>استفاده لحظه‌ای از ظرفیت.</p></article>
       </div>
     </section>
   );

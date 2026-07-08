@@ -27,28 +27,28 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">My Gym</span>
-        <h1>{publicGym?.gym?.name ?? dashboard?.gymName ?? "Your gym"} profile and live status.</h1>
+        <span className="label">باشگاه من</span>
+        <h1>{publicGym?.gym?.name ?? dashboard?.gymName ?? "باشگاه شما"}، پروفایل و وضعیت زنده.</h1>
       </header>
       <div className="detail-grid">
-        <article><span className="status">Address</span><h3>{typeof payload.location === "string" ? payload.location : "Gym location"}</h3><p>Public profile, hours, and map data.</p></article>
-        <article><span className="status">Crowd</span><h3>{publicGym?.gym?.latestOccupancy ?? dashboard?.occupancy?.current ?? 0} / {publicGym?.gym?.capacity ?? dashboard?.occupancy?.capacity ?? 0}</h3><p>Live occupancy status.</p></article>
-        <article><span className="status">Coaches</span><h3>{publicGym?.trainers?.length ?? 0}</h3><p>View your gym’s trainers and classes.</p></article>
+        <article><span className="status">آدرس</span><h3>{typeof payload.location === "string" ? payload.location : "موقعیت باشگاه"}</h3><p>پروفایل عمومی، ساعات و داده نقشه.</p></article>
+        <article><span className="status">شلوغی</span><h3>{publicGym?.gym?.latestOccupancy ?? dashboard?.occupancy?.current ?? 0} / {publicGym?.gym?.capacity ?? dashboard?.occupancy?.capacity ?? 0}</h3><p>وضعیت شلوغی زنده.</p></article>
+        <article><span className="status">مربی‌ها</span><h3>{publicGym?.trainers?.length ?? 0}</h3><p>مربی‌ها و کلاس‌های باشگاهت را ببین.</p></article>
       </div>
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Trainers</span><em>{publicGym?.trainers?.length ?? 0} coaches</em></div>
+          <div className="section-head"><span>مربی‌ها</span><em>{publicGym?.trainers?.length ?? 0} مربی</em></div>
           <div className="field-list">
             {(publicGym?.trainers ?? []).slice(0, 4).map((trainer) => (
               <div key={trainer.id}>
                 <strong>{trainer.fullName}</strong>
-                <span>{trainer.specialty ?? "General coaching"}</span>
+                <span>{trainer.specialty ?? "مربی‌گری عمومی"}</span>
               </div>
             ))}
           </div>
         </section>
         <section className="panel">
-          <div className="section-head"><span>Classes</span><em>{publicGym?.classes?.length ?? 0} sessions</em></div>
+          <div className="section-head"><span>کلاس‌ها</span><em>{publicGym?.classes?.length ?? 0} سشن</em></div>
           <div className="field-list">
             {(publicGym?.classes ?? []).slice(0, 4).map((item) => (
               <div key={item.id}>

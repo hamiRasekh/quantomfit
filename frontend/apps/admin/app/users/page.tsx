@@ -57,62 +57,62 @@ export default function Page() {
   }
 
   async function resetPassword(user: User) {
-    const password = prompt(`Set a new password for ${user.email}`);
+    const password = prompt(`رمز عبور جدید برای ${user.email} را وارد کن`);
     if (!password) {
       return;
     }
     await api.patch<User>(`/api/v1/admin/users/${user.id}`, { password });
-    setMessage("Password reset.");
+    setMessage("رمز عبور بازنشانی شد.");
   }
 
   return (
     <section className="shell">
       <header className="panel hero">
-        <span className="label">Users</span>
-        <h1>All platform users with role and tenant scope.</h1>
-        <p>Owners, trainers, athletes, and super admins are visible from one directory.</p>
+        <span className="label">کاربران</span>
+        <h1>همه کاربران پلتفرم با نقش و محدوده مستاجر.</h1>
+        <p>مالک‌ها، مربی‌ها، ورزشکارها و ادمین‌ها در یک دایرکتوری دیده می‌شوند.</p>
       </header>
 
       <div className="toolbar">
-        <button className={`button ${roleFilter === "all" ? "primary" : "secondary"}`} type="button" onClick={() => setRoleFilter("all")}>All</button>
-        <button className={`button ${roleFilter === "admin" ? "primary" : "secondary"}`} type="button" onClick={() => setRoleFilter("admin")}>Admin</button>
-        <button className={`button ${roleFilter === "gym_owner" ? "primary" : "secondary"}`} type="button" onClick={() => setRoleFilter("gym_owner")}>Gym owner</button>
-        <button className={`button ${roleFilter === "trainer" ? "primary" : "secondary"}`} type="button" onClick={() => setRoleFilter("trainer")}>Trainer</button>
-        <button className={`button ${roleFilter === "athlete" ? "primary" : "secondary"}`} type="button" onClick={() => setRoleFilter("athlete")}>Athlete</button>
+        <button className={`button ${roleFilter === "all" ? "primary" : "secondary"}`} type="button" onClick={() => setRoleFilter("all")}>همه</button>
+        <button className={`button ${roleFilter === "admin" ? "primary" : "secondary"}`} type="button" onClick={() => setRoleFilter("admin")}>ادمین</button>
+        <button className={`button ${roleFilter === "gym_owner" ? "primary" : "secondary"}`} type="button" onClick={() => setRoleFilter("gym_owner")}>باشگاه</button>
+        <button className={`button ${roleFilter === "trainer" ? "primary" : "secondary"}`} type="button" onClick={() => setRoleFilter("trainer")}>مربی</button>
+        <button className={`button ${roleFilter === "athlete" ? "primary" : "secondary"}`} type="button" onClick={() => setRoleFilter("athlete")}>ورزشکار</button>
       </div>
 
       <div className="panel">
         <div className="section-head">
-          <span>User directory</span>
-          <em>{visibleUsers.length} users</em>
+          <span>فهرست کاربران</span>
+          <em>{visibleUsers.length} کاربر</em>
         </div>
         <div className="qf-table">
           <div className="qf-table__row qf-table__row--head">
-            <strong>Email</strong>
-            <strong>Role</strong>
-            <strong>Tenant</strong>
-            <strong>Action</strong>
+            <strong>ایمیل</strong>
+            <strong>نقش</strong>
+            <strong>باشگاه</strong>
+            <strong>عملیات</strong>
           </div>
           {visibleUsers.length > 0 ? visibleUsers.map((user) => (
             <div className="qf-table__row" key={user.id}>
               <span>
                 <strong>{user.email}</strong>
-                <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>{user.phone ?? "No phone"}</small>
+                <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>{user.phone ?? "شماره ثبت نشده"}</small>
               </span>
               <span>{user.role} · {user.status}</span>
               <span>{user.gymName || "platform"}</span>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                 <button className="button secondary" type="button" onClick={() => toggleStatus(user)}>
-                  {user.status === "active" ? "Deactivate" : "Activate"}
+                  {user.status === "active" ? "غیرفعال" : "فعال"}
                 </button>
-                <button className="button secondary" type="button" onClick={() => resetPassword(user)}>Reset password</button>
+                <button className="button secondary" type="button" onClick={() => resetPassword(user)}>بازنشانی رمز</button>
               </div>
             </div>
           )) : (
             <div className="qf-table__row">
               <span>
-                <strong>No users found</strong>
-                <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>Seed data will populate owners, trainers, athletes, and admin users.</small>
+                <strong>کاربری پیدا نشد</strong>
+                <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>داده‌های نمونه، مالک‌ها، مربی‌ها، ورزشکارها و ادمین‌ها را پر می‌کنند.</small>
               </span>
               <span>--</span>
               <span>--</span>

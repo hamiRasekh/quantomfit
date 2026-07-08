@@ -82,9 +82,9 @@ export default function Page() {
         stackable: form.stackable,
       });
       setDiscounts((current) => [created, ...current]);
-      setMessage("Discount saved.");
+      setMessage("تخفیف ذخیره شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to save discount.");
+      setMessage(error instanceof Error ? error.message : "ذخیره تخفیف ممکن نشد.");
     }
   }
 
@@ -96,78 +96,78 @@ export default function Page() {
   return (
     <section className="shell">
       <header className="panel hero">
-        <span className="label">Customer discounts</span>
-        <h1>Gym-specific pricing offers with audit-ready control.</h1>
-        <p>Apply a custom discount to one gym and one plan for a fixed number of months.</p>
+        <span className="label">تخفیف‌ها</span>
+        <h1>پیشنهادهای قیمتی مخصوص هر باشگاه با کنترل قابل‌ردیابی.</h1>
+        <p>برای یک باشگاه و یک پلن، تخفیف اختصاصی را برای مدت مشخص اعمال کن.</p>
       </header>
 
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Create discount</span><em>Admin only</em></div>
+          <div className="section-head"><span>ساخت تخفیف</span><em>فقط ادمین</em></div>
           <div className="field-list">
             <div className="form-field">
-              <label>Gym</label>
+              <label>باشگاه</label>
               <select value={form.gymId} onChange={(e) => setForm({ ...form, gymId: e.target.value })}>
-                <option value="">Select gym</option>
+                <option value="">انتخاب باشگاه</option>
                 {gyms.map((gym) => <option key={gym.id} value={gym.id}>{gym.name}</option>)}
               </select>
             </div>
             <div className="form-field">
-              <label>Plan</label>
+              <label>پلن</label>
               <select value={form.planCode} onChange={(e) => setForm({ ...form, planCode: e.target.value })}>
-                <option value="">Select plan</option>
+                <option value="">انتخاب پلن</option>
                 {plans.map((plan) => <option key={plan.code} value={plan.code}>{plan.name} {plan.currency ? `· ${plan.currency}` : ""}</option>)}
               </select>
             </div>
             <div className="form-field">
-              <label>Discount type</label>
+              <label>نوع تخفیف</label>
               <select value={form.discountType} onChange={(e) => setForm({ ...form, discountType: e.target.value })}>
-                <option value="percent">Percentage</option>
-                <option value="fixed">Fixed amount</option>
+                <option value="percent">درصدی</option>
+                <option value="fixed">مبلغ ثابت</option>
               </select>
             </div>
             <div className="form-field">
-              <label>Discount value</label>
+              <label>مقدار تخفیف</label>
               <input type="number" value={form.discountValue} onChange={(e) => setForm({ ...form, discountValue: Number(e.target.value) })} />
             </div>
             <div className="form-field">
-              <label>Duration months</label>
+              <label>مدت ماه</label>
               <input type="number" value={form.durationMonths} onChange={(e) => setForm({ ...form, durationMonths: Number(e.target.value) })} />
             </div>
             <div className="form-field">
-              <label>Reason</label>
+              <label>دلیل</label>
               <input value={form.reason} onChange={(e) => setForm({ ...form, reason: e.target.value })} />
             </div>
             <label className="form-field" style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <input type="checkbox" checked={form.stackable} onChange={(e) => setForm({ ...form, stackable: e.target.checked })} />
-              <span>Stackable with coupon</span>
+              <span>قابل ترکیب با کوپن</span>
             </label>
           </div>
           <div className="actions">
-            <button className="button primary" type="button" onClick={createDiscount} disabled={!form.gymId || !form.planCode}>Save discount</button>
+            <button className="button primary" type="button" onClick={createDiscount} disabled={!form.gymId || !form.planCode}>ذخیره تخفیف</button>
           </div>
           {message ? <p>{message}</p> : null}
         </section>
 
         <section className="panel">
-          <div className="section-head"><span>Active discounts</span><em>{discounts.length} records</em></div>
+          <div className="section-head"><span>تخفیف‌های فعال</span><em>{discounts.length} رکورد</em></div>
           <div className="qf-table">
             <div className="qf-table__row qf-table__row--head">
-              <strong>Gym</strong>
-              <strong>Plan</strong>
-              <strong>Value</strong>
-              <strong>Action</strong>
+              <strong>باشگاه</strong>
+              <strong>پلن</strong>
+              <strong>مقدار</strong>
+              <strong>عملیات</strong>
             </div>
             {discounts.length > 0 ? discounts.map((discount) => (
               <div className="qf-table__row" key={discount.id}>
                 <span>{discount.gymName ?? discount.gymId}</span>
                 <span>{discount.planCode}</span>
                 <span>{discount.discountType} · {discount.discountValue}</span>
-                <button className="button secondary" type="button" onClick={() => removeDiscount(discount.id)}>Delete</button>
+                <button className="button secondary" type="button" onClick={() => removeDiscount(discount.id)}>حذف</button>
               </div>
             )) : (
               <div className="qf-table__row">
-                <span>No discounts yet</span>
+                <span>هنوز تخفیفی ثبت نشده</span>
                 <span>—</span>
                 <span>—</span>
                 <span>—</span>

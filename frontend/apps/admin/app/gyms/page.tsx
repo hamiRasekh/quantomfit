@@ -27,21 +27,21 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="panel hero">
-        <span className="label">Gyms</span>
-        <h1>All gyms, all tenants, one secure admin view.</h1>
-        <p>Use this page to inspect lifecycle status, plan assignment, and onboarding readiness.</p>
+        <span className="label">باشگاه‌ها</span>
+        <h1>همه باشگاه‌ها، همه مستاجرها، یک نمای امن برای ادمین.</h1>
+        <p>از این صفحه برای بررسی وضعیت چرخه، پلن و آمادگی راه‌اندازی استفاده کن.</p>
       </header>
 
       <div className="panel">
         <div className="section-head">
-          <span>Gym list</span>
+          <span>فهرست باشگاه‌ها</span>
           <em>{gyms.length} gyms</em>
         </div>
         <div className="qf-table">
           <div className="qf-table__row qf-table__row--head">
-            <strong>Name</strong>
-            <strong>Plan</strong>
-            <strong>Status</strong>
+            <strong>نام</strong>
+            <strong>پلن</strong>
+            <strong>وضعیت</strong>
           </div>
           {gyms.length > 0 ? gyms.map((gym) => (
             <div className="qf-table__row" key={gym.id}>
@@ -55,8 +55,8 @@ export default async function Page() {
           )) : (
             <div className="qf-table__row">
               <span>
-                <strong>No gyms found</strong>
-                <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>Use Create Gym to provision the first tenant.</small>
+                <strong>باشگاهی پیدا نشد</strong>
+                <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>برای ساخت اولین مستاجر از ثبت باشگاه استفاده کن.</small>
               </span>
               <span>--</span>
               <span>--</span>

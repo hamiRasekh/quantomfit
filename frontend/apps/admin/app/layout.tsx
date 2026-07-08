@@ -6,27 +6,27 @@ import { LanguageSwitcher } from "@quantomfit/ui";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "QuantumFit Admin Panel",
-  description: "Super admin panel for QuantumFit.",
+  title: "پنل ادمین QuantumFit",
+  description: "پنل مدیریت سراسری QuantumFit.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const locale = defaultLocale;
   const navItems: PanelNavItem[] = [
-    { href: "/", label: "نمای کلی" },
-    { href: "/create-gym", label: "ثبت باشگاه" },
-    { href: "/gyms", label: "باشگاه‌ها" },
-    { href: "/users", label: "کاربران" },
-    { href: "/plans", label: "پلن‌ها" },
-    { href: "/coupons", label: "کوپن‌ها" },
-    { href: "/discounts", label: "تخفیف‌ها" },
-    { href: "/demo-accounts", label: "دمو" },
-    { href: "/demo-requests", label: "درخواست دمو" },
-    { href: "/media", label: "رسانه" },
-    { href: "/content", label: "محتوا" },
-    { href: "/analytics", label: "تحلیل" },
-    { href: "/audit", label: "ثبت رویداد" },
-    { href: "/system", label: "سیستم" },
+    { href: "/", label: "نمای کلی", icon: "◩" },
+    { href: "/create-gym", label: "ثبت باشگاه", icon: "✦" },
+    { href: "/gyms", label: "باشگاه‌ها", icon: "▣" },
+    { href: "/users", label: "کاربران", icon: "◫" },
+    { href: "/plans", label: "پلن‌ها", icon: "▥" },
+    { href: "/coupons", label: "کوپن‌ها", icon: "⌁" },
+    { href: "/discounts", label: "تخفیف‌ها", icon: "◌" },
+    { href: "/demo-accounts", label: "دمو", icon: "◉" },
+    { href: "/demo-requests", label: "درخواست دمو", icon: "✧" },
+    { href: "/media", label: "رسانه", icon: "◍" },
+    { href: "/content", label: "محتوا", icon: "▤" },
+    { href: "/analytics", label: "تحلیل", icon: "◔" },
+    { href: "/audit", label: "ثبت رویداد", icon: "◈" },
+    { href: "/system", label: "سیستم", icon: "⚙" },
   ];
   return (
     <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"}>
@@ -36,6 +36,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           requiredRoles={["admin"]}
           brand="پنل ادمین"
           subtitle="کنترل پلتفرم"
+          brandLogoSrc="/assets/small-logo.png"
+          brandLogoAlt="لوگوی QuantumFit"
           navItems={navItems}
           topActions={<LanguageSwitcher />}
           logoutHref="/login"

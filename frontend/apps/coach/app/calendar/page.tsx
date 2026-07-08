@@ -27,22 +27,22 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Calendar</span>
-        <h1>Sessions, classes, and training schedule.</h1>
-        <p>Plan the week using live sessions from the connected gym tenant.</p>
+        <span className="label">تقویم</span>
+        <h1>سشن‌ها، کلاس‌ها و برنامه تمرینی.</h1>
+        <p>هفته را با سشن‌های زنده‌ی مستاجر باشگاه برنامه‌ریزی کن.</p>
       </header>
       <div className="detail-grid">
         {sessions.length > 0 ? sessions.slice(0, 3).map((session) => (
           <article key={session.id}>
-            <span className="status">{session.dayLabel || "Session"}</span>
+            <span className="status">{session.dayLabel || "سشن"}</span>
             <h3>{session.title}</h3>
             <p>{session.status}{session.notes ? ` · ${session.notes}` : ""}</p>
           </article>
         )) : (
           <>
-            <article><span className="status">Morning</span><h3>Strength session</h3><p>Assigned member block at 07:00.</p></article>
-            <article><span className="status">Afternoon</span><h3>Functional coaching</h3><p>Small group work at 16:30.</p></article>
-            <article><span className="status">Evening</span><h3>Recovery check</h3><p>Mobility and progress review at 20:00.</p></article>
+            <article><span className="status">صبح</span><h3>جلسه قدرت</h3><p>بلاک عضو اختصاص‌داده‌شده ساعت ۰۷:۰۰.</p></article>
+            <article><span className="status">عصر</span><h3>کوچینگ عملکردی</h3><p>کار گروه کوچک ساعت ۱۶:۳۰.</p></article>
+            <article><span className="status">شب</span><h3>بررسی ریکاوری</h3><p>موبیلیتی و مرور پیشرفت ساعت ۲۰:۰۰.</p></article>
           </>
         )}
       </div>

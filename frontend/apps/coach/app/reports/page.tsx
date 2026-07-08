@@ -37,31 +37,31 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Reports</span>
-        <h1>Student adherence and completion summary.</h1>
-        <p>Reporting is computed from the live tenant data and updates as programs are completed.</p>
+        <span className="label">گزارش‌ها</span>
+        <h1>خلاصه پایبندی شاگرد و تکمیل برنامه.</h1>
+        <p>گزارش‌ها از داده زنده مستاجر محاسبه می‌شوند و با تکمیل برنامه به‌روز می‌مانند.</p>
       </header>
       <div className="metrics">
-        <article><strong>{completionRate}%</strong><span>program completion</span></article>
-        <article><strong>{dashboard?.attendance?.week ?? 0}</strong><span>weekly visits</span></article>
-        <article><strong>{dashboard?.members?.active ?? 0}</strong><span>active athletes</span></article>
-        <article><strong>{missed}</strong><span>open sessions</span></article>
+        <article><strong>{completionRate}%</strong><span>تکمیل برنامه</span></article>
+        <article><strong>{dashboard?.attendance?.week ?? 0}</strong><span>بازدید هفتگی</span></article>
+        <article><strong>{dashboard?.members?.active ?? 0}</strong><span>ورزشکار فعال</span></article>
+        <article><strong>{missed}</strong><span>سشن باز</span></article>
       </div>
       <div className="panel">
         <div className="section-head">
-          <span>Recent sessions</span>
-          <em>{sessions.length} loaded</em>
+          <span>سشن‌های اخیر</span>
+          <em>{sessions.length} بارگذاری‌شده</em>
         </div>
         <ul className="timeline">
           {sessions.length > 0 ? sessions.map((session) => (
             <li key={session.id}>
-              <strong>{session.dayLabel || "Session"}</strong>
-              <span>{session.title} · {session.status}{session.completedAt ? ` · completed ${new Date(session.completedAt).toLocaleDateString()}` : ""}</span>
+              <strong>{session.dayLabel || "سشن"}</strong>
+              <span>{session.title} · {session.status}{session.completedAt ? ` · تکمیل‌شده ${new Date(session.completedAt).toLocaleDateString()}` : ""}</span>
             </li>
           )) : (
             <li>
-              <strong>No session history</strong>
-              <span>Reports will populate once the coach creates programs and sessions.</span>
+              <strong>هنوز تاریخچه‌ای نداریم</strong>
+              <span>وقتی مربی برنامه و سشن بسازد، گزارش‌ها پر می‌شوند.</span>
             </li>
           )}
         </ul>

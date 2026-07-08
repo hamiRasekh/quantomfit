@@ -18,14 +18,14 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Subscriptions</span>
-        <h1>Subscription state and billing cycle for this gym.</h1>
-        <p>Manage the current plan and renewal state from the tenant perspective.</p>
+        <span className="label">اشتراک‌ها</span>
+        <h1>وضعیت اشتراک و چرخه پرداخت این باشگاه.</h1>
+        <p>پلن فعلی و وضعیت تمدید را از نگاه همین tenant مدیریت کن.</p>
       </header>
       <div className="detail-grid">
-        <article><span className="status">Plan</span><h3>{String(subscription?.planName ?? subscription?.planCode ?? "starter")}</h3><p>Managed from the admin panel.</p></article>
-        <article><span className="status">Status</span><h3>{String(subscription?.status ?? "inactive")}</h3><p>Renewal and coupon logic stored in PostgreSQL.</p></article>
-        <article><span className="status">Billing</span><h3>{String(subscription?.billingCycle ?? "monthly")}</h3><p>Active cycle for the tenant.</p></article>
+        <article><span className="status">پلن</span><h3>{String(subscription?.planName ?? subscription?.planCode ?? "starter")}</h3><p>از پنل ادمین مدیریت می‌شود.</p></article>
+        <article><span className="status">وضعیت</span><h3>{String(subscription?.status ?? "inactive")}</h3><p>منطق تمدید و کد تخفیف در PostgreSQL ذخیره می‌شود.</p></article>
+        <article><span className="status">صورتحساب</span><h3>{String(subscription?.billingCycle ?? "monthly")}</h3><p>چرخه فعال همین tenant.</p></article>
       </div>
     </section>
   );

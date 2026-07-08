@@ -20,11 +20,11 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Students</span>
-        <h1>Assigned members and progress-ready profiles.</h1>
+        <span className="label">شاگردها</span>
+        <h1>اعضای اختصاصی و پروفایل‌های آماده پیشرفت.</h1>
       </header>
       <div className="panel">
-        <div className="section-head"><span>Student list</span><em>{students.length} members</em></div>
+        <div className="section-head"><span>فهرست شاگردها</span><em>{students.length} عضو</em></div>
         <div className="field-list">
           {students.length > 0 ? students.map((student) => (
             <Link key={student.id} href={`/students/${student.id}`} style={{ display: "grid", gap: 6, textDecoration: "none", color: "inherit" }}>
@@ -32,7 +32,7 @@ export default async function Page() {
               <span>{student.status}</span>
             </Link>
           )) : (
-            <div><strong>No students yet</strong><span>Gym members will appear once the backend is connected.</span></div>
+            <div><strong>هنوز شاگردی نداریم</strong><span>اعضای باشگاه بعد از اتصال بک‌اند نمایش داده می‌شوند.</span></div>
           )}
         </div>
       </div>

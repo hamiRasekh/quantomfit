@@ -47,18 +47,18 @@ export default async function Page() {
   const latestCheckin = attendance[0];
   const reminders = [
     {
-      title: "Workout reminder",
-      body: sessions[0] ? `${sessions[0].title} is ready in your current program.` : "No assigned workout session yet.",
+      title: "یادآور تمرین",
+      body: sessions[0] ? `${sessions[0].title} در برنامه فعلی تو آماده است.` : "هنوز سشن تمرینی اختصاص داده نشده.",
       time: "",
     },
     {
-      title: "Attendance summary",
-      body: dashboard ? `${dashboard.attendance?.week ?? 0} visits this week and ${dashboard.attendance?.today ?? 0} today.` : "No live attendance summary available.",
+      title: "خلاصه حضور",
+      body: dashboard ? `${dashboard.attendance?.week ?? 0} بازدید این هفته و ${dashboard.attendance?.today ?? 0} امروز.` : "خلاصه حضور زنده در دسترس نیست.",
       time: latestCheckin ? latestTimeLabel(latestCheckin.checkinAt) : "",
     },
     {
-      title: "Gym crowd",
-      body: dashboard?.occupancy ? `${dashboard.occupancy.current} of ${dashboard.occupancy.capacity} members are inside right now.` : "Live crowd data is not available yet.",
+      title: "شلوغی باشگاه",
+      body: dashboard?.occupancy ? `${dashboard.occupancy.current} از ${dashboard.occupancy.capacity} نفر الان داخل‌اند.` : "داده شلوغی زنده هنوز موجود نیست.",
       time: "",
     },
   ];
@@ -66,15 +66,15 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Notifications</span>
-        <h1>Personal reminders and live gym updates.</h1>
-        <p>All entries are derived from the active tenant's live data so the feed stays accurate and isolated.</p>
+        <span className="label">اعلان‌ها</span>
+        <h1>یادآورهای شخصی و به‌روزرسانی‌های زنده باشگاه.</h1>
+        <p>همه ورودی‌ها از داده زنده مستاجر فعال می‌آیند تا فید دقیق و ایزوله بماند.</p>
       </header>
 
       <div className="panel">
         <div className="section-head">
-          <span>Recent feed</span>
-          <em>{attendance.length + sessions.length} live signals</em>
+          <span>فید اخیر</span>
+          <em>{attendance.length + sessions.length} سیگنال زنده</em>
         </div>
         <div className="field-list">
           {reminders.map((item) => (

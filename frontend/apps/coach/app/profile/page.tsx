@@ -18,13 +18,13 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Profile</span>
-        <h1>Trainer bio and account identity.</h1>
+        <span className="label">پروفایل</span>
+        <h1>بیو مربی و هویت حساب.</h1>
       </header>
       <div className="detail-grid">
-        <article><span className="status">Identity</span><h3>{me?.role ?? "trainer"}</h3><p>{me?.userId ?? "signed-in coach account"}</p></article>
-        <article><span className="status">Tenant</span><h3>{me?.tenant?.name ?? "Connected gym"}</h3><p>{me?.tenant?.slug ?? "coach"} tenant scope</p></article>
-        <article><span className="status">Workspace</span><h3>{me?.panel ?? "coach"}</h3><p>Trainer tools, students, and programs.</p></article>
+        <article><span className="status">هویت</span><h3>{me?.role ?? "مربی"}</h3><p>{me?.userId ?? "حساب مربی واردشده"}</p></article>
+        <article><span className="status">باشگاه</span><h3>{me?.tenant?.name ?? "باشگاه متصل"}</h3><p>{me?.tenant?.slug ?? "coach"} محدوده مستاجر</p></article>
+        <article><span className="status">فضای کار</span><h3>{me?.panel ?? "مربی"}</h3><p>ابزارهای مربی، شاگردها و برنامه‌ها.</p></article>
       </div>
     </section>
   );

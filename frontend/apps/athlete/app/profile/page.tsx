@@ -26,13 +26,13 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Profile</span>
-        <h1>Personal settings and account access.</h1>
+        <span className="label">پروفایل</span>
+        <h1>تنظیمات شخصی و دسترسی حساب.</h1>
       </header>
       <div className="detail-grid">
-        <article><span className="status">Identity</span><h3>{me?.role ?? "athlete"}</h3><p>{me?.userId ?? "member account"}</p></article>
-        <article><span className="status">Tenant</span><h3>{me?.tenant?.name ?? "Connected gym"}</h3><p>{me?.tenant?.slug ?? "app"} tenant scope</p></article>
-        <article><span className="status">Activity</span><h3>{dashboard?.attendance?.week ?? 0} visits</h3><p>{dashboard?.occupancy?.current ?? 0} / {dashboard?.occupancy?.capacity ?? 0} inside.</p></article>
+        <article><span className="status">هویت</span><h3>{me?.role ?? "ورزشکار"}</h3><p>{me?.userId ?? "حساب عضو"}</p></article>
+        <article><span className="status">باشگاه</span><h3>{me?.tenant?.name ?? "باشگاه متصل"}</h3><p>{me?.tenant?.slug ?? "app"} محدوده مستاجر</p></article>
+        <article><span className="status">فعالیت</span><h3>{dashboard?.attendance?.week ?? 0} بازدید</h3><p>{dashboard?.occupancy?.current ?? 0} از {dashboard?.occupancy?.capacity ?? 0} داخل هستند.</p></article>
       </div>
     </section>
   );

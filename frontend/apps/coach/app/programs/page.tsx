@@ -65,55 +65,55 @@ export default function Page() {
       const created = await api.post<Program>("/api/v1/programs", form);
       setPrograms((current) => [created, ...current]);
       setForm({ name: "", trainerId: "", status: "active" });
-      setMessage("Program created.");
+      setMessage("برنامه ساخته شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to create program.");
+      setMessage(error instanceof Error ? error.message : "ساخت برنامه ممکن نشد.");
     }
   }
 
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Workout Builder</span>
-        <h1>Program templates and weekly training plans.</h1>
-        <p>Create workout programs and assign them to a trainer inside the gym tenant.</p>
+        <span className="label">سازنده برنامه</span>
+        <h1>الگوهای برنامه و طرح‌های تمرینی هفتگی.</h1>
+        <p>برنامه‌های تمرینی را بساز و در محدوده همان باشگاه به مربی اختصاص بده.</p>
       </header>
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Create program</span><em>Tenant scoped</em></div>
+          <div className="section-head"><span>ساخت برنامه</span><em>محدود به باشگاه</em></div>
           <div className="field-list">
-            <div className="form-field"><label>Name</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></div>
-            <div className="form-field"><label>Trainer</label>
+            <div className="form-field"><label>نام</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></div>
+            <div className="form-field"><label>مربی</label>
               <select value={form.trainerId} onChange={(e) => setForm({ ...form, trainerId: e.target.value })}>
-                <option value="">Unassigned</option>
+                <option value="">بدون انتساب</option>
                 {trainers.map((trainer) => (
                   <option key={trainer.id} value={trainer.id}>{trainer.fullName}{trainer.specialty ? ` · ${trainer.specialty}` : ""}</option>
                 ))}
               </select>
             </div>
-            <div className="form-field"><label>Status</label>
+            <div className="form-field"><label>وضعیت</label>
               <select value={form.status} onChange={(e) => setForm({ ...form, status: e.target.value })}>
-                <option value="active">active</option>
-                <option value="draft">draft</option>
-                <option value="archived">archived</option>
+                <option value="active">فعال</option>
+                <option value="draft">پیش‌نویس</option>
+                <option value="archived">بایگانی</option>
               </select>
             </div>
           </div>
           <div className="actions">
-            <button className="button primary" type="button" onClick={createProgram} disabled={!form.name.trim()}>Save program</button>
+            <button className="button primary" type="button" onClick={createProgram} disabled={!form.name.trim()}>ذخیره برنامه</button>
           </div>
           {message ? <p>{message}</p> : null}
         </section>
         <section className="panel">
-          <div className="section-head"><span>Current programs</span><em>{programs.length} active</em></div>
+          <div className="section-head"><span>برنامه‌های فعلی</span><em>{programs.length} فعال</em></div>
           <div className="field-list">
             {programs.length > 0 ? programs.map((program) => (
               <Link key={program.id} href={`/programs/${program.id}`} style={{ display: "grid", gap: 6, textDecoration: "none", color: "inherit" }}>
                 <strong>{program.name}</strong>
-                <span>{program.status} · {program.trainerName ?? "unassigned"}</span>
+                <span>{program.status} · {program.trainerName ?? "بدون انتساب"}</span>
               </Link>
             )) : (
-              <div><strong>No saved programs</strong><span>Create and assign programs from this area.</span></div>
+              <div><strong>برنامه‌ای ذخیره نشده</strong><span>از همین‌جا برنامه بساز و اختصاص بده.</span></div>
             )}
           </div>
         </section>
@@ -121,15 +121,15 @@ export default function Page() {
 
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Templates</span><em>Ready to use</em></div>
+          <div className="section-head"><span>الگوها</span><em>آماده استفاده</em></div>
           <div className="field-list">
-            <div><strong>Strength foundation</strong><span>Weekly progression and rest intervals.</span></div>
-            <div><strong>Fat loss cycle</strong><span>Cardio, metabolic work, and recovery.</span></div>
-            <div><strong>Hypertrophy block</strong><span>Muscle group split with sets and reps.</span></div>
+            <div><strong>پایه قدرت</strong><span>پیشرفت هفتگی و بازه‌های استراحت.</span></div>
+            <div><strong>چرخه چربی‌سوزی</strong><span>کاردیو، کار متابولیک و ریکاوری.</span></div>
+            <div><strong>بلوک حجم</strong><span>تفکیک عضلانی با ست و تکرار.</span></div>
           </div>
         </section>
         <section className="panel">
-          <div className="section-head"><span>Assigned trainers</span><em>{trainers.length} loaded</em></div>
+          <div className="section-head"><span>مربی‌های اختصاص‌داده‌شده</span><em>{trainers.length} بارگذاری‌شده</em></div>
           <div className="field-list">
             {trainers.length > 0 ? trainers.map((trainer) => (
               <div key={trainer.id}>
@@ -137,7 +137,7 @@ export default function Page() {
                 <span>{trainer.status}{trainer.specialty ? ` · ${trainer.specialty}` : ""}</span>
               </div>
             )) : (
-              <div><strong>No trainers found</strong><span>Gym trainers will appear from the tenant data.</span></div>
+              <div><strong>مربی‌ای پیدا نشد</strong><span>مربی‌های باشگاه از داده‌های مستاجر نمایش داده می‌شوند.</span></div>
             )}
           </div>
         </section>

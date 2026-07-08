@@ -52,48 +52,48 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Progress</span>
-        <h1>Attendance streak, session completion, and recent training activity.</h1>
-        <p>Progress is computed from your tenant-scoped check-ins and workout sessions, so the page always reflects live data.</p>
+        <span className="label">پیشرفت</span>
+        <h1>روند حضور، تکمیل سشن و فعالیت‌های اخیر.</h1>
+        <p>پیشرفت از ورودها و سشن‌های محدود به مستاجر محاسبه می‌شود تا همیشه داده زنده ببینی.</p>
       </header>
 
       <div className="metrics">
-        <article><strong>{attendanceStreak}</strong><span>active days logged</span></article>
-        <article><strong>{completedSessions}</strong><span>completed sessions</span></article>
-        <article><strong>{completionRate}%</strong><span>completion rate</span></article>
-        <article><strong>{dashboard?.attendance?.week ?? attendance.length}</strong><span>weekly visits</span></article>
+        <article><strong>{attendanceStreak}</strong><span>روز فعال</span></article>
+        <article><strong>{completedSessions}</strong><span>سشن تکمیل‌شده</span></article>
+        <article><strong>{completionRate}%</strong><span>نرخ تکمیل</span></article>
+        <article><strong>{dashboard?.attendance?.week ?? attendance.length}</strong><span>بازدید هفتگی</span></article>
       </div>
 
       <div className="content">
         <section className="panel">
           <div className="section-head">
-            <span>Recent sessions</span>
-            <em>Workout history</em>
+            <span>سشن‌های اخیر</span>
+            <em>تاریخچه تمرین</em>
           </div>
           <ul className="timeline">
             {sessions.length > 0 ? sessions.map((session) => (
               <li key={session.id}>
-                <strong>{session.dayLabel || "Session"}</strong>
+                <strong>{session.dayLabel || "سشن"}</strong>
                 <span>{session.title} · {session.status}</span>
-                {session.completedAt ? <small style={{ color: "var(--muted)" }}>Completed {new Date(session.completedAt).toLocaleDateString()}</small> : null}
+                {session.completedAt ? <small style={{ color: "var(--muted)" }}>تکمیل‌شده {new Date(session.completedAt).toLocaleDateString()}</small> : null}
               </li>
             )) : (
               <li>
-                <strong>No workout sessions yet</strong>
-                <span>Your trainer will assign sessions here once the program is active.</span>
+                <strong>هنوز سشن تمرین نداریم</strong>
+                <span>وقتی برنامه فعال شود، مربی سشن‌ها را اینجا اختصاص می‌دهد.</span>
               </li>
             )}
           </ul>
         </section>
         <section className="panel">
           <div className="section-head">
-            <span>Activity summary</span>
-            <em>Derived from live data</em>
+            <span>خلاصه فعالیت</span>
+            <em>محاسبه‌شده از داده زنده</em>
           </div>
           <div className="field-list">
-            <div><strong>Today</strong><span>{dashboard?.attendance?.today ?? 0} check-ins recorded in your tenant.</span></div>
-            <div><strong>Attendance streak</strong><span>{attendanceStreak} distinct training days in the current feed.</span></div>
-            <div><strong>Completion</strong><span>{completionRate}% of assigned sessions are marked complete.</span></div>
+            <div><strong>امروز</strong><span>{dashboard?.attendance?.today ?? 0} ورود در مستاجر تو ثبت شده است.</span></div>
+            <div><strong>روند حضور</strong><span>{attendanceStreak} روز تمرین متفاوت در فید فعلی.</span></div>
+            <div><strong>تکمیل</strong><span>{completionRate}% از سشن‌های اختصاصی تکمیل شده‌اند.</span></div>
           </div>
         </section>
       </div>

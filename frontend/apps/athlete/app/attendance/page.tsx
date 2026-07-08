@@ -19,11 +19,11 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Attendance</span>
-        <h1>Your check-in history and attendance streak.</h1>
+        <span className="label">حضور و غیاب</span>
+        <h1>تاریخچه ورود و روند حضور تو.</h1>
       </header>
       <div className="panel">
-        <div className="section-head"><span>Latest check-ins</span><em>{attendance.length} entries</em></div>
+        <div className="section-head"><span>آخرین ورودها</span><em>{attendance.length} ورودی</em></div>
         <ul className="timeline">
           {attendance.length > 0 ? attendance.map((item) => (
             <li key={item.id}>
@@ -32,8 +32,8 @@ export default async function Page() {
             </li>
           )) : (
             <li>
-              <strong>No attendance yet</strong>
-              <span>Your check-in feed will appear here.</span>
+              <strong>هنوز ورودی ثبت نشده</strong>
+              <span>فید ورودهای تو اینجا نمایش داده می‌شود.</span>
             </li>
           )}
         </ul>

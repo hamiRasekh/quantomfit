@@ -45,45 +45,45 @@ export default async function Page({ params }: { params: Promise<{ programId: st
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Program detail</span>
-        <h1>{program?.name ?? "Workout program"}</h1>
-        <p>Weekly structure, assignments, and session history for this tenant-scoped program.</p>
+        <span className="label">جزئیات برنامه</span>
+        <h1>{program?.name ?? "برنامه تمرینی"}</h1>
+        <p>ساختار هفتگی، انتساب‌ها و تاریخچه سشن‌های این برنامه‌ی محدوده‌دار.</p>
       </header>
 
       <div className="metrics">
-        <article><strong>{sessions.length}</strong><span>sessions</span></article>
-        <article><strong>{sessions.filter((item) => item.status === "completed").length}</strong><span>completed</span></article>
-        <article><strong>{program?.status ?? "unknown"}</strong><span>status</span></article>
+        <article><strong>{sessions.length}</strong><span>سشن</span></article>
+        <article><strong>{sessions.filter((item) => item.status === "completed").length}</strong><span>تکمیل‌شده</span></article>
+        <article><strong>{program?.status ?? "نامشخص"}</strong><span>وضعیت</span></article>
       </div>
 
       <div className="content">
         <section className="panel">
           <div className="section-head">
-            <span>Program info</span>
-            <em>{program?.trainerName ?? "Unassigned"}</em>
+            <span>اطلاعات برنامه</span>
+            <em>{program?.trainerName ?? "تعیین نشده"}</em>
           </div>
           <div className="field-list">
-            <div><strong>Trainer</strong><span>{program?.trainerName ?? "No trainer assigned"}</span></div>
-            <div><strong>Status</strong><span>{program?.status ?? "unknown"}</span></div>
-            <div><strong>Program ID</strong><span>{program?.id ?? programId}</span></div>
+            <div><strong>مربی</strong><span>{program?.trainerName ?? "مربی تعیین نشده"}</span></div>
+            <div><strong>وضعیت</strong><span>{program?.status ?? "نامشخص"}</span></div>
+            <div><strong>شناسه برنامه</strong><span>{program?.id ?? programId}</span></div>
           </div>
         </section>
         <section className="panel">
           <div className="section-head">
-            <span>Sessions</span>
-            <em>Weekly flow</em>
+            <span>سشن‌ها</span>
+            <em>جریان هفتگی</em>
           </div>
           <ul className="timeline">
             {sessions.length > 0 ? sessions.map((session) => (
               <li key={session.id}>
-                <strong>{session.dayLabel || "Session"}</strong>
-                <span>{session.title} · {session.status}{session.completedAt ? ` · completed ${new Date(session.completedAt).toLocaleDateString()}` : ""}</span>
+                <strong>{session.dayLabel || "سشن"}</strong>
+                <span>{session.title} · {session.status}{session.completedAt ? ` · تکمیل‌شده ${new Date(session.completedAt).toLocaleDateString()}` : ""}</span>
                 {session.notes ? <p style={{ marginTop: 8, color: "var(--muted)", lineHeight: 1.6 }}>{session.notes}</p> : null}
               </li>
             )) : (
               <li>
-                <strong>No sessions yet</strong>
-                <span>Create sessions from the program to start tracking progress.</span>
+                <strong>هنوز سشنی ثبت نشده</strong>
+                <span>برای شروع رصد پیشرفت، از همین برنامه سشن بساز.</span>
               </li>
             )}
           </ul>

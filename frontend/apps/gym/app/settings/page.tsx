@@ -25,13 +25,13 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Settings</span>
-        <h1>Panel settings and tenant identity.</h1>
+        <span className="label">تنظیمات</span>
+        <h1>تنظیمات پنل و هویت باشگاه.</h1>
       </header>
       <div className="detail-grid">
-        <article><span className="status">Tenant</span><h3>{dashboard?.gymName ?? "Connected tenant"}</h3><p>resolved by host or panel header.</p></article>
-        <article><span className="status">Onboarding</span><h3>{onboarding?.status ?? "created"}</h3><p>current onboarding state in PostgreSQL.</p></article>
-        <article><span className="status">Step</span><h3>{onboarding?.step ?? "gym_name"}</h3><p>the next step in the wizard.</p></article>
+        <article><span className="status">باشگاه</span><h3>{dashboard?.gymName ?? "باشگاه متصل"}</h3><p>از روی host یا هدر پنل تشخیص داده می‌شود.</p></article>
+        <article><span className="status">راه‌اندازی</span><h3>{onboarding?.status ?? "created"}</h3><p>وضعیت فعلی راه‌اندازی در PostgreSQL.</p></article>
+        <article><span className="status">مرحله</span><h3>{onboarding?.step ?? "gym_name"}</h3><p>مرحله بعدی در ویزارد.</p></article>
       </div>
     </section>
   );

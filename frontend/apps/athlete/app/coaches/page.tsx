@@ -19,22 +19,22 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Coaches</span>
-        <h1>Your assigned trainers.</h1>
+        <span className="label">مربی‌ها</span>
+        <h1>مربی‌های اختصاص‌داده‌شده به تو.</h1>
       </header>
       <div className="detail-grid">
         {coaches.slice(0, 3).map((coach) => (
           <article key={coach.id}>
-            <span className="status">{coach.specialty ?? "Coach"}</span>
+            <span className="status">{coach.specialty ?? "مربی"}</span>
             <h3>{coach.fullName}</h3>
             <p>{coach.status}</p>
           </article>
         ))}
         {coaches.length === 0 ? (
           <>
-            <article><span className="status">Lead coach</span><h3>Sara Amini</h3><p>Strength and technique focus.</p></article>
-            <article><span className="status">Support coach</span><h3>Navid Hosseini</h3><p>Functional and mobility sessions.</p></article>
-            <article><span className="status">Message</span><h3>Direct contact</h3><p>Trainer profile cards can be connected to messages later.</p></article>
+            <article><span className="status">مربی اصلی</span><h3>سارا امینی</h3><p>تمرکز بر قدرت و تکنیک.</p></article>
+            <article><span className="status">مربی پشتیبان</span><h3>نوید حسینی</h3><p>جلسات فانکشنال و موبیلیتی.</p></article>
+            <article><span className="status">پیام</span><h3>تماس مستقیم</h3><p>کارت‌های پروفایل مربی بعداً می‌توانند به پیام‌ها وصل شوند.</p></article>
           </>
         ) : null}
       </div>

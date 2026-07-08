@@ -64,71 +64,71 @@ export default function Page() {
     try {
       const completed = await api.post<Session>(`/api/v1/sessions/${sessionId}/complete`, {});
       setSessions((current) => current.map((item) => (item.id === completed.id ? completed : item)));
-      setMessage("Session completed.");
+      setMessage("سشن تکمیل شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to complete session.");
+      setMessage(error instanceof Error ? error.message : "تکمیل سشن ممکن نشد.");
     }
   }
 
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Workout</span>
-        <h1>Your current training program.</h1>
-        <p>Session completion, trainer notes, and weekly structure are loaded from the active tenant.</p>
+        <span className="label">تمرین</span>
+        <h1>برنامه تمرینی فعلی تو.</h1>
+        <p>تکمیل سشن، یادداشت مربی و ساختار هفتگی از مستاجر فعال بارگذاری می‌شود.</p>
       </header>
 
       <div className="detail-grid">
         <article>
-          <span className="status">Program</span>
-          <h3>{program?.name ?? "No active program"}</h3>
-          <p>{program?.status ?? "Your plan will appear here once assigned."}</p>
+          <span className="status">برنامه</span>
+          <h3>{program?.name ?? "برنامه فعالی وجود ندارد"}</h3>
+          <p>{program?.status ?? "وقتی برنامه اختصاص داده شود اینجا نمایش داده می‌شود."}</p>
         </article>
         <article>
-          <span className="status">Trainer</span>
-          <h3>{program?.trainerName ?? "Assigned coach"}</h3>
-          <p>Linked from the gym tenant.</p>
+          <span className="status">مربی</span>
+          <h3>{program?.trainerName ?? "مربی اختصاص‌داده‌شده"}</h3>
+          <p>از مستاجر باشگاه لینک می‌شود.</p>
         </article>
         <article>
-          <span className="status">Status</span>
-          <h3>Ready</h3>
-          <p>Complete sessions as you train.</p>
+          <span className="status">وضعیت</span>
+          <h3>آماده</h3>
+          <p>هم‌زمان با تمرین، سشن‌ها را تکمیل کن.</p>
         </article>
       </div>
 
       <div className="content">
         <section className="panel">
           <div className="section-head">
-            <span>Weekly plan</span>
-            <em>Program view</em>
+            <span>برنامه هفتگی</span>
+            <em>نمای برنامه</em>
           </div>
           <div className="field-list">
-            <div><strong>Day 1</strong><span>Push focus with controlled volume.</span></div>
-            <div><strong>Day 2</strong><span>Pull focus with back and arms.</span></div>
-            <div><strong>Day 3</strong><span>Leg focus with recovery built in.</span></div>
+            <div><strong>روز ۱</strong><span>تمرکز پوش با حجم کنترل‌شده.</span></div>
+            <div><strong>روز ۲</strong><span>تمرکز پول با پشت و بازو.</span></div>
+            <div><strong>روز ۳</strong><span>تمرکز پا با ریکاوری داخلی.</span></div>
           </div>
         </section>
 
         <section className="panel">
           <div className="section-head">
-            <span>Completion</span>
-            <em>Member flow</em>
+            <span>تکمیل</span>
+            <em>جریان عضو</em>
           </div>
           <div className="detail-grid">
             <article>
-              <span className="status">Done</span>
-              <h3>{sessions.filter((session) => session.status === "completed").length} completed</h3>
-              <p>Mark sessions complete from the app.</p>
+              <span className="status">انجام‌شده</span>
+              <h3>{sessions.filter((session) => session.status === "completed").length} تکمیل‌شده</h3>
+              <p>سشن‌ها را از داخل اپ کامل کن.</p>
             </article>
             <article>
-              <span className="status">History</span>
+              <span className="status">تاریخچه</span>
               <h3>{sessions.length} sessions</h3>
-              <p>Keep the last workout activity visible.</p>
+              <p>آخرین فعالیت تمرینی همیشه قابل مشاهده بماند.</p>
             </article>
             <article>
-              <span className="status">Coach</span>
-              <h3>Feedback</h3>
-              <p>Trainer notes are shown below each session.</p>
+              <span className="status">مربی</span>
+              <h3>بازخورد</h3>
+              <p>یادداشت‌های مربی زیر هر سشن نمایش داده می‌شود.</p>
             </article>
           </div>
         </section>
@@ -136,25 +136,25 @@ export default function Page() {
 
       <div className="panel">
         <div className="section-head">
-          <span>Recent activity</span>
-          <em>Tenant history</em>
+          <span>فعالیت اخیر</span>
+          <em>تاریخچه مستاجر</em>
         </div>
         <ul className="timeline">
           {sessions.length > 0 ? sessions.map((item) => (
             <li key={item.id}>
-              <strong>{item.dayLabel || "Session"}</strong>
-              <span>{item.title} · {item.status}{item.completedAt ? ` · completed ${new Date(item.completedAt).toLocaleDateString()}` : ""}</span>
+              <strong>{item.dayLabel || "سشن"}</strong>
+              <span>{item.title} · {item.status}{item.completedAt ? ` · تکمیل‌شده ${new Date(item.completedAt).toLocaleDateString()}` : ""}</span>
               {item.notes ? <p style={{ marginTop: 8, color: "var(--muted)", lineHeight: 1.6 }}>{item.notes}</p> : null}
               {item.status !== "completed" ? (
                 <button className="button secondary" type="button" onClick={() => completeSession(item.id)} style={{ width: "fit-content", marginTop: 8 }}>
-                  Mark complete
+                  تکمیل شد
                 </button>
               ) : null}
             </li>
           )) : (
             <li>
-              <strong>No recent activity</strong>
-              <span>Workout sessions will appear here after the first assignment.</span>
+              <strong>فعلاً فعالیتی ثبت نشده</strong>
+              <span>بعد از اولین انتساب، سشن‌های تمرین اینجا ظاهر می‌شوند.</span>
             </li>
           )}
         </ul>

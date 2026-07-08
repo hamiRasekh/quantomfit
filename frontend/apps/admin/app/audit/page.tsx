@@ -19,30 +19,30 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="panel hero">
-        <span className="label">Audit</span>
-        <h1>Admin actions and platform events.</h1>
-        <p>Review recent tenant lifecycle changes and admin-visible activity.</p>
+        <span className="label">ثبت رویداد</span>
+        <h1>اقدام‌های ادمین و رخدادهای پلتفرم.</h1>
+        <p>تغییرات اخیر چرخه‌ی باشگاه‌ها و فعالیت‌های قابل‌مشاهده برای ادمین را مرور کن.</p>
       </header>
       <div className="panel">
         <div className="section-head">
-          <span>Recent admin-visible activity</span>
-          <em>From platform summary</em>
+          <span>فعالیت‌های اخیر</span>
+          <em>از خلاصه پلتفرم</em>
         </div>
         <div className="qf-table">
           <div className="qf-table__row qf-table__row--head">
-            <strong>Gym</strong>
-            <strong>Status</strong>
-            <strong>Type</strong>
+            <strong>باشگاه</strong>
+            <strong>وضعیت</strong>
+            <strong>نوع</strong>
           </div>
           {latestGyms.length > 0 ? latestGyms.map((gym) => (
             <div className="qf-table__row" key={gym.id}>
               <span>{gym.name}</span>
               <span>{gym.onboardingStatus}</span>
-              <span>Lifecycle event</span>
+              <span>رخداد چرخه</span>
             </div>
           )) : (
             <div className="qf-table__row">
-              <span>No audit entries yet</span>
+              <span>هنوز رویدادی ثبت نشده</span>
               <span>--</span>
               <span>--</span>
             </div>

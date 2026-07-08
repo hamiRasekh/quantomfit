@@ -109,10 +109,10 @@ export default function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Live View</span>
-        <h1>Real-time occupancy and gate activity.</h1>
+        <span className="label">نمای زنده</span>
+        <h1>تراکم لحظه‌ای و فعالیت ورودی.</h1>
         <p>
-          Status: {status}. {updatedAt ? `Last update at ${updatedAt}.` : "Waiting for the first snapshot."}
+          وضعیت: {status}. {updatedAt ? `آخرین بروزرسانی در ساعت ${updatedAt}.` : "در انتظار اولین اسنپ‌شات."}
         </p>
       </header>
 
@@ -120,7 +120,7 @@ export default function Page() {
         {cards.map((card) => (
           <article key={card.label}>
             <strong>{card.value}</strong>
-            <span>{card.label.toLowerCase()}</span>
+            <span>{card.label === "Current" ? "فعلی" : card.label === "Capacity" ? "ظرفیت" : card.label === "Ratio" ? "نسبت" : "زون‌ها"}</span>
           </article>
         ))}
       </div>
@@ -128,8 +128,8 @@ export default function Page() {
       <div className="content">
         <section className="panel">
           <div className="section-head">
-            <span>Heatmap</span>
-            <em>Live zones</em>
+            <span>نقشه حرارتی</span>
+            <em>زون‌های زنده</em>
           </div>
           <div className="heatmap">
             {(occupancy?.heatmap ?? []).map((zone) => (
@@ -143,21 +143,21 @@ export default function Page() {
 
         <section className="panel panel-compact">
           <div className="section-head">
-            <span>Live stream</span>
-            <em>Occupancy feed</em>
+            <span>جریان زنده</span>
+            <em>خوراک تراکم</em>
           </div>
           <div className="field-list">
             <div>
-              <strong>Current count</strong>
-              <span>{occupancy?.current ?? 0} active people inside.</span>
+              <strong>تعداد فعلی</strong>
+              <span>{occupancy?.current ?? 0} نفر داخل باشگاه هستند.</span>
             </div>
             <div>
-              <strong>Capacity</strong>
-              <span>{occupancy?.capacity ?? 0} max capacity from onboarding profile.</span>
+              <strong>ظرفیت</strong>
+              <span>{occupancy?.capacity ?? 0} سقف ظرفیت از پروفایل راه‌اندازی است.</span>
             </div>
             <div>
-              <strong>Zone sync</strong>
-              <span>Weights, cardio, and studio areas refresh every few seconds.</span>
+              <strong>همگام‌سازی زون</strong>
+              <span>بخش‌های وزنه، کاردیو و استودیو هر چند ثانیه تازه می‌شوند.</span>
             </div>
           </div>
         </section>

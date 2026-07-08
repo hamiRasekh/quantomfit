@@ -29,14 +29,14 @@ export default async function Page({ params }: { params: Promise<{ gymId: string
   return (
     <section className="shell">
       <header className="panel hero">
-        <span className="label">Gym detail</span>
-        <h1>{gym?.name ?? "Gym not found"}</h1>
+        <span className="label">جزئیات باشگاه</span>
+        <h1>{gym?.name ?? "باشگاه پیدا نشد"}</h1>
         <p>{gym?.slug ?? gymId}</p>
       </header>
       <div className="detail-grid">
-        <article><span className="status">Plan</span><h3>{gym?.planName ?? "n/a"}</h3><p>Current subscription plan.</p></article>
-        <article><span className="status">Onboarding</span><h3>{gym?.onboardingStatus ?? "n/a"}</h3><p>Activation stage.</p></article>
-        <article><span className="status">Subscription</span><h3>{gym?.subscriptionStatus ?? "n/a"}</h3><p>Billing state.</p></article>
+        <article><span className="status">پلن</span><h3>{gym?.planName ?? "ثبت نشده"}</h3><p>پلن اشتراک فعلی.</p></article>
+        <article><span className="status">راه‌اندازی</span><h3>{gym?.onboardingStatus ?? "ثبت نشده"}</h3><p>مرحله فعال‌سازی.</p></article>
+        <article><span className="status">اشتراک</span><h3>{gym?.subscriptionStatus ?? "ثبت نشده"}</h3><p>وضعیت صورتحساب.</p></article>
       </div>
     </section>
   );

@@ -2,14 +2,14 @@ export default function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Profile</span>
-        <h1>Public gym profile and brand settings.</h1>
-        <p>Prepare the public-facing gym profile with brand, facilities, and working hours later.</p>
+        <span className="label">پروفایل</span>
+        <h1>پروفایل عمومی باشگاه و تنظیمات برند.</h1>
+        <p>در ادامه می‌توان پروفایل عمومی باشگاه را با برند، امکانات و ساعات کاری کامل کرد.</p>
       </header>
       <div className="detail-grid">
-        <article><span className="status">Brand</span><h3>Logo and cover</h3><p>Upload public images later.</p></article>
-        <article><span className="status">Facilities</span><h3>Amenities</h3><p>Show locker rooms, cafe, parking, and more.</p></article>
-        <article><span className="status">Hours</span><h3>Working time</h3><p>Display open and close times to visitors.</p></article>
+        <article><span className="status">برند</span><h3>لوگو و کاور</h3><p>بعداً تصویرهای عمومی را بارگذاری کن.</p></article>
+        <article><span className="status">امکانات</span><h3>آمکانات رفاهی</h3><p>رختکن، کافه، پارکینگ و موارد دیگر را نمایش بده.</p></article>
+        <article><span className="status">ساعات</span><h3>زمان کاری</h3><p>ساعت‌های باز و بسته شدن را برای بازدیدکننده نشان بده.</p></article>
       </div>
     </section>
   );

@@ -19,25 +19,25 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Attendance</span>
-        <h1>Live check-in history and daily traffic inside one tenant.</h1>
-        <p>Monitor gate entries, member activity, and operational traffic in a single tenant-scoped timeline.</p>
+        <span className="label">حضور و غیاب</span>
+        <h1>تاریخچه ورود زنده و ترافیک روزانه داخل همین باشگاه.</h1>
+        <p>ورود دروازه، فعالیت اعضا و ترافیک عملیاتی را در یک تایم‌لاینِ محدود به همین tenant ببین.</p>
       </header>
       <div className="panel">
         <div className="section-head">
-          <span>Latest check-ins</span>
-          <em>Tenant scoped</em>
+          <span>آخرین ورودها</span>
+          <em>محدوده باشگاه</em>
         </div>
         <ul className="timeline">
           {attendance.length > 0 ? attendance.map((item) => (
             <li key={item.id}>
               <strong>{new Date(item.checkinAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</strong>
-              <span>{item.memberName} · {item.source}</span>
+              <span>{item.memberName} · {item.source === "gate" ? "دروازه" : item.source === "app" ? "اپ" : item.source}</span>
             </li>
           )) : (
             <li>
-              <strong>No check-ins yet</strong>
-              <span>Attendance logs will appear here once seeded.</span>
+              <strong>هنوز ورودی ثبت نشده</strong>
+              <span>وقتی دیتابیس seed شود، لاگ حضور اینجا نمایش داده می‌شود.</span>
             </li>
           )}
         </ul>

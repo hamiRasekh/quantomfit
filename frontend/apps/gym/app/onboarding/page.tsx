@@ -31,16 +31,16 @@ type OnboardingForm = {
 };
 
 const steps = [
-  { key: "gym_name", label: "Gym name", hint: "Brand and public identity" },
-  { key: "gym_type", label: "Gym type", hint: "Male, female, or mixed" },
-  { key: "location", label: "Location", hint: "City and full address" },
-  { key: "size", label: "Size", hint: "Square meters and floors" },
-  { key: "brand_assets", label: "Brand assets", hint: "Logo and gallery images" },
-  { key: "contact", label: "Contact info", hint: "Phone, email, and social links" },
-  { key: "hours", label: "Working hours", hint: "Open and close schedule" },
-  { key: "equipment", label: "Equipment list", hint: "Comma separated inventory" },
-  { key: "trainers", label: "Trainer count", hint: "Initial trainer count" },
-  { key: "review", label: "Review", hint: "Confirm and activate" },
+  { key: "gym_name", label: "نام باشگاه", hint: "هویت برند و عمومی" },
+  { key: "gym_type", label: "نوع باشگاه", hint: "مردانه، زنانه یا مختلط" },
+  { key: "location", label: "موقعیت", hint: "شهر و آدرس کامل" },
+  { key: "size", label: "متراژ", hint: "مترمربع و تعداد طبقات" },
+  { key: "brand_assets", label: "دارایی‌های برند", hint: "لوگو و تصاویر گالری" },
+  { key: "contact", label: "اطلاعات تماس", hint: "تلفن، ایمیل و لینک‌های اجتماعی" },
+  { key: "hours", label: "ساعات کاری", hint: "برنامه باز و بسته شدن" },
+  { key: "equipment", label: "لیست تجهیزات", hint: "موجودی جداشده با ویرگول" },
+  { key: "trainers", label: "تعداد مربی‌ها", hint: "تعداد اولیه مربی‌ها" },
+  { key: "review", label: "بازبینی", hint: "تأیید و فعال‌سازی" },
 ];
 
 const initialForm: OnboardingForm = {
@@ -91,7 +91,7 @@ export default function Page() {
         setStepIndex(savedStep >= 0 ? savedStep : 0);
       } catch {
         if (mounted) {
-          setMessage("Unable to load onboarding state.");
+          setMessage("بارگذاری وضعیت راه‌اندازی ممکن نشد.");
         }
       } finally {
         if (mounted) {
@@ -136,9 +136,9 @@ export default function Page() {
       });
       setState(updated);
       setStepIndex(nextStepIndex);
-      setMessage(completed ? "Gym activated successfully." : "Step saved.");
+      setMessage(completed ? "باشگاه با موفقیت فعال شد." : "مرحله ذخیره شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to save onboarding step.");
+      setMessage(error instanceof Error ? error.message : "ذخیره مرحله راه‌اندازی ممکن نشد.");
     } finally {
       setSaving(false);
     }
@@ -163,27 +163,27 @@ export default function Page() {
     return (
       <section className="shell">
         <header className="hero">
-          <span className="label">Onboarding Wizard</span>
-          <h1>Loading onboarding state...</h1>
+          <span className="label">ویزارد راه‌اندازی</span>
+          <h1>در حال بارگذاری وضعیت راه‌اندازی...</h1>
         </header>
       </section>
     );
   }
 
   const summaryItems = [
-    { label: "Gym name", value: form.gymName || "Not set" },
-    { label: "Gym type", value: form.gymType || "Not set" },
-    { label: "Location", value: form.location || "Not set" },
-    { label: "Size", value: form.sizeSqm ? `${form.sizeSqm} sqm` : "Not set" },
-    { label: "Trainers", value: form.trainerCount || "0" },
+    { label: "نام باشگاه", value: form.gymName || "ثبت نشده" },
+    { label: "نوع باشگاه", value: form.gymType || "ثبت نشده" },
+    { label: "موقعیت", value: form.location || "ثبت نشده" },
+    { label: "متراژ", value: form.sizeSqm ? `${form.sizeSqm} مترمربع` : "ثبت نشده" },
+    { label: "مربی‌ها", value: form.trainerCount || "۰" },
   ];
 
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Onboarding Wizard</span>
-        <h1>Complete the gym setup to activate the panel.</h1>
-        <p>Status: {state?.status ?? "created"} · step: {state?.step ?? currentStep.key}</p>
+        <span className="label">ویزارد راه‌اندازی</span>
+        <h1>راه‌اندازی باشگاه را کامل کن تا پنل فعال شود.</h1>
+        <p>وضعیت: {state?.status ?? "created"} · مرحله: {state?.step ?? currentStep.key}</p>
       </header>
       <div className="content">
         <section className="panel">
@@ -192,20 +192,20 @@ export default function Page() {
             <em>{completedStepCount}/{steps.length}</em>
           </div>
           <p style={{ color: "var(--text-muted)", marginTop: 0 }}>{currentStep.hint}</p>
-          {stepIndex === 0 ? <div className="form-field"><label>Gym name</label><input value={form.gymName} onChange={(e) => setForm({ ...form, gymName: e.target.value })} placeholder="QuantumFit Central" /></div> : null}
-          {stepIndex === 1 ? <div className="form-field"><label>Gym type</label><select value={form.gymType} onChange={(e) => setForm({ ...form, gymType: e.target.value })}><option value="male">male</option><option value="female">female</option><option value="mixed">mixed</option></select></div> : null}
-          {stepIndex === 2 ? <div className="form-field"><label>Location</label><input value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} placeholder="Tehran, Valiasr Street" /></div> : null}
-          {stepIndex === 3 ? <div className="form-field"><label>Size (sqm)</label><input value={form.sizeSqm} onChange={(e) => setForm({ ...form, sizeSqm: e.target.value })} placeholder="1200" /></div> : null}
+          {stepIndex === 0 ? <div className="form-field"><label>نام باشگاه</label><input value={form.gymName} onChange={(e) => setForm({ ...form, gymName: e.target.value })} placeholder="کوانتوم‌فیت مرکزی" /></div> : null}
+          {stepIndex === 1 ? <div className="form-field"><label>نوع باشگاه</label><select value={form.gymType} onChange={(e) => setForm({ ...form, gymType: e.target.value })}><option value="male">مردانه</option><option value="female">زنانه</option><option value="mixed">مختلط</option></select></div> : null}
+          {stepIndex === 2 ? <div className="form-field"><label>موقعیت</label><input value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} placeholder="تهران، خیابان ولیعصر" /></div> : null}
+          {stepIndex === 3 ? <div className="form-field"><label>متراژ</label><input value={form.sizeSqm} onChange={(e) => setForm({ ...form, sizeSqm: e.target.value })} placeholder="1200" /></div> : null}
           {stepIndex === 4 ? (
             <>
-              <div className="form-field"><label>Logo URL</label><input value={form.logoUrl} onChange={(e) => setForm({ ...form, logoUrl: e.target.value })} placeholder="https://..." /></div>
-              <div className="form-field"><label>Image URLs</label><input value={form.imageUrls} onChange={(e) => setForm({ ...form, imageUrls: e.target.value })} placeholder="Comma separated URLs" /></div>
+              <div className="form-field"><label>آدرس لوگو</label><input value={form.logoUrl} onChange={(e) => setForm({ ...form, logoUrl: e.target.value })} placeholder="https://..." /></div>
+              <div className="form-field"><label>آدرس تصاویر</label><input value={form.imageUrls} onChange={(e) => setForm({ ...form, imageUrls: e.target.value })} placeholder="آدرس‌ها با ویرگول جدا شوند" /></div>
             </>
           ) : null}
-          {stepIndex === 5 ? <div className="form-field"><label>Contact info</label><input value={form.contactInfo} onChange={(e) => setForm({ ...form, contactInfo: e.target.value })} placeholder="+98..." /></div> : null}
-          {stepIndex === 6 ? <div className="form-field"><label>Working hours</label><input value={form.workingHours} onChange={(e) => setForm({ ...form, workingHours: e.target.value })} placeholder="Sat-Thu 08:00 - 22:00" /></div> : null}
-          {stepIndex === 7 ? <div className="form-field"><label>Equipment list</label><input value={form.equipmentList} onChange={(e) => setForm({ ...form, equipmentList: e.target.value })} placeholder="Treadmill, Bench Press, Rowing Machine" /></div> : null}
-          {stepIndex === 8 ? <div className="form-field"><label>Trainer count</label><input value={form.trainerCount} onChange={(e) => setForm({ ...form, trainerCount: e.target.value })} placeholder="4" /></div> : null}
+          {stepIndex === 5 ? <div className="form-field"><label>اطلاعات تماس</label><input value={form.contactInfo} onChange={(e) => setForm({ ...form, contactInfo: e.target.value })} placeholder="+98..." /></div> : null}
+          {stepIndex === 6 ? <div className="form-field"><label>ساعات کاری</label><input value={form.workingHours} onChange={(e) => setForm({ ...form, workingHours: e.target.value })} placeholder="شنبه تا پنج‌شنبه 08:00 - 22:00" /></div> : null}
+          {stepIndex === 7 ? <div className="form-field"><label>لیست تجهیزات</label><input value={form.equipmentList} onChange={(e) => setForm({ ...form, equipmentList: e.target.value })} placeholder="تردمیل، پرس سینه، روئینگ" /></div> : null}
+          {stepIndex === 8 ? <div className="form-field"><label>تعداد مربی‌ها</label><input value={form.trainerCount} onChange={(e) => setForm({ ...form, trainerCount: e.target.value })} placeholder="4" /></div> : null}
           {stepIndex === 9 ? (
             <div className="field-list">
               <div className="detail-grid">
@@ -217,21 +217,21 @@ export default function Page() {
                 ))}
               </div>
               <p style={{ color: "var(--text-muted)", lineHeight: 1.6 }}>
-                Review the data before activation. After confirmation, the gym panel becomes active.
+                قبل از فعال‌سازی، داده‌ها را بازبینی کن. بعد از تأیید، پنل باشگاه فعال می‌شود.
               </p>
             </div>
           ) : null}
           <div className="actions">
-            <button className="button secondary" type="button" onClick={back} disabled={stepIndex === 0 || saving}>Back</button>
+            <button className="button secondary" type="button" onClick={back} disabled={stepIndex === 0 || saving}>قبلی</button>
             <button className="button primary" type="button" onClick={next} disabled={saving}>
-              {saving ? "Saving..." : stepIndex === steps.length - 1 ? "Activate gym" : "Save and continue"}
+              {saving ? "در حال ذخیره..." : stepIndex === steps.length - 1 ? "فعال‌سازی باشگاه" : "ذخیره و ادامه"}
             </button>
           </div>
           {message ? <p>{message}</p> : null}
         </section>
         <aside className="panel">
           <div className="section-head">
-            <span>Setup steps</span>
+            <span>مراحل راه‌اندازی</span>
             <em>{state?.status ?? "created"}</em>
           </div>
           <div className="stepper">
@@ -243,13 +243,13 @@ export default function Page() {
             ))}
           </div>
           <p style={{ color: "var(--text-muted)", marginTop: 16, lineHeight: 1.6 }}>
-            {currentStep.label} is the active step. Data is saved to PostgreSQL on each continue.
+            {currentStep.label} مرحله‌ی فعال است. داده‌ها در هر ادامه در PostgreSQL ذخیره می‌شوند.
           </p>
           <div className="stepper">
-            <div><strong>Current</strong><span>{currentStep.label}</span></div>
-            <div><strong>Gym</strong><span>{form.gymName || "unset"}</span></div>
-            <div><strong>Trainer count</strong><span>{form.trainerCount || "unset"}</span></div>
-            <div><strong>Images</strong><span>{form.imageUrls ? "ready" : "unset"}</span></div>
+            <div><strong>فعلی</strong><span>{currentStep.label}</span></div>
+            <div><strong>باشگاه</strong><span>{form.gymName || "ثبت نشده"}</span></div>
+            <div><strong>تعداد مربی</strong><span>{form.trainerCount || "ثبت نشده"}</span></div>
+            <div><strong>تصاویر</strong><span>{form.imageUrls ? "آماده" : "ثبت نشده"}</span></div>
           </div>
         </aside>
       </div>

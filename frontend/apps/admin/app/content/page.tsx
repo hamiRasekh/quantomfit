@@ -38,15 +38,15 @@ export default function Page() {
     locale: "en",
     section: "homepage",
     title: "QuantumFit",
-    subtitle: "Premium gym operations with live intelligence.",
-    body: "The public website and all panels read this content from the admin-managed CMS.",
-    cta: "Request Demo",
-    features: ["Gym management", "Trainer panel", "Athlete app"],
+    subtitle: "عملیات پریمیوم باشگاهی با هوش زنده.",
+    body: "سایت عمومی و همه پنل‌ها این محتوا را از CMS مدیریت‌شده توسط ادمین می‌خوانند.",
+    cta: "درخواست دمو",
+    features: ["مدیریت باشگاه", "پنل مربی", "اپ ورزشکار"],
     faq: [
-      { q: "Is RTL supported?", a: "Yes, Persian and English are both supported." },
-      { q: "Can admins edit content?", a: "Yes, every public section is editable." },
+      { q: "RTL پشتیبانی می‌شود؟", a: "بله، فارسی و انگلیسی هر دو پشتیبانی می‌شوند." },
+      { q: "ادمین می‌تواند محتوا را ویرایش کند؟", a: "بله، هر بخش عمومی قابل ویرایش است." },
     ],
-    testimonials: [{ name: "Demo Gym", quote: "Premium and connected." }],
+    testimonials: [{ name: "باشگاه دمو", quote: "پریمیوم و متصل." }],
     images: ["/images/hero-1.jpg", "/images/hero-2.jpg"],
     meta: { theme: "dark", planVisibility: true },
   });
@@ -61,7 +61,7 @@ export default function Page() {
       })
       .catch(() => {
         if (mounted) {
-          setMessage("Unable to load website content.");
+        setMessage("بارگذاری محتوای سایت ممکن نشد.");
         }
       });
     return () => {
@@ -77,56 +77,56 @@ export default function Page() {
         const filtered = current.filter((item) => !(item.locale === next.locale && item.section === next.section));
         return [next, ...filtered];
       });
-      setMessage("Content saved.");
+      setMessage("محتوا ذخیره شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to save content.");
+      setMessage(error instanceof Error ? error.message : "ذخیره محتوا ممکن نشد.");
     }
   }
 
   return (
     <section className="shell">
       <header className="panel hero">
-        <span className="label">Content</span>
-        <h1>Edit homepage and public website copy.</h1>
-        <p>Manage bilingual landing-page copy, CTAs, and feature blocks from one admin-managed CMS.</p>
+        <span className="label">محتوا</span>
+        <h1>متن صفحه اصلی و سایت عمومی را ویرایش کن.</h1>
+        <p>متن دوزبانه، دعوت‌به‌اقدام و بلوک‌های ویژگی را از یک CMS مدیریت‌شده توسط ادمین کنترل کن.</p>
       </header>
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Editor</span><em>CMS ready</em></div>
+          <div className="section-head"><span>ویرایشگر</span><em>آماده CMS</em></div>
           <div className="field-list">
-            <div className="form-field"><label>Locale</label><input value={form.locale} onChange={(e) => setForm({ ...form, locale: e.target.value })} /></div>
+            <div className="form-field"><label>زبان</label><input value={form.locale} onChange={(e) => setForm({ ...form, locale: e.target.value })} /></div>
             <div className="form-field">
-              <label>Section</label>
+              <label>بخش</label>
               <select value={form.section} onChange={(e) => setForm({ ...form, section: e.target.value })}>
-                <option value="homepage">homepage</option>
-                <option value="features">features</option>
-                <option value="pricing">pricing</option>
-                <option value="faq">faq</option>
-                <option value="testimonials">testimonials</option>
+                <option value="homepage">صفحه اصلی</option>
+                <option value="features">ویژگی‌ها</option>
+                <option value="pricing">قیمت‌گذاری</option>
+                <option value="faq">پرسش‌ها</option>
+                <option value="testimonials">نظرات</option>
               </select>
             </div>
-            <div className="form-field"><label>Title</label><input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} /></div>
-            <div className="form-field"><label>Subtitle</label><input value={form.subtitle} onChange={(e) => setForm({ ...form, subtitle: e.target.value })} /></div>
-            <div className="form-field"><label>Body</label><textarea rows={4} value={form.body} onChange={(e) => setForm({ ...form, body: e.target.value })} /></div>
-            <div className="form-field"><label>CTA</label><input value={form.cta} onChange={(e) => setForm({ ...form, cta: e.target.value })} /></div>
-            <div className="form-field"><label>Features</label><input value={form.features?.join(", ") ?? ""} onChange={(e) => setForm({ ...form, features: e.target.value.split(",").map((item) => item.trim()).filter(Boolean) })} /></div>
+            <div className="form-field"><label>عنوان</label><input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} /></div>
+            <div className="form-field"><label>زیرعنوان</label><input value={form.subtitle} onChange={(e) => setForm({ ...form, subtitle: e.target.value })} /></div>
+            <div className="form-field"><label>متن</label><textarea rows={4} value={form.body} onChange={(e) => setForm({ ...form, body: e.target.value })} /></div>
+            <div className="form-field"><label>دعوت‌به‌اقدام</label><input value={form.cta} onChange={(e) => setForm({ ...form, cta: e.target.value })} /></div>
+            <div className="form-field"><label>ویژگی‌ها</label><input value={form.features?.join(", ") ?? ""} onChange={(e) => setForm({ ...form, features: e.target.value.split(",").map((item) => item.trim()).filter(Boolean) })} /></div>
             <div className="form-field"><label>FAQ JSON</label><textarea rows={4} value={JSON.stringify(form.faq ?? [], null, 2)} onChange={(e) => setForm({ ...form, faq: parseJSON(e.target.value, []) })} /></div>
-            <div className="form-field"><label>Testimonials JSON</label><textarea rows={4} value={JSON.stringify(form.testimonials ?? [], null, 2)} onChange={(e) => setForm({ ...form, testimonials: parseJSON(e.target.value, []) })} /></div>
-            <div className="form-field"><label>Images JSON</label><textarea rows={3} value={JSON.stringify(form.images ?? [], null, 2)} onChange={(e) => setForm({ ...form, images: parseJSON(e.target.value, []) })} /></div>
-            <div className="form-field"><label>Meta JSON</label><textarea rows={3} value={JSON.stringify(form.meta ?? {}, null, 2)} onChange={(e) => setForm({ ...form, meta: parseJSON(e.target.value, {}) })} /></div>
+            <div className="form-field"><label>نظرات JSON</label><textarea rows={4} value={JSON.stringify(form.testimonials ?? [], null, 2)} onChange={(e) => setForm({ ...form, testimonials: parseJSON(e.target.value, []) })} /></div>
+            <div className="form-field"><label>تصاویر JSON</label><textarea rows={3} value={JSON.stringify(form.images ?? [], null, 2)} onChange={(e) => setForm({ ...form, images: parseJSON(e.target.value, []) })} /></div>
+            <div className="form-field"><label>متا JSON</label><textarea rows={3} value={JSON.stringify(form.meta ?? {}, null, 2)} onChange={(e) => setForm({ ...form, meta: parseJSON(e.target.value, {}) })} /></div>
           </div>
           <div className="actions">
-            <button className="button primary" type="button" onClick={save}>Save content</button>
+            <button className="button primary" type="button" onClick={save}>ذخیره محتوا</button>
           </div>
           {message ? <p>{message}</p> : null}
         </section>
         <section className="panel">
-          <div className="section-head"><span>Current content</span><em>{items.length} entries</em></div>
+          <div className="section-head"><span>محتوای فعلی</span><em>{items.length} ورودی</em></div>
           <div className="qf-table">
             <div className="qf-table__row qf-table__row--head">
-              <strong>Locale</strong>
-              <strong>Section</strong>
-              <strong>Title</strong>
+              <strong>زبان</strong>
+              <strong>بخش</strong>
+              <strong>عنوان</strong>
             </div>
             {items.length > 0 ? items.map((item) => (
               <div className="qf-table__row" key={`${item.locale}-${item.section}`}>
@@ -136,9 +136,9 @@ export default function Page() {
               </div>
             )) : (
               <div className="qf-table__row">
-                <span>No CMS entries</span>
-                <span>Save one above</span>
-                <span>to create the first public block.</span>
+                <span>هنوز ورودی CMS نداریم</span>
+                <span>بالا یک مورد ذخیره کن</span>
+                <span>تا اولین بلوک عمومی ساخته شود.</span>
               </div>
             )}
           </div>

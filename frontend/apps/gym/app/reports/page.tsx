@@ -18,14 +18,14 @@ export default async function Page() {
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Reports</span>
-        <h1>Operational reports for the selected tenant.</h1>
-        <p>Export-ready KPI snapshots for daily operations and weekly review.</p>
+        <span className="label">گزارش‌ها</span>
+        <h1>گزارش‌های عملیاتی برای همین باشگاه.</h1>
+        <p>نمایش KPIهای آماده‌ی خروجی برای عملیات روزانه و مرور هفتگی.</p>
       </header>
       <div className="detail-grid">
-        <article><span className="status">Today</span><h3>{dashboard?.attendance?.today ?? 0}</h3><p>check-ins today.</p></article>
-        <article><span className="status">Week</span><h3>{dashboard?.attendance?.week ?? 0}</h3><p>check-ins this week.</p></article>
-        <article><span className="status">Rate</span><h3>{dashboard?.realtime?.checkinsPerMinute ?? 0}</h3><p>check-ins per minute.</p></article>
+        <article><span className="status">امروز</span><h3>{dashboard?.attendance?.today ?? 0}</h3><p>ورود امروز.</p></article>
+        <article><span className="status">هفته</span><h3>{dashboard?.attendance?.week ?? 0}</h3><p>ورود این هفته.</p></article>
+        <article><span className="status">نرخ</span><h3>{dashboard?.realtime?.checkinsPerMinute ?? 0}</h3><p>ورود در دقیقه.</p></article>
       </div>
     </section>
   );
