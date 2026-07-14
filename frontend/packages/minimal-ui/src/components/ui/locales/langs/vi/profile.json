@@ -1,0 +1,92 @@
+{
+  "userMenu": "Menu người dùng",
+  "general": {
+    "title": "Thông tin chung",
+    "uploadPhoto": "Tải ảnh lên",
+    "removePhoto": "Xóa",
+    "photoFormats": "Định dạng cho phép: JPG, PNG, GIF (Tối đa 5MB)",
+    "firstName": "Tên",
+    "firstNameHelper": "Tên của bạn",
+    "lastName": "Họ",
+    "lastNameHelper": "Họ của bạn",
+    "username": "Tên người dùng",
+    "usernameHelper": "Tên người dùng duy nhất của bạn",
+    "nickname": "Biệt danh",
+    "nicknameHelper": "Tên hiển thị (tùy chọn)",
+    "bio": "Tiểu sử",
+    "bioHelper": "Hãy kể cho chúng tôi nghe về bản thân bạn",
+    "saveChanges": "Lưu thay đổi"
+  },
+  "mobile": {
+    "title": "Thay đổi số điện thoại",
+    "currentMobile": "Số hiện tại",
+    "newMobileLabel": "Số điện thoại mới",
+    "newMobilePlaceholder": "Nhập số điện thoại của bạn",
+    "sendCode": "Gửi mã xác minh",
+    "codeSentAlert": "Mã xác minh 5 chữ số đã được gửi đến số điện thoại của bạn",
+    "codeWillBeSent": "Mã xác minh sẽ được gửi đến số điện thoại mới của bạn",
+    "codeLabel": "Mã xác minh",
+    "codeValidUntil": "Mã có hiệu lực đến {{time}}",
+    "back": "Quay lại",
+    "resend": "Gửi lại",
+    "verify": "Xác minh và lưu",
+    "validation": {
+      "phoneRequired": "Số điện thoại là bắt buộc",
+      "codeRequired": "Mã xác minh là bắt buộc",
+      "codeLength": "Mã xác minh phải có 5 chữ số"
+    }
+  },
+  "statistics": {
+    "title": "Thống kê người dùng",
+    "canvasCount": "Số lượng thiết kế",
+    "purchaseCount": "Số lượng mua hàng",
+    "accountStatus": "Trạng thái tài khoản",
+    "accountGuest": "Khách",
+    "accountRegistered": "Đã đăng ký",
+    "segment": "Phân loại",
+    "segmentStandard": "Tiêu chuẩn"
+  },
+  "errors": {
+    "loadProfile": "Lỗi khi tải hồ sơ",
+    "loadProfileDesc": "Đã xảy ra lỗi khi tải hồ sơ của bạn. Vui lòng thử lại.",
+    "tryAgain": "Thử lại",
+    "updateFailed": "Không thể cập nhật hồ sơ",
+    "imageTypeInvalid": "Vui lòng chọn tệp hình ảnh",
+    "imageSizeInvalid": "Kích thước tệp không được vượt quá 5MB",
+    "phoneRequired": "Số điện thoại là bắt buộc",
+    "phoneInvalid": "Số điện thoại không hợp lệ",
+    "phoneValidation": "Vui lòng nhập số điện thoại hợp lệ",
+    "usernameRequired": "Tên người dùng là bắt buộc",
+    "usernameMin": "Tên người dùng phải có ít nhất 3 ký tự",
+    "usernameEnglish": "Tên người dùng phải sử dụng chữ cái tiếng Anh, số, dấu gạch dưới hoặc dấu gạch ngang",
+    "nicknameRequired": "Biệt danh là bắt buộc",
+    "sessionExpired": "Thông tin phiên đã hết hạn",
+    "sendCodeError": "Lỗi khi gửi yêu cầu",
+    "verifyError": "Lỗi khi xác minh mã",
+    "resendError": "Lỗi khi gửi lại mã"
+  },
+  "success": {
+    "profileUpdated": "Hồ sơ đã được cập nhật thành công!",
+    "codeSent": "Mã xác minh đã được gửi đến số điện thoại mới",
+    "codeResent": "Mã xác minh đã được gửi lại",
+    "mobileUpdated": "Số điện thoại đã được cập nhật thành công!"
+  },
+  "accountMenu": {
+    "settings": "Cài đặt tài khoản",
+    "addresses": "Địa chỉ của tôi",
+    "orders": "Đơn hàng của tôi",
+    "designs": "Thiết kế của tôi",
+    "terms": "Điều khoản và điều kiện",
+    "allOrders": "Tất cả đơn hàng",
+    "pendingOrders": "Chờ thanh toán",
+    "deliveredOrders": "Đã giao"
+  },
+  "drawer": {
+    "noBioYet": "Chưa thêm tiểu sử nào"
+  },
+  "signOut": {
+    "button": "Đăng xuất",
+    "error": "Lỗi khi đăng xuất!"
+  }
+}
+

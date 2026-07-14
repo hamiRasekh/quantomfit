@@ -81,7 +81,7 @@ export default async function Page() {
             <div key={item.title}>
               <strong>{item.title}</strong>
               <span>{item.body}</span>
-              {item.time ? <small style={{ color: "var(--muted)" }}>{item.time}</small> : null}
+              {item.time ? <small style={{ color: "var(--qf-muted)" }}>{item.time}</small> : null}
             </div>
           ))}
         </div>

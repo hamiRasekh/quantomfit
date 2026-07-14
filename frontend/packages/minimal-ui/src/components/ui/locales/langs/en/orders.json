@@ -1,0 +1,62 @@
+{
+  "emptyState": {
+    "noOrdersTitle": "You don't have any orders yet",
+    "noOrdersDescription": "You haven't placed any orders yet. To view your orders, make your first purchase.",
+    "startShopping": "Start Shopping"
+  },
+  "error": {
+    "loadOrdersTitle": "Error loading orders",
+    "loadOrdersDescription": "There was a problem loading your orders. Please try again.",
+    "tryAgain": "Try Again"
+  },
+  "loadMore": "Load More",
+  "loading": "Loading...",
+  "details": {
+    "orderStatus": "Order Status",
+    "orderDetails": "Order Details",
+    "orderNumber": "Order #{{id}}",
+    "canvasSku": "Canvas #{{id}}",
+    "subtotal": "Subtotal",
+    "shippingCost": "Shipping Cost",
+    "free": "Free",
+    "paymentMethod": "Payment Method",
+    "unknown": "Unknown",
+    "appliedDiscount": "Applied Discount",
+    "noDiscount": "No Discount",
+    "discountCode": "Discount Code",
+    "tax": "Tax",
+    "totalAmount": "Total Amount",
+    "viewMoreProducts": "View {{count}} more products",
+    "showLess": "Show Less"
+  },
+  "status": {
+    "pending": "Pending",
+    "processing": "Processing",
+    "shipped": "Shipped",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled",
+    "refunded": "Refunded"
+  },
+  "delivery": {
+    "title": "Delivery Information",
+    "shippingMethod": "Shipping Method",
+    "description": "Description",
+    "shippingCost": "Shipping Cost",
+    "trackingNumber": "Tracking Number",
+    "free": "Free",
+    "unknown": "Unknown"
+  },
+  "shipping": {
+    "title": "Shipping Address",
+    "addressType": "Address Type",
+    "address": "Address",
+    "phoneNumber": "Phone Number"
+  },
+  "list": {
+    "orderNumber": "Order #{{id}}",
+    "productCount": "{{count}} products",
+    "viewDetails": "View Details"
+  },
+  "currency": "Toman"
+}
+

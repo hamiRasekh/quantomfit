@@ -1,0 +1,117 @@
+{
+  "userMenu": "منوی کاربری",
+  "general": {
+    "title": "اطلاعات عمومی",
+    "uploadPhoto": "آپلود عکس",
+    "removePhoto": "حذف",
+    "photoFormats": "فرمت‌های مجاز: JPG, PNG, GIF (حداکثر 5 مگابایت)",
+    "firstName": "نام",
+    "firstNameHelper": "نام کوچک شما",
+    "lastName": "نام خانوادگی",
+    "lastNameHelper": "نام خانوادگی شما",
+    "username": "نام کاربری",
+    "usernameHelper": "نام کاربری یکتای شما",
+    "nickname": "نام نمایشی",
+    "nicknameHelper": "نام نمایشی (اختیاری)",
+    "bio": "بیوگرافی",
+    "bioHelper": "در مورد خودتان بنویسید",
+    "saveChanges": "ذخیره تغییرات"
+  },
+  "mobile": {
+    "title": "تغییر شماره موبایل",
+    "currentMobile": "شماره فعلی",
+    "newMobileLabel": "شماره موبایل جدید",
+    "newMobilePlaceholder": "شماره موبایل خود را وارد کنید",
+    "sendCode": "ارسال کد تایید",
+    "codeSentAlert": "کد تایید 5 رقمی به شماره موبایل شما ارسال شد",
+    "codeWillBeSent": "کد تایید به شماره موبایل جدید ارسال خواهد شد",
+    "codeLabel": "کد تایید",
+    "codeValidUntil": "کد تا {{time}} معتبر است",
+    "back": "بازگشت",
+    "resend": "ارسال مجدد",
+    "verify": "تایید و ذخیره",
+    "validation": {
+      "phoneRequired": "شماره موبایل الزامی است",
+      "codeRequired": "کد تایید الزامی است",
+      "codeLength": "کد تایید باید 5 رقم باشد"
+    }
+  },
+  "statistics": {
+    "title": "آمار کاربری",
+    "canvasCount": "تعداد طرح‌ها",
+    "purchaseCount": "تعداد خریدها",
+    "accountStatus": "وضعیت حساب",
+    "accountGuest": "مهمان",
+    "accountRegistered": "ثبت‌نام شده",
+    "segment": "دسته‌بندی",
+    "segmentStandard": "استاندارد"
+  },
+  "errors": {
+    "loadProfile": "خطا در بارگذاری پروفایل",
+    "loadProfileDesc": "خطایی در بارگذاری پروفایل شما رخ داده است. لطفاً دوباره تلاش کنید.",
+    "tryAgain": "تلاش مجدد",
+    "updateFailed": "خطا در به‌روزرسانی پروفایل",
+    "imageTypeInvalid": "لطفا یک فایل تصویری انتخاب کنید",
+    "imageSizeInvalid": "حجم فایل نباید بیشتر از 5 مگابایت باشد",
+    "phoneRequired": "شماره موبایل الزامی است",
+    "phoneInvalid": "شماره موبایل نامعتبر است",
+    "phoneValidation": "لطفا شماره موبایل معتبر وارد کنید",
+    "usernameRequired": "نام کاربری الزامی است",
+    "usernameMin": "نام کاربری باید حداقل ۳ کاراکتر باشد",
+    "usernameEnglish": "نام کاربری فقط باید شامل حروف انگلیسی، اعداد، زیرخط یا خط تیره باشد",
+    "nicknameRequired": "نام نمایشی الزامی است",
+    "sessionExpired": "اطلاعات جلسه منقضی شده است",
+    "sendCodeError": "خطا در ارسال درخواست",
+    "verifyError": "خطا در تایید کد",
+    "resendError": "خطا در ارسال مجدد کد"
+  },
+  "success": {
+    "profileUpdated": "پروفایل با موفقیت به‌روزرسانی شد!",
+    "codeSent": "کد تایید به شماره موبایل جدید ارسال شد",
+    "codeResent": "کد تایید مجددا ارسال شد",
+    "mobileUpdated": "شماره موبایل با موفقیت تغییر یافت!"
+  },
+  "accountMenu": {
+    "settings": "تنظیمات حساب",
+    "addresses": "آدرس های من",
+    "orders": "سفارش های من",
+    "designs": "طرح های من",
+    "terms": "قوانین و مقررات",
+    "allOrders": "تمام سفارشات",
+    "pendingOrders": "در حال پردازش",
+    "deliveredOrders": "تحویل شده"
+  },
+  "drawer": {
+    "noBioYet": "هنوز بیوگرافی‌ای اضافه نشده است"
+  },
+  "signOut": {
+    "button": "خروج از حساب",
+    "error": "خطا در خروج از حساب!"
+  },
+  "designs": {
+    "title": "طراحی‌های من",
+    "count": "{{count}} طراحی",
+    "untitled": "طرح بدون نام",
+    "unknownCategory": "دسته‌بندی نامشخص",
+    "deleteSuccess": "طراحی با موفقیت حذف شد",
+    "deleteError": "خطا در حذف طراحی. لطفاً دوباره تلاش کنید.",
+    "renameTitle": "تغییر نام طراحی",
+    "renameLabel": "نام جدید طراحی",
+    "renamePlaceholder": "نام جدید را وارد کنید",
+    "renameHelper": "حداکثر ۱۲۰ کاراکتر",
+    "renameCancel": "انصراف",
+    "renameConfirm": "ذخیره",
+    "renameSuccess": "نام طراحی با موفقیت به‌روزرسانی شد",
+    "renameError": "خطا در به‌روزرسانی نام طراحی",
+    "renameValidation": "نام طراحی نباید خالی باشد",
+    "renameMissingIdentifiers": "اطلاعات لازم برای به‌روزرسانی طراحی در دسترس نیست.",
+    "loadMore": "بارگذاری بیشتر",
+    "loading": "در حال بارگذاری..."
+  },
+  "meta": {
+    "title": "پروفایل من",
+    "description": "مشاهده و ویرایش اطلاعات پروفایل کاربری شما در وودی"
+  },
+  "currency": "تومان"
+}
+

@@ -129,6 +129,7 @@ func NewRouter(cfg config.Config, health *apphealth.Service, panel *apppanel.Ser
 			r.Get("/dashboard", h.AdminDashboard)
 			r.Post("/gyms", h.CreateGym)
 			r.Get("/gyms", h.ListGyms)
+			r.Get("/gyms/*", h.GymDetail)
 			r.Patch("/gyms/*", h.UpdateGym)
 			r.Delete("/gyms/*", h.DeleteGym)
 			r.Get("/users", h.AdminUsers)

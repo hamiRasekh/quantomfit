@@ -1,0 +1,114 @@
+{
+  "breadcrumbs": {
+    "dashboard": "داشبورد",
+    "orderProcess": "فرآیند سفارش"
+  },
+  "list": {
+    "heading": "مدیریت فرآیند سفارش"
+  },
+  "tabs": {
+    "all": "همه",
+    "new": "سفارشات جدید",
+    "waiting": "لیست انتظار",
+    "supply": "تأمین",
+    "print": "چاپ و گلدوزی",
+    "sewing": "دوخت",
+    "packaging": "اتو و بسته‌بندی",
+    "shipping": "ارسال",
+    "delivered": "تحویل شده",
+    "cancelled": "لغو شده",
+    "information": "اطلاعات",
+    "canvas": "کنواس",
+    "notes": "یادداشت"
+  },
+  "table": {
+    "product": "محصول",
+    "customer": "مشتری",
+    "orderNumber": "شماره سفارش",
+    "orderCreatedAt": "تاریخ سفارش",
+    "quantity": "تعداد",
+    "price": "قیمت",
+    "status": "وضعیت",
+    "order": "سفارش",
+    "name": "مشتری",
+    "createdAt": "تاریخ",
+    "totalQuantity": "تعداد",
+    "totalAmount": "مبلغ"
+  },
+  "actions": {
+    "delete": "حذف انتخاب‌شده‌ها",
+    "print": "چاپ",
+    "import": "وارد کردن",
+    "export": "خروجی گرفتن"
+  },
+  "filters": {
+    "startDate": "تاریخ شروع",
+    "endDate": "تاریخ پایان",
+    "endDateError": "تاریخ پایان باید بعد از تاریخ شروع باشد",
+    "searchPlaceholder": "جستجوی مشتری یا شماره سفارش...",
+    "status": "وضعیت:",
+    "date": "تاریخ:",
+    "keyword": "کلمه کلیدی:"
+  },
+  "dialogs": {
+    "delete": {
+      "title": "حذف سفارش‌ها",
+      "description": "حذف گروهی به‌زودی به API متصل می‌شود. فعلاً این گزینه صرفاً نمایشی است."
+    }
+  },
+  "toast": {
+    "deleteSoon": "قابلیت حذف گروهی هنوز متصل نشده است."
+  },
+  "detail": {
+    "canvas": {
+      "title": "پیش‌نمایش مدل و بوم",
+      "model": "مدل",
+      "variant": "تنظیمات انتخابی",
+      "downloadTexture": "دانلود تکسچر"
+    },
+    "statusUpdated": "وضعیت با موفقیت به‌روزرسانی شد",
+    "statusUpdateError": "خطا در به‌روزرسانی وضعیت"
+  },
+  "menu": {
+    "delete": "حذف",
+    "view": "مشاهده"
+  },
+  "dialog": {
+    "deleteTitle": "حذف",
+    "deleteContent": "آیا از حذف این مورد اطمینان دارید؟",
+    "deleteButton": "حذف"
+  },
+  "notes": {
+    "newNote": "یادداشت جدید",
+    "placeholder": "یادداشت خود را بنویسید... برای منشن آیتم از #۱، #۲ و برای منشن ادمین از @username استفاده کنید",
+    "mentionGuide": "راهنما",
+    "mentionGuideText": "برای منشن آیتم از #۱، #۲ و برای منشن ادمین از @username استفاده کنید",
+    "showToCustomer": "نمایش به مشتری",
+    "submit": "ثبت یادداشت",
+    "mentionedAdmins": "ادمین‌های منشن شده",
+    "mentionedItems": "آیتم‌های منشن شده",
+    "fileType": {
+      "normal": "فایل عادی",
+      "embroidery": "فایل گلدوزی",
+      "print": "فایل چاپ"
+    },
+    "downloadFile": "دانلود فایل",
+    "deleteNote": "حذف یادداشت",
+    "editNote": "ویرایش یادداشت",
+    "noNotes": "هیچ یادداشتی وجود ندارد",
+    "createdBy": "ایجاد شده توسط",
+    "at": "در",
+    "uploadFile": "آپلود فایل",
+    "selectFileType": "انتخاب نوع فایل",
+    "removeFile": "حذف فایل",
+    "characterCount": "کاراکتر",
+    "loading": "در حال بارگذاری...",
+    "error": "خطا در بارگذاری یادداشت‌ها",
+    "createSuccess": "یادداشت با موفقیت ایجاد شد",
+    "createError": "خطا در ایجاد یادداشت",
+    "updateSuccess": "یادداشت با موفقیت به‌روزرسانی شد",
+    "updateError": "خطا در به‌روزرسانی یادداشت",
+    "deleteSuccess": "یادداشت با موفقیت حذف شد",
+    "deleteError": "خطا در حذف یادداشت"
+  }
+}

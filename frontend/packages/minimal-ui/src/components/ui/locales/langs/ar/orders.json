@@ -1,0 +1,14 @@
+{
+  "emptyState": {
+    "noOrdersTitle": "ليس لديك أي طلبات بعد",
+    "noOrdersDescription": "لم تقم بتقديم أي طلبات بعد. لعرض طلباتك، قم بإجراء عملية الشراء الأولى.",
+    "startShopping": "ابدأ التسوق"
+  },
+  "error": {
+    "loadOrdersTitle": "خطأ في تحميل الطلبات",
+    "loadOrdersDescription": "حدثت مشكلة في تحميل طلباتك. يرجى المحاولة مرة أخرى.",
+    "tryAgain": "حاول مرة أخرى"
+  },
+  "loadMore": "تحميل المزيد"
+}
+

@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"regexp"
 	"strings"
 	"time"
 
@@ -261,6 +262,9 @@ type GymRecord struct {
 	Subdomain          string    `json:"subdomain"`
 	TenantType         string    `json:"tenantType"`
 	Timezone           string    `json:"timezone"`
+	GymType            string    `json:"gymType,omitempty"`
+	Location           string    `json:"location,omitempty"`
+	SizeSqm            int       `json:"sizeSqm,omitempty"`
 	OnboardingStatus   string    `json:"onboardingStatus"`
 	MemberCount        int       `json:"memberCount"`
 	TrainerCount       int       `json:"trainerCount"`
@@ -268,6 +272,18 @@ type GymRecord struct {
 	LatestOccupancy    int       `json:"latestOccupancy"`
 	Capacity           int       `json:"capacity"`
 	SubscriptionStatus string    `json:"subscriptionStatus"`
+	OwnerID             string    `json:"ownerId"`
+	OwnerEmail          string    `json:"ownerEmail"`
+	OwnerPhone          string    `json:"ownerPhone,omitempty"`
+	OwnerLastLoginAt    *time.Time `json:"ownerLastLoginAt,omitempty"`
+	ProgramCount        int       `json:"programCount"`
+	ClassCount          int       `json:"classCount"`
+	AttendanceCount     int       `json:"attendanceCount"`
+	EquipmentCount      int       `json:"equipmentCount"`
+	SMSCount            int       `json:"smsCount"`
+	AnalyticsEventCount int       `json:"analyticsEventCount"`
+	ActiveDays30        int       `json:"activeDays30"`
+	LastActivityAt      *time.Time `json:"lastActivityAt,omitempty"`
 	CreatedAt          time.Time `json:"createdAt"`
 	UpdatedAt          time.Time `json:"updatedAt"`
 }
@@ -325,6 +341,7 @@ type GymCreateInput struct {
 	OwnerEmail    string `json:"ownerEmail"`
 	OwnerPassword string `json:"ownerPassword"`
 	OwnerPhone    string `json:"ownerPhone"`
+	OwnerID       string `json:"ownerId"`
 	GymType       string `json:"gymType"`
 	Location      string `json:"location"`
 	SizeSqm       int    `json:"sizeSqm"`
@@ -667,10 +684,27 @@ func (s *Store) SetGymStatus(ctx context.Context, gymID, status, onboardingStatu
 }
 
 func (s *Store) UpdateGymMetadata(ctx context.Context, gymID, name, slug, subdomain, planCode, status, onboardingStatus, timezone string) (GymRecord, error) {
-	if _, err := s.pool.Exec(ctx, `
+	tx, err := s.pool.BeginTx(ctx, pgx.TxOptions{})
+	if err != nil {
+		return GymRecord{}, err
+	}
+	defer tx.Rollback(ctx)
+
+	var planID string
+	if planCode != "" {
+		if err := tx.QueryRow(ctx, `SELECT id::text FROM pricing_plans WHERE code = $1 AND is_active = true`, planCode).Scan(&planID); err != nil {
+			if errors.Is(err, pgx.ErrNoRows) {
+				return GymRecord{}, errors.New("selected plan was not found or is inactive")
+			}
+			return GymRecord{}, err
+		}
+	}
+
+	if _, err := tx.Exec(ctx, `
 		UPDATE gyms
 		SET name = COALESCE(NULLIF($2, ''), name),
 		    slug = COALESCE(NULLIF($3, ''), slug),
+		    subdomain = COALESCE(NULLIF($4, ''), subdomain),
 		    plan_code = COALESCE(NULLIF($5, ''), plan_code),
 		    status = COALESCE(NULLIF($6, ''), status),
 		    onboarding_status = COALESCE(NULLIF($7, ''), onboarding_status),
@@ -680,12 +714,28 @@ func (s *Store) UpdateGymMetadata(ctx context.Context, gymID, name, slug, subdom
 		return GymRecord{}, err
 	}
 	if subdomain != "" {
-		if _, err := s.pool.Exec(ctx, `
+		if _, err := tx.Exec(ctx, `
 			UPDATE tenant_domains
 			SET subdomain = $2, updated_at = now()
 			WHERE tenant_id = $1::uuid`, gymID, subdomain); err != nil {
 			return GymRecord{}, err
 		}
+	}
+	if planID != "" {
+		result, err := tx.Exec(ctx, `
+			UPDATE subscriptions SET plan_id = $2::uuid, status = 'active', updated_at = now()
+			WHERE id = (SELECT id FROM subscriptions WHERE tenant_id = $1::uuid ORDER BY created_at DESC LIMIT 1)`, gymID, planID)
+		if err != nil {
+			return GymRecord{}, err
+		}
+		if result.RowsAffected() == 0 {
+			if _, err := tx.Exec(ctx, `INSERT INTO subscriptions (tenant_id, plan_id, status, starts_at, ends_at, billing_cycle) VALUES ($1::uuid, $2::uuid, 'active', now(), now() + interval '1 month', 'monthly')`, gymID, planID); err != nil {
+				return GymRecord{}, err
+			}
+		}
+	}
+	if err := tx.Commit(ctx); err != nil {
+		return GymRecord{}, err
 	}
 	return s.GetGymByTenantID(ctx, gymID)
 }
@@ -712,6 +762,9 @@ func (s *Store) ListGyms(ctx context.Context) ([]GymRecord, error) {
 			g.subdomain,
 			g.tenant_type,
 			g.timezone,
+			COALESCE(onboarding.payload->>'gymType', ''),
+			COALESCE(onboarding.payload->>'location', ''),
+			CASE WHEN COALESCE(onboarding.payload->>'sizeSqm', '') ~ '^[0-9]+$' THEN (onboarding.payload->>'sizeSqm')::int ELSE 0 END,
 			g.onboarding_status,
 			COALESCE(member_counts.member_count, 0) AS member_count,
 			COALESCE(trainer_counts.trainer_count, 0) AS trainer_count,
@@ -719,10 +772,15 @@ func (s *Store) ListGyms(ctx context.Context) ([]GymRecord, error) {
 			COALESCE(occupancy.current_occupancy, 0) AS latest_occupancy,
 			COALESCE(occupancy.capacity, 0) AS capacity,
 			COALESCE(subscription.status, 'inactive') AS subscription_status,
+			COALESCE(owner_user.id::text, ''), COALESCE(owner_user.email, ''), COALESCE(owner_user.phone, ''), owner_user.last_login_at,
+			COALESCE(usage_stats.program_count, 0), COALESCE(usage_stats.class_count, 0), COALESCE(usage_stats.attendance_count, 0),
+			COALESCE(usage_stats.equipment_count, 0), COALESCE(usage_stats.sms_count, 0), COALESCE(usage_stats.analytics_event_count, 0), COALESCE(usage_stats.active_days_30, 0),
+			usage_stats.last_activity_at,
 			g.created_at,
 			g.updated_at
 		FROM gyms g
 		LEFT JOIN pricing_plans p ON p.code = g.plan_code
+		LEFT JOIN onboarding_state onboarding ON onboarding.tenant_id = g.id
 		LEFT JOIN LATERAL (
 			SELECT COUNT(*)::int AS member_count
 			FROM members m
@@ -747,6 +805,30 @@ func (s *Store) ListGyms(ctx context.Context) ([]GymRecord, error) {
 			ORDER BY s.created_at DESC
 			LIMIT 1
 		) subscription ON true
+		LEFT JOIN LATERAL (
+			SELECT u.id, u.email, u.phone, u.last_login_at
+			FROM gym_users gu JOIN users u ON u.id = gu.user_id
+			WHERE gu.tenant_id = g.id AND gu.role = 'gym_owner'
+			ORDER BY gu.created_at LIMIT 1
+		) owner_user ON true
+		LEFT JOIN LATERAL (
+			SELECT
+				(SELECT COUNT(*)::int FROM workout_programs wp WHERE wp.tenant_id = g.id) program_count,
+				(SELECT COUNT(*)::int FROM gym_classes gc WHERE gc.tenant_id = g.id) class_count,
+				(SELECT COUNT(*)::int FROM attendance_logs al WHERE al.tenant_id = g.id) attendance_count,
+				(SELECT COUNT(*)::int FROM equipment e WHERE e.tenant_id = g.id) equipment_count,
+				(SELECT COUNT(*)::int FROM sms_automation_logs sl WHERE sl.tenant_id = g.id) sms_count,
+				(SELECT COUNT(*)::int FROM analytics_events ae WHERE ae.tenant_id = g.id) analytics_event_count,
+				(SELECT COUNT(DISTINCT ae.occurred_at::date)::int FROM analytics_events ae WHERE ae.tenant_id = g.id AND ae.occurred_at >= now() - interval '30 days') active_days_30,
+				GREATEST(
+					(SELECT MAX(wp.updated_at) FROM workout_programs wp WHERE wp.tenant_id = g.id),
+					(SELECT MAX(gc.updated_at) FROM gym_classes gc WHERE gc.tenant_id = g.id),
+					(SELECT MAX(al.checkin_at) FROM attendance_logs al WHERE al.tenant_id = g.id),
+					(SELECT MAX(sl.created_at) FROM sms_automation_logs sl WHERE sl.tenant_id = g.id),
+					(SELECT MAX(ae.occurred_at) FROM analytics_events ae WHERE ae.tenant_id = g.id),
+					owner_user.last_login_at
+				) last_activity_at
+		) usage_stats ON true
 		ORDER BY g.created_at DESC`)
 	if err != nil {
 		return nil, err
@@ -766,6 +848,9 @@ func (s *Store) ListGyms(ctx context.Context) ([]GymRecord, error) {
 			&item.Subdomain,
 			&item.TenantType,
 			&item.Timezone,
+			&item.GymType,
+			&item.Location,
+			&item.SizeSqm,
 			&item.OnboardingStatus,
 			&item.MemberCount,
 			&item.TrainerCount,
@@ -773,6 +858,8 @@ func (s *Store) ListGyms(ctx context.Context) ([]GymRecord, error) {
 			&item.LatestOccupancy,
 			&item.Capacity,
 			&item.SubscriptionStatus,
+			&item.OwnerID, &item.OwnerEmail, &item.OwnerPhone, &item.OwnerLastLoginAt,
+			&item.ProgramCount, &item.ClassCount, &item.AttendanceCount, &item.EquipmentCount, &item.SMSCount, &item.AnalyticsEventCount, &item.ActiveDays30, &item.LastActivityAt,
 			&item.CreatedAt,
 			&item.UpdatedAt,
 		); err != nil {
@@ -796,6 +883,9 @@ func (s *Store) GetGymByTenantID(ctx context.Context, tenantID string) (GymRecor
 			g.subdomain,
 			g.tenant_type,
 			g.timezone,
+			COALESCE(onboarding.payload->>'gymType', ''),
+			COALESCE(onboarding.payload->>'location', ''),
+			CASE WHEN COALESCE(onboarding.payload->>'sizeSqm', '') ~ '^[0-9]+$' THEN (onboarding.payload->>'sizeSqm')::int ELSE 0 END,
 			g.onboarding_status,
 			COALESCE(member_counts.member_count, 0) AS member_count,
 			COALESCE(trainer_counts.trainer_count, 0) AS trainer_count,
@@ -803,10 +893,15 @@ func (s *Store) GetGymByTenantID(ctx context.Context, tenantID string) (GymRecor
 			COALESCE(occupancy.current_occupancy, 0) AS latest_occupancy,
 			COALESCE(occupancy.capacity, 0) AS capacity,
 			COALESCE(subscription.status, 'inactive') AS subscription_status,
+			COALESCE(owner_user.id::text, ''), COALESCE(owner_user.email, ''), COALESCE(owner_user.phone, ''), owner_user.last_login_at,
+			COALESCE(usage_stats.program_count, 0), COALESCE(usage_stats.class_count, 0), COALESCE(usage_stats.attendance_count, 0),
+			COALESCE(usage_stats.equipment_count, 0), COALESCE(usage_stats.sms_count, 0), COALESCE(usage_stats.analytics_event_count, 0), COALESCE(usage_stats.active_days_30, 0),
+			usage_stats.last_activity_at,
 			g.created_at,
 			g.updated_at
 		FROM gyms g
 		LEFT JOIN pricing_plans p ON p.code = g.plan_code
+		LEFT JOIN onboarding_state onboarding ON onboarding.tenant_id = g.id
 		LEFT JOIN LATERAL (
 			SELECT COUNT(*)::int AS member_count
 			FROM members m
@@ -831,6 +926,30 @@ func (s *Store) GetGymByTenantID(ctx context.Context, tenantID string) (GymRecor
 			ORDER BY s.created_at DESC
 			LIMIT 1
 		) subscription ON true
+		LEFT JOIN LATERAL (
+			SELECT u.id, u.email, u.phone, u.last_login_at
+			FROM gym_users gu JOIN users u ON u.id = gu.user_id
+			WHERE gu.tenant_id = g.id AND gu.role = 'gym_owner'
+			ORDER BY gu.created_at LIMIT 1
+		) owner_user ON true
+		LEFT JOIN LATERAL (
+			SELECT
+				(SELECT COUNT(*)::int FROM workout_programs wp WHERE wp.tenant_id = g.id) program_count,
+				(SELECT COUNT(*)::int FROM gym_classes gc WHERE gc.tenant_id = g.id) class_count,
+				(SELECT COUNT(*)::int FROM attendance_logs al WHERE al.tenant_id = g.id) attendance_count,
+				(SELECT COUNT(*)::int FROM equipment e WHERE e.tenant_id = g.id) equipment_count,
+				(SELECT COUNT(*)::int FROM sms_automation_logs sl WHERE sl.tenant_id = g.id) sms_count,
+				(SELECT COUNT(*)::int FROM analytics_events ae WHERE ae.tenant_id = g.id) analytics_event_count,
+				(SELECT COUNT(DISTINCT ae.occurred_at::date)::int FROM analytics_events ae WHERE ae.tenant_id = g.id AND ae.occurred_at >= now() - interval '30 days') active_days_30,
+				GREATEST(
+					(SELECT MAX(wp.updated_at) FROM workout_programs wp WHERE wp.tenant_id = g.id),
+					(SELECT MAX(gc.updated_at) FROM gym_classes gc WHERE gc.tenant_id = g.id),
+					(SELECT MAX(al.checkin_at) FROM attendance_logs al WHERE al.tenant_id = g.id),
+					(SELECT MAX(sl.created_at) FROM sms_automation_logs sl WHERE sl.tenant_id = g.id),
+					(SELECT MAX(ae.occurred_at) FROM analytics_events ae WHERE ae.tenant_id = g.id),
+					owner_user.last_login_at
+				) last_activity_at
+		) usage_stats ON true
 		WHERE g.id = $1::uuid`, tenantID).Scan(
 		&item.ID,
 		&item.Slug,
@@ -841,6 +960,9 @@ func (s *Store) GetGymByTenantID(ctx context.Context, tenantID string) (GymRecor
 		&item.Subdomain,
 		&item.TenantType,
 		&item.Timezone,
+		&item.GymType,
+		&item.Location,
+		&item.SizeSqm,
 		&item.OnboardingStatus,
 		&item.MemberCount,
 		&item.TrainerCount,
@@ -848,6 +970,8 @@ func (s *Store) GetGymByTenantID(ctx context.Context, tenantID string) (GymRecor
 		&item.LatestOccupancy,
 		&item.Capacity,
 		&item.SubscriptionStatus,
+		&item.OwnerID, &item.OwnerEmail, &item.OwnerPhone, &item.OwnerLastLoginAt,
+		&item.ProgramCount, &item.ClassCount, &item.AttendanceCount, &item.EquipmentCount, &item.SMSCount, &item.AnalyticsEventCount, &item.ActiveDays30, &item.LastActivityAt,
 		&item.CreatedAt,
 		&item.UpdatedAt,
 	)
@@ -1882,6 +2006,7 @@ func (s *Store) CreateGym(ctx context.Context, input GymCreateInput) (CreatedGym
 	input.OwnerEmail = strings.TrimSpace(strings.ToLower(input.OwnerEmail))
 	input.OwnerPassword = strings.TrimSpace(input.OwnerPassword)
 	input.OwnerPhone = strings.TrimSpace(input.OwnerPhone)
+	input.OwnerID = strings.TrimSpace(input.OwnerID)
 	input.Timezone = strings.TrimSpace(input.Timezone)
 
 	if input.Name == "" {
@@ -1899,11 +2024,11 @@ func (s *Store) CreateGym(ctx context.Context, input GymCreateInput) (CreatedGym
 	if input.Timezone == "" {
 		input.Timezone = "Asia/Tehran"
 	}
-	if input.OwnerEmail == "" {
-		input.OwnerEmail = fmt.Sprintf("owner@%s.quantumfit.ir", input.Slug)
+	if !regexp.MustCompile(`^[a-z0-9](?:[a-z0-9-]{1,61}[a-z0-9])?$`).MatchString(input.Slug) {
+		return CreatedGym{}, errors.New("slug must contain only lowercase letters, numbers, and hyphens")
 	}
-	if input.OwnerPassword == "" {
-		input.OwnerPassword = "Temp#2026"
+	if !regexp.MustCompile(`^[a-z0-9](?:[a-z0-9-]{1,61}[a-z0-9])?$`).MatchString(input.Subdomain) {
+		return CreatedGym{}, errors.New("subdomain must contain only lowercase letters, numbers, and hyphens")
 	}
 
 	tx, err := s.pool.BeginTx(ctx, pgx.TxOptions{})
@@ -1916,39 +2041,74 @@ func (s *Store) CreateGym(ctx context.Context, input GymCreateInput) (CreatedGym
 		return CreatedGym{}, err
 	}
 
+	var planID string
+	if err := tx.QueryRow(ctx, `SELECT id::text FROM pricing_plans WHERE code = $1 AND is_active = true`, input.PlanCode).Scan(&planID); err != nil {
+		if errors.Is(err, pgx.ErrNoRows) {
+			return CreatedGym{}, errors.New("selected plan was not found or is inactive")
+		}
+		return CreatedGym{}, err
+	}
+
+	var collision bool
+	if err := tx.QueryRow(ctx, `SELECT EXISTS(SELECT 1 FROM gyms WHERE slug = $1 OR subdomain = $2) OR EXISTS(SELECT 1 FROM tenant_domains WHERE subdomain = $2)`, input.Slug, input.Subdomain).Scan(&collision); err != nil {
+		return CreatedGym{}, err
+	}
+	if collision {
+		return CreatedGym{}, errors.New("slug or subdomain is already in use")
+	}
+
 	var gymID string
 	err = tx.QueryRow(ctx, `
 		INSERT INTO gyms (slug, name, status, plan_code, subdomain, tenant_type, timezone, onboarding_status)
 		VALUES ($1, $2, 'active', $3, $4, 'shared', $5, 'pending')
-		ON CONFLICT (slug) DO UPDATE SET
-			name = EXCLUDED.name,
-			plan_code = EXCLUDED.plan_code,
-			subdomain = EXCLUDED.subdomain,
-			timezone = EXCLUDED.timezone,
-			updated_at = now()
 		RETURNING id::text`,
 		input.Slug, input.Name, input.PlanCode, input.Subdomain, input.Timezone).Scan(&gymID)
 	if err != nil {
 		return CreatedGym{}, err
 	}
 
-	ownerHash, err := bcrypt.GenerateFromPassword([]byte(input.OwnerPassword), bcrypt.DefaultCost)
-	if err != nil {
-		return CreatedGym{}, err
-	}
-
 	var ownerID string
-	err = tx.QueryRow(ctx, `
-		INSERT INTO users (email, phone, password_hash, status)
-		VALUES ($1, $2, $3, 'active')
-		ON CONFLICT (email) DO UPDATE SET
-			phone = COALESCE(EXCLUDED.phone, users.phone),
-			password_hash = EXCLUDED.password_hash,
-			updated_at = now()
-		RETURNING id::text`,
-		input.OwnerEmail, nullIfEmpty(input.OwnerPhone), string(ownerHash)).Scan(&ownerID)
-	if err != nil {
-		return CreatedGym{}, err
+	if input.OwnerID != "" {
+		if err := tx.QueryRow(ctx, `SELECT id::text FROM users WHERE id = $1::uuid AND status = 'active'`, input.OwnerID).Scan(&ownerID); err != nil {
+			return CreatedGym{}, errors.New("selected owner was not found")
+		}
+	} else {
+		input.OwnerPhone = normalizePhone(input.OwnerPhone)
+		if input.OwnerPhone == "" && input.OwnerEmail == "" {
+			return CreatedGym{}, errors.New("owner phone or email is required")
+		}
+
+		// Reuse a site account when the supplied mobile or email already exists.
+		err = tx.QueryRow(ctx, `
+			SELECT id::text FROM users
+			WHERE ($1::text <> '' AND regexp_replace(COALESCE(phone, ''), '[^0-9+]', '', 'g') = $1::text)
+			   OR ($2::text <> '' AND lower(email) = $2::text)
+			ORDER BY created_at LIMIT 1`, input.OwnerPhone, input.OwnerEmail).Scan(&ownerID)
+		if err != nil && !errors.Is(err, pgx.ErrNoRows) {
+			return CreatedGym{}, err
+		}
+		if ownerID == "" && len(input.OwnerPassword) < 8 {
+			return CreatedGym{}, errors.New("owner password must be at least 8 characters")
+		}
+
+		// A phone-only owner gets a stable internal email while retaining mobile login data.
+		if input.OwnerEmail == "" {
+			phoneKey := strings.TrimPrefix(input.OwnerPhone, "+")
+			input.OwnerEmail = fmt.Sprintf("%s@mobile.quantumfit.ir", phoneKey)
+		}
+		if ownerID == "" {
+			ownerHash, hashErr := bcrypt.GenerateFromPassword([]byte(input.OwnerPassword), bcrypt.DefaultCost)
+			if hashErr != nil {
+				return CreatedGym{}, hashErr
+			}
+			err = tx.QueryRow(ctx, `
+				INSERT INTO users (email, phone, password_hash, status)
+				VALUES ($1, $2, $3, 'active')
+				RETURNING id::text`, input.OwnerEmail, nullIfEmpty(input.OwnerPhone), string(ownerHash)).Scan(&ownerID)
+			if err != nil {
+				return CreatedGym{}, err
+			}
+		}
 	}
 
 	if _, err := tx.Exec(ctx, `
@@ -1962,7 +2122,7 @@ func (s *Store) CreateGym(ctx context.Context, input GymCreateInput) (CreatedGym
 	if _, err := tx.Exec(ctx, `
 		INSERT INTO tenant_domains (tenant_id, subdomain, custom_domain, panel_type, is_active)
 		VALUES ($1::uuid, $2, null, 'gym', true)
-		ON CONFLICT (subdomain) DO UPDATE SET tenant_id = EXCLUDED.tenant_id, panel_type = EXCLUDED.panel_type, is_active = true`,
+		`,
 		gymID, input.Subdomain); err != nil {
 		return CreatedGym{}, err
 	}
@@ -1970,11 +2130,11 @@ func (s *Store) CreateGym(ctx context.Context, input GymCreateInput) (CreatedGym
 	if _, err := tx.Exec(ctx, `
 		INSERT INTO onboarding_state (tenant_id, step, payload, completed_at)
 		VALUES ($1::uuid, 'gym_name', jsonb_build_object(
-			'gymName', $2,
-			'gymType', $3,
-			'location', $4,
-			'sizeSqm', $5,
-			'timezone', $6
+			'gymName', $2::text,
+			'gymType', $3::text,
+			'location', $4::text,
+			'sizeSqm', $5::int,
+			'timezone', $6::text
 		), null)
 		ON CONFLICT (tenant_id) DO UPDATE SET
 			step = EXCLUDED.step,
@@ -1989,17 +2149,11 @@ func (s *Store) CreateGym(ctx context.Context, input GymCreateInput) (CreatedGym
 		return CreatedGym{}, err
 	}
 
-	var planID sql.NullString
-	if err := tx.QueryRow(ctx, `SELECT id::text FROM pricing_plans WHERE code = $1 LIMIT 1`, input.PlanCode).Scan(&planID); err != nil && !errors.Is(err, pgx.ErrNoRows) {
+	if _, err := tx.Exec(ctx, `
+		INSERT INTO subscriptions (tenant_id, plan_id, status, starts_at, ends_at, billing_cycle)
+		VALUES ($1::uuid, $2::uuid, 'active', now(), now() + interval '1 month', 'monthly')`,
+		gymID, planID); err != nil {
 		return CreatedGym{}, err
-	}
-	if planID.Valid {
-		if _, err := tx.Exec(ctx, `
-			INSERT INTO subscriptions (tenant_id, plan_id, status, starts_at, ends_at, billing_cycle)
-			VALUES ($1::uuid, $2::uuid, 'active', now(), now() + interval '1 month', 'monthly')`,
-			gymID, planID.String); err != nil {
-			return CreatedGym{}, err
-		}
 	}
 
 	if err := tx.Commit(ctx); err != nil {
@@ -2015,10 +2169,14 @@ func (s *Store) CreateGym(ctx context.Context, input GymCreateInput) (CreatedGym
 }
 
 func (s *Store) AuthenticateUser(ctx context.Context, tenantID, email, password string) (auth.Claims, error) {
-	email = strings.TrimSpace(strings.ToLower(email))
+	identifier := strings.TrimSpace(strings.ToLower(email))
+	phone := normalizePhone(identifier)
+	if strings.Contains(identifier, "@") {
+		phone = ""
+	}
 	password = strings.TrimSpace(password)
-	if email == "" || password == "" {
-		return auth.Claims{}, errors.New("email and password are required")
+	if identifier == "" || password == "" {
+		return auth.Claims{}, errors.New("identifier and password are required")
 	}
 
 	type userRow struct {
@@ -2042,12 +2200,13 @@ func (s *Store) AuthenticateUser(ctx context.Context, tenantID, email, password 
 		LEFT JOIN gyms g ON g.id = gu.tenant_id
 		LEFT JOIN tenant_domains td ON td.tenant_id = g.id AND td.is_active = true
 		WHERE lower(u.email) = $1
+		   OR ($3 <> '' AND regexp_replace(COALESCE(u.phone, ''), '[^0-9+]', '', 'g') = $3)
 		ORDER BY CASE
 			WHEN $2 = '' AND gu.user_id IS NULL THEN 0
 			WHEN gu.tenant_id::text = $2 THEN 0
 			ELSE 1
 		END
-		LIMIT 1`, email, tenantID).Scan(&row.ID, &row.TenantID, &row.Role, &row.Hash, &row.Panel)
+		LIMIT 1`, identifier, tenantID, phone).Scan(&row.ID, &row.TenantID, &row.Role, &row.Hash, &row.Panel)
 	if err != nil {
 		if errors.Is(err, pgx.ErrNoRows) {
 			return auth.Claims{}, ErrNoRows
@@ -2060,18 +2219,19 @@ func (s *Store) AuthenticateUser(ctx context.Context, tenantID, email, password 
 	}
 
 	resolvedTenant := tenantID
-	if row.TenantID.Valid {
+	if row.TenantID.Valid && row.TenantID.String != "" {
 		resolvedTenant = row.TenantID.String
 	}
-	if tenantID == "" && row.TenantID.Valid {
+	if tenantID == "" && row.TenantID.Valid && row.TenantID.String != "" {
 		return auth.Claims{}, ErrNoRows
 	}
-	if tenantID != "" && !row.TenantID.Valid {
+	if tenantID != "" && (!row.TenantID.Valid || row.TenantID.String == "") {
 		return auth.Claims{}, ErrNoRows
 	}
 	if resolvedTenant == "" {
 		resolvedTenant = "platform"
 	}
+	_, _ = s.pool.Exec(ctx, `UPDATE users SET last_login_at = now(), updated_at = now() WHERE id = $1::uuid`, row.ID)
 
 	return auth.Claims{
 		UserID:    row.ID,
@@ -2139,6 +2299,23 @@ func slugify(value string) string {
 		return "gym"
 	}
 	return value
+}
+
+func normalizePhone(value string) string {
+	replacer := strings.NewReplacer(
+		"۰", "0", "۱", "1", "۲", "2", "۳", "3", "۴", "4",
+		"۵", "5", "۶", "6", "۷", "7", "۸", "8", "۹", "9",
+		"٠", "0", "١", "1", "٢", "2", "٣", "3", "٤", "4",
+		"٥", "5", "٦", "6", "٧", "7", "٨", "8", "٩", "9",
+	)
+	value = replacer.Replace(strings.TrimSpace(value))
+	var normalized strings.Builder
+	for index, char := range value {
+		if char >= '0' && char <= '9' || char == '+' && index == 0 {
+			normalized.WriteRune(char)
+		}
+	}
+	return normalized.String()
 }
 
 func nullIfEmpty(value string) any {

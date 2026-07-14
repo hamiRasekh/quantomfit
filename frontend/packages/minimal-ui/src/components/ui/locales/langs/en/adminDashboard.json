@@ -1,0 +1,58 @@
+{
+  "dashboard": {
+    "title": "Admin Dashboard",
+    "welcomeMessage": "Welcome back! Here is a quick overview of the latest activity.",
+    "description": "This area is ready for real analytics and reports. Replace the sample content with live data when ready."
+  },
+  "cards": {
+    "quickActions": {
+      "title": "Quick actions",
+      "description": "You can create a new item or review the current list.",
+      "buttons": {
+        "create": "Create item",
+        "view": "View list"
+      }
+    },
+    "status": {
+      "title": "System status",
+      "description": "Everything looks good! This section shows placeholder information."
+    }
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "documentation": "Documentation",
+    "common": {
+      "list": "List",
+      "create": "Create"
+    },
+    "categories": {
+      "root": "Categories",
+      "active": "Active",
+      "roots": "Root",
+      "tree": "Tree"
+    },
+    "users": {
+      "root": "Users",
+      "roles": "Roles"
+    },
+    "products": {
+      "root": "Products"
+    },
+    "orders": {
+      "root": "Orders",
+      "all": "All orders",
+      "pending": "Pending"
+    },
+    "shipping": {
+      "root": "Shipping"
+    },
+    "orderProcess": {
+      "root": "Order process"
+    },
+    "settings": {
+      "root": "Settings",
+      "general": "General",
+      "billing": "Billing"
+    }
+  }
+}

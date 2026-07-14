@@ -1,0 +1,81 @@
+{
+  "loading": {
+    "default": "加载中...",
+    "data": "加载数据...",
+    "model": "加载3D模型...",
+    "editor": "加载画布编辑器..."
+  },
+  "error": {
+    "loadFailed": "加载画布数据失败",
+    "modelNotFound": "未找到产品模型",
+    "noData": "未找到画布数据",
+    "retry": "重试",
+    "loadModelFailed": "加载3D模型失败: {{error}}"
+  },
+  "messages": {
+    "checkModelFile": "请检查产品是否有3D模型文件"
+  },
+  "magic": {
+    "errors": {
+      "productNameRequired": "产品名称是必需的",
+      "screenshotNotAvailable": "截图不可用。请稍候再试。"
+    },
+    "generatedImageAlt": "生成的图像",
+    "button": {
+      "ariaLabel": "魔法工具"
+    }
+  },
+  "dialogs": {
+    "confirm": {
+      "defaultConfirmText": "确认",
+      "defaultCancelText": "取消"
+    }
+  },
+  "gpu": {
+    "label": "GPU:",
+    "tiers": {
+      "veryLow": "非常低",
+      "low": "低",
+      "medium": "中等",
+      "high": "高",
+      "unknown": "未知"
+    },
+    "smoothEdges": "平滑边缘",
+    "sharpEdges": "锐利边缘"
+  },
+  "meshSelector": {
+    "selectMesh": "选择网格",
+    "currentMesh": "当前网格",
+    "cannotMoveToSameMesh": "无法将设计移动到同一网格",
+    "noMeshesAvailable": "没有可用的网格",
+    "copy": "复制",
+    "move": "移动"
+  },
+  "sizePrice": {
+    "title": "尺寸和数量",
+    "sizeGuideLink": "尺寸指南",
+    "confirm": "确认",
+    "sizeGuideTitle": "尺寸指南",
+    "sizeGuideDescription": "要选择合适的尺寸，请使用下表:",
+    "sizeGuideTip": "💡 提示: 如果您不确定选择哪个尺寸，请选择较大的尺寸。",
+    "table": {
+      "size": "尺寸",
+      "height": "身高（厘米）",
+      "weight": "体重（公斤）"
+    }
+  },
+  "stateControls": {
+    "saveStateTooltip": "保存画布状态",
+    "restoreStateTooltip": "恢复画布状态",
+    "saveSuccess": "画布状态已成功保存",
+    "saveError": "保存画布状态时出错",
+    "restoreSuccess": "画布状态已成功恢复",
+    "restoreError": "恢复画布状态时出错",
+    "saveButton": "保存状态",
+    "restoreButton": "恢复状态"
+  },
+  "canvas": {
+    "manualSave": "手动保存"
+  }
+}
+

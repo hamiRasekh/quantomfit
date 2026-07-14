@@ -1,0 +1,12 @@
+{
+  "demo": {
+    "lang": "France",
+    "description": "Le point de départ pour votre prochain projet est basé sur MUI. La personnalisation facile vous aide à construire des applications plus rapidement et mieux."
+  },
+  "notFound": {
+    "title": "Désolé, page non trouvée !",
+    "description": "Désolé, nous n'avons pas pu trouver la page que vous recherchez. Peut-être avez-vous mal tapé l'URL ? Assurez-vous de vérifier votre orthographe.",
+    "goToHome": "Aller à l'accueil"
+  },
+  "needHelp": "Besoin d'aide ?"
+}

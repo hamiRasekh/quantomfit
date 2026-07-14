@@ -41,49 +41,49 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   return (
     <section className="page-section">
-      <span className="kicker">Gym profile</span>
+      <span className="kicker">پروفایل باشگاه</span>
       <h1>{profile?.gym.name ?? slug}</h1>
-      <p>{getString(payload, "gymName") || "Public gym profile with classes, trainers, and live crowd status."}</p>
+      <p>{getString(payload, "gymName") || "پروفایل عمومی باشگاه با کلاس‌ها، مربی‌ها و وضعیت زنده حضور."}</p>
       <div className="detail-grid">
-        <article><span className="status">Location</span><h3>{getString(payload, "location") || "Shared public profile"}</h3><p>Address and map data can be added from onboarding.</p></article>
-        <article><span className="status">Crowd</span><h3>{profile?.gym.latestOccupancy ?? 0} / {profile?.gym.capacity ?? 0}</h3><p>Live occupancy from the tenant dashboard.</p></article>
-        <article><span className="status">Hours</span><h3>{getString(payload, "workingHours") || "Configured in gym panel"}</h3><p>Public working hours reflect onboarding and settings.</p></article>
+        <article><span className="status">موقعیت</span><h3>{getString(payload, "location") || "پروفایل عمومی مشترک"}</h3><p>آدرس و داده‌های نقشه از فرآیند راه‌اندازی اضافه می‌شوند.</p></article>
+        <article><span className="status">تراکم</span><h3>{profile?.gym.latestOccupancy ?? 0} / {profile?.gym.capacity ?? 0}</h3><p>تراکم زنده از داشبورد مستاجر خوانده می‌شود.</p></article>
+        <article><span className="status">ساعت کاری</span><h3>{getString(payload, "workingHours") || "در پنل باشگاه تنظیم شده"}</h3><p>ساعات کاری عمومی از تنظیمات و راه‌اندازی می‌آید.</p></article>
       </div>
 
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>Equipment</span><em>{profile?.equipment?.length ?? 0} items</em></div>
+          <div className="section-head"><span>تجهیزات</span><em>{profile?.equipment?.length ?? 0} مورد</em></div>
           <div className="field-list">
             {(profile?.equipment ?? []).slice(0, 4).map((item) => (
               <div key={item.id}>
                 <strong>{item.name}</strong>
-                <span>{item.category ?? "Equipment"} · {item.quantity}</span>
+                <span>{item.category ?? "تجهیز"} · {item.quantity}</span>
               </div>
             ))}
-            {(profile?.equipment?.length ?? 0) === 0 ? <div><strong>No equipment exposed yet</strong><span>Gym owner can publish equipment here later.</span></div> : null}
+            {(profile?.equipment?.length ?? 0) === 0 ? <div><strong>هنوز تجهیزی منتشر نشده</strong><span>مالک باشگاه می‌تواند بعدا تجهیزات را اینجا منتشر کند.</span></div> : null}
           </div>
         </section>
         <section className="panel">
-          <div className="section-head"><span>Trainers</span><em>{profile?.trainers?.length ?? 0} people</em></div>
+          <div className="section-head"><span>مربی‌ها</span><em>{profile?.trainers?.length ?? 0} نفر</em></div>
           <div className="field-list">
             {(profile?.trainers ?? []).slice(0, 4).map((trainer) => (
               <div key={trainer.id}>
                 <strong>{trainer.fullName}</strong>
-                <span>{trainer.specialty ?? "General coaching"} · {trainer.status}</span>
+                <span>{trainer.specialty ?? "مربی‌گری عمومی"} · {trainer.status}</span>
               </div>
             ))}
-            {(profile?.trainers?.length ?? 0) === 0 ? <div><strong>No trainers exposed yet</strong><span>Published from gym panel later.</span></div> : null}
+            {(profile?.trainers?.length ?? 0) === 0 ? <div><strong>هنوز مربی‌ای منتشر نشده</strong><span>بعدا از پنل باشگاه منتشر می‌شود.</span></div> : null}
           </div>
         </section>
       </div>
 
       <div className="panel">
-        <div className="section-head"><span>Classes</span><em>{profile?.classes?.length ?? 0} sessions</em></div>
+        <div className="section-head"><span>کلاس‌ها</span><em>{profile?.classes?.length ?? 0} سشن</em></div>
         <div className="qf-table">
           <div className="qf-table__row qf-table__row--head">
-            <strong>Class</strong>
-            <strong>Schedule</strong>
-            <strong>Status</strong>
+            <strong>کلاس</strong>
+            <strong>زمان‌بندی</strong>
+            <strong>وضعیت</strong>
           </div>
           {(profile?.classes ?? []).slice(0, 6).map((item) => (
             <div className="qf-table__row" key={item.id}>
@@ -94,7 +94,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           ))}
           {(profile?.classes?.length ?? 0) === 0 ? (
             <div className="qf-table__row">
-              <span>No classes published</span>
+              <span>هنوز کلاسی منتشر نشده</span>
               <span>—</span>
               <span>—</span>
             </div>

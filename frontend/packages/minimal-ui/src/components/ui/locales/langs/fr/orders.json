@@ -1,0 +1,14 @@
+{
+  "emptyState": {
+    "noOrdersTitle": "Vous n'avez pas encore de commandes",
+    "noOrdersDescription": "Vous n'avez pas encore passé de commande. Pour voir vos commandes, effectuez votre premier achat.",
+    "startShopping": "Commencer les achats"
+  },
+  "error": {
+    "loadOrdersTitle": "Erreur lors du chargement des commandes",
+    "loadOrdersDescription": "Un problème est survenu lors du chargement de vos commandes. Veuillez réessayer.",
+    "tryAgain": "Réessayer"
+  },
+  "loadMore": "Charger plus"
+}
+

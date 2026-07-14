@@ -21,6 +21,7 @@ type CreateGymRequest struct {
 	OwnerEmail    string `json:"ownerEmail"`
 	OwnerPassword string `json:"ownerPassword"`
 	OwnerPhone    string `json:"ownerPhone"`
+	OwnerID       string `json:"ownerId"`
 	GymType       string `json:"gymType"`
 	Location      string `json:"location"`
 	SizeSqm       int    `json:"sizeSqm"`

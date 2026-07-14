@@ -1,0 +1,14 @@
+{
+  "emptyState": {
+    "noOrdersTitle": "您还没有任何订单",
+    "noOrdersDescription": "您还没有下过任何订单。要查看您的订单，请先购买。",
+    "startShopping": "开始购物"
+  },
+  "error": {
+    "loadOrdersTitle": "加载订单时出错",
+    "loadOrdersDescription": "加载您的订单时出现问题。请重试。",
+    "tryAgain": "重试"
+  },
+  "loadMore": "加载更多"
+}
+

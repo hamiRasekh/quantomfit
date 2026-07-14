@@ -1,0 +1,22 @@
+{
+  "demo": {
+    "lang": "Vietnamese",
+    "description": "Điểm bắt đầu cho dự án tiếp theo của bạn dựa trên MUI. Việc tùy chỉnh dễ dàng giúp bạn xây dựng ứng dụng nhanh hơn và tốt hơn."
+  },
+  "notFound": {
+    "title": "Xin lỗi, không tìm thấy trang!",
+    "description": "Xin lỗi, chúng tôi không thể tìm thấy trang bạn đang tìm kiếm. Có thể bạn đã gõ sai URL? Hãy chắc chắn kiểm tra chính tả của bạn.",
+    "goToHome": "Về trang chủ"
+  },
+  "forbidden": {
+    "title": "Không có quyền truy cập",
+    "description": "Trang bạn đang cố gắng truy cập có quyền hạn chế. Vui lòng liên hệ quản trị viên hệ thống.",
+    "goToHome": "Về trang chủ"
+  },
+  "serverError": {
+    "title": "Lỗi máy chủ nội bộ 500",
+    "description": "Đã xảy ra lỗi, vui lòng thử lại sau.",
+    "goToHome": "Về trang chủ"
+  },
+  "needHelp": "Cần trợ giúp?"
+}

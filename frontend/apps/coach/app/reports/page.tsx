@@ -34,6 +34,10 @@ export default async function Page() {
   const completionRate = sessions.length > 0 ? Math.round((completed / sessions.length) * 100) : 0;
   const missed = sessions.filter((session) => session.status !== "completed").length;
 
+  function formatStatus(status: string) {
+    return status === "completed" ? "تکمیل‌شده" : status === "missed" ? "جاافتاده" : status === "pending" ? "در انتظار" : status;
+  }
+
   return (
     <section className="shell">
       <header className="hero">
@@ -56,7 +60,7 @@ export default async function Page() {
           {sessions.length > 0 ? sessions.map((session) => (
             <li key={session.id}>
               <strong>{session.dayLabel || "سشن"}</strong>
-              <span>{session.title} · {session.status}{session.completedAt ? ` · تکمیل‌شده ${new Date(session.completedAt).toLocaleDateString()}` : ""}</span>
+              <span>{session.title} · {formatStatus(session.status)}{session.completedAt ? ` · تکمیل‌شده ${new Date(session.completedAt).toLocaleDateString()}` : ""}</span>
             </li>
           )) : (
             <li>

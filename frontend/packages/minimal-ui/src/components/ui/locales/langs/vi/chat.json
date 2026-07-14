@@ -1,0 +1,18 @@
+{
+  "support": {
+    "title": "VOODY",
+    "subtitle": "Trực tuyến",
+    "welcomeMessage": "Xin chào! Tôi có thể giúp gì cho bạn?",
+    "placeholder": "Nhập tin nhắn của bạn...",
+    "quickReplies": {
+      "newOrder": "Đơn hàng mới",
+      "trackOrder": "Theo dõi đơn hàng",
+      "faqs": "Câu hỏi thường gặp",
+      "aboutUs": "Về chúng tôi",
+      "contactUs": "Liên hệ với chúng tôi",
+      "humanOperator": "Nói chuyện với nhân viên"
+    },
+    "humanOperatorButton": "Nói chuyện với nhân viên"
+  }
+}
+

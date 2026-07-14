@@ -1,0 +1,307 @@
+{
+  "loading": {
+    "default": "Loading...",
+    "data": "Loading data...",
+    "model": "Loading 3D model...",
+    "editor": "Loading canvas editor..."
+  },
+  "error": {
+    "loadFailed": "Failed to load canvas data",
+    "modelNotFound": "Product model not found",
+    "noData": "No canvas data found",
+    "retry": "Retry",
+    "loadModelFailed": "Failed to load 3D model: {{error}}"
+  },
+  "messages": {
+    "checkModelFile": "Please check if the product has a 3D model file"
+  },
+  "sidebar": {
+    "items": {
+      "fabric": "Fabric",
+      "designBank": "Design Bank",
+      "text": "Text",
+      "upload": "Upload",
+      "settings": "Settings"
+    },
+    "noOverlays": "No image layers",
+    "showOverlays": "Show layers",
+    "hideOverlays": "Hide layers",
+    "sizePrice": "Size / Price"
+  },
+  "drawer": {
+    "titles": {
+      "fabric": "Fabric",
+      "designBank": "Design Bank",
+      "text": "Text on Model",
+      "upload": "Upload"
+    },
+    "upload": {
+      "error": "Failed to add image: {{message}}"
+    }
+  },
+  "settings": {
+    "title": "Canvas Settings",
+    "performance": {
+      "title": "Performance mode",
+      "maxFps": {
+        "title": "Max FPS",
+        "description": "Enable the highest graphics performance",
+        "active": "Max FPS mode is active (target: {{fps}} FPS)"
+      },
+      "auto": "Automatic mode is active (GPU: Tier {{tier}}, {{fps}} FPS)"
+    },
+    "liveUpdate": {
+      "title": "Canvas 2D updates",
+      "toggle": {
+        "title": "Live sync with Canvas 2D",
+        "description": "Update the 2D preview while moving the design"
+      },
+      "enabled": "Canvas 2D updates every 1 second (Jump mode)",
+      "disabled": "Canvas 2D updates only after releasing the mouse (better performance)"
+    },
+    "background": {
+      "title": "Background color"
+    },
+    "designName": {
+      "label": "Design name",
+      "placeholder": "e.g., My custom hoodie",
+      "helper": "Give your design a name so you can save and find it easily.",
+      "saveButton": "Save name",
+      "saving": "Saving...",
+      "toast": {
+        "success": "Design name updated successfully.",
+        "error": "Could not update the design name. Please try again.",
+        "missingProduct": "Product information is missing; unable to save.",
+        "ensureFailed": "The design could not be saved. Please try again."
+      },
+      "validation": {
+        "required": "Design name is required."
+      }
+    }
+  },
+  "magic": {
+    "title": "Magic Tool",
+    "size": {
+      "label": "Size",
+      "placeholder": "Enter size"
+    },
+    "generate": "Generate",
+    "cancel": "Cancel",
+    "close": "Close",
+    "generating": "Generating...",
+    "error": "Error generating image",
+    "retry": "Retry",
+    "noDesign": "Please add a design first and then generate the image",
+    "errors": {
+      "productNameRequired": "Product name is required",
+      "screenshotNotAvailable": "Screenshot is not available. Please wait a moment and try again."
+    },
+    "generatedImageAlt": "Generated image",
+    "button": {
+      "ariaLabel": "magic tool"
+    }
+  },
+  "upload": {
+    "errors": {
+      "invalidFormat": "Only PNG, JPG or SVG formats are allowed.",
+      "singleImageOnly": "Please select only one image",
+      "selectMeshFirst": "Please select a part of the garment first",
+      "selectMesh": "Please select a mesh first",
+      "prepareImageError": "Error preparing image",
+      "applyImageError": "Error applying image"
+    },
+    "placeholder": {
+      "dragImage": "Drag an image here",
+      "clickToSelect": "or click to select a file",
+      "formats": "PNG, JPG, SVG"
+    },
+    "sections": {
+      "previousUploads": "Your previous images",
+      "uploadedImages": "Uploaded images",
+      "loading": "Loading..."
+    },
+    "actions": {
+      "addToMesh": "Add to mesh",
+      "editImage": "Edit image",
+      "uploading": "Uploading",
+      "uploaded": "Uploaded"
+    }
+  },
+  "imageEditor": {
+    "tabs": {
+      "crop": "Crop Image",
+      "removeBackground": "Remove Background",
+      "quality": "Image Quality"
+    },
+    "controls": {
+      "free": "Free",
+      "aspectRatio": {
+        "1:1": "1:1",
+        "4:3": "4:3",
+        "16:9": "16:9"
+      },
+      "rotateLeft": "Rotate 90° Left",
+      "rotateRight": "Rotate 90° Right"
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "addToDesign": "Add to Design"
+    },
+    "messages": {
+      "removeBackgroundComingSoon": "Remove background coming soon...",
+      "qualityComingSoon": "Quality improvement coming soon..."
+    }
+  },
+  "fabric": {
+    "defaultSpecs": {
+      "composition": "100% Cotton Thread",
+      "texture": "Thin and semi-transparent texture",
+      "elasticity": {
+        "has": "Has elasticity",
+        "none": "No elasticity"
+      },
+      "defaultName": "Fabric"
+    },
+    "errors": {
+      "embroideryNotSupported": "This fabric does not support embroidery. Please select another fabric or remove existing embroidery.",
+      "printNotSupported": "This fabric does not support printing. Please select another fabric or remove existing prints."
+    },
+    "sections": {
+      "about": "About Fabric",
+      "technicalSpecs": "Technical Specifications",
+      "thickness": "Thickness Level",
+      "colorSelection": "Color Selection",
+      "details": "Fabric Details",
+      "moreDetails": "More Details"
+    },
+    "specs": {
+      "composition": "Composition",
+      "texture": "Texture",
+      "elasticity": "Elasticity"
+    },
+    "buttons": {
+      "back": "Back",
+      "selectFabric": "Select This Fabric",
+      "showMore": "Show More",
+      "showLess": "Show Less"
+    },
+    "price": {
+      "label": "Price",
+      "none": "No price",
+      "unit": "Toman"
+    },
+    "empty": {
+      "noMaterials": "No fabrics available"
+    },
+    "colors": {
+      "moreColors": "more colors"
+    }
+  },
+  "modelViewer": {
+    "loadingMessage": "Loading 3D model...",
+    "errorRetryText": "Retry",
+    "copyDialog": {
+      "title": "Copy design to another mesh",
+      "description": "Please select the desired mesh"
+    },
+    "moveDialog": {
+      "title": "Move design to another mesh",
+      "description": "Please select the desired mesh"
+    },
+    "errors": {
+      "maxOverlaysPerMesh": "Maximum 8 overlays allowed per mesh",
+      "cannotMoveToSameMesh": "Cannot move overlay to the same mesh"
+    }
+  },
+  "addToCart": {
+    "fabric": "Fabric",
+    "errors": {
+      "noFabricOrColor": "No fabric or color available",
+      "minOneOptionRequired": "At least one option must be selected",
+      "minSizeQuantityRequired": "Please select at least one size and quantity",
+      "addToCartFailed": "Error adding to cart. Please try again."
+    },
+    "success": {
+      "addedToCart": "Product successfully added to cart"
+    },
+    "title": {
+      "simpleMode": "Select Size and Quantity",
+      "fullMode": "Select Fabric, Color and Size"
+    },
+    "sizeGuide": "Size Guide",
+    "loading": {
+      "productInfo": "Loading product information..."
+    },
+    "empty": {
+      "noMaterials": "No materials available",
+      "tryLater": "Please try again later"
+    },
+    "selections": {
+      "yourSelections": "Your Selections",
+      "selectFabric": "Select Fabric",
+      "selectColor": "Select Color",
+      "selectSize": "Select Size"
+    },
+    "price": {
+      "unit": "Toman"
+    }
+  },
+  "dialogs": {
+    "confirm": {
+      "defaultConfirmText": "Confirm",
+      "defaultCancelText": "Cancel"
+    }
+  },
+  "gpu": {
+    "label": "GPU:",
+    "tiers": {
+      "veryLow": "Very Low",
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "unknown": "Unknown"
+    },
+    "smoothEdges": "Smooth edges",
+    "sharpEdges": "Sharp edges"
+  },
+  "meshSelector": {
+    "selectMesh": "Select mesh",
+    "currentMesh": "Current mesh",
+    "cannotMoveToSameMesh": "Cannot move design to the same mesh",
+    "noMeshesAvailable": "No meshes available",
+    "copy": "Copy",
+    "move": "Move"
+  },
+  "sizePrice": {
+    "title": "Size and Quantity",
+    "sizeGuideLink": "Size Guide",
+    "confirm": "Confirm",
+    "sizeGuideTitle": "Size Guide",
+    "sizeGuideDescription": "To select the appropriate size, use the table below:",
+    "sizeGuideTip": "💡 Tip: If you are unsure about size selection, choose the larger size.",
+    "table": {
+      "size": "Size",
+      "height": "Height (cm)",
+      "weight": "Weight (kg)"
+    }
+  },
+  "stateControls": {
+    "saveStateTooltip": "Save Canvas state",
+    "restoreStateTooltip": "Restore Canvas state",
+    "saveSuccess": "Canvas state saved successfully",
+    "saveError": "Error saving Canvas state",
+    "restoreSuccess": "Canvas state restored successfully",
+    "restoreError": "Error restoring Canvas state",
+    "saveButton": "Save state",
+    "restoreButton": "Restore state"
+  },
+  "canvas": {
+    "manualSave": "Manual save"
+  },
+  "meta": {
+    "title": "Product Design",
+    "description": "Create your custom product design with Voodi's online design tool. Add your text, images and desired designs."
+  },
+  "currency": "Toman"
+}
+

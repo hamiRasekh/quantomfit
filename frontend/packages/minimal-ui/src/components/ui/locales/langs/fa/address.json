@@ -1,0 +1,72 @@
+{
+  "title": "آدرس‌های من",
+  "description": "مشاهده و مدیریت آدرس‌های ارسال سفارش",
+  "addAddress": "افزودن آدرس",
+  "addFirstAddress": "افزودن اولین آدرس",
+  "editAddress": "ویرایش آدرس",
+  "deleteAddress": "حذف آدرس",
+  "defaultAddress": "پیش‌فرض",
+  "yourAddresses": "آدرس‌های شما",
+  "addressCount": "آدرس‌های شما ({{count}})",
+  "form": {
+    "title": "عنوان آدرس",
+    "titlePlaceholder": "مثال: خانه، محل کار",
+    "name": "نام و نام خانوادگی",
+    "namePlaceholder": "نام گیرنده را وارد کنید",
+    "address": "آدرس کامل",
+    "addressPlaceholder": "آدرس کامل خود را وارد کنید",
+    "province": "استان",
+    "provincePlaceholder": "استان را انتخاب کنید",
+    "city": "شهر",
+    "cityPlaceholder": "شهر را انتخاب کنید",
+    "postalCode": "کد پستی (اختیاری)",
+    "postalCodePlaceholder": "کد پستی 10 رقمی",
+    "mobile": "شماره موبایل",
+    "mobilePlaceholder": "شماره موبایل گیرنده",
+    "pin": "پین کردن",
+    "cancel": "انصراف",
+    "save": "ذخیره",
+    "update": "به‌روزرسانی",
+    "addButton": "افزودن آدرس",
+    "updateButton": "به‌روزرسانی آدرس"
+  },
+  "card": {
+    "phone": "تلفن:",
+    "addedOn": "اضافه شده در {{date}}"
+  },
+  "empty": {
+    "title": "هنوز آدرسی ندارید",
+    "description": "شما هنوز هیچ آدرسی اضافه نکرده‌اید. برای شروع اولین آدرس خود را اضافه کنید."
+  },
+  "error": {
+    "title": "خطا در بارگذاری آدرس‌ها",
+    "description": "خطایی در بارگذاری آدرس‌های شما رخ داده است. لطفاً دوباره تلاش کنید.",
+    "tryAgain": "تلاش مجدد",
+    "loadFailed": "خطا در بارگذاری آدرس‌ها",
+    "addFailed": "خطا در افزودن آدرس",
+    "updateFailed": "خطا در به‌روزرسانی آدرس",
+    "deleteFailed": "خطا در حذف آدرس"
+  },
+  "success": {
+    "added": "آدرس با موفقیت اضافه شد",
+    "updated": "آدرس با موفقیت به‌روزرسانی شد",
+    "deleted": "آدرس با موفقیت حذف شد"
+  },
+  "confirm": {
+    "deleteTitle": "حذف آدرس",
+    "deleteMessage": "آیا از حذف این آدرس اطمینان دارید؟ این عملیات قابل بازگشت نیست.",
+    "deleteConfirm": "بله، حذف شود",
+    "deleteCancel": "انصراف"
+  },
+  "validation": {
+    "titleRequired": "عنوان آدرس الزامی است",
+    "nameRequired": "نام الزامی است",
+    "addressRequired": "آدرس الزامی است",
+    "cityRequired": "شهر الزامی است",
+    "stateRequired": "استان الزامی است",
+    "mobileRequired": "شماره موبایل الزامی است",
+    "mobileInvalid": "شماره موبایل باید 11 رقم و با 09 شروع شود",
+    "postalCodeInvalid": "کد پستی باید 10 رقم باشد"
+  }
+}
+

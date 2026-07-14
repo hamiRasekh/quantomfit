@@ -75,7 +75,7 @@ export default async function Page() {
               <li key={session.id}>
                 <strong>{session.dayLabel || "سشن"}</strong>
                 <span>{session.title} · {session.status}</span>
-                {session.completedAt ? <small style={{ color: "var(--muted)" }}>تکمیل‌شده {new Date(session.completedAt).toLocaleDateString()}</small> : null}
+                {session.completedAt ? <small style={{ color: "var(--qf-muted)" }}>تکمیل‌شده {new Date(session.completedAt).toLocaleDateString()}</small> : null}
               </li>
             )) : (
               <li>

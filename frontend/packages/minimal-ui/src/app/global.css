@@ -1,0 +1,39 @@
+@import url('/font/iranSansx/css/iranSansX.css');
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 700;
+  src: url('/font/iranSansx/fonts/Woff/IRANSansXFaNum-Bold.woff') format('woff'),
+    url('/font/iranSansx/fonts/Woff2/IRANSansXFaNum-Bold.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 400;
+  src: url('/font/iranSansx/fonts/Woff/IRANSansXFaNum-Regular.woff') format('woff'),
+    url('/font/iranSansx/fonts/Woff2/IRANSansXFaNum-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'IRANSansX', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

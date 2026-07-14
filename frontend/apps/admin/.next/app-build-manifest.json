@@ -1,135 +1,32 @@
 {
   "pages": {
-    "/_not-found/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/_not-found/page-7fcacb22a06581ae.js"
-    ],
     "/layout": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/css/566d2f71cb3911af.css",
-      "static/css/26a46c27446e65e8.css",
-      "static/chunks/395-7624899895a32ce9.js",
-      "static/chunks/app/layout-a0b4df05525ba287.js"
-    ],
-    "/analytics/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/analytics/page-b4c715908e208470.js"
-    ],
-    "/audit/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/audit/page-b4c715908e208470.js"
-    ],
-    "/create-gym/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/create-gym/page-acf9dec8f87f296f.js"
-    ],
-    "/coupons/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/coupons/page-202b71e5f3a8a5c8.js"
-    ],
-    "/content/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/content/page-58996782f3f2ef1c.js"
-    ],
-    "/demo-accounts/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/demo-accounts/page-9393c5ae5e4c2b91.js"
-    ],
-    "/demo-requests/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/demo-requests/page-cd1ab77a3728b121.js"
-    ],
-    "/discounts/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/discounts/page-d0e98952e7909641.js"
-    ],
-    "/gyms/[gymId]/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/gyms/[gymId]/page-b4c715908e208470.js"
-    ],
-    "/login/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/css/26a46c27446e65e8.css",
-      "static/chunks/395-7624899895a32ce9.js",
-      "static/chunks/app/login/page-b3596de44d6a3c2a.js"
-    ],
-    "/gyms/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/gyms/page-b4c715908e208470.js"
-    ],
-    "/media/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/media/page-94b34a8e1c5a42bd.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/page-b4c715908e208470.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ],
     "/plans/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/plans/page-b90896e8a4410f0c.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/plans/page.js"
     ],
-    "/users/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/users/page-0572157f3cee609f.js"
+    "/gyms/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/gyms/page.css",
+      "static/chunks/app/gyms/page.js"
     ],
-    "/system/page": [
-      "static/chunks/webpack-aa65faefc703ef62.js",
-      "static/chunks/567e3fde-8c71b67cb98676f3.js",
-      "static/chunks/558-239c31f73a257451.js",
-      "static/chunks/main-app-ec203144435d8100.js",
-      "static/chunks/app/system/page-b4c715908e208470.js"
+    "/create-gym/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/create-gym/page.css",
+      "static/chunks/app/create-gym/page.js"
     ]
   }
 }

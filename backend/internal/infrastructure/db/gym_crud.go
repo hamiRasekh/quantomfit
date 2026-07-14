@@ -283,81 +283,16 @@ func (s *Store) GetClassByID(ctx context.Context, tenantID, classID string) (Gym
 }
 
 func (s *Store) GetGymBySlug(ctx context.Context, slug string) (GymRecord, error) {
-	var item GymRecord
-	err := s.pool.QueryRow(ctx, `
-		SELECT
-			g.id::text,
-			g.slug,
-			g.name,
-			g.status,
-			g.plan_code,
-			COALESCE(p.name, g.plan_code) AS plan_name,
-			g.subdomain,
-			g.tenant_type,
-			g.timezone,
-			g.onboarding_status,
-			COALESCE(member_counts.member_count, 0) AS member_count,
-			COALESCE(trainer_counts.trainer_count, 0) AS trainer_count,
-			COALESCE(member_counts.member_count, 0) AS active_memberships,
-			COALESCE(occupancy.current_occupancy, 0) AS latest_occupancy,
-			COALESCE(occupancy.capacity, 0) AS capacity,
-			COALESCE(subscription.status, 'inactive') AS subscription_status,
-			g.created_at,
-			g.updated_at
-		FROM gyms g
-		LEFT JOIN pricing_plans p ON p.code = g.plan_code
-		LEFT JOIN LATERAL (
-			SELECT COUNT(*)::int AS member_count
-			FROM members m
-			WHERE m.tenant_id = g.id
-		) member_counts ON true
-		LEFT JOIN LATERAL (
-			SELECT COUNT(*)::int AS trainer_count
-			FROM trainers t
-			WHERE t.tenant_id = g.id
-		) trainer_counts ON true
-		LEFT JOIN LATERAL (
-			SELECT current_occupancy, capacity
-			FROM occupancy_snapshots o
-			WHERE o.tenant_id = g.id
-			ORDER BY o.captured_at DESC
-			LIMIT 1
-		) occupancy ON true
-		LEFT JOIN LATERAL (
-			SELECT status
-			FROM subscriptions s
-			WHERE s.tenant_id = g.id
-			ORDER BY s.created_at DESC
-			LIMIT 1
-		) subscription ON true
-		WHERE g.slug = $1
-		LIMIT 1`, slug).Scan(
-		&item.ID,
-		&item.Slug,
-		&item.Name,
-		&item.Status,
-		&item.PlanCode,
-		&item.PlanName,
-		&item.Subdomain,
-		&item.TenantType,
-		&item.Timezone,
-		&item.OnboardingStatus,
-		&item.MemberCount,
-		&item.TrainerCount,
-		&item.ActiveMemberships,
-		&item.LatestOccupancy,
-		&item.Capacity,
-		&item.SubscriptionStatus,
-		&item.CreatedAt,
-		&item.UpdatedAt,
-	)
+	items, err := s.ListGyms(ctx)
 	if err != nil {
-		if errors.Is(err, pgx.ErrNoRows) {
-			return GymRecord{}, ErrNoRows
-		}
 		return GymRecord{}, err
 	}
-	return item, nil
+	for _, item := range items {
+		if item.Slug == slug {
+			return item, nil
+		}
+	}
+	return GymRecord{}, ErrNoRows
 }
 
 func (s *Store) PublicGyms(ctx context.Context) ([]GymRecord, error) {

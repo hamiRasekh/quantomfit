@@ -1,0 +1,36 @@
+{
+  "title": "Frequently Asked Questions",
+  "categories": "Categories",
+  "loading": "Loading FAQs...",
+  "error": "Error loading FAQs. Please try again.",
+  "noData": "No questions found",
+  "category": {
+    "about": "About Us",
+    "order": "Order Section",
+    "design": "Design Section"
+  },
+  "form": {
+    "title": "Haven't found the right help?",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Enter your message here.",
+    "submit": "Submit"
+  },
+  "hero": {
+    "title": {
+      "line1": "Where",
+      "line2": "can we help you?"
+    },
+    "searchPlaceholder": "Search support..."
+  },
+  "emptyState": {
+    "message": "No questions have been registered yet."
+  },
+  "meta": {
+    "title": "Frequently Asked Questions",
+    "description": "Answers to frequently asked questions about Woody, order process, shipping, printing and product design"
+  },
+  "currency": "Toman"
+}
+

@@ -42,6 +42,10 @@ export default async function Page({ params }: { params: Promise<{ programId: st
     sessions = [];
   }
 
+  function formatStatus(status: string) {
+    return status === "active" ? "فعال" : status === "inactive" ? "غیرفعال" : status === "completed" ? "تکمیل‌شده" : status;
+  }
+
   return (
     <section className="shell">
       <header className="hero">
@@ -53,7 +57,7 @@ export default async function Page({ params }: { params: Promise<{ programId: st
       <div className="metrics">
         <article><strong>{sessions.length}</strong><span>سشن</span></article>
         <article><strong>{sessions.filter((item) => item.status === "completed").length}</strong><span>تکمیل‌شده</span></article>
-        <article><strong>{program?.status ?? "نامشخص"}</strong><span>وضعیت</span></article>
+        <article><strong>{formatStatus(program?.status ?? "نامشخص")}</strong><span>وضعیت</span></article>
       </div>
 
       <div className="content">
@@ -77,8 +81,8 @@ export default async function Page({ params }: { params: Promise<{ programId: st
             {sessions.length > 0 ? sessions.map((session) => (
               <li key={session.id}>
                 <strong>{session.dayLabel || "سشن"}</strong>
-                <span>{session.title} · {session.status}{session.completedAt ? ` · تکمیل‌شده ${new Date(session.completedAt).toLocaleDateString()}` : ""}</span>
-                {session.notes ? <p style={{ marginTop: 8, color: "var(--muted)", lineHeight: 1.6 }}>{session.notes}</p> : null}
+                <span>{session.title} · {formatStatus(session.status)}{session.completedAt ? ` · تکمیل‌شده ${new Date(session.completedAt).toLocaleDateString()}` : ""}</span>
+              {session.notes ? <p style={{ marginTop: 8, color: "var(--qf-muted)", lineHeight: 1.6 }}>{session.notes}</p> : null}
               </li>
             )) : (
               <li>

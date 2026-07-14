@@ -1,0 +1,307 @@
+{
+  "loading": {
+    "default": "در حال بارگذاری...",
+    "data": "در حال بارگذاری اطلاعات...",
+    "model": "در حال بارگذاری مدل سه‌بعدی...",
+    "editor": "در حال بارگذاری ویرایشگر..."
+  },
+  "error": {
+    "loadFailed": "خطا در بارگذاری اطلاعات",
+    "modelNotFound": "مدل محصول یافت نشد",
+    "noData": "اطلاعاتی یافت نشد",
+    "retry": "تلاش مجدد",
+    "loadModelFailed": "خطا در بارگذاری مدل سه‌بعدی: {{error}}"
+  },
+  "messages": {
+    "checkModelFile": "لطفاً بررسی کنید که محصول فایل مدل سه‌بعدی دارد"
+  },
+  "sidebar": {
+    "items": {
+      "fabric": "پارچه",
+      "designBank": "بانک طرح",
+      "text": "متن",
+      "upload": "آپلود",
+      "settings": "تنظیمات"
+    },
+    "noOverlays": "لایه تصویری ندارد",
+    "showOverlays": "نمایش لایه‌ها",
+    "hideOverlays": "بستن لایه‌ها",
+    "sizePrice": "سایز/قیمت"
+  },
+  "drawer": {
+    "titles": {
+      "fabric": "پارچه",
+      "designBank": "بانک طرح",
+      "text": "متن روی مدل",
+      "upload": "آپلود"
+    },
+    "upload": {
+      "error": "خطا در اضافه کردن تصویر: {{message}}"
+    }
+  },
+  "settings": {
+    "title": "تنظیمات Canvas",
+    "performance": {
+      "title": "حالت عملکرد",
+      "maxFps": {
+        "title": "حداکثر FPS",
+        "description": "فعال‌سازی بیشترین عملکرد گرافیکی",
+        "active": "حالت حداکثر FPS فعال است (هدف: {{fps}} FPS)"
+      },
+      "auto": "حالت خودکار فعال است (GPU: Tier {{tier}}, {{fps}} FPS)"
+    },
+    "liveUpdate": {
+      "title": "بروزرسانی Canvas 2D",
+      "toggle": {
+        "title": "آپدیت همزمان در Canvas 2D",
+        "description": "به‌روزرسانی لحظه‌ای نمای دوبعدی در حین حرکت تصویر"
+      },
+      "enabled": "Canvas 2D هر 1 ثانیه یک بار آپدیت می‌شود (حالت Jump)",
+      "disabled": "Canvas 2D فقط پس از رها کردن ماوس به‌روز می‌شود (عملکرد بهتر)"
+    },
+    "background": {
+      "title": "رنگ زمینه"
+    },
+    "designName": {
+      "label": "نام طرح",
+      "placeholder": "مثلاً: هودی اختصاصی من",
+      "helper": "برای ذخیره و مدیریت بهتر طرح، یک نام انتخاب کنید.",
+      "saveButton":"ذخیره",
+      "saving": "در حال ثبت...",
+      "toast": {
+        "success": "نام طرح با موفقیت به‌روزرسانی شد.",
+        "error": "خطا در ثبت نام طرح. لطفاً دوباره تلاش کنید.",
+        "missingProduct": "شناسه محصول برای ذخیره‌سازی در دسترس نیست.",
+        "ensureFailed": "امکان ذخیره‌سازی طرح فراهم نشد. لطفاً دوباره تلاش کنید."
+      },
+      "validation": {
+        "required": "وارد کردن نام طرح الزامی است."
+      }
+    }
+  },
+  "magic": {
+    "title": "ابزار جادویی",
+    "size": {
+      "label": "سایز",
+      "placeholder": "سایز را وارد کنید"
+    },
+    "generate": "تولید",
+    "cancel": "انصراف",
+    "close": "بستن",
+    "generating": "در حال تولید...",
+    "error": "خطا در تولید تصویر",
+    "retry": "تلاش مجدد",
+    "noDesign": "لطفاً ابتدا طرحی اضافه کنید و سپس تصویر را تولید کنید",
+    "errors": {
+      "productNameRequired": "نام محصول الزامی است",
+      "screenshotNotAvailable": "تصویر در دسترس نیست. لطفاً لحظه‌ای صبر کنید و دوباره تلاش کنید."
+    },
+    "generatedImageAlt": "تصویر تولید شده",
+    "button": {
+      "ariaLabel": "ابزار جادویی"
+    }
+  },
+  "upload": {
+    "errors": {
+      "invalidFormat": "فقط فرمت‌های PNG، JPG یا SVG قابل بارگذاری هستند.",
+      "singleImageOnly": "لطفاً فقط یک تصویر انتخاب کنید",
+      "selectMeshFirst": "لطفاً ابتدا یک قسمت از لباس را انتخاب کنید",
+      "selectMesh": "لطفاً ابتدا یک mesh انتخاب کنید",
+      "prepareImageError": "خطا در آماده‌سازی تصویر",
+      "applyImageError": "خطا در اعمال تصویر"
+    },
+    "placeholder": {
+      "dragImage": "یک تصویر را اینجا بکشید",
+      "clickToSelect": "یا کلیک کنید تا یک فایل انتخاب کنید",
+      "formats": "PNG, JPG, SVG"
+    },
+    "sections": {
+      "previousUploads": "تصاویر قبلی شما",
+      "uploadedImages": "تصاویر آپلود شده",
+      "loading": "در حال بارگذاری..."
+    },
+    "actions": {
+      "addToMesh": "اضافه کردن به mesh",
+      "editImage": "ویرایش تصویر",
+      "uploading": "در حال آپلود",
+      "uploaded": "آپلود شده"
+    }
+  },
+  "imageEditor": {
+    "tabs": {
+      "crop": "برش تصویر",
+      "removeBackground": "حذف زمینه",
+      "quality": "کیفیت تصویر"
+    },
+    "controls": {
+      "free": "آزاد",
+      "aspectRatio": {
+        "1:1": "۱:۱",
+        "4:3": "۴:۳",
+        "16:9": "۱۶:۹"
+      },
+      "rotateLeft": "چرخش ۹۰° چپ",
+      "rotateRight": "چرخش ۹۰° راست"
+    },
+    "buttons": {
+      "cancel": "انصراف",
+      "addToDesign": "افزودن به طرح"
+    },
+    "messages": {
+      "removeBackgroundComingSoon": "حذف زمینه به زودی...",
+      "qualityComingSoon": "بهبود کیفیت به زودی..."
+    }
+  },
+  "fabric": {
+    "defaultSpecs": {
+      "composition": "نخ ۱۰۰٪ پنبه",
+      "texture": "بافت نازک و نیمه شفاف",
+      "elasticity": {
+        "has": "کشسانی دارد",
+        "none": "کشسانی ندارد"
+      },
+      "defaultName": "پارچه"
+    },
+    "errors": {
+      "embroideryNotSupported": "این پارچه قابلیت گلدوزی ندارد. لطفاً پارچه دیگری انتخاب کنید یا گلدوزی‌های موجود را حذف کنید.",
+      "printNotSupported": "این پارچه قابلیت چاپ ندارد. لطفاً پارچه دیگری انتخاب کنید یا چاپ‌های موجود را حذف کنید."
+    },
+    "sections": {
+      "about": "درباره پارچه",
+      "technicalSpecs": "مشخصات فنی",
+      "thickness": "میزان ضخامت",
+      "colorSelection": "انتخاب رنگ",
+      "details": "جزئیات پارچه",
+      "moreDetails": "جزئیات بیشتر"
+    },
+    "specs": {
+      "composition": "ترکیبات",
+      "texture": "بافت",
+      "elasticity": "کشسانی"
+    },
+    "buttons": {
+      "back": "بازگشت",
+      "selectFabric": "انتخاب این پارچه",
+      "showMore": "نمایش بیشتر",
+      "showLess": "نمایش کمتر"
+    },
+    "price": {
+      "label": "قیمت",
+      "none": "قیمت ندارد",
+      "unit": "تومان"
+    },
+    "empty": {
+      "noMaterials": "پارچه‌ای موجود نیست"
+    },
+    "colors": {
+      "moreColors": "رنگ های بیشتر"
+    }
+  },
+  "modelViewer": {
+    "loadingMessage": "در حال بارگذاری مدل سه‌بعدی...",
+    "errorRetryText": "تلاش مجدد",
+    "copyDialog": {
+      "title": "کپی طرح به لایه دیگر",
+      "description": "لطفاً لایه مورد نظر را انتخاب کنید"
+    },
+    "moveDialog": {
+      "title": "انتقال طرح به لایه دیگر",
+      "description": "لطفاً لایه مورد نظر را انتخاب کنید"
+    },
+    "errors": {
+      "maxOverlaysPerMesh": "حداکثر 8 overlay برای هر mesh مجاز است",
+      "cannotMoveToSameMesh": "نمی‌توان overlay را به همان mesh منتقل کرد"
+    }
+  },
+  "addToCart": {
+    "fabric": "پارچه",
+    "errors": {
+      "noFabricOrColor": "پارچه یا رنگی موجود نیست",
+      "minOneOptionRequired": "حداقل یک گزینه باید انتخاب شود",
+      "minSizeQuantityRequired": "لطفاً حداقل یک سایز و تعداد انتخاب کنید",
+      "addToCartFailed": "خطا در افزودن به سبد خرید. لطفاً دوباره تلاش کنید."
+    },
+    "success": {
+      "addedToCart": "محصول با موفقیت به سبد خرید اضافه شد"
+    },
+    "title": {
+      "simpleMode": "انتخاب سایز و تعداد",
+      "fullMode": "انتخاب پارچه، رنگ و سایز"
+    },
+    "sizeGuide": "راهنمای سایز",
+    "loading": {
+      "productInfo": "در حال بارگذاری اطلاعات محصول..."
+    },
+    "empty": {
+      "noMaterials": "هیچ ماده‌ای موجود نیست",
+      "tryLater": "لطفاً بعداً دوباره تلاش کنید"
+    },
+    "selections": {
+      "yourSelections": "انتخاب‌های شما",
+      "selectFabric": "انتخاب پارچه",
+      "selectColor": "انتخاب رنگ",
+      "selectSize": "انتخاب سایز"
+    },
+    "price": {
+      "unit": "تومان"
+    }
+  },
+  "dialogs": {
+    "confirm": {
+      "defaultConfirmText": "تأیید",
+      "defaultCancelText": "انصراف"
+    }
+  },
+  "gpu": {
+    "label": "GPU:",
+    "tiers": {
+      "veryLow": "خیلی پایین",
+      "low": "پایین",
+      "medium": "متوسط",
+      "high": "بالا",
+      "unknown": "نامشخص"
+    },
+    "smoothEdges": "لبه‌های صاف",
+    "sharpEdges": "لبه‌های تیز"
+  },
+  "meshSelector": {
+    "selectMesh": "انتخاب لایه",
+    "currentMesh": "لایه فعلی",
+    "cannotMoveToSameMesh": "نمی‌توان طرح را به همان لایه منتقل کرد",
+    "noMeshesAvailable": "هیچ لایه ای در دسترس نیست",
+    "copy": "کپی",
+    "move": "انتقال"
+  },
+  "sizePrice": {
+    "title": "سایز و تعداد",
+    "sizeGuideLink": "راهنمای انتخاب سایز",
+    "confirm": "تایید",
+    "sizeGuideTitle": "راهنمای سایز",
+    "sizeGuideDescription": "برای انتخاب سایز مناسب، از جدول زیر استفاده کنید:",
+    "sizeGuideTip": "💡 نکته: اگر در انتخاب سایز تردید دارید، سایز بزرگ‌تر را انتخاب کنید.",
+    "table": {
+      "size": "سایز",
+      "height": "قد (سانتی‌متر)",
+      "weight": "وزن (کیلوگرم)"
+    }
+  },
+  "stateControls": {
+    "saveStateTooltip": "ذخیره وضعیت Canvas",
+    "restoreStateTooltip": "بازیابی وضعیت Canvas",
+    "saveSuccess": "وضعیت Canvas با موفقیت ذخیره شد",
+    "saveError": "خطا در ذخیره وضعیت Canvas",
+    "restoreSuccess": "وضعیت Canvas با موفقیت بازیابی شد",
+    "restoreError": "خطا در بازیابی وضعیت Canvas",
+    "saveButton": "ذخیره وضعیت",
+    "restoreButton": "بازیابی وضعیت"
+  },
+  "canvas": {
+    "manualSave": "ذخیره دستی"
+  },
+  "meta": {
+    "title": "طراحی محصول",
+    "description": "طراحی اختصاصی محصول خود را با ابزار طراحی آنلاین وودی بسازید. متن، عکس و طرح دلخواه خود را اضافه کنید."
+  },
+  "currency": "تومان"
+}
+

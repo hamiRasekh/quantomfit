@@ -1,0 +1,82 @@
+{
+  "menu": {
+    "dashboard": "Dashboard",
+    "common": {
+      "list": "List",
+      "create": "Create"
+    },
+    "personnel": {
+      "root": "Personnel"
+    },
+    "positions": {
+      "root": "Positions"
+    },
+    "processes": {
+      "root": "Processes"
+    },
+    "activities": {
+      "root": "Activities"
+    },
+    "activityRecords": {
+      "root": "Activity Records"
+    },
+    "assignments": {
+      "root": "Assignments"
+    },
+    "productionOrders": {
+      "root": "Production Orders",
+      "new": "New Order"
+    },
+    "products": {
+      "root": "Products",
+      "categories": "Product Categories"
+    },
+    "inventory": {
+      "root": "Inventory Management",
+      "ledger": "Stock Ledger",
+      "balances": "Balances",
+      "rawMaterials": "Warehouse Raw Materials",
+      "procurement": "Procurement"
+    },
+    "bom": {
+      "root": "Bill of Materials (BOM)"
+    },
+    "codingRules": {
+      "root": "Coding Rules"
+    },
+    "defects": {
+      "root": "Defects & Scrap",
+      "new": "New Defect"
+    },
+    "approvals": {
+      "root": "Approvals"
+    },
+    "notifications": {
+      "root": "Notifications"
+    },
+    "auditLogs": {
+      "root": "Audit Logs"
+    },
+    "reports": {
+      "root": "Reports",
+      "wages": "Wage Reports",
+      "overhead": "Overhead Reports",
+      "productCost": "Product Cost Reports",
+      "materials": "Material Requirement Reports",
+      "defects": "Defect Reports"
+    },
+    "units": {
+      "root": "Units"
+    },
+    "settings": {
+      "root": "Settings",
+      "workCalendar": "Work Calendar",
+      "roles": "Roles",
+      "userRoles": "User Roles",
+      "company": "Company Profile",
+      "system": "System Settings",
+      "backup": "Backup"
+    }
+  }
+}
+

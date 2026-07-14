@@ -27,6 +27,12 @@ export function createApiClient(options: ApiClientOptions) {
       defaultHeaders.forEach((value, key) => headers.set(key, value));
     }
 
+	if (typeof window !== "undefined" && headers.get("X-Panel-Context") === "gym") {
+		const hostname = window.location.hostname.toLowerCase();
+		const subdomain = hostname === "localhost" ? "gym" : hostname.split(".")[0];
+		headers.set("X-Tenant-Subdomain", subdomain || "gym");
+	}
+
     const token = options.getToken?.();
     if (token) {
       headers.set("Authorization", `Bearer ${token}`);
@@ -39,7 +45,8 @@ export function createApiClient(options: ApiClientOptions) {
     });
 
     if (!response.ok) {
-      throw new Error(`Request failed with status ${response.status}`);
+	  const payload = await response.json().catch(() => null) as { error?: string } | null;
+	  throw new Error(payload?.error || `Request failed with status ${response.status}`);
     }
 
     return response.json() as Promise<T>;

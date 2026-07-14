@@ -1,0 +1,34 @@
+{
+  "advertisement": {
+    "mainHeading": "More than a million designs!",
+    "freeShippingText": "Free shipping only until",
+    "deadline": "the end of the week"
+  },
+  "categories": {
+    "heading": "Categories",
+    "description": "Choose a garment and design it for {{freeText}}!",
+    "freeText": "free",
+    "allTab": "All"
+  },
+  "products": {
+    "unnamedProduct": "Unnamed product",
+    "loadError": "Error loading products",
+    "reloadPage": "Please reload the page",
+    "tryAgain": "Please try again",
+    "retryButton": "Retry"
+  },
+  "recentDesigns": {
+    "title": "My recent designs",
+    "viewAll": "View all",
+    "empty": "You do not have any recent designs yet",
+    "untitled": "Untitled design",
+    "unknownCategory": "Uncategorized",
+    "deleteDialog": {
+      "title": "Delete design",
+      "message": "Are you sure you want to delete this design? This action cannot be undone.",
+      "confirmText": "Delete",
+      "cancelText": "Cancel"
+    }
+  },
+  "currency": "Toman"
+}

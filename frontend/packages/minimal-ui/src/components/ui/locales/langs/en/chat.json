@@ -1,0 +1,18 @@
+{
+  "support": {
+    "title": "VOODY",
+    "subtitle": "Online",
+    "welcomeMessage": "Hello! How can I help you?",
+    "placeholder": "Type your message...",
+    "quickReplies": {
+      "newOrder": "New order",
+      "trackOrder": "Track order",
+      "faqs": "FAQs",
+      "aboutUs": "About us",
+      "contactUs": "Contact us",
+      "humanOperator": "Talk to operator"
+    },
+    "humanOperatorButton": "Talk to operator"
+  }
+}
+

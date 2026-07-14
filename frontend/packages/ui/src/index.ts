@@ -4,3 +4,4 @@ export * from "./button";
 export * from "./shell";
 export * from "./language-switcher";
 export * from "./auth-login-frame";
+export * from "./inputs";

@@ -47,6 +47,10 @@ export default function Page() {
     );
   }, [trainers, search]);
 
+  function formatStatus(status: string) {
+    return status === "active" ? "فعال" : status === "inactive" ? "غیرفعال" : status;
+  }
+
   async function createTrainer() {
     const created = await api.post<Trainer>("/api/v1/trainers", form);
     setTrainers((current) => [created, ...current]);
@@ -108,7 +112,7 @@ export default function Page() {
                   <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>مربی محدوده همین باشگاه</small>
                 </span>
                 <span>{trainer.specialty ?? "مربی عمومی"}</span>
-                <span>{trainer.status}</span>
+                <span>{formatStatus(trainer.status)}</span>
                 <button className="button secondary" type="button" onClick={() => removeTrainer(trainer.id)}>حذف</button>
               </div>
             )) : (

@@ -33,10 +33,10 @@ type Log = {
 };
 
 const triggerOptions = [
-  { value: "inactivity", label: "Inactive members" },
-  { value: "subscription_expiry", label: "Subscription expiry" },
-  { value: "birthday", label: "Birthday" },
-  { value: "occupancy_peak", label: "Occupancy peak" },
+  { value: "inactivity", label: "اعضای غیرفعال" },
+  { value: "subscription_expiry", label: "انقضای اشتراک" },
+  { value: "birthday", label: "تولد" },
+  { value: "occupancy_peak", label: "اوج تراکم" },
 ];
 
 export default function Page() {
@@ -45,12 +45,35 @@ export default function Page() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
-  const [ruleName, setRuleName] = useState("Renewal reminder");
+  const [ruleName, setRuleName] = useState("یادآوری تمدید");
   const [triggerType, setTriggerType] = useState("subscription_expiry");
-  const [template, setTemplate] = useState("Your membership is expiring soon. Renew now to stay active.");
+  const [template, setTemplate] = useState("عضویت شما به‌زودی منقضی می‌شود. همین حالا تمدید کنید.");
   const [channel, setChannel] = useState("sms");
   const [status, setStatus] = useState("active");
   const [windowValue, setWindowValue] = useState("3");
+
+  function formatStatusValue(value: string) {
+    return value === "active" ? "فعال" : value === "paused" ? "متوقف" : value;
+  }
+
+  function formatTrigger(value: string) {
+    const map: Record<string, string> = {
+      inactivity: "اعضای غیرفعال",
+      subscription_expiry: "انقضای اشتراک",
+      birthday: "تولد",
+      occupancy_peak: "اوج تراکم",
+    };
+    return map[value] ?? value;
+  }
+
+  function formatChannel(value: string) {
+    const map: Record<string, string> = {
+      sms: "پیامک",
+      whatsapp: "واتساپ",
+      push: "پوش",
+    };
+    return map[value] ?? value;
+  }
 
   useEffect(() => {
     let mounted = true;
@@ -108,9 +131,9 @@ export default function Page() {
         status,
       });
       setRules((current) => [created, ...current.filter((item) => item.id !== created.id)]);
-      setMessage("Rule saved.");
+      setMessage("قانون ذخیره شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to save rule.");
+      setMessage(error instanceof Error ? error.message : "ذخیره قانون ممکن نشد.");
     } finally {
       setSaving(false);
     }
@@ -121,33 +144,33 @@ export default function Page() {
     try {
       await api.delete(`/api/v1/sms-automations/${ruleId}`);
       setRules((current) => current.filter((item) => item.id !== ruleId));
-      setMessage("Rule removed.");
+      setMessage("قانون حذف شد.");
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Unable to delete rule.");
+      setMessage(error instanceof Error ? error.message : "حذف قانون ممکن نشد.");
     }
   }
 
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">SMS Automation</span>
-        <h1>Retention rules and message logs.</h1>
-        <p>Manage tenant-scoped message rules for renewals, inactivity, birthdays, and peak occupancy alerts.</p>
+        <span className="label">اتوماسیون پیامک</span>
+        <h1>قانون‌های نگهداشت و لاگ پیام‌ها.</h1>
+        <p>قانون‌های پیام‌رسانی محدوده‌دار برای تمدید، غیرفعالی، تولد و هشدارهای اوج تراکم را مدیریت کن.</p>
       </header>
 
       <div className="content">
         <section className="panel">
           <div className="section-head">
-            <span>Rule builder</span>
-            <em>{loading ? "Loading..." : `${rules.length} rules`}</em>
+            <span>سازنده قانون</span>
+            <em>{loading ? "در حال بارگذاری..." : `${rules.length} قانون`}</em>
           </div>
           <div className="field-list">
             <div className="form-field">
-              <label>Rule name</label>
+              <label>نام قانون</label>
               <input value={ruleName} onChange={(event) => setRuleName(event.target.value)} />
             </div>
             <div className="form-field">
-              <label>Trigger type</label>
+              <label>نوع محرک</label>
               <select value={triggerType} onChange={(event) => setTriggerType(event.target.value)}>
                 {triggerOptions.map((option) => (
                   <option key={option.value} value={option.value}>{option.label}</option>
@@ -155,58 +178,58 @@ export default function Page() {
               </select>
             </div>
             <div className="form-field">
-              <label>Window / threshold</label>
+              <label>بازه / آستانه</label>
               <input value={windowValue} onChange={(event) => setWindowValue(event.target.value)} />
             </div>
             <div className="form-field">
-              <label>Message template</label>
+              <label>قالب پیام</label>
               <textarea value={template} onChange={(event) => setTemplate(event.target.value)} rows={4} />
             </div>
             <div className="form-field">
-              <label>Channel</label>
+              <label>کانال</label>
               <select value={channel} onChange={(event) => setChannel(event.target.value)}>
-                <option value="sms">SMS</option>
-                <option value="whatsapp">WhatsApp</option>
-                <option value="push">Push</option>
+                <option value="sms">پیامک</option>
+                <option value="whatsapp">واتساپ</option>
+                <option value="push">پوش</option>
               </select>
             </div>
             <div className="form-field">
-              <label>Status</label>
+              <label>وضعیت</label>
               <select value={status} onChange={(event) => setStatus(event.target.value)}>
-                <option value="active">active</option>
-                <option value="paused">paused</option>
+                <option value="active">فعال</option>
+                <option value="paused">متوقف</option>
               </select>
             </div>
           </div>
           <div className="actions">
             <button className="button primary" type="button" onClick={saveRule} disabled={saving}>
-              {saving ? "Saving..." : "Save rule"}
+              {saving ? "در حال ذخیره..." : "ذخیره قانون"}
             </button>
-            <span style={{ color: "var(--muted)" }}>{message}</span>
+            <span style={{ color: "var(--qf-muted)" }}>{message}</span>
           </div>
         </section>
 
         <section className="panel">
           <div className="section-head">
-            <span>Rules</span>
-            <em>Active automations</em>
+            <span>قانون‌ها</span>
+            <em>اتوماسیون‌های فعال</em>
           </div>
           <div className="field-list">
             {rules.length > 0 ? rules.map((rule) => (
               <div key={rule.id}>
                 <strong>{rule.ruleName}</strong>
-                <span>{rule.triggerType} · {rule.channel} · {rule.status}</span>
+                <span>{formatTrigger(rule.triggerType)} · {formatChannel(rule.channel)} · {formatStatusValue(rule.status)}</span>
                 <span>{rule.messageTemplate}</span>
                 <div className="actions" style={{ marginTop: 8 }}>
                   <button className="button secondary" type="button" onClick={() => removeRule(rule.id)}>
-                    Delete
+                    حذف
                   </button>
                 </div>
               </div>
             )) : (
               <div>
-                <strong>No automation rules yet</strong>
-                <span>Create your first rule using the builder on the left.</span>
+                <strong>هنوز قانونی تعریف نشده</strong>
+                <span>اولین قانون را با سازنده سمت چپ ایجاد کن.</span>
               </div>
             )}
           </div>
@@ -215,20 +238,20 @@ export default function Page() {
 
       <div className="panel">
         <div className="section-head">
-          <span>Recent logs</span>
-          <em>Delivery history</em>
+          <span>لاگ‌های اخیر</span>
+          <em>تاریخچه ارسال</em>
         </div>
         <ul className="timeline">
           {logs.length > 0 ? logs.map((log) => (
             <li key={log.id}>
-              <strong>{log.channel.toUpperCase()} · {log.status}</strong>
+              <strong>{formatChannel(log.channel)} · {formatStatusValue(log.status)}</strong>
               <span>{log.message}</span>
-              {log.createdAt ? <small style={{ color: "var(--muted)" }}>{new Date(log.createdAt).toLocaleString()}</small> : null}
+              {log.createdAt ? <small style={{ color: "var(--qf-muted)" }}>{new Date(log.createdAt).toLocaleString()}</small> : null}
             </li>
           )) : (
             <li>
-              <strong>No logs yet</strong>
-              <span>Automation delivery history will appear here when messages are sent.</span>
+              <strong>هنوز لاگی ثبت نشده</strong>
+              <span>وقتی پیام‌ها ارسال شوند، تاریخچه اینجا نمایش داده می‌شود.</span>
             </li>
           )}
         </ul>

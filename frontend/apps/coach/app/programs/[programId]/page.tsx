@@ -46,6 +46,10 @@ export default function Page() {
   const [sessionForm, setSessionForm] = useState({ title: "", dayLabel: "", notes: "", status: "pending" });
   const [message, setMessage] = useState("");
 
+  function formatStatus(status: string) {
+    return status === "active" ? "فعال" : status === "draft" ? "پیش‌نویس" : status === "archived" ? "بایگانی" : status === "pending" ? "در انتظار" : status === "completed" ? "تکمیل‌شده" : status;
+  }
+
   useEffect(() => {
     let mounted = true;
 
@@ -173,7 +177,7 @@ export default function Page() {
 
       <div className="content">
         <section className="panel">
-          <div className="section-head"><span>خلاصه</span><em>{program?.status ?? "فعال"}</em></div>
+          <div className="section-head"><span>خلاصه</span><em>{formatStatus(program?.status ?? "فعال")}</em></div>
           <div className="detail-grid">
             <article><span className="status">مربی</span><h3>{program?.trainerName ?? "بدون انتساب"}</h3><p>از جدول برنامه‌ها لینک می‌شود.</p></article>
             <article><span className="status">نوع</span><h3>طرح هفتگی</h3><p>توسط ورزشکار و مربی استفاده می‌شود.</p></article>
@@ -187,7 +191,7 @@ export default function Page() {
             {sessions.length > 0 ? sessions.map((session) => (
               <li key={session.id}>
                 <strong>{session.dayLabel || "سشن"}</strong>
-                <span>{session.title} · {session.status}{session.completedAt ? ` · تکمیل‌شده ${new Date(session.completedAt).toLocaleDateString()}` : ""}</span>
+                <span>{session.title} · {formatStatus(session.status)}{session.completedAt ? ` · تکمیل‌شده ${new Date(session.completedAt).toLocaleDateString()}` : ""}</span>
                 <textarea
                   value={sessionNotes[session.id] ?? session.notes ?? ""}
                   onChange={(event) => setSessionNotes((current) => ({ ...current, [session.id]: event.target.value }))}

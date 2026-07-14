@@ -1,0 +1,116 @@
+{
+    "list": {
+        "heading": "List",
+        "add": "Add product",
+        "breadcrumbs": {
+            "dashboard": "Dashboard",
+            "product": "Product",
+            "list": "List"
+        },
+        "columns": {
+            "category": "Category",
+            "product": "Product",
+            "createdAt": "Created at",
+            "stock": "Stock",
+            "price": "Price",
+            "publish": "Publish",
+            "actions": "Actions"
+        },
+        "noResults": "No results found",
+        "deleteConfirmTitle": "Delete",
+        "deleteConfirmContent": "Are you sure want to delete {{count}} items?",
+        "delete": "Delete",
+        "edit": "Edit",
+        "actions": {
+            "edit": "Edit",
+            "delete": "Delete"
+        }
+    },
+    "form": {
+        "createHeading": "Create a new product",
+        "editHeading": "Edit",
+        "breadcrumbs": {
+            "dashboard": "Dashboard",
+            "product": "Product",
+            "create": "Create",
+            "edit": "Edit"
+        },
+        "steps": {
+            "title": "Add product",
+            "subheader": "First select model, then complete the rest",
+            "step1": "Step 1 — Select model and manage layers",
+            "step2": "Step 2 — Product information"
+        },
+        "details": {
+            "title": "Details",
+            "subheader": "Title, short description, images",
+            "name": "Product name",
+            "subDescription": "Sub description",
+            "description": "Description",
+            "images": "Images"
+        },
+        "model3d": {
+            "title": "3D Model",
+            "subheader": "Upload .glb, auto-extract layers and capture screenshots",
+            "glb": "GLB file",
+            "preview": "Model Preview",
+            "clearModel": "Clear Model",
+            "errors": {
+                "invalidExtension": "Only .glb files are supported"
+            }
+        },
+        "layers": {
+            "title": "3D Layers",
+            "subheader": "Rename, translate and reorder layers",
+            "empty": "No layers detected yet.",
+            "layerName": "Layer name",
+            "faTranslation": "FA translation",
+            "enTranslation": "EN translation",
+            "drag": "drag",
+            "visible": "Visible",
+            "invisible": "Invisible",
+            "toggleVisibility": "Toggle visibility"
+        },
+        "properties": {
+            "title": "Properties",
+            "subheader": "Additional functions and attributes",
+            "code": "Product code",
+            "sku": "Product SKU",
+            "quantity": "Quantity",
+            "categories": "Categories",
+            "colors": "Colors",
+            "sizes": "Sizes",
+            "tags": "Tags",
+            "tagsPlaceholder": "+ Tag",
+            "saleLabel": "Sale label",
+            "newLabel": "New label"
+        },
+        "pricing": {
+            "title": "Pricing",
+            "subheader": "Price related inputs",
+            "regular": "Regular price",
+            "sale": "Sale price",
+            "tax": "Tax (%)"
+        },
+        "actions": {
+            "create": "Create product",
+            "save": "Save changes",
+            "next": "Next",
+            "back": "Back",
+            "edit": "Edit",
+            "delete": "Delete"
+        },
+        "toasts": {
+            "createSuccess": "Product created successfully",
+            "updateSuccess": "Changes saved successfully",
+            "error": "Failed to save product data"
+        }
+    },
+    "uploader": {
+        "noFile": "No file chosen",
+        "dropOrSelectFiles": "Drop or select files",
+        "dragHere": "Drag files here, or browse your device.",
+        "dropOrSelectFile": "Drop or select a file",
+        "dragHereSingle": "Drag a file here, or browse your device."
+    }
+}

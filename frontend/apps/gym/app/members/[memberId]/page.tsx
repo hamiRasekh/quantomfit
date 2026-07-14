@@ -28,60 +28,68 @@ export default async function Page({ params }: { params: Promise<{ memberId: str
     member = null;
   }
 
+  function formatStatus(status: string) {
+    return status === "active" ? "فعال" : status === "inactive" ? "غیرفعال" : status;
+  }
+
+  function formatSource(source: string) {
+    return source === "gate" ? "دروازه" : source === "app" ? "اپ" : source;
+  }
+
   return (
     <section className="shell">
       <header className="hero">
-        <span className="label">Member detail</span>
-        <h1>{member?.fullName ?? `Member ${memberId}`}</h1>
-        <p>Attendance, plan status, and communication history in one tenant-safe view.</p>
+        <span className="label">جزئیات عضو</span>
+        <h1>{member?.fullName ?? `عضو ${memberId}`}</h1>
+        <p>حضور، وضعیت پلن و تاریخچه ارتباط در یک نمای امنِ مستاجر.</p>
       </header>
       <div className="detail-grid">
-        <article><span className="status">Status</span><h3>{member?.status ?? "active"}</h3><p>Current membership state.</p></article>
-        <article><span className="status">Trainer</span><h3>{member?.trainerName ?? "Unassigned"}</h3><p>Assigned trainer from tenant data.</p></article>
-        <article><span className="status">Check-ins</span><h3>{member?.attendanceCount ?? 0}</h3><p>Visited this month.</p></article>
+        <article><span className="status">وضعیت</span><h3>{formatStatus(member?.status ?? "فعال")}</h3><p>وضعیت فعلی عضویت.</p></article>
+        <article><span className="status">مربی</span><h3>{member?.trainerName ?? "تخصیص‌نیافته"}</h3><p>مربی انتساب‌داده‌شده از داده‌های مستاجر.</p></article>
+        <article><span className="status">ورودها</span><h3>{member?.attendanceCount ?? 0}</h3><p>تعداد بازدید این ماه.</p></article>
       </div>
       <div className="panel">
         <div className="section-head">
-          <span>Summary</span>
-          <em>Tenant scoped profile</em>
+          <span>خلاصه</span>
+          <em>پروفایل محدوده‌دار</em>
         </div>
         <div className="qf-grid qf-grid--2">
           <article className="panel">
-            <span className="status">Contact</span>
-            <h3 style={{ marginTop: 14 }}>Profile contact</h3>
+            <span className="status">تماس</span>
+            <h3 style={{ marginTop: 14 }}>اطلاعات تماس</h3>
             <p style={{ color: "var(--qf-muted)", lineHeight: 1.7 }}>
-              {member?.phone ?? "No phone"} · {member?.gender ?? "No gender"}
+              {member?.phone ?? "بدون شماره"} · {member?.gender ?? "بدون جنسیت"}
             </p>
           </article>
           <article className="panel">
-            <span className="status">Program</span>
-            <h3 style={{ marginTop: 14 }}>{member?.programName ?? "No program assigned"}</h3>
-            <p style={{ color: "var(--qf-muted)", lineHeight: 1.7 }}>Attendance streaks, workouts, and communication history are attached here.</p>
+            <span className="status">برنامه</span>
+            <h3 style={{ marginTop: 14 }}>{member?.programName ?? "برنامه‌ای تخصیص داده نشده"}</h3>
+            <p style={{ color: "var(--qf-muted)", lineHeight: 1.7 }}>روند حضور، تمرین‌ها و تاریخچه ارتباط اینجا نگه‌داری می‌شود.</p>
           </article>
         </div>
       </div>
 
       <div className="panel" style={{ marginTop: 18 }}>
         <div className="section-head">
-          <span>Recent check-ins</span>
-          <em>{member?.latestCheckins?.length ?? 0} entries</em>
+          <span>ورودهای اخیر</span>
+          <em>{member?.latestCheckins?.length ?? 0} مورد</em>
         </div>
         <div className="qf-table">
           <div className="qf-table__row qf-table__row--head">
-            <strong>Time</strong>
-            <strong>Source</strong>
-            <strong>Notes</strong>
+            <strong>زمان</strong>
+            <strong>منبع</strong>
+            <strong>یادداشت</strong>
           </div>
           {(member?.latestCheckins ?? []).slice(0, 5).map((item) => (
             <div className="qf-table__row" key={item.id}>
               <span>{new Date(item.checkinAt).toLocaleString()}</span>
-              <span>{item.source}</span>
-              <span>Recorded inside the tenant</span>
+              <span>{formatSource(item.source)}</span>
+              <span>در همین مستاجر ثبت شده</span>
             </div>
           ))}
           {(member?.latestCheckins?.length ?? 0) === 0 ? (
             <div className="qf-table__row">
-              <span>No check-ins yet</span>
+              <span>هنوز ورودی ثبت نشده</span>
               <span>—</span>
               <span>—</span>
             </div>

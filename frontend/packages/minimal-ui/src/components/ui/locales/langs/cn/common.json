@@ -1,0 +1,22 @@
+{
+  "demo": {
+    "lang": "Chinese",
+    "description": "您的下一个项目的起点基于 MUI。简单的定制可帮助您更快、更好地构建应用程序。"
+  },
+  "notFound": {
+    "title": "抱歉，找不到页面！",
+    "description": "抱歉，我们找不到您要找的页面。也许您输入了错误的 URL？请务必检查您的拼写。",
+    "goToHome": "返回首页"
+  },
+  "forbidden": {
+    "title": "没有权限",
+    "description": "您尝试访问的页面访问受限。请联系您的系统管理员。",
+    "goToHome": "返回首页"
+  },
+  "serverError": {
+    "title": "500 内部服务器错误",
+    "description": "发生错误，请稍后重试。",
+    "goToHome": "返回首页"
+  },
+  "needHelp": "需要帮助？"
+}

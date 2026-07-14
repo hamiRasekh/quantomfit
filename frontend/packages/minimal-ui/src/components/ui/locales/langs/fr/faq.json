@@ -1,0 +1,8 @@
+{
+  "title": "Questions fréquemment posées",
+  "categories": "Catégories",
+  "loading": "Chargement des FAQ...",
+  "error": "Erreur lors du chargement des FAQ. Veuillez réessayer.",
+  "noData": "Aucune question trouvée"
+}
+

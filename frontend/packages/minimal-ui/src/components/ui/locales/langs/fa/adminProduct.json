@@ -1,0 +1,116 @@
+{
+    "list": {
+        "heading": "لیست",
+        "add": "افزودن محصول",
+        "breadcrumbs": {
+            "dashboard": "داشبورد",
+            "product": "محصول",
+            "list": "لیست"
+        },
+        "columns": {
+            "category": "دسته‌بندی",
+            "product": "محصول",
+            "createdAt": "تاریخ ایجاد",
+            "stock": "موجودی",
+            "price": "قیمت",
+            "publish": "انتشار",
+            "actions": "عملیات"
+        },
+        "noResults": "نتیجه‌ای یافت نشد",
+        "deleteConfirmTitle": "حذف",
+        "deleteConfirmContent": "آیا از حذف {{count}} مورد اطمینان دارید؟",
+        "delete": "حذف",
+        "edit": "ویرایش",
+        "actions": {
+            "edit": "ویرایش",
+            "delete": "حذف"
+        }
+    },
+    "form": {
+        "createHeading": "ایجاد محصول جدید",
+        "editHeading": "ویرایش",
+        "breadcrumbs": {
+            "dashboard": "داشبورد",
+            "product": "محصول",
+            "create": "ایجاد",
+            "edit": "ویرایش"
+        },
+        "steps": {
+            "title": "افزودن محصول",
+            "subheader": "ابتدا مدل را انتخاب کنید، سپس سایر اطلاعات را تکمیل کنید",
+            "step1": "مرحله ۱ — انتخاب مدل و مدیریت لایه‌ها",
+            "step2": "مرحله ۲ — اطلاعات محصول"
+        },
+        "details": {
+            "title": "جزئیات",
+            "subheader": "عنوان، توضیح کوتاه، تصاویر",
+            "name": "نام محصول",
+            "subDescription": "توضیح کوتاه",
+            "description": "توضیحات",
+            "images": "تصاویر"
+        },
+        "model3d": {
+            "title": "مدل سه‌بعدی",
+            "subheader": "آپلود فایل .glb، استخراج خودکار لایه‌ها و ثبت اسکرین‌شات",
+            "glb": "فایل GLB",
+            "preview": "پیش‌نمایش مدل",
+            "clearModel": "پاک کردن مدل",
+            "errors": {
+                "invalidExtension": "فقط فایل‌های با پسوند .glb پشتیبانی می‌شوند"
+            }
+        },
+        "layers": {
+            "title": "لایه‌های سه‌بعدی",
+            "subheader": "تغییر نام، ترجمه و جابجایی ترتیب لایه‌ها",
+            "empty": "هنوز لایه‌ای شناسایی نشده است.",
+            "layerName": "نام لایه",
+            "faTranslation": "ترجمه فارسی",
+            "enTranslation": "ترجمه انگلیسی",
+            "drag": "جابجایی",
+            "visible": "نمایش",
+            "invisible": "عدم نمایش",
+            "toggleVisibility": "تغییر نمایش"
+        },
+        "properties": {
+            "title": "ویژگی‌ها",
+            "subheader": "ویژگی‌ها و خصوصیات تکمیلی",
+            "code": "کد محصول",
+            "sku": "SKU محصول",
+            "quantity": "تعداد",
+            "categories": "دسته‌بندی‌ها",
+            "colors": "رنگ‌ها",
+            "sizes": "سایزها",
+            "tags": "برچسب‌ها",
+            "tagsPlaceholder": "+ برچسب جدید",
+            "saleLabel": "برچسب حراج",
+            "newLabel": "برچسب جدید"
+        },
+        "pricing": {
+            "title": "قیمت‌گذاری",
+            "subheader": "ورودی‌های مربوط به قیمت",
+            "regular": "قیمت اصلی",
+            "sale": "قیمت حراج",
+            "tax": "مالیات (%)"
+        },
+        "actions": {
+            "create": "ایجاد محصول",
+            "save": "ذخیره تغییرات",
+            "next": "مرحله بعد",
+            "back": "بازگشت",
+            "edit": "ویرایش",
+            "delete": "حذف"
+        },
+        "toasts": {
+            "createSuccess": "محصول با موفقیت ایجاد شد",
+            "updateSuccess": "تغییرات ذخیره شد",
+            "error": "خطا در ذخیره اطلاعات"
+        }
+    },
+    "uploader": {
+        "noFile": "فایلی انتخاب نشده",
+        "dropOrSelectFiles": "فایل‌ها را رها کنید یا انتخاب نمایید",
+        "dragHere": "فایل‌ها را اینجا بکشید یا از دستگاه خود انتخاب کنید.",
+        "dropOrSelectFile": "یک فایل را رها کنید یا انتخاب نمایید",
+        "dragHereSingle": "یک فایل را اینجا بکشید یا از دستگاه خود انتخاب کنید."
+    }
+}

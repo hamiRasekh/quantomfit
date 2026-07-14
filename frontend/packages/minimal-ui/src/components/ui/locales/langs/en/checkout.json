@@ -1,0 +1,229 @@
+{
+  "title": "Checkout",
+  "steps": {
+    "cart": "Cart",
+    "shipping": "Shipping & Address",
+    "payment": "Payment",
+    "complete": "Complete"
+  },
+  "cart": {
+    "title": "Cart",
+    "items": "items",
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "totalPrice": "Total price",
+    "canvasId": "Canvas ID",
+    "size": "Size",
+    "continueShopping": "Continue shopping",
+    "goBack": "Back",
+    "checkOut": "Check out",
+    "empty": {
+      "title": "Cart is empty!",
+      "description": "Look like you have no items in your shopping cart.",
+      "button": "Continue Shopping"
+    },
+    "addSize": {
+      "action": "Add new size",
+      "dialogTitle": "Add another size",
+      "sizeLabel": "Select size",
+      "quantityLabel": "Quantity",
+      "submit": "Add to cart",
+      "loading": "Adding...",
+      "cancel": "Cancel",
+      "success": "The new size has been added to your cart.",
+      "error": "Unable to add the selected size.",
+      "materialNotFound": "Could not resolve current fabric information.",
+      "sizeRequired": "Please choose a size.",
+      "noSizes": "No size information is available for this product.",
+      "alreadyAdded": "Already in cart: {{quantity}} pcs",
+      "noSelectable": "All available sizes for this design are already in your cart.",
+      "noSelection": "Enter a quantity for at least one size."
+    },
+    "deleteConfirmTitle": "Delete Item",
+    "deleteConfirmMessage": "Are you sure you want to remove this item from your cart?",
+    "deleteConfirm": "Delete",
+    "cancel": "Cancel",
+    "deleteSuccess": "Item has been successfully removed from your cart.",
+    "sizeUnit": "size",
+    "showLess": "Show less",
+    "showMoreSizes": "Show {{count}} more sizes"
+  },
+  "billing": {
+    "title": "Billing & address",
+    "address": "Address",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deliverToThisAddress": "Deliver to this address",
+    "addAddress": "Add address",
+    "noAddress": "No address selected",
+    "back": "Back"
+  },
+  "delivery": {
+    "title": "Delivery",
+    "standard": "Standard",
+    "express": "Express",
+    "free": "Free",
+    "postpaid": "Postpaid"
+  },
+  "packaging": {
+    "title": "Packaging"
+  },
+  "payment": {
+    "title": "Payment",
+    "method": "Payment Method",
+    "complete": "Complete order",
+    "processing": "Processing...",
+    "back": "Back",
+    "error": {
+      "vpn": "Please disable your VPN to continue with this payment method.",
+      "failed": "Payment failed. Please try again."
+    }
+  },
+  "summary": {
+    "orderSummary": "Order summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "discount": "Discount",
+    "packaging": "Packaging",
+    "paymentFee": "Payment Fee",
+    "tax": "Tax",
+    "total": "Total",
+    "vatIncluded": "(VAT included if applicable)",
+    "free": "Free",
+    "edit": "Edit",
+    "apply": "Apply",
+    "discountPlaceholder": "Discount codes / Gifts",
+    "discountApplied": "Discount code has been successfully applied."
+  },
+  "complete": {
+    "success": {
+      "title": "Thank you for your purchase!",
+      "message": "Thanks for placing order",
+      "orderId": "Order ID:",
+      "transactionId": "Transaction ID:",
+      "notification": "We will send you a notification when it ships.",
+      "questions": "If you have any questions, feel free to get in contact with us.",
+      "closing": "All the best!"
+    },
+    "pending": {
+      "title": "Payment Pending",
+      "message": "Your payment is being processed.",
+      "orderId": "Order ID:",
+      "transactionId": "Transaction ID:",
+      "confirmation": "We will notify you once the payment is confirmed."
+    },
+    "failed": {
+      "title": "Payment Failed",
+      "message": "Unfortunately, your payment could not be processed.",
+      "transactionId": "Transaction ID:",
+      "retry": "Please try again or use a different payment method."
+    },
+    "continueShopping": "Continue shopping",
+    "downloadPDF": "Download as PDF"
+  },
+  "currency": {
+    "symbol": "IRR",
+    "prefix": "",
+    "suffix": " IRR",
+    "locale": "en-US",
+    "multiplier": 10,
+    "name": "Toman"
+  },
+  "meta": {
+    "cart": {
+      "title": "Cart",
+      "description": "View and manage your shopping cart items in Voodi"
+    },
+    "shipping": {
+      "title": "Shipping Address",
+      "description": "Select and manage your order shipping address in Voodi"
+    },
+    "payment": {
+      "title": "Payment",
+      "description": "Select payment method and complete your purchase in Voodi"
+    },
+    "paymentStatus": {
+      "title": "Payment Status - Voodi",
+      "description": "View your order payment status"
+    },
+    "paymentCallback": {
+      "title": "Processing Payment",
+      "description": "Processing your payment - Voodi"
+    },
+    "cardToCard": {
+      "title": "Card to Card Payment - Voodi",
+      "description": "Upload deposit receipt to complete your order"
+    },
+    "paymentGateway": {
+      "title": "Redirecting to Payment Gateway"
+    },
+    "paymentRedirect": {
+      "title": "Redirecting to Payment Gateway"
+    },
+    "thankYou": {
+      "title": "Order Complete",
+      "description": "Your order has been successfully placed - Voodi"
+    }
+  },
+  "cardToCard": {
+    "cardHolderName": "Card Holder Name",
+    "instruction": "Please upload a photo of your deposit receipt using the button below after making the transfer.",
+    "selectedFile": "Selected file:",
+    "imageOnlyError": "Please select only an image file",
+    "fileSizeError": "File size should not exceed 5 MB",
+    "uploadError": "Error uploading receipt. Please try again.",
+    "paymentInfoError": "Error retrieving payment information. Please try again.",
+    "title": "Card to Card Payment",
+    "transferAmount": "Transfer Amount",
+    "orderConfirmationNotice": "Your order will be successfully registered after confirmation of the deposit receipt.",
+    "cardNumber": "Card Number",
+    "selectReceipt": "Select Deposit Receipt",
+    "uploadReceipt": "Upload Receipt",
+    "selectAnotherFile": "Select Another File",
+    "currency": "IRR"
+  },
+  "paymentStatus": {
+    "error": "Error retrieving payment information. Please try again.",
+    "cardToCard": "Card to Card",
+    "pendingMessage": "We are waiting for confirmation of the deposit from the accounting team\nThank you for your patience",
+    "pendingNotice": "As soon as your deposit receipt is confirmed, your order status report will be placed on the current orders page.",
+    "successMessage": "Your payment was successful",
+    "goHome": "Return to Home Page",
+    "myOrders": "My Orders"
+  },
+  "paymentCallback": {
+    "checkingStatus": "Checking payment status...",
+    "pleaseWait": "Please wait",
+    "redirecting": "Redirecting...",
+    "error": "Error retrieving payment information",
+    "goHome": "Return to Home Page",
+    "cardToCard": "Card to Card",
+    "onlinePayment": "Online Payment",
+    "successMessage": "Your payment was successful",
+    "failedMessage": "Payment failed",
+    "failedRetry": "Please try again or contact support",
+    "myOrders": "My Orders"
+  },
+  "paymentGateway": {
+    "browserWarning": "Please do not close the browser window until payment is complete. After payment is completed, you will be automatically redirected back to the site.",
+    "debugInfo": "Debug Info (development only):",
+    "error": "Error retrieving payment gateway information",
+    "retry": "Please try again",
+    "redirectTitle": "Redirecting to Payment Gateway",
+    "orderNumber": "Order Number:",
+    "payableAmount": "Payable Amount:",
+    "currency": "IRR",
+    "trackingCode": "Tracking Code:",
+    "redirecting": "Redirecting to payment gateway..."
+  },
+  "paymentRedirect": {
+    "completingOrder": "Completing order...",
+    "redirectingToGateway": "Redirecting to payment gateway...",
+    "pleaseWait": "Please wait"
+  },
+  "thankYou": {
+    "loadError": "Failed to load payment status. Please contact support if you have been charged."
+  }
+}
+

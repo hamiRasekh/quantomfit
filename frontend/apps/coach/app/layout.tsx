@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { PanelShell, type PanelNavItem } from "@quantomfit/auth";
 import { defaultLocale, isRtl } from "@quantomfit/i18n";
-import { LanguageSwitcher } from "@quantomfit/ui";
+import {
+  SettingsProvider,
+  defaultSettings,
+  ThemeProvider,
+  LocalizationProvider,
+  I18nProvider,
+  AuthProvider,
+  TenantShell
+} from "@quantomfit/minimal-ui";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,31 +19,37 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const locale = defaultLocale;
-  const navItems: PanelNavItem[] = [
-    { href: "/", label: "داشبورد", icon: "◩" },
-    { href: "/students", label: "شاگردها", icon: "◫" },
-    { href: "/programs", label: "برنامه‌ها", icon: "▤" },
-    { href: "/templates", label: "الگوها", icon: "✦" },
-    { href: "/calendar", label: "تقویم", icon: "◔" },
-    { href: "/profile", label: "پروفایل", icon: "◓" },
-    { href: "/reports", label: "گزارش‌ها", icon: "▥" },
+  const navItems = [
+    { id: "dashboard", label: "داشبورد", href: "/", icon: "solar:widget-4-bold-duotone" },
+    { id: "students", label: "شاگردها", href: "/students", icon: "solar:users-group-two-rounded-bold-duotone" },
+    { id: "programs", label: "برنامه‌ها", href: "/programs", icon: "solar:document-bold-duotone" },
+    { id: "templates", label: "الگوها", href: "/templates", icon: "solar:stars-bold-duotone" },
+    { id: "calendar", label: "تقویم", href: "/calendar", icon: "solar:calendar-bold-duotone" },
+    { id: "profile", label: "پروفایل", href: "/profile", icon: "solar:user-bold-duotone" },
+    { id: "reports", label: "گزارش‌ها", href: "/reports", icon: "solar:document-text-bold-duotone" },
   ];
+
   return (
-    <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"}>
+    <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"} suppressHydrationWarning>
       <body>
-        <PanelShell
-          loginPath="/login"
-          requiredRoles={["trainer"]}
-          brand="پنل مربی"
-          subtitle="فضای مربی"
-          brandLogoSrc="/assets/small-logo.png"
-          brandLogoAlt="لوگوی QuantumFit"
-          navItems={navItems}
-          topActions={<LanguageSwitcher />}
-          logoutHref="/login"
-        >
-          {children}
-        </PanelShell>
+        <SettingsProvider defaultSettings={defaultSettings}>
+          <ThemeProvider>
+            <LocalizationProvider>
+              <I18nProvider lang="fa">
+                <AuthProvider>
+                  <TenantShell
+                    customNavItems={navItems}
+                    customTitle="پنل مربی"
+                    customCompanyName="فضای مربی"
+                    customLogoUrl="/images/login/logo-white.png"
+                  >
+                    {children}
+                  </TenantShell>
+                </AuthProvider>
+              </I18nProvider>
+            </LocalizationProvider>
+          </ThemeProvider>
+        </SettingsProvider>
       </body>
     </html>
   );

@@ -1,0 +1,27 @@
+{
+  "home": "Trang chủ",
+  "myDesigns": "Thiết kế của tôi",
+  "design": "thiết kế",
+  "designsPage": {
+    "noDesignsYet": "Bạn chưa có thiết kế nào",
+    "allDesignsShown": "Tất cả thiết kế đã được hiển thị",
+    "errorLoadingDesigns": "Lỗi khi tải thiết kế",
+    "designWithoutName": "Thiết kế không có tên",
+    "unknownCategory": "Danh mục không xác định"
+  },
+  "faqs": "Câu hỏi thường gặp",
+  "contact": "Liên hệ",
+  "about": "Về chúng tôi",
+  "login": "Đăng nhập",
+  "register": "Đăng ký",
+  "app": "Ứng dụng",
+  "job": "Công việc",
+  "user": "Người dùng",
+  "travel": "Du lịch",
+  "invoice": "Hóa đơn",
+  "blog": {
+    "title": "Blog",
+    "caption": "Phím tắt tùy chỉnh."
+  },
+  "subheader": "Tiêu đề phụ"
+}

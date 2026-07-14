@@ -1,0 +1,34 @@
+{
+  "advertisement": {
+    "mainHeading": "بیش از یک میلیون طرح!",
+    "freeShippingText": "ارسال رایگان فقط تا",
+    "deadline": "آخر هفته"
+  },
+  "categories": {
+    "heading": "دسته‌بندی ها",
+    "description": "یه لباس انتخاب کن و {{freeText}} طراحی کن!",
+    "freeText": "رایگان",
+    "allTab": "همه"
+  },
+  "products": {
+    "unnamedProduct": "محصول بدون نام",
+    "loadError": "خطا در دریافت محصولات",
+    "reloadPage": "لطفاً صفحه را بارگذاری مجدد کنید",
+    "tryAgain": "لطفاً دوباره تلاش کنید",
+    "retryButton": "تلاش مجدد"
+  },
+  "recentDesigns": {
+    "title": "طراحی های اخیر من",
+    "viewAll": "مشاهده همه",
+    "empty": "هنوز طراحی اخیری ندارید",
+    "untitled": "طرح بدون نام",
+    "unknownCategory": "دسته‌بندی نامشخص",
+    "deleteDialog": {
+      "title": "حذف طراحی",
+      "message": "آیا از حذف این طراحی اطمینان دارید؟ این عمل قابل بازگشت نیست.",
+      "confirmText": "حذف",
+      "cancelText": "انصراف"
+    }
+  },
+  "currency": "تومان"
+}

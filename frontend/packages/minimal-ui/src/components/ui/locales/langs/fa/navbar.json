@@ -1,0 +1,17 @@
+{
+  "home": "صفحه اصلی",
+  "myDesigns": "طراحی های من",
+  "design": "طراحی",
+  "designsPage": {
+    "noDesignsYet": "هنوز طراحی ندارید",
+    "allDesignsShown": "تمام طراحی‌ها نمایش داده شد",
+    "errorLoadingDesigns": "خطا در بارگذاری طراحی‌ها",
+    "designWithoutName": "طرح بدون نام",
+    "unknownCategory": "دسته‌بندی نامشخص"
+  },
+  "faqs": "سوالات متداول",
+  "contact": "ارتباط با ما",
+  "about": "درباره ما",
+  "login": "ورود",
+  "register": "ثبت نام"
+}

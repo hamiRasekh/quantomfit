@@ -1,0 +1,198 @@
+{
+  "title": "Text on model",
+  "emptyState": "Select a part of the model first",
+  "style": {
+    "customName": "Custom"
+  },
+  "preview": {
+    "sampleFa": "متن نمونه",
+    "sampleEn": "Sample Text"
+  },
+  "steps": {
+    "write": "Content & color",
+    "material": "Text material",
+    "color": "Text color",
+    "finalize": "Style settings"
+  },
+  "toast": {
+    "applied": "Text applied",
+    "updated": "Text updated",
+    "textureError": "Error creating text texture",
+    "fontLoadError": "Failed to load font",
+    "undo": "Reverted to previous change",
+    "redo": "Moved to next change",
+    "needMesh": "Select a part of the model first",
+    "needText": "Please enter some text",
+    "textureError": "Error creating text texture",
+    "updated": "Text updated"
+  },
+  "threads": {
+    "empty": "No colors available.",
+    "error": {
+      "fetch": "Failed to load thread colors",
+      "network": "Connection error while loading colors"
+    }
+  },
+  "sections": {
+    "write": {
+      "title": "Write your text",
+      "placeholder": "Type your text here..."
+    },
+    "production": {
+      "title": "Production type",
+      "subtitle": "Print or embroidery?",
+      "print": {
+        "label": "Print",
+        "description": "Best for colorful and detailed designs"
+      },
+      "embroidery": {
+        "label": "Embroidery",
+        "description": "Best for bold, simple lettering"
+      }
+    },
+    "color": {
+      "title": "Text color",
+      "subtitle": "Adjust the color",
+      "label": "Text color",
+      "serviceNote": "Thread colors — choose from the service",
+      "selected": "Selected:",
+      "pick": "Pick custom color"
+    },
+    "final": {
+      "title": "Finalize settings",
+      "subtitle": "Adjust font, size, and style",
+      "categories": {
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "body": "Body"
+      },
+      "font": {
+        "label": "Font",
+        "loading": "Loading...",
+        "empty": "No fonts found",
+        "search": "Search fonts...",
+        "searchFa": "Search Persian fonts...",
+        "searchEn": "Search English fonts...",
+        "all": "All",
+        "fa": "Persian",
+        "en": "English"
+      },
+      "size": {
+        "label": "Size",
+        "toggleList": "Size list",
+        "toggleCustom": "+ Custom size",
+        "placeholder": "Size (16-200)",
+        "unit": "px"
+      },
+      "style": {
+        "label": "Text style",
+        "alignment": "Text alignment",
+        "weight": "Font weight",
+        "italic": "Italic",
+        "format": "Text format"
+      }
+    }
+  },
+  "buttons": {
+    "apply": "Apply text to model"
+  },
+  "material": {
+    "errors": {
+      "embroideryNotSupported": "This fabric does not support embroidery. Please select another fabric or change production type to print.",
+      "printNotSupported": "This fabric does not support print. Please select another fabric or change production type to embroidery.",
+      "embroideryNotSupportedChange": "This fabric does not support embroidery. Please select another fabric or change production type to print.",
+      "printNotSupportedChange": "This fabric does not support print. Please select another fabric or change production type to embroidery.",
+      "embroideryNotSupportedSelect": "This fabric does not support embroidery. Please select another fabric.",
+      "printNotSupportedSelect": "This fabric does not support print. Please select another fabric."
+    },
+    "alerts": {
+      "embroideryNotSupported": "This fabric does not support embroidery",
+      "printNotSupported": "This fabric does not support print"
+    }
+  },
+  "overlay": {
+    "namePrefix": "Text: {{text}}"
+  },
+  "edit": {
+    "title": "Edit text",
+    "applyButton": "Apply changes"
+  },
+  "guide": {
+    "title": "How to use?",
+    "shortcuts": {
+      "title": "Keyboard shortcuts",
+      "apply": "Apply text",
+      "cancel": "Cancel",
+      "clickOutside": "Apply and close"
+    },
+    "tips": {
+      "title": "💡 Useful tips",
+      "freeEdit": {
+        "title": "Free editing:",
+        "description": "You can change font, color, and other settings from the toolbar while typing. The editor won't close!"
+      },
+      "position": {
+        "title": "Position adjustment:",
+        "description": "After applying, you can adjust the position, size, and rotation of the text using Gizmo."
+      },
+      "persianFonts": {
+        "title": "Persian fonts:",
+        "description": "For Persian text, be sure to use fonts like IRANSans."
+      }
+    },
+    "steps": [
+      {
+        "title": "Select mesh",
+        "description": "First, select a part (mesh) of the model."
+      },
+      {
+        "title": "Start typing",
+        "description": "The editor automatically opens in the center. Start writing."
+      },
+      {
+        "title": "Format",
+        "description": "Use the toolbar above the text to change font, size, and color."
+      },
+      {
+        "title": "Apply",
+        "description": "Click the check button or press Ctrl+Enter to apply the text to the model."
+      }
+    ],
+    "alerts": {
+      "selectMesh": "First select a part of the model to add text.",
+      "editorOpen": "Text editor has automatically opened. Start typing!"
+    }
+  },
+  "hint": {
+    "title": "Start writing",
+    "description": "Text editor has automatically opened. You can start typing.",
+    "tip": "💡 Tip: Text will be placed at the center of the selected mesh."
+  },
+  "stylePanel": {
+    "empty": {
+      "title": "Text on model",
+      "message": "First select a part of the model"
+    },
+    "freeTyping": "Free Typing",
+    "language": {
+      "fa": "Persian",
+      "en": "English"
+    },
+    "categories": {
+      "all": "All",
+      "heading": "Heading",
+      "subheading": "Subtitle",
+      "body": "Body"
+    },
+    "errors": {
+      "selectMesh": "Select a part of the model first"
+    }
+  },
+  "fontSize": {
+    "label": "Font size",
+    "min": "Small",
+    "max": "Large"
+  },
+  "currency": "Toman"
+}
+

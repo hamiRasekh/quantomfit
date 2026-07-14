@@ -30,7 +30,7 @@ export default async function Page() {
       </header>
       <div className="detail-grid">
         <article><span className="status">باشگاه</span><h3>{dashboard?.gymName ?? "باشگاه متصل"}</h3><p>از روی host یا هدر پنل تشخیص داده می‌شود.</p></article>
-        <article><span className="status">راه‌اندازی</span><h3>{onboarding?.status ?? "created"}</h3><p>وضعیت فعلی راه‌اندازی در PostgreSQL.</p></article>
+        <article><span className="status">راه‌اندازی</span><h3>{onboarding?.status ?? "ایجادشده"}</h3><p>وضعیت فعلی راه‌اندازی در PostgreSQL.</p></article>
         <article><span className="status">مرحله</span><h3>{onboarding?.step ?? "gym_name"}</h3><p>مرحله بعدی در ویزارد.</p></article>
       </div>
     </section>

@@ -1,0 +1,61 @@
+{
+  "breadcrumbs": {
+    "dashboard": "Dashboard",
+    "orderProcess": "Order process"
+  },
+  "list": {
+    "heading": "Order process"
+  },
+  "tabs": {
+    "all": "All",
+    "new": "New orders",
+    "waiting": "Waiting list",
+    "supply": "Supply stage",
+    "print": "Print & embroidery",
+    "sewing": "Sewing",
+    "packaging": "Press & packaging",
+    "shipping": "Shipping",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled"
+  },
+  "table": {
+    "orderNumber": "Order",
+    "name": "Customer",
+    "createdAt": "Date",
+    "totalQuantity": "Items",
+    "totalAmount": "Amount",
+    "status": "Status"
+  },
+  "actions": {
+    "delete": "Delete selected",
+    "print": "Print",
+    "import": "Import",
+    "export": "Export"
+  },
+  "filters": {
+    "startDate": "Start date",
+    "endDate": "End date",
+    "endDateError": "End date must be later than start date",
+    "searchPlaceholder": "Search customer or order number...",
+    "status": "Status:",
+    "date": "Date:",
+    "keyword": "Keyword:"
+  },
+  "dialogs": {
+    "delete": {
+      "title": "Delete orders",
+      "description": "Bulk delete will be available soon. Please use the API once it is published."
+    }
+  },
+  "toast": {
+    "deleteSoon": "Bulk delete is not connected yet."
+  },
+  "detail": {
+    "canvas": {
+      "title": "Canvas & model preview",
+      "model": "Model",
+      "variant": "Variant",
+      "downloadTexture": "Download texture"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "demo": {
+    "lang": "English",
+    "description": "The starting point for your next project is based on MUI. Easy customization helps you build apps faster and better."
+  },
+  "notFound": {
+    "title": "Sorry, page not found!",
+    "description": "Sorry, we couldn't find the page you're looking for. Perhaps you've mistyped the URL? Be sure to check your spelling.",
+    "goToHome": "Go to home"
+  },
+  "forbidden": {
+    "title": "No permission",
+    "description": "The page you're trying to access has restricted access. Please refer to your system administrator.",
+    "goToHome": "Go to home"
+  },
+  "serverError": {
+    "title": "500 Internal server error",
+    "description": "There was an error, please try again later.",
+    "goToHome": "Go to home"
+  },
+  "needHelp": "Need help?",
+  "signIn": "Sign in",
+  "signOut": "Sign out",
+  "table": {
+    "dense": "Dense",
+    "noData": "No data"
+  },
+  "filters": {
+    "resultsFound": "results found",
+    "clear": "Clear",
+    "startDate": "Start date",
+    "endDate": "End date",
+    "endDateError": "End date must be later than start date",
+    "searchPlaceholder": "Search name, email or mobile..."
+  },
+  "footer": {
+    "quickAccess": "Quick Access",
+    "address": "Address:",
+    "instagram": "Instagram:",
+    "trustSeals": "Trust Seals"
+  }
+}

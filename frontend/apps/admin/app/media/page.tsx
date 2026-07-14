@@ -88,7 +88,7 @@ export default function Page() {
               </select>
             </div>
             <div className="form-field">
-              <label>URL</label>
+              <label>نشانی</label>
               <input value={form.url} onChange={(e) => setForm({ ...form, url: e.target.value })} />
             </div>
             <div className="form-field">
@@ -118,7 +118,7 @@ export default function Page() {
                   <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>{item.url}</small>
                 </span>
                 <span>{item.kind}</span>
-                <span>{item.gymId || "platform"}</span>
+                <span>{item.gymId || "پلتفرم"}</span>
                 <button className="button secondary" type="button" onClick={() => removeMedia(item.id)}>حذف</button>
               </div>
             )) : (

@@ -1,19 +1,6 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/analytics/page": "app/analytics/page.js",
-  "/audit/page": "app/audit/page.js",
-  "/create-gym/page": "app/create-gym/page.js",
-  "/coupons/page": "app/coupons/page.js",
-  "/content/page": "app/content/page.js",
-  "/demo-accounts/page": "app/demo-accounts/page.js",
-  "/demo-requests/page": "app/demo-requests/page.js",
-  "/discounts/page": "app/discounts/page.js",
-  "/gyms/[gymId]/page": "app/gyms/[gymId]/page.js",
-  "/login/page": "app/login/page.js",
-  "/gyms/page": "app/gyms/page.js",
-  "/media/page": "app/media/page.js",
   "/page": "app/page.js",
   "/plans/page": "app/plans/page.js",
-  "/users/page": "app/users/page.js",
-  "/system/page": "app/system/page.js"
+  "/gyms/page": "app/gyms/page.js",
+  "/create-gym/page": "app/create-gym/page.js"
 }

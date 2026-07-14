@@ -24,6 +24,10 @@ export default async function Page() {
     sessions = [];
   }
 
+  function formatStatus(status: string) {
+    return status === "completed" ? "تکمیل‌شده" : status === "pending" ? "در انتظار" : status;
+  }
+
   return (
     <section className="shell">
       <header className="hero">
@@ -36,7 +40,7 @@ export default async function Page() {
           <article key={session.id}>
             <span className="status">{session.dayLabel || "سشن"}</span>
             <h3>{session.title}</h3>
-            <p>{session.status}{session.notes ? ` · ${session.notes}` : ""}</p>
+            <p>{formatStatus(session.status)}{session.notes ? ` · ${session.notes}` : ""}</p>
           </article>
         )) : (
           <>

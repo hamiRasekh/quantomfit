@@ -1,0 +1,18 @@
+{
+  "support": {
+    "title": "VOODY",
+    "subtitle": "آنلاین",
+    "welcomeMessage": "سلام! چطور میتونم کمکت کنم؟",
+    "placeholder": "پیام خود را بنویسید...",
+    "quickReplies": {
+      "newOrder": "سفارش جدید دارم",
+      "trackOrder": "پیگیری سفارش",
+      "faqs": "سوالات متداول",
+      "aboutUs": "درباره ما",
+      "contactUs": "تماس با ما",
+      "humanOperator": "ارتباط با اپراتور"
+    },
+    "humanOperatorButton": "ارتباط با اپراتور"
+  }
+}
+

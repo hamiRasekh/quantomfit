@@ -1,0 +1,42 @@
+{
+  "search": {
+    "placeholder": "Search design bank"
+  },
+  "material": {
+    "warnings": {
+      "embroideryNotSupported": "Your design includes embroidery but the selected fabric does not support embroidery.",
+      "printNotSupported": "Your design includes print but the selected fabric does not support print."
+    },
+    "toast": {
+      "embroideryNotSupported": "This fabric does not support embroidery. Please select another fabric or remove existing embroidery.",
+      "printNotSupported": "This fabric does not support print. Please select another fabric or remove existing prints.",
+      "embroideryNotSupportedSelect": "This fabric does not support embroidery. Please select another fabric.",
+      "printNotSupportedSelect": "This fabric does not support print. Please select another fabric."
+    }
+  },
+  "tabs": {
+    "all": "All"
+  },
+  "alerts": {
+    "noTabsForMaterial": "No design tabs available for this fabric",
+    "selectMeshFirst": "Please select a part of the garment first",
+    "templateNoImage": "This design has no image"
+  },
+  "error": {
+    "loadFailed": "Load error",
+    "retry": "Retry",
+    "retrying": "Retrying...",
+    "tryAgain": "Please try again",
+    "prepareDesignFailed": "Error preparing design: {{message}}"
+  },
+  "empty": {
+    "noMoreItems": "All items displayed",
+    "noResults": "No results found",
+    "tryOtherKeywords": "Please try other keywords"
+  },
+  "card": {
+    "altText": "Design bank template"
+  },
+  "currency": "Toman"
+}
+

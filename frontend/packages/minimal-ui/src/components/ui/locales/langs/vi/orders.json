@@ -1,0 +1,14 @@
+{
+  "emptyState": {
+    "noOrdersTitle": "Bạn chưa có đơn hàng nào",
+    "noOrdersDescription": "Bạn chưa đặt đơn hàng nào. Để xem đơn hàng của bạn, hãy thực hiện mua hàng đầu tiên.",
+    "startShopping": "Bắt đầu mua sắm"
+  },
+  "error": {
+    "loadOrdersTitle": "Lỗi khi tải đơn hàng",
+    "loadOrdersDescription": "Đã xảy ra sự cố khi tải đơn hàng của bạn. Vui lòng thử lại.",
+    "tryAgain": "Thử lại"
+  },
+  "loadMore": "Tải thêm"
+}
+

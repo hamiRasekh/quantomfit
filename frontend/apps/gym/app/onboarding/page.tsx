@@ -183,7 +183,7 @@ export default function Page() {
       <header className="hero">
         <span className="label">ویزارد راه‌اندازی</span>
         <h1>راه‌اندازی باشگاه را کامل کن تا پنل فعال شود.</h1>
-        <p>وضعیت: {state?.status ?? "created"} · مرحله: {state?.step ?? currentStep.key}</p>
+        <p>وضعیت: {state?.status ?? "ایجادشده"} · مرحله: {state?.step ?? currentStep.key}</p>
       </header>
       <div className="content">
         <section className="panel">
@@ -191,7 +191,7 @@ export default function Page() {
             <span>{currentStep.label}</span>
             <em>{completedStepCount}/{steps.length}</em>
           </div>
-          <p style={{ color: "var(--text-muted)", marginTop: 0 }}>{currentStep.hint}</p>
+          <p style={{ color: "var(--qf-muted)", marginTop: 0 }}>{currentStep.hint}</p>
           {stepIndex === 0 ? <div className="form-field"><label>نام باشگاه</label><input value={form.gymName} onChange={(e) => setForm({ ...form, gymName: e.target.value })} placeholder="کوانتوم‌فیت مرکزی" /></div> : null}
           {stepIndex === 1 ? <div className="form-field"><label>نوع باشگاه</label><select value={form.gymType} onChange={(e) => setForm({ ...form, gymType: e.target.value })}><option value="male">مردانه</option><option value="female">زنانه</option><option value="mixed">مختلط</option></select></div> : null}
           {stepIndex === 2 ? <div className="form-field"><label>موقعیت</label><input value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} placeholder="تهران، خیابان ولیعصر" /></div> : null}
@@ -216,7 +216,7 @@ export default function Page() {
                   </article>
                 ))}
               </div>
-              <p style={{ color: "var(--text-muted)", lineHeight: 1.6 }}>
+              <p style={{ color: "var(--qf-muted)", lineHeight: 1.6 }}>
                 قبل از فعال‌سازی، داده‌ها را بازبینی کن. بعد از تأیید، پنل باشگاه فعال می‌شود.
               </p>
             </div>
@@ -232,7 +232,7 @@ export default function Page() {
         <aside className="panel">
           <div className="section-head">
             <span>مراحل راه‌اندازی</span>
-            <em>{state?.status ?? "created"}</em>
+            <em>{state?.status ?? "ایجادشده"}</em>
           </div>
           <div className="stepper">
             {steps.map((step, index) => (
@@ -242,7 +242,7 @@ export default function Page() {
               </div>
             ))}
           </div>
-          <p style={{ color: "var(--text-muted)", marginTop: 16, lineHeight: 1.6 }}>
+          <p style={{ color: "var(--qf-muted)", marginTop: 16, lineHeight: 1.6 }}>
             {currentStep.label} مرحله‌ی فعال است. داده‌ها در هر ادامه در PostgreSQL ذخیره می‌شوند.
           </p>
           <div className="stepper">

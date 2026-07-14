@@ -35,7 +35,7 @@ export default function Page() {
   const [items, setItems] = useState<ContentItem[]>([]);
   const [message, setMessage] = useState("");
   const [form, setForm] = useState<ContentItem>({
-    locale: "en",
+    locale: "fa",
     section: "homepage",
     title: "QuantumFit",
     subtitle: "عملیات پریمیوم باشگاهی با هوش زنده.",
@@ -110,7 +110,7 @@ export default function Page() {
             <div className="form-field"><label>متن</label><textarea rows={4} value={form.body} onChange={(e) => setForm({ ...form, body: e.target.value })} /></div>
             <div className="form-field"><label>دعوت‌به‌اقدام</label><input value={form.cta} onChange={(e) => setForm({ ...form, cta: e.target.value })} /></div>
             <div className="form-field"><label>ویژگی‌ها</label><input value={form.features?.join(", ") ?? ""} onChange={(e) => setForm({ ...form, features: e.target.value.split(",").map((item) => item.trim()).filter(Boolean) })} /></div>
-            <div className="form-field"><label>FAQ JSON</label><textarea rows={4} value={JSON.stringify(form.faq ?? [], null, 2)} onChange={(e) => setForm({ ...form, faq: parseJSON(e.target.value, []) })} /></div>
+            <div className="form-field"><label>سوالات متداول JSON</label><textarea rows={4} value={JSON.stringify(form.faq ?? [], null, 2)} onChange={(e) => setForm({ ...form, faq: parseJSON(e.target.value, []) })} /></div>
             <div className="form-field"><label>نظرات JSON</label><textarea rows={4} value={JSON.stringify(form.testimonials ?? [], null, 2)} onChange={(e) => setForm({ ...form, testimonials: parseJSON(e.target.value, []) })} /></div>
             <div className="form-field"><label>تصاویر JSON</label><textarea rows={3} value={JSON.stringify(form.images ?? [], null, 2)} onChange={(e) => setForm({ ...form, images: parseJSON(e.target.value, []) })} /></div>
             <div className="form-field"><label>متا JSON</label><textarea rows={3} value={JSON.stringify(form.meta ?? {}, null, 2)} onChange={(e) => setForm({ ...form, meta: parseJSON(e.target.value, {}) })} /></div>

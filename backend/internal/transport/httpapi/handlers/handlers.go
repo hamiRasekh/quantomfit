@@ -122,6 +122,7 @@ func (h *Handlers) CreateGym(w http.ResponseWriter, r *http.Request) {
 		OwnerEmail:    req.OwnerEmail,
 		OwnerPassword: req.OwnerPassword,
 		OwnerPhone:    req.OwnerPhone,
+		OwnerID:       req.OwnerID,
 		GymType:       req.GymType,
 		Location:      req.Location,
 		SizeSqm:       req.SizeSqm,
@@ -883,6 +884,20 @@ func (h *Handlers) ListGyms(w http.ResponseWriter, r *http.Request) {
 		"items": items,
 		"count": len(items),
 	})
+}
+
+func (h *Handlers) GymDetail(w http.ResponseWriter, r *http.Request) {
+	gymID := strings.TrimSpace(strings.TrimPrefix(r.URL.Path, "/api/v1/admin/gyms/"))
+	if gymID == "" {
+		response.JSON(w, http.StatusBadRequest, map[string]any{"error": "gym id is required"})
+		return
+	}
+	item, err := h.Store.GetGymByTenantID(r.Context(), gymID)
+	if err != nil {
+		response.JSON(w, http.StatusNotFound, map[string]any{"error": "gym not found"})
+		return
+	}
+	response.JSON(w, http.StatusOK, item)
 }
 
 func (h *Handlers) UpdateGym(w http.ResponseWriter, r *http.Request) {

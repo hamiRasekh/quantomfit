@@ -1,23 +1,23 @@
 export default function Page() {
   return (
     <section className="page-section">
-      <span className="kicker">About</span>
-      <h1>Built to connect gyms, coaches, and athletes in one web-first ecosystem.</h1>
+      <span className="kicker">درباره</span>
+      <h1>برای اتصال باشگاه‌ها، مربی‌ها و ورزشکارها در یک اکوسیستم وب‌محور ساخته شده.</h1>
       <p>
-        QuantumFit turns the gym into a live, premium digital experience with tenant safety, bilingual UI, and centralized content control.
+        QuantumFit باشگاه را به یک تجربه دیجیتال زنده و پریمیوم تبدیل می‌کند، با امنیت مستاجر، رابط فارسی و کنترل متمرکز محتوا.
       </p>
       <div className="copy-grid">
         <article>
-          <h3>Mission</h3>
-          <p>Give gyms a modern operating layer without forcing a risky full replacement on day one.</p>
+          <h3>ماموریت</h3>
+          <p>به باشگاه‌ها یک لایه عملیاتی مدرن بدهد، بدون اینکه از روز اول مجبور به جایگزینی پرریسک شوند.</p>
         </article>
         <article>
-          <h3>Vision</h3>
-          <p>Make every gym feel as measurable and polished as a world-class digital product.</p>
+          <h3>چشم‌انداز</h3>
+          <p>هر باشگاه را به‌اندازه یک محصول دیجیتال جهانی، سنجش‌پذیر و صیقلی کند.</p>
         </article>
         <article>
-          <h3>Why it exists</h3>
-          <p>Owners need one place for operations, trainers need focus, and athletes need clarity.</p>
+          <h3>چرایی</h3>
+          <p>مالک‌ها یک نقطه برای عملیات می‌خواهند، مربی‌ها تمرکز، و ورزشکارها وضوح.</p>
         </article>
       </div>
     </section>

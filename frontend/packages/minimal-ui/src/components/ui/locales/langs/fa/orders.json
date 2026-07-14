@@ -1,0 +1,62 @@
+{
+  "emptyState": {
+    "noOrdersTitle": "هنوز سفارشی ندارید",
+    "noOrdersDescription": "شما هنوز سفارشی ثبت نکرده‌اید. برای مشاهده سفارشات خود، اولین خرید را انجام دهید.",
+    "startShopping": "شروع خرید"
+  },
+  "error": {
+    "loadOrdersTitle": "خطا در بارگذاری سفارشات",
+    "loadOrdersDescription": "مشکلی در بارگذاری سفارشات شما پیش آمد. لطفاً دوباره تلاش کنید.",
+    "tryAgain": "تلاش مجدد"
+  },
+  "loadMore": "مشاهده بیشتر",
+  "loading": "در حال بارگذاری...",
+  "details": {
+    "orderStatus": "وضعیت سفارش",
+    "orderDetails": "جزئیات سفارش",
+    "orderNumber": "سفارش #{{id}}",
+    "canvasSku": "Canvas #{{id}}",
+    "subtotal": "جمع جزء",
+    "shippingCost": "هزینه ارسال",
+    "free": "رایگان",
+    "paymentMethod": "روش پرداخت",
+    "unknown": "نامشخص",
+    "appliedDiscount": "تخفیف اعمال شده",
+    "noDiscount": "بدون تخفیف",
+    "discountCode": "کد تخفیف",
+    "tax": "مالیات",
+    "totalAmount": "مبلغ قابل پرداخت",
+    "viewMoreProducts": "مشاهده {{count}} محصول دیگر",
+    "showLess": "نمایش کمتر"
+  },
+  "status": {
+    "pending": "در انتظار",
+    "processing": "در حال پردازش",
+    "shipped": "ارسال شده",
+    "delivered": "تحویل داده شده",
+    "cancelled": "لغو شده",
+    "refunded": "بازپرداخت شده"
+  },
+  "delivery": {
+    "title": "اطلاعات ارسال",
+    "shippingMethod": "روش ارسال",
+    "description": "توضیحات",
+    "shippingCost": "هزینه ارسال",
+    "trackingNumber": "کد پیگیری",
+    "free": "رایگان",
+    "unknown": "نامشخص"
+  },
+  "shipping": {
+    "title": "آدرس ارسال",
+    "addressType": "نوع آدرس",
+    "address": "آدرس",
+    "phoneNumber": "شماره تماس"
+  },
+  "list": {
+    "orderNumber": "سفارش #{{id}}",
+    "productCount": "{{count}} محصول",
+    "viewDetails": "مشاهده جزئیات"
+  },
+  "currency": "تومان"
+}
+

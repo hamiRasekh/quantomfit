@@ -49,6 +49,20 @@ export default function Page() {
     return users.filter((user) => user.role === roleFilter);
   }, [roleFilter, users]);
 
+  function formatRole(role: string) {
+    const map: Record<string, string> = {
+      admin: "ادمین",
+      gym_owner: "باشگاه",
+      trainer: "مربی",
+      athlete: "ورزشکار",
+    };
+    return map[role] ?? role;
+  }
+
+  function formatStatus(status: string) {
+    return status === "active" ? "فعال" : status === "inactive" ? "غیرفعال" : status;
+  }
+
   async function toggleStatus(user: User) {
     setMessage("");
     const nextStatus = user.status === "active" ? "inactive" : "active";
@@ -99,8 +113,8 @@ export default function Page() {
                 <strong>{user.email}</strong>
                 <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>{user.phone ?? "شماره ثبت نشده"}</small>
               </span>
-              <span>{user.role} · {user.status}</span>
-              <span>{user.gymName || "platform"}</span>
+              <span>{formatRole(user.role)} · {formatStatus(user.status)}</span>
+              <span>{user.gymName || "پلتفرم"}</span>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                 <button className="button secondary" type="button" onClick={() => toggleStatus(user)}>
                   {user.status === "active" ? "غیرفعال" : "فعال"}

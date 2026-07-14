@@ -1,0 +1,18 @@
+{
+  "support": {
+    "title": "VOODY",
+    "subtitle": "متصل",
+    "welcomeMessage": "مرحباً! كيف يمكنني مساعدتك؟",
+    "placeholder": "اكتب رسالتك...",
+    "quickReplies": {
+      "newOrder": "لدي طلب جديد",
+      "trackOrder": "تتبع الطلب",
+      "faqs": "الأسئلة الشائعة",
+      "aboutUs": "معلومات عنا",
+      "contactUs": "اتصل بنا",
+      "humanOperator": "التحدث مع المشغل"
+    },
+    "humanOperatorButton": "التحدث مع المشغل"
+  }
+}
+

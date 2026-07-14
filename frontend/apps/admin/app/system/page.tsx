@@ -22,12 +22,12 @@ export default async function Page() {
       <header className="panel hero">
         <span className="label">سیستم</span>
         <h1>سلامت پلتفرم و جزئیات اجرا.</h1>
-        <p>Runtime، نسخه سرویس و uptime بک‌اند Go را مانیتور کن.</p>
+        <p>نسخه سرویس، محیط اجرا و زمان روشن‌بودن بک‌اند Go را مانیتور کن.</p>
       </header>
       <div className="detail-grid">
-        <article><span className="status">سلامت</span><h3>{health?.status ?? "نامشخص"}</h3><p>Endpoint سلامت API.</p></article>
-        <article><span className="status">Runtime</span><h3>{platform?.version ?? "dev"}</h3><p>{platform?.env ?? "development"}</p></article>
-        <article><span className="status">Uptime</span><h3>{health?.uptimeSec ?? 0}s</h3><p>زمان کارکرد بک‌اند Go.</p></article>
+        <article><span className="status">سلامت</span><h3>{health?.status ?? "نامشخص"}</h3><p>نقطه سلامت API.</p></article>
+        <article><span className="status">نسخه</span><h3>{platform?.version ?? "توسعه"}</h3><p>{platform?.env ?? "محیط توسعه"}</p></article>
+        <article><span className="status">زمان اجرا</span><h3>{health?.uptimeSec ?? 0}s</h3><p>زمان کارکرد بک‌اند Go.</p></article>
       </div>
     </section>
   );

@@ -48,6 +48,10 @@ export default async function Page() {
   const memberStats = dashboard?.members;
   const onboardingActive = onboarding?.status === "active";
 
+  function formatStatus(status: string) {
+    return status === "active" ? "فعال" : status === "inactive" ? "غیرفعال" : status === "pending" ? "در انتظار" : status;
+  }
+
   return (
     <section className="shell">
       <header className="hero">
@@ -74,9 +78,9 @@ export default async function Page() {
         <section className="panel" style={{ marginBottom: 24 }}>
           <div className="section-head">
             <span>تکمیل راه‌اندازی لازم است</span>
-            <em>{onboarding?.status ?? "pending"} · {onboarding?.step ?? "gym_name"}</em>
+            <em>{onboarding?.status ?? "در انتظار"}</em>
           </div>
-          <p style={{ color: "var(--text-muted)", lineHeight: 1.7 }}>
+          <p style={{ color: "var(--qf-muted)", lineHeight: 1.7 }}>
             ویزارد راه‌اندازی را کامل کن تا پنل باشگاه فعال شود و عملیات زنده، حضور و تحلیل‌ها باز شوند.
           </p>
           <ol className="wizard">
@@ -117,7 +121,7 @@ export default async function Page() {
           <div className="table">
             <div><strong>نام</strong><strong>وضعیت</strong><strong>پلن</strong></div>
             {members.length > 0 ? members.map((member) => (
-              <div key={member.id}><span>{member.fullName}</span><span>{member.status}</span><span>عضو</span></div>
+              <div key={member.id}><span>{member.fullName}</span><span>{formatStatus(member.status)}</span><span>عضو</span></div>
             )) : (
               <div><span>{dashboard?.members ? "اعضا بارگذاری شدند" : "هنوز داده‌ای نیست"}</span><span>{dashboard?.members?.active ?? 0}</span><span>{dashboard?.members?.newThisMonth ?? 0}</span></div>
             )}
@@ -148,7 +152,7 @@ export default async function Page() {
             <div><strong>پیامک پیگیری</strong><span>{dashboard?.realtime?.alerts ?? 0} هشدار در صف وجود دارد.</span></div>
             {trainers.length > 0 ? (
               trainers.slice(0, 2).map((trainer) => (
-                <div key={trainer.id}><strong>{trainer.fullName}</strong><span>{trainer.specialty ?? trainer.status}</span></div>
+                <div key={trainer.id}><strong>{trainer.fullName}</strong><span>{trainer.specialty ?? formatStatus(trainer.status)}</span></div>
               ))
             ) : null}
           </div>
@@ -162,7 +166,7 @@ export default async function Page() {
             <em>عملیاتی</em>
           </div>
           <div className="detail-grid">
-            <article><span className="status">سالم</span><h3>کنترل دسترسی</h3><p>همه مسیرهای پنل tenant-aware هستند.</p></article>
+            <article><span className="status">سالم</span><h3>کنترل دسترسی</h3><p>همه مسیرهای پنل نسبت به مستاجر آگاه هستند.</p></article>
             <article><span className="status">پایدار</span><h3>مالی</h3><p>منطق تمدید پلن و کد تخفیف آماده است.</p></article>
             <article><span className="status">زنده</span><h3>تراکم</h3><p>شمارنده‌های لحظه‌ای برای استریم آماده‌اند.</p></article>
           </div>

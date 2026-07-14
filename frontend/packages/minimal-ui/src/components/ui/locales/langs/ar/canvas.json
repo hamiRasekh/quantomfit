@@ -1,0 +1,81 @@
+{
+  "loading": {
+    "default": "جاري التحميل...",
+    "data": "جاري تحميل البيانات...",
+    "model": "جاري تحميل النموذج ثلاثي الأبعاد...",
+    "editor": "جاري تحميل محرر اللوحة..."
+  },
+  "error": {
+    "loadFailed": "فشل تحميل بيانات اللوحة",
+    "modelNotFound": "لم يتم العثور على نموذج المنتج",
+    "noData": "لم يتم العثور على بيانات اللوحة",
+    "retry": "إعادة المحاولة",
+    "loadModelFailed": "فشل تحميل النموذج ثلاثي الأبعاد: {{error}}"
+  },
+  "messages": {
+    "checkModelFile": "يرجى التحقق مما إذا كان المنتج يحتوي على ملف نموذج ثلاثي الأبعاد"
+  },
+  "magic": {
+    "errors": {
+      "productNameRequired": "اسم المنتج مطلوب",
+      "screenshotNotAvailable": "لقطة الشاشة غير متاحة. يرجى الانتظار قليلاً والمحاولة مرة أخرى."
+    },
+    "generatedImageAlt": "صورة تم إنشاؤها",
+    "button": {
+      "ariaLabel": "أداة سحرية"
+    }
+  },
+  "dialogs": {
+    "confirm": {
+      "defaultConfirmText": "تأكيد",
+      "defaultCancelText": "إلغاء"
+    }
+  },
+  "gpu": {
+    "label": "GPU:",
+    "tiers": {
+      "veryLow": "منخفض جداً",
+      "low": "منخفض",
+      "medium": "متوسط",
+      "high": "عالي",
+      "unknown": "غير معروف"
+    },
+    "smoothEdges": "حواف ناعمة",
+    "sharpEdges": "حواف حادة"
+  },
+  "meshSelector": {
+    "selectMesh": "اختر الشبكة",
+    "currentMesh": "الشبكة الحالية",
+    "cannotMoveToSameMesh": "لا يمكن نقل التصميم إلى نفس الشبكة",
+    "noMeshesAvailable": "لا توجد شبكات متاحة",
+    "copy": "نسخ",
+    "move": "نقل"
+  },
+  "sizePrice": {
+    "title": "الحجم والكمية",
+    "sizeGuideLink": "دليل الحجم",
+    "confirm": "تأكيد",
+    "sizeGuideTitle": "دليل الحجم",
+    "sizeGuideDescription": "لاختيار الحجم المناسب، استخدم الجدول أدناه:",
+    "sizeGuideTip": "💡 نصيحة: إذا كنت غير متأكد من اختيار الحجم، اختر الحجم الأكبر.",
+    "table": {
+      "size": "الحجم",
+      "height": "الطول (سم)",
+      "weight": "الوزن (كجم)"
+    }
+  },
+  "stateControls": {
+    "saveStateTooltip": "حفظ حالة اللوحة",
+    "restoreStateTooltip": "استعادة حالة اللوحة",
+    "saveSuccess": "تم حفظ حالة اللوحة بنجاح",
+    "saveError": "خطأ في حفظ حالة اللوحة",
+    "restoreSuccess": "تم استعادة حالة اللوحة بنجاح",
+    "restoreError": "خطأ في استعادة حالة اللوحة",
+    "saveButton": "حفظ الحالة",
+    "restoreButton": "استعادة الحالة"
+  },
+  "canvas": {
+    "manualSave": "حفظ يدوي"
+  }
+}
+

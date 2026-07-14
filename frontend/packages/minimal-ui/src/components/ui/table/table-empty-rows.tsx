@@ -1,0 +1,34 @@
+'use client';
+
+import type { TableRowProps } from '@mui/material/TableRow';
+
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+
+// ----------------------------------------------------------------------
+
+export type TableEmptyRowsProps = TableRowProps & {
+  height?: number;
+  emptyRows: number;
+  colSpan?: number;
+};
+
+export function TableEmptyRows({ emptyRows, height, colSpan = 9, sx, ...other }: TableEmptyRowsProps) {
+  if (!emptyRows) {
+    return null;
+  }
+
+  return (
+    <TableRow
+      sx={[
+        () => ({
+          ...(height && { height: height * emptyRows }),
+        }),
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
+      {...other}
+    >
+      <TableCell colSpan={colSpan} sx={{ border: 0 }} />
+    </TableRow>
+  );
+}

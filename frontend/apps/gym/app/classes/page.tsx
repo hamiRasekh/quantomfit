@@ -23,6 +23,10 @@ export default function Page() {
   const [classes, setClasses] = useState<GymClass[]>([]);
   const [form, setForm] = useState({ trainerId: "", title: "", capacity: 20, schedule: "", status: "active" });
 
+  function formatStatus(status: string) {
+    return status === "active" ? "فعال" : status === "inactive" ? "غیرفعال" : status;
+  }
+
   useEffect(() => {
     let mounted = true;
     api.get<{ items: GymClass[] }>("/api/v1/classes?limit=24")
@@ -86,6 +90,7 @@ export default function Page() {
               <strong>کلاس</strong>
               <strong>زمان</strong>
               <strong>ظرفیت</strong>
+              <strong>وضعیت</strong>
               <strong>عملیات</strong>
             </div>
             {classes.length > 0 ? classes.map((item) => (
@@ -96,11 +101,13 @@ export default function Page() {
                 </span>
                 <span>{item.schedule}</span>
                 <span>{item.capacity} نفر</span>
+                <span>{formatStatus(item.status)}</span>
                 <button className="button secondary" type="button" onClick={() => removeClass(item.id)}>حذف</button>
               </div>
             )) : (
               <div className="qf-table__row">
                 <span><strong>هنوز کلاسی ثبت نشده</strong><small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>اولین کلاس را از فرم بالا اضافه کن.</small></span>
+                <span>--</span>
                 <span>--</span>
                 <span>--</span>
                 <span>--</span>

@@ -1,0 +1,229 @@
+{
+  "title": "تسویه حساب",
+  "steps": {
+    "cart": "سبد خرید",
+    "shipping": "ارسال و آدرس",
+    "payment": "پرداخت",
+    "complete": "تکمیل"
+  },
+  "cart": {
+    "title": "سبد خرید",
+    "items": "محصول",
+    "product": "محصول",
+    "price": "قیمت",
+    "quantity": "تعداد",
+    "totalPrice": "قیمت کل",
+    "canvasId": "شناسه طرح",
+    "size": "سایز",
+    "continueShopping": "ادامه خرید",
+    "goBack": "بازگشت",
+    "checkOut": "تسویه حساب",
+    "empty": {
+      "title": "سبد خرید خالی است!",
+      "description": "به نظر می‌رسد هیچ محصولی در سبد خرید شما وجود ندارد.",
+      "button": "ادامه خرید"
+    },
+    "addSize": {
+      "action": "افزودن سایز جدید",
+      "dialogTitle": "افزودن سایز جدید",
+      "sizeLabel": "انتخاب سایز",
+      "quantityLabel": "تعداد",
+      "submit": "افزودن",
+      "loading": "در حال افزودن...",
+      "cancel": "انصراف",
+      "success": "سایز جدید با موفقیت به سبد اضافه شد.",
+      "error": "امکان افزودن سایز جدید وجود ندارد.",
+      "materialNotFound": "اطلاعات پارچه فعلی یافت نشد.",
+      "sizeRequired": "لطفاً سایز را انتخاب کنید.",
+      "noSizes": "اطلاعات سایز برای این محصول در دسترس نیست.",
+      "alreadyAdded": "در سبد: {{quantity}} عدد",
+      "noSelectable": "تمام سایزهای موجود برای این طرح در سبد شما هستند.",
+      "noSelection": "لطفاً مقدار موردنظر برای حداقل یک سایز را وارد کنید."
+    },
+    "deleteConfirmTitle": "حذف آیتم",
+    "deleteConfirmMessage": "آیا از حذف این آیتم از سبد خرید اطمینان دارید؟",
+    "deleteConfirm": "حذف",
+    "cancel": "انصراف",
+    "deleteSuccess": "آیتم با موفقیت از سبد خرید حذف شد.",
+    "sizeUnit": "سایز",
+    "showLess": "نمایش کمتر",
+    "showMoreSizes": "نمایش {{count}} سایز دیگر"
+  },
+  "billing": {
+    "title": "آدرس و صورتحساب",
+    "address": "آدرس",
+    "edit": "ویرایش",
+    "delete": "حذف",
+    "deliverToThisAddress": "ارسال به این آدرس",
+    "addAddress": "افزودن آدرس",
+    "noAddress": "آدرسی انتخاب نشده",
+    "back": "بازگشت"
+  },
+  "delivery": {
+    "title": "روش ارسال",
+    "standard": "استاندارد",
+    "express": "سریع",
+    "free": "رایگان",
+    "postpaid": "پس‌پرداخت"
+  },
+  "packaging": {
+    "title": "بسته‌بندی"
+  },
+  "payment": {
+    "title": "پرداخت",
+    "method": "روش پرداخت",
+    "complete": "تکمیل سفارش",
+    "processing": "در حال پردازش...",
+    "back": "بازگشت",
+    "error": {
+      "vpn": "لطفاً VPN خود را غیرفعال کنید تا بتوانید از این روش پرداخت استفاده کنید.",
+      "failed": "پرداخت ناموفق بود. لطفاً دوباره تلاش کنید."
+    }
+  },
+  "summary": {
+    "orderSummary": "خلاصه سفارش",
+    "subtotal": "جمع جزء",
+    "shipping": "هزینه ارسال",
+    "discount": "تخفیف",
+    "packaging": "بسته‌بندی",
+    "paymentFee": "کارمزد پرداخت",
+    "tax": "مالیات",
+    "total": "جمع کل",
+    "vatIncluded": "(مالیات بر ارزش افزوده در صورت وجود)",
+    "free": "رایگان",
+    "edit": "ویرایش",
+    "apply": "اعمال",
+    "discountPlaceholder": "کد تخفیف / کارت هدیه",
+    "discountApplied": "کد تخفیف با موفقیت اعمال شد."
+  },
+  "complete": {
+    "success": {
+      "title": "از خرید شما متشکریم!",
+      "message": "از ثبت سفارش شما متشکریم",
+      "orderId": "شناسه سفارش:",
+      "transactionId": "شناسه تراکنش:",
+      "notification": "هنگامی که سفارش ارسال شود، به شما اطلاع می‌دهیم.",
+      "questions": "در صورت داشتن سوال، با ما تماس بگیرید.",
+      "closing": "موفق باشید!"
+    },
+    "pending": {
+      "title": "پرداخت در انتظار",
+      "message": "پرداخت شما در حال پردازش است.",
+      "orderId": "شناسه سفارش:",
+      "transactionId": "شناسه تراکنش:",
+      "confirmation": "پس از تایید پرداخت، به شما اطلاع می‌دهیم."
+    },
+    "failed": {
+      "title": "پرداخت ناموفق",
+      "message": "متاسفانه پرداخت شما انجام نشد.",
+      "transactionId": "شناسه تراکنش:",
+      "retry": "لطفاً دوباره تلاش کنید یا از روش پرداخت دیگری استفاده کنید."
+    },
+    "continueShopping": "ادامه خرید",
+    "downloadPDF": "دانلود PDF"
+  },
+  "currency": {
+    "symbol": "ریال",
+    "prefix": "",
+    "suffix": " ریال",
+    "locale": "fa-IR",
+    "multiplier": 10,
+    "name": "تومان"
+  },
+  "meta": {
+    "cart": {
+      "title": "سبد خرید",
+      "description": "مشاهده و مدیریت محصولات سبد خرید شما در وودی"
+    },
+    "shipping": {
+      "title": "آدرس ارسال",
+      "description": "انتخاب و مدیریت آدرس ارسال سفارش شما در وودی"
+    },
+    "payment": {
+      "title": "پرداخت",
+      "description": "انتخاب روش پرداخت و تکمیل خرید شما در وودی"
+    },
+    "paymentStatus": {
+      "title": "وضعیت پرداخت - وودی",
+      "description": "مشاهده وضعیت پرداخت سفارش"
+    },
+    "paymentCallback": {
+      "title": "پردازش پرداخت",
+      "description": "در حال پردازش پرداخت شما - وودی"
+    },
+    "cardToCard": {
+      "title": "پرداخت کارت به کارت - وودی",
+      "description": "آپلود رسید واریز برای تکمیل سفارش"
+    },
+    "paymentGateway": {
+      "title": "انتقال به درگاه پرداخت"
+    },
+    "paymentRedirect": {
+      "title": "در حال انتقال به درگاه پرداخت"
+    },
+    "thankYou": {
+      "title": "تکمیل خرید",
+      "description": "سفارش شما با موفقیت ثبت شد - وودی"
+    }
+  },
+  "cardToCard": {
+    "cardHolderName": "نام دارنده",
+    "instruction": "لطفا بعد از واریز عکس رسید خود را از طریق دکمه زیر ارسال نمایید.",
+    "selectedFile": "فایل انتخاب شده:",
+    "imageOnlyError": "لطفاً فقط فایل تصویر انتخاب کنید",
+    "fileSizeError": "حجم فایل نباید بیشتر از 5 مگابایت باشد",
+    "uploadError": "خطا در آپلود رسید. لطفاً دوباره تلاش کنید.",
+    "paymentInfoError": "خطا در دریافت اطلاعات پرداخت. لطفاً دوباره تلاش کنید.",
+    "title": "پرداخت کارت به کارت",
+    "transferAmount": "مبلغ قابل انتقال",
+    "orderConfirmationNotice": "سفارش شما بعد از تایید فیش واریزی ثبت موفق خواهد شد.",
+    "cardNumber": "شماره کارت",
+    "selectReceipt": "انتخاب فیش واریز",
+    "uploadReceipt": "ارسال رسید واریز",
+    "selectAnotherFile": "انتخاب فایل دیگر",
+    "currency": "تومان"
+  },
+  "paymentStatus": {
+    "error": "خطا در دریافت اطلاعات پرداخت. لطفاً دوباره تلاش کنید.",
+    "cardToCard": "کارت به کارت",
+    "pendingMessage": "در انتظار تایید واریزی از سوی تیم حسابداری هستیم\nاز صبوری شما متشکریم",
+    "pendingNotice": "به محض تایید فیش واریزی شما گزارش وضعیت سفارشتان در صفحه سفارشهای جاری قرار خواهد گرفت.",
+    "successMessage": "پرداخت شما موفقیت آمیز بود",
+    "goHome": "بازگشت به صفحه اصلی",
+    "myOrders": "سفارش های من"
+  },
+  "paymentCallback": {
+    "checkingStatus": "در حال بررسی وضعیت پرداخت...",
+    "pleaseWait": "لطفاً صبر کنید",
+    "redirecting": "در حال انتقال...",
+    "error": "خطا در دریافت اطلاعات پرداخت",
+    "goHome": "بازگشت به صفحه اصلی",
+    "cardToCard": "کارت به کارت",
+    "onlinePayment": "پرداخت آنلاین",
+    "successMessage": "پرداخت شما موفقیت آمیز بود",
+    "failedMessage": "پرداخت ناموفق بود",
+    "failedRetry": "لطفاً دوباره تلاش کنید یا با پشتیبانی تماس بگیرید",
+    "myOrders": "سفارش های من"
+  },
+  "paymentGateway": {
+    "browserWarning": "لطفاً پنجره مرورگر را تا پایان پرداخت نبندید. پس از تکمیل پرداخت، به صورت خودکار به سایت بازمی‌گردید.",
+    "debugInfo": "Debug Info (فقط در development):",
+    "error": "خطا در دریافت اطلاعات درگاه پرداخت",
+    "retry": "لطفاً دوباره تلاش کنید",
+    "redirectTitle": "انتقال به درگاه پرداخت",
+    "orderNumber": "شماره سفارش:",
+    "payableAmount": "مبلغ قابل پرداخت:",
+    "currency": "تومان",
+    "trackingCode": "کد رهگیری:",
+    "redirecting": "در حال انتقال به درگاه پرداخت..."
+  },
+  "paymentRedirect": {
+    "completingOrder": "در حال تکمیل سفارش...",
+    "redirectingToGateway": "در حال انتقال به درگاه پرداخت...",
+    "pleaseWait": "لطفاً صبر کنید"
+  },
+  "thankYou": {
+    "loadError": "خطا در بارگذاری وضعیت پرداخت. در صورت کسر وجه، با پشتیبانی تماس بگیرید."
+  }
+}
+

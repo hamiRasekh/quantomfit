@@ -1,0 +1,109 @@
+/** **************************************
+* Fonts: app
+*************************************** */
+@import '@fontsource-variable/public-sans';
+
+@import '@fontsource/barlow/400.css';
+@import '@fontsource/barlow/500.css';
+@import '@fontsource/barlow/600.css';
+@import '@fontsource/barlow/700.css';
+@import '@fontsource/barlow/800.css';
+
+/** **************************************
+* Fonts: options
+*************************************** */
+@import '@fontsource-variable/dm-sans';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/nunito-sans';
+
+@import '../../../public/font/iranSansx/css/iranSansX.css';
+
+/** **************************************
+* Plugins
+*************************************** */
+/* scrollbar */
+@import './scrollbar/styles.css';
+
+/* map */
+@import './map/styles.css';
+
+/* lightbox */
+@import './lightbox/styles.css';
+
+/* chart */
+@import './chart/styles.css';
+
+
+/** **************************************
+* IRANSansX Font Direct Import
+*************************************** */
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 400;
+  src: url('/font/iranSansx/fonts/Woff2/IRANSansXFaNum-Regular.woff2') format('woff2'),
+       url('/font/iranSansx/fonts/Woff/IRANSansXFaNum-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 700;
+  src: url('/font/iranSansx/fonts/Woff2/IRANSansXFaNum-Bold.woff2') format('woff2'),
+       url('/font/iranSansx/fonts/Woff/IRANSansXFaNum-Bold.woff') format('woff');
+  font-display: swap;
+}
+
+/** **************************************
+* Baseline
+*************************************** */
+html {
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+body,
+#root,
+#root__layout {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: none;
+}
+input[type='number']::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+input[type='number']::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+/** **************************************
+* Font Override - Dynamic based on language
+*************************************** */
+/* Persian fonts (default) */
+html:not([lang='en']) body,
+html:not([lang='en']) * {
+  font-family: 'IRANSansX', 'IRANSans', 'Vazir', 'Tahoma', Arial, sans-serif !important;
+}
+
+/* English fonts */
+html[lang='en'] body,
+html[lang='en'] * {
+  font-family: 'Inter','Public Sans Variable', 'Barlow', 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
+}

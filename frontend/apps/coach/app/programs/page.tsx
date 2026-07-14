@@ -31,6 +31,10 @@ export default function Page() {
   const [form, setForm] = useState({ name: "", trainerId: "", status: "active" });
   const [message, setMessage] = useState("");
 
+  function formatStatus(status: string) {
+    return status === "active" ? "فعال" : status === "draft" ? "پیش‌نویس" : status === "archived" ? "بایگانی" : status;
+  }
+
   useEffect(() => {
     let mounted = true;
 
@@ -110,7 +114,7 @@ export default function Page() {
             {programs.length > 0 ? programs.map((program) => (
               <Link key={program.id} href={`/programs/${program.id}`} style={{ display: "grid", gap: 6, textDecoration: "none", color: "inherit" }}>
                 <strong>{program.name}</strong>
-                <span>{program.status} · {program.trainerName ?? "بدون انتساب"}</span>
+                <span>{formatStatus(program.status)} · {program.trainerName ?? "بدون انتساب"}</span>
               </Link>
             )) : (
               <div><strong>برنامه‌ای ذخیره نشده</strong><span>از همین‌جا برنامه بساز و اختصاص بده.</span></div>
@@ -134,7 +138,7 @@ export default function Page() {
             {trainers.length > 0 ? trainers.map((trainer) => (
               <div key={trainer.id}>
                 <strong>{trainer.fullName}</strong>
-                <span>{trainer.status}{trainer.specialty ? ` · ${trainer.specialty}` : ""}</span>
+                <span>{formatStatus(trainer.status)}{trainer.specialty ? ` · ${trainer.specialty}` : ""}</span>
               </div>
             )) : (
               <div><strong>مربی‌ای پیدا نشد</strong><span>مربی‌های باشگاه از داده‌های مستاجر نمایش داده می‌شوند.</span></div>

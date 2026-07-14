@@ -1,0 +1,31 @@
+@import 'simplebar-react/dist/simplebar.min.css';
+
+.simplebar-scrollbar:before {
+  background-color: var(--palette-text-disabled);
+}
+.simplebar-scrollbar.simplebar-visible:before {
+  opacity: 0.48;
+}
+
+/* Fix simplebar-placeholder height issue for tables */
+.minimal__scrollbar__root .simplebar-placeholder {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  width: auto !important;
+}
+
+.minimal__scrollbar__root:not([data-fill-content="true"]) .simplebar-wrapper {
+  height: auto !important;
+  max-height: 100%;
+}
+
+.minimal__scrollbar__root:not([data-fill-content="true"]) .simplebar-content-wrapper {
+  height: auto !important;
+  max-height: 100%;
+}
+
+.minimal__scrollbar__root:not([data-fill-content="true"]) .simplebar-content {
+  height: auto !important;
+  min-height: 0 !important;
+}

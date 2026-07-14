@@ -1,0 +1,92 @@
+{
+  "userMenu": "قائمة المستخدم",
+  "general": {
+    "title": "معلومات عامة",
+    "uploadPhoto": "تحميل الصورة",
+    "removePhoto": "إزالة",
+    "photoFormats": "الصيغ المسموح بها: JPG, PNG, GIF (بحد أقصى 5 ميجابايت)",
+    "firstName": "الاسم الأول",
+    "firstNameHelper": "اسمك الشخصي",
+    "lastName": "اسم العائلة",
+    "lastNameHelper": "اسم العائلة الخاص بك",
+    "username": "اسم المستخدم",
+    "usernameHelper": "اسم المستخدم الفريد الخاص بك",
+    "nickname": "الاسم المستعار",
+    "nicknameHelper": "الاسم المعروض (اختياري)",
+    "bio": "السيرة الذاتية",
+    "bioHelper": "أخبرنا عن نفسك",
+    "saveChanges": "حفظ التغييرات"
+  },
+  "mobile": {
+    "title": "تغيير رقم الهاتف المحمول",
+    "currentMobile": "الرقم الحالي",
+    "newMobileLabel": "رقم الهاتف المحمول الجديد",
+    "newMobilePlaceholder": "أدخل رقم هاتفك المحمول",
+    "sendCode": "إرسال رمز التحقق",
+    "codeSentAlert": "تم إرسال رمز تحقق مكون من 5 أرقام إلى رقم هاتفك المحمول",
+    "codeWillBeSent": "سيتم إرسال رمز التحقق إلى رقم هاتفك المحمول الجديد",
+    "codeLabel": "رمز التحقق",
+    "codeValidUntil": "الرمز صالح حتى {{time}}",
+    "back": "رجوع",
+    "resend": "إعادة الإرسال",
+    "verify": "تحقق وحفظ",
+    "validation": {
+      "phoneRequired": "رقم الهاتف المحمول مطلوب",
+      "codeRequired": "رمز التحقق مطلوب",
+      "codeLength": "يجب أن يكون رمز التحقق 5 أرقام"
+    }
+  },
+  "statistics": {
+    "title": "إحصائيات المستخدم",
+    "canvasCount": "عدد التصاميم",
+    "purchaseCount": "عدد المشتريات",
+    "accountStatus": "حالة الحساب",
+    "accountGuest": "ضيف",
+    "accountRegistered": "مسجل",
+    "segment": "الفئة",
+    "segmentStandard": "قياسي"
+  },
+  "errors": {
+    "loadProfile": "خطأ في تحميل الملف الشخصي",
+    "loadProfileDesc": "حدث خطأ أثناء تحميل ملفك الشخصي. يرجى المحاولة مرة أخرى.",
+    "tryAgain": "حاول مرة أخرى",
+    "updateFailed": "فشل تحديث الملف الشخصي",
+    "imageTypeInvalid": "يرجى تحديد ملف صورة",
+    "imageSizeInvalid": "يجب ألا يتجاوز حجم الملف 5 ميجابايت",
+    "phoneRequired": "رقم الهاتف المحمول مطلوب",
+    "phoneInvalid": "رقم الهاتف المحمول غير صالح",
+    "phoneValidation": "يرجى إدخال رقم هاتف محمول صالح",
+    "usernameRequired": "اسم المستخدم مطلوب",
+    "usernameMin": "يجب أن يحتوي اسم المستخدم على 3 أحرف على الأقل",
+    "usernameEnglish": "يجب أن يستخدم اسم المستخدم أحرفًا إنجليزية أو أرقامًا أو شرطة سفلية أو شرطة",
+    "nicknameRequired": "الاسم المستعار مطلوب",
+    "sessionExpired": "انتهت صلاحية معلومات الجلسة",
+    "sendCodeError": "خطأ في إرسال الطلب",
+    "verifyError": "خطأ في التحقق من الرمز",
+    "resendError": "خطأ في إعادة إرسال الرمز"
+  },
+  "success": {
+    "profileUpdated": "تم تحديث الملف الشخصي بنجاح!",
+    "codeSent": "تم إرسال رمز التحقق إلى رقم الهاتف المحمول الجديد",
+    "codeResent": "تم إعادة إرسال رمز التحقق",
+    "mobileUpdated": "تم تحديث رقم الهاتف المحمول بنجاح!"
+  },
+  "accountMenu": {
+    "settings": "إعدادات الحساب",
+    "addresses": "عناويني",
+    "orders": "طلباتي",
+    "designs": "تصاميمي",
+    "terms": "الشروط والأحكام",
+    "allOrders": "جميع الطلبات",
+    "pendingOrders": "في انتظار الدفع",
+    "deliveredOrders": "تم التسليم"
+  },
+  "drawer": {
+    "noBioYet": "لم يتم إضافة سيرة ذاتية بعد"
+  },
+  "signOut": {
+    "button": "تسجيل الخروج",
+    "error": "خطأ في تسجيل الخروج!"
+  }
+}
+

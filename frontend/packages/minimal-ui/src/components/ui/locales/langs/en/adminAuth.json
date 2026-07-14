@@ -1,0 +1,27 @@
+{
+  "title": "If you wish to be content with your heart's desire",
+  "titleSecondLine": "strive for goodness and harm nothing.",
+  "subtitle": "Every day is a new opportunity. Instead of looking at darkness, look at the light and be grateful.",
+  "formTitle": "Admin Panel Sign In",
+  "form": {
+    "username": {
+      "label": "Email address",
+      "placeholder": "youremail@gmail.com",
+      "required": "Email is required"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Enter your password",
+      "required": "Password is required"
+    },
+    "submit": "Sign in"
+  },
+  "toast": {
+    "success": "Welcome back! Redirecting to the dashboard…",
+    "error": "We could not sign you in. Please try again.",
+    "logout": "You have been signed out."
+  },
+  "actions": {
+    "logout": "Log out"
+  }
+}

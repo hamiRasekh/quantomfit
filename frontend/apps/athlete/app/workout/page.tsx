@@ -122,7 +122,7 @@ export default function Page() {
             </article>
             <article>
               <span className="status">تاریخچه</span>
-              <h3>{sessions.length} sessions</h3>
+              <h3>{sessions.length} سشن</h3>
               <p>آخرین فعالیت تمرینی همیشه قابل مشاهده بماند.</p>
             </article>
             <article>
@@ -144,7 +144,7 @@ export default function Page() {
             <li key={item.id}>
               <strong>{item.dayLabel || "سشن"}</strong>
               <span>{item.title} · {item.status}{item.completedAt ? ` · تکمیل‌شده ${new Date(item.completedAt).toLocaleDateString()}` : ""}</span>
-              {item.notes ? <p style={{ marginTop: 8, color: "var(--muted)", lineHeight: 1.6 }}>{item.notes}</p> : null}
+              {item.notes ? <p style={{ marginTop: 8, color: "var(--qf-muted)", lineHeight: 1.6 }}>{item.notes}</p> : null}
               {item.status !== "completed" ? (
                 <button className="button secondary" type="button" onClick={() => completeSession(item.id)} style={{ width: "fit-content", marginTop: 8 }}>
                   تکمیل شد

@@ -1,0 +1,92 @@
+{
+  "userMenu": "Menu utilisateur",
+  "general": {
+    "title": "Informations générales",
+    "uploadPhoto": "Télécharger une photo",
+    "removePhoto": "Supprimer",
+    "photoFormats": "Formats autorisés : JPG, PNG, GIF (max 5 Mo)",
+    "firstName": "Prénom",
+    "firstNameHelper": "Votre prénom",
+    "lastName": "Nom de famille",
+    "lastNameHelper": "Votre nom de famille",
+    "username": "Nom d'utilisateur",
+    "usernameHelper": "Votre nom d'utilisateur unique",
+    "nickname": "Surnom",
+    "nicknameHelper": "Nom d'affichage (optionnel)",
+    "bio": "Biographie",
+    "bioHelper": "Parlez-nous de vous",
+    "saveChanges": "Enregistrer les modifications"
+  },
+  "mobile": {
+    "title": "Changer le numéro de téléphone",
+    "currentMobile": "Numéro actuel",
+    "newMobileLabel": "Nouveau numéro de téléphone",
+    "newMobilePlaceholder": "Entrez votre numéro de téléphone",
+    "sendCode": "Envoyer le code de vérification",
+    "codeSentAlert": "Un code de vérification à 5 chiffres a été envoyé à votre numéro de téléphone",
+    "codeWillBeSent": "Le code de vérification sera envoyé à votre nouveau numéro de téléphone",
+    "codeLabel": "Code de vérification",
+    "codeValidUntil": "Code valide jusqu'à {{time}}",
+    "back": "Retour",
+    "resend": "Renvoyer",
+    "verify": "Vérifier et enregistrer",
+    "validation": {
+      "phoneRequired": "Le numéro de téléphone est requis",
+      "codeRequired": "Le code de vérification est requis",
+      "codeLength": "Le code de vérification doit contenir 5 chiffres"
+    }
+  },
+  "statistics": {
+    "title": "Statistiques de l'utilisateur",
+    "canvasCount": "Nombre de designs",
+    "purchaseCount": "Nombre d'achats",
+    "accountStatus": "État du compte",
+    "accountGuest": "Invité",
+    "accountRegistered": "Inscrit",
+    "segment": "Catégorie",
+    "segmentStandard": "Standard"
+  },
+  "errors": {
+    "loadProfile": "Erreur lors du chargement du profil",
+    "loadProfileDesc": "Une erreur s'est produite lors du chargement de votre profil. Veuillez réessayer.",
+    "tryAgain": "Réessayer",
+    "updateFailed": "Échec de la mise à jour du profil",
+    "imageTypeInvalid": "Veuillez sélectionner un fichier image",
+    "imageSizeInvalid": "La taille du fichier ne doit pas dépasser 5 Mo",
+    "phoneRequired": "Le numéro de téléphone est requis",
+    "phoneInvalid": "Numéro de téléphone invalide",
+    "phoneValidation": "Veuillez entrer un numéro de téléphone valide",
+    "usernameRequired": "Le nom d'utilisateur est requis",
+    "usernameMin": "Le nom d'utilisateur doit contenir au moins 3 caractères",
+    "usernameEnglish": "Le nom d'utilisateur doit utiliser des lettres anglaises, des chiffres, des underscores ou des tirets",
+    "nicknameRequired": "Le surnom est requis",
+    "sessionExpired": "Les informations de session ont expiré",
+    "sendCodeError": "Erreur lors de l'envoi de la demande",
+    "verifyError": "Erreur lors de la vérification du code",
+    "resendError": "Erreur lors du renvoi du code"
+  },
+  "success": {
+    "profileUpdated": "Profil mis à jour avec succès !",
+    "codeSent": "Code de vérification envoyé au nouveau numéro de téléphone",
+    "codeResent": "Code de vérification renvoyé",
+    "mobileUpdated": "Numéro de téléphone mis à jour avec succès !"
+  },
+  "accountMenu": {
+    "settings": "Paramètres du compte",
+    "addresses": "Mes adresses",
+    "orders": "Mes commandes",
+    "designs": "Mes créations",
+    "terms": "Termes et conditions",
+    "allOrders": "Toutes les commandes",
+    "pendingOrders": "En attente de paiement",
+    "deliveredOrders": "Livrées"
+  },
+  "drawer": {
+    "noBioYet": "Aucune biographie n'a encore été ajoutée"
+  },
+  "signOut": {
+    "button": "Se déconnecter",
+    "error": "Erreur lors de la déconnexion !"
+  }
+}
+

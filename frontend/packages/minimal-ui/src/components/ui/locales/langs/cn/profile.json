@@ -1,0 +1,92 @@
+{
+  "userMenu": "用户菜单",
+  "general": {
+    "title": "基本信息",
+    "uploadPhoto": "上传照片",
+    "removePhoto": "删除",
+    "photoFormats": "允许的格式：JPG、PNG、GIF（最大 5MB）",
+    "firstName": "名字",
+    "firstNameHelper": "您的名字",
+    "lastName": "姓氏",
+    "lastNameHelper": "您的姓氏",
+    "username": "用户名",
+    "usernameHelper": "您的唯一用户名",
+    "nickname": "昵称",
+    "nicknameHelper": "显示名称（可选）",
+    "bio": "个人简介",
+    "bioHelper": "告诉我们关于您自己",
+    "saveChanges": "保存更改"
+  },
+  "mobile": {
+    "title": "更改手机号码",
+    "currentMobile": "当前号码",
+    "newMobileLabel": "新手机号码",
+    "newMobilePlaceholder": "输入您的手机号码",
+    "sendCode": "发送验证码",
+    "codeSentAlert": "5位验证码已发送到您的手机号码",
+    "codeWillBeSent": "验证码将发送到您的新手机号码",
+    "codeLabel": "验证码",
+    "codeValidUntil": "验证码有效期至 {{time}}",
+    "back": "返回",
+    "resend": "重新发送",
+    "verify": "验证并保存",
+    "validation": {
+      "phoneRequired": "手机号码为必填项",
+      "codeRequired": "验证码为必填项",
+      "codeLength": "验证码必须为5位数字"
+    }
+  },
+  "statistics": {
+    "title": "用户统计",
+    "canvasCount": "设计数量",
+    "purchaseCount": "购买数量",
+    "accountStatus": "账户状态",
+    "accountGuest": "访客",
+    "accountRegistered": "已注册",
+    "segment": "类别",
+    "segmentStandard": "标准"
+  },
+  "errors": {
+    "loadProfile": "加载个人资料时出错",
+    "loadProfileDesc": "加载您的个人资料时出错。请重试。",
+    "tryAgain": "重试",
+    "updateFailed": "更新个人资料失败",
+    "imageTypeInvalid": "请选择图片文件",
+    "imageSizeInvalid": "文件大小不得超过 5MB",
+    "phoneRequired": "手机号码为必填项",
+    "phoneInvalid": "无效的手机号码",
+    "phoneValidation": "请输入有效的手机号码",
+    "usernameRequired": "用户名是必填项",
+    "usernameMin": "用户名必须至少包含 3 个字符",
+    "usernameEnglish": "用户名必须使用英文字母、数字、下划线或连字符",
+    "nicknameRequired": "昵称是必填项",
+    "sessionExpired": "会话信息已过期",
+    "sendCodeError": "发送请求时出错",
+    "verifyError": "验证码错误",
+    "resendError": "重新发送验证码时出错"
+  },
+  "success": {
+    "profileUpdated": "个人资料更新成功！",
+    "codeSent": "验证码已发送到新手机号码",
+    "codeResent": "验证码已重新发送",
+    "mobileUpdated": "手机号码更新成功！"
+  },
+  "accountMenu": {
+    "settings": "账户设置",
+    "addresses": "我的地址",
+    "orders": "我的订单",
+    "designs": "我的设计",
+    "terms": "条款和条件",
+    "allOrders": "所有订单",
+    "pendingOrders": "待付款",
+    "deliveredOrders": "已送达"
+  },
+  "drawer": {
+    "noBioYet": "尚未添加个人简介"
+  },
+  "signOut": {
+    "button": "退出登录",
+    "error": "退出登录时出错！"
+  }
+}
+

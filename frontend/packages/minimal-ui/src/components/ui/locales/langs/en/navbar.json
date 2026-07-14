@@ -1,0 +1,27 @@
+{
+  "home": "Home",
+  "myDesigns": "My Designs",
+  "design": "design",
+  "designsPage": {
+    "noDesignsYet": "You don't have any designs yet",
+    "allDesignsShown": "All designs have been shown",
+    "errorLoadingDesigns": "Error loading designs",
+    "designWithoutName": "Design without name",
+    "unknownCategory": "Unknown category"
+  },
+  "faqs": "FAQs",
+  "contact": "Contact Us",
+  "about": "About Us",
+  "login": "Login",
+  "register": "Register",
+  "app": "App",
+  "job": "Job",
+  "user": "User",
+  "travel": "Travel",
+  "invoice": "Invoice",
+  "blog": {
+    "title": "Blog",
+    "caption": "Custom keyboard shortcuts."
+  },
+  "subheader": "Sub header"
+}

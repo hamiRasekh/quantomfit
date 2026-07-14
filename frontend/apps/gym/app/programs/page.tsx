@@ -46,6 +46,10 @@ export default function Page() {
     );
   }, [programs, search]);
 
+  function formatStatus(status: string) {
+    return status === "active" ? "فعال" : status === "inactive" ? "غیرفعال" : status;
+  }
+
   return (
     <section className="shell">
       <header className="hero">
@@ -78,7 +82,7 @@ export default function Page() {
                 <small style={{ display: "block", color: "var(--qf-muted)", marginTop: 6 }}>باز کردن جزئیات برنامه</small>
               </span>
               <span>{program.trainerName ?? "تعیین نشده"}</span>
-              <span>{program.status}</span>
+              <span>{formatStatus(program.status)}</span>
             </a>
           )) : (
             <div className="qf-table__row">

@@ -1,0 +1,82 @@
+{
+  "menu": {
+    "dashboard": "داشبورد",
+    "common": {
+      "list": "لیست",
+      "create": "ایجاد"
+    },
+    "personnel": {
+      "root": "کارکنان"
+    },
+    "positions": {
+      "root": "سمت‌ها"
+    },
+    "processes": {
+      "root": "فرآیندها"
+    },
+    "activities": {
+      "root": "فعالیت‌ها"
+    },
+    "activityRecords": {
+      "root": "سوابق فعالیت"
+    },
+    "assignments": {
+      "root": "واگذاری‌ها"
+    },
+    "productionOrders": {
+      "root": "سفارش‌های تولید",
+      "new": "سفارش جدید"
+    },
+    "products": {
+      "root": "محصولات",
+      "categories": "دسته‌بندی محصولات"
+    },
+    "inventory": {
+      "root": "مدیریت موجودی",
+      "ledger": "دفتر موجودی",
+      "balances": "موجودی‌ها",
+      "rawMaterials": "مواد اولیه انبار",
+      "procurement": "تأمین مواد"
+    },
+    "bom": {
+      "root": "فهرست مواد (BOM)"
+    },
+    "codingRules": {
+      "root": "قوانین کدینگ"
+    },
+    "defects": {
+      "root": "نقص و ضایعات",
+      "new": "ثبت نقص جدید"
+    },
+    "approvals": {
+      "root": "تأییدها"
+    },
+    "notifications": {
+      "root": "اعلان‌ها"
+    },
+    "auditLogs": {
+      "root": "گزارش فعالیت سیستم"
+    },
+    "reports": {
+      "root": "گزارش‌ها",
+      "wages": "گزارش دستمزد",
+      "overhead": "گزارش سربار",
+      "productCost": "گزارش هزینه محصول",
+      "materials": "گزارش نیاز مواد",
+      "defects": "گزارش ضایعات"
+    },
+    "units": {
+      "root": "واحدها"
+    },
+    "settings": {
+      "root": "تنظیمات",
+      "workCalendar": "تقویم کاری",
+      "roles": "نقش‌ها",
+      "userRoles": "نقش‌های کاربری",
+      "company": "اطلاعات شرکت",
+      "system": "تنظیمات سیستم",
+      "backup": "پشتیبان‌گیری"
+    }
+  }
+}
+

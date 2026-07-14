@@ -1,0 +1,27 @@
+{
+  "home": "Accueil",
+  "myDesigns": "Mes créations",
+  "design": "création",
+  "designsPage": {
+    "noDesignsYet": "Vous n'avez pas encore de créations",
+    "allDesignsShown": "Toutes les créations ont été affichées",
+    "errorLoadingDesigns": "Erreur lors du chargement des créations",
+    "designWithoutName": "Création sans nom",
+    "unknownCategory": "Catégorie inconnue"
+  },
+  "faqs": "FAQ",
+  "contact": "Contactez-nous",
+  "about": "À propos",
+  "login": "Connexion",
+  "register": "S'inscrire",
+  "app": "Application",
+  "job": "Emploi",
+  "user": "Utilisateur",
+  "travel": "Voyage",
+  "invoice": "Facture",
+  "blog": {
+    "title": "Blog",
+    "caption": "Raccourcis clavier personnalisés."
+  },
+  "subheader": "Sous-titre"
+}

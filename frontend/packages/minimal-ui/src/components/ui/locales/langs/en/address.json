@@ -1,0 +1,71 @@
+{
+  "title": "My Addresses",
+  "description": "View and manage your shipping addresses",
+  "addAddress": "Add Address",
+  "addFirstAddress": "Add Your First Address",
+  "editAddress": "Edit Address",
+  "deleteAddress": "Delete Address",
+  "defaultAddress": "Default",
+  "yourAddresses": "Your Addresses",
+  "addressCount": "Your Addresses ({{count}})",
+  "form": {
+    "title": "Address Title",
+    "titlePlaceholder": "E.g.: Home, Office",
+    "name": "Full Name",
+    "namePlaceholder": "Enter recipient's name",
+    "address": "Full Address",
+    "addressPlaceholder": "Enter your complete address",
+    "province": "Province",
+    "provincePlaceholder": "Select province",
+    "city": "City",
+    "cityPlaceholder": "Select city",
+    "postalCode": "Postal Code (Optional)",
+    "postalCodePlaceholder": "10-digit postal code",
+    "mobile": "Mobile Number",
+    "mobilePlaceholder": "Recipient's mobile number",
+    "cancel": "Cancel",
+    "save": "Save",
+    "update": "Update",
+    "addButton": "Add Address",
+    "updateButton": "Update Address"
+  },
+  "card": {
+    "phone": "Phone:",
+    "addedOn": "Added on {{date}}"
+  },
+  "empty": {
+    "title": "No addresses yet",
+    "description": "You haven't added any addresses yet. Add your first address to get started."
+  },
+  "error": {
+    "title": "Error loading addresses",
+    "description": "There was an error loading your addresses. Please try again.",
+    "tryAgain": "Try Again",
+    "loadFailed": "Failed to load addresses",
+    "addFailed": "Failed to add address",
+    "updateFailed": "Failed to update address",
+    "deleteFailed": "Failed to delete address"
+  },
+  "success": {
+    "added": "Address added successfully",
+    "updated": "Address updated successfully",
+    "deleted": "Address deleted successfully"
+  },
+  "confirm": {
+    "deleteTitle": "Delete Address",
+    "deleteMessage": "Are you sure you want to delete this address? This action cannot be undone.",
+    "deleteConfirm": "Yes, Delete",
+    "deleteCancel": "Cancel"
+  },
+  "validation": {
+    "titleRequired": "Address title is required",
+    "nameRequired": "Name is required",
+    "addressRequired": "Address is required",
+    "cityRequired": "City is required",
+    "stateRequired": "Province is required",
+    "mobileRequired": "Mobile number is required",
+    "mobileInvalid": "Mobile number must be 11 digits starting with 09",
+    "postalCodeInvalid": "Postal code must be 10 digits"
+  }
+}
+

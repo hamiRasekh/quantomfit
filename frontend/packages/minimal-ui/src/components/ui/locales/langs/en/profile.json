@@ -1,0 +1,117 @@
+{
+  "userMenu": "User Menu",
+  "general": {
+    "title": "General Information",
+    "uploadPhoto": "Upload photo",
+    "removePhoto": "Remove",
+    "photoFormats": "Allowed formats: JPG, PNG, GIF (Max 5MB)",
+    "firstName": "First Name",
+    "firstNameHelper": "Your given name",
+    "lastName": "Last Name",
+    "lastNameHelper": "Your family name",
+    "username": "Username",
+    "usernameHelper": "Your unique username",
+    "nickname": "Nickname",
+    "nicknameHelper": "Display name (optional)",
+    "bio": "Bio",
+    "bioHelper": "Tell us about yourself",
+    "saveChanges": "Save Changes"
+  },
+  "mobile": {
+    "title": "Change Mobile Number",
+    "currentMobile": "Current number",
+    "newMobileLabel": "New mobile number",
+    "newMobilePlaceholder": "Enter your mobile number",
+    "sendCode": "Send verification code",
+    "codeSentAlert": "A 5-digit verification code has been sent to your mobile number",
+    "codeWillBeSent": "Verification code will be sent to your new mobile number",
+    "codeLabel": "Verification code",
+    "codeValidUntil": "Code valid until {{time}}",
+    "back": "Back",
+    "resend": "Resend",
+    "verify": "Verify and Save",
+    "validation": {
+      "phoneRequired": "Mobile number is required",
+      "codeRequired": "Verification code is required",
+      "codeLength": "Verification code must be 5 digits"
+    }
+  },
+  "statistics": {
+    "title": "User Statistics",
+    "canvasCount": "Canvas Count",
+    "purchaseCount": "Purchase Count",
+    "accountStatus": "Account Status",
+    "accountGuest": "Guest",
+    "accountRegistered": "Registered",
+    "segment": "Segment",
+    "segmentStandard": "Standard"
+  },
+  "errors": {
+    "loadProfile": "Error loading profile",
+    "loadProfileDesc": "There was an error loading your profile. Please try again.",
+    "tryAgain": "Try Again",
+    "updateFailed": "Failed to update profile",
+    "imageTypeInvalid": "Please select an image file",
+    "imageSizeInvalid": "File size must not exceed 5MB",
+    "phoneRequired": "Mobile number is required",
+    "phoneInvalid": "Invalid mobile number",
+    "phoneValidation": "Please enter a valid mobile number",
+    "usernameRequired": "Username is required",
+    "usernameMin": "Username must be at least 3 characters",
+    "usernameEnglish": "Username must use English letters, numbers, underscores, or hyphens",
+    "nicknameRequired": "Nickname is required",
+    "sessionExpired": "Session information has expired",
+    "sendCodeError": "Error sending request",
+    "verifyError": "Error verifying code",
+    "resendError": "Error resending code"
+  },
+  "success": {
+    "profileUpdated": "Profile updated successfully!",
+    "codeSent": "Verification code sent to new mobile number",
+    "codeResent": "Verification code resent",
+    "mobileUpdated": "Mobile number updated successfully!"
+  },
+  "accountMenu": {
+    "settings": "Account Settings",
+    "addresses": "My Addresses",
+    "orders": "My Orders",
+    "designs": "My Designs",
+    "terms": "Terms and Conditions",
+    "allOrders": "All Orders",
+    "pendingOrders": "Pending Payment",
+    "deliveredOrders": "Delivered"
+  },
+  "drawer": {
+    "noBioYet": "No biography has been added yet"
+  },
+  "signOut": {
+    "button": "Sign Out",
+    "error": "Error signing out!"
+  },
+  "designs": {
+    "title": "My designs",
+    "count": "{{count}} designs",
+    "untitled": "Untitled design",
+    "unknownCategory": "Uncategorized",
+    "deleteSuccess": "Design deleted successfully",
+    "deleteError": "Failed to delete design. Please try again.",
+    "renameTitle": "Rename design",
+    "renameLabel": "Design name",
+    "renamePlaceholder": "Enter a new name",
+    "renameHelper": "Maximum 120 characters",
+    "renameCancel": "Cancel",
+    "renameConfirm": "Save",
+    "renameSuccess": "Design name updated successfully",
+    "renameError": "Failed to update design name",
+    "renameValidation": "Design name cannot be empty",
+    "renameMissingIdentifiers": "Required information for this design is missing.",
+    "loadMore": "Load More",
+    "loading": "Loading..."
+  },
+  "meta": {
+    "title": "My Profile",
+    "description": "View and edit your user profile information in Voodi"
+  },
+  "currency": "Toman"
+}
+

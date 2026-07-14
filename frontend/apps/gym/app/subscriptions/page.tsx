@@ -20,12 +20,12 @@ export default async function Page() {
       <header className="hero">
         <span className="label">اشتراک‌ها</span>
         <h1>وضعیت اشتراک و چرخه پرداخت این باشگاه.</h1>
-        <p>پلن فعلی و وضعیت تمدید را از نگاه همین tenant مدیریت کن.</p>
+        <p>پلن فعلی و وضعیت تمدید را از نگاه همین مستاجر مدیریت کن.</p>
       </header>
       <div className="detail-grid">
-        <article><span className="status">پلن</span><h3>{String(subscription?.planName ?? subscription?.planCode ?? "starter")}</h3><p>از پنل ادمین مدیریت می‌شود.</p></article>
-        <article><span className="status">وضعیت</span><h3>{String(subscription?.status ?? "inactive")}</h3><p>منطق تمدید و کد تخفیف در PostgreSQL ذخیره می‌شود.</p></article>
-        <article><span className="status">صورتحساب</span><h3>{String(subscription?.billingCycle ?? "monthly")}</h3><p>چرخه فعال همین tenant.</p></article>
+        <article><span className="status">پلن</span><h3>{String(subscription?.planName ?? subscription?.planCode ?? "شروع")}</h3><p>از پنل ادمین مدیریت می‌شود.</p></article>
+        <article><span className="status">وضعیت</span><h3>{String(subscription?.status ?? "غیرفعال")}</h3><p>منطق تمدید و کد تخفیف در PostgreSQL ذخیره می‌شود.</p></article>
+        <article><span className="status">صورتحساب</span><h3>{String(subscription?.billingCycle ?? "ماهانه")}</h3><p>چرخه فعال همین مستاجر.</p></article>
       </div>
     </section>
   );

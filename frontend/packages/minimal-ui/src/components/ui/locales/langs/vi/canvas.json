@@ -1,0 +1,81 @@
+{
+  "loading": {
+    "default": "Đang tải...",
+    "data": "Đang tải dữ liệu...",
+    "model": "Đang tải mô hình 3D...",
+    "editor": "Đang tải trình chỉnh sửa canvas..."
+  },
+  "error": {
+    "loadFailed": "Không thể tải dữ liệu canvas",
+    "modelNotFound": "Không tìm thấy mô hình sản phẩm",
+    "noData": "Không tìm thấy dữ liệu canvas",
+    "retry": "Thử lại",
+    "loadModelFailed": "Không thể tải mô hình 3D: {{error}}"
+  },
+  "messages": {
+    "checkModelFile": "Vui lòng kiểm tra xem sản phẩm có tệp mô hình 3D không"
+  },
+  "magic": {
+    "errors": {
+      "productNameRequired": "Tên sản phẩm là bắt buộc",
+      "screenshotNotAvailable": "Ảnh chụp màn hình không khả dụng. Vui lòng đợi một chút và thử lại."
+    },
+    "generatedImageAlt": "Hình ảnh đã tạo",
+    "button": {
+      "ariaLabel": "công cụ ma thuật"
+    }
+  },
+  "dialogs": {
+    "confirm": {
+      "defaultConfirmText": "Xác nhận",
+      "defaultCancelText": "Hủy"
+    }
+  },
+  "gpu": {
+    "label": "GPU:",
+    "tiers": {
+      "veryLow": "Rất thấp",
+      "low": "Thấp",
+      "medium": "Trung bình",
+      "high": "Cao",
+      "unknown": "Không xác định"
+    },
+    "smoothEdges": "Cạnh mịn",
+    "sharpEdges": "Cạnh sắc"
+  },
+  "meshSelector": {
+    "selectMesh": "Chọn lưới",
+    "currentMesh": "Lưới hiện tại",
+    "cannotMoveToSameMesh": "Không thể di chuyển thiết kế đến cùng một lưới",
+    "noMeshesAvailable": "Không có lưới nào khả dụng",
+    "copy": "Sao chép",
+    "move": "Di chuyển"
+  },
+  "sizePrice": {
+    "title": "Kích thước và số lượng",
+    "sizeGuideLink": "Hướng dẫn kích thước",
+    "confirm": "Xác nhận",
+    "sizeGuideTitle": "Hướng dẫn kích thước",
+    "sizeGuideDescription": "Để chọn kích thước phù hợp, hãy sử dụng bảng dưới đây:",
+    "sizeGuideTip": "💡 Mẹo: Nếu bạn không chắc chắn về việc chọn kích thước, hãy chọn kích thước lớn hơn.",
+    "table": {
+      "size": "Kích thước",
+      "height": "Chiều cao (cm)",
+      "weight": "Cân nặng (kg)"
+    }
+  },
+  "stateControls": {
+    "saveStateTooltip": "Lưu trạng thái Canvas",
+    "restoreStateTooltip": "Khôi phục trạng thái Canvas",
+    "saveSuccess": "Trạng thái Canvas đã được lưu thành công",
+    "saveError": "Lỗi khi lưu trạng thái Canvas",
+    "restoreSuccess": "Trạng thái Canvas đã được khôi phục thành công",
+    "restoreError": "Lỗi khi khôi phục trạng thái Canvas",
+    "saveButton": "Lưu trạng thái",
+    "restoreButton": "Khôi phục trạng thái"
+  },
+  "canvas": {
+    "manualSave": "Lưu thủ công"
+  }
+}
+

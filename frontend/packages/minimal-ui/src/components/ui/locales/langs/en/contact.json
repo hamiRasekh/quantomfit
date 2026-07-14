@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "title": ["Where", "can you find us?"],
+    "location": {
+      "name": "Tehran",
+      "address": "Tehran, Mollasadra St., North Shirazi St., East Daneshvar St., No. 26, Unit 8B"
+    }
+  },
+  "info": {
+    "address": "Address",
+    "phone": "Phone",
+    "phoneNumber": "021-28425463",
+    "fullAddress": "Tehran, Mollasadra St., North Shirazi St., East Daneshvar St., No. 26, Unit 8B",
+    "location": {
+      "lat": 35.763053,
+      "lng": 51.398165
+    },
+    "description": "Got a design idea? Let's bring it to life together!"
+  },
+  "meta": {
+    "title": "Contact Us",
+    "description": "Contact methods with Voodi - Address, phone and location"
+  },
+  "currency": "Toman"
+}
+

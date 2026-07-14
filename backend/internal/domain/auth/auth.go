@@ -10,10 +10,10 @@ const (
 )
 
 type Claims struct {
-	UserID   string
-	TenantID string
-	Role     Role
-	Panel    string
-	SessionID string
+	UserID    string `json:"userId"`
+	TenantID  string `json:"tenantId"`
+	Role      Role   `json:"role"`
+	Panel     string `json:"panel"`
+	SessionID string `json:"sessionId"`
 }
 
